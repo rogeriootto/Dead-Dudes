@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5mcpttpr0644"]
+
+[ext_resource type="PackedScene" uid="uid://jlu87bthdp1r" path="res://player.tscn" id="1_1m5me"]
+[ext_resource type="Script" path="res://jogo.gd" id="1_vsdld"]
+[ext_resource type="PackedScene" uid="uid://c6s6uc7722c8k" path="res://ball.tscn" id="2_qsbph"]
+[ext_resource type="AudioStream" uid="uid://bgpj6cu0n8v6" path="res://sfx/point1.mp3" id="4_kjuhm"]
+[ext_resource type="AudioStream" uid="uid://b46lcamjdn6ux" path="res://sfx/point2.mp3" id="5_a62i7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dru18"]
+size = Vector2(1155, 214)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lvyj"]
+font_size = 156
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vsdld")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Top" type="Area2D" parent="Walls"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Top"]
+position = Vector2(-0.5, -431)
+scale = Vector2(1, 1.00703)
+shape = SubResource("RectangleShape2D_dru18")
+
+[node name="Bottom" type="Area2D" parent="Walls"]
+position = Vector2(0, 70)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom"]
+position = Vector2(-0.5, 361)
+shape = SubResource("RectangleShape2D_dru18")
+
+[node name="Left" type="Area2D" parent="Walls"]
+position = Vector2(-81, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left"]
+position = Vector2(-604, 65)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_dru18")
+
+[node name="Right" type="Area2D" parent="Walls"]
+position = Vector2(1286, -2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right"]
+position = Vector2(-604, 65)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_dru18")
+
+[node name="Player1" parent="." instance=ExtResource("1_1m5me")]
+
+[node name="Player2" parent="." instance=ExtResource("1_1m5me")]
+position = Vector2(473, -1)
+side = "p2"
+
+[node name="Ball" parent="." instance=ExtResource("2_qsbph")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -430.0
+offset_top = -343.0
+offset_right = -341.0
+offset_bottom = -127.0
+scale = Vector2(0.600038, 0.600038)
+text = "0"
+label_settings = SubResource("LabelSettings_0lvyj")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 376.0
+offset_top = -343.0
+offset_right = 465.0
+offset_bottom = -127.0
+scale = Vector2(0.600038, 0.600038)
+text = "0"
+label_settings = SubResource("LabelSettings_0lvyj")
+
+[node name="point1sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kjuhm")
+volume_db = -8.432
+
+[node name="point2sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_a62i7")
+
+[connection signal="body_entered" from="Walls/Top" to="." method="_on_top_body_entered"]
+[connection signal="body_entered" from="Walls/Bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="body_entered" from="Walls/Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Walls/Right" to="." method="_on_right_body_entered"]
