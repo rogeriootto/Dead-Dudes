@@ -1,0 +1,112 @@
+[gd_scene load_steps=19 format=3 uid="uid://bcgkqlamb356k"]
+
+[ext_resource type="Script" path="res://main/Astar.gd" id="1_tsovw"]
+[ext_resource type="Script" path="res://main/PlayerController.gd" id="2_g4cbh"]
+[ext_resource type="Script" path="res://main/Jack.gd" id="3_cqqk7"]
+[ext_resource type="Script" path="res://main/Zombo.gd" id="3_v8aqi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uybay"]
+albedo_color = Color(0.8, 0.811765, 0.984314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7u2c"]
+material = SubResource("StandardMaterial3D_uybay")
+size = Vector3(16, 0.5, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u283p"]
+margin = 0.0
+size = Vector3(16, 0.5, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj1uk"]
+albedo_color = Color(0.592157, 0.74902, 0.988235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1vlg"]
+material = SubResource("StandardMaterial3D_mj1uk")
+size = Vector3(9, 0.5, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8e1ud"]
+size = Vector3(9, 0.5, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xeehj"]
+material = SubResource("StandardMaterial3D_mj1uk")
+size = Vector3(9, 0.5, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmoao"]
+size = Vector3(9, 0.5, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_148fk"]
+albedo_color = Color(0.556863, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_enhex"]
+material = SubResource("StandardMaterial3D_148fk")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5fm0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqo77"]
+albedo_color = Color(0.0941176, 0.556863, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fod50"]
+material = SubResource("StandardMaterial3D_vqo77")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ld5wn"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Astar" type="Node3D" parent="."]
+script = ExtResource("1_tsovw")
+
+[node name="Ground1" type="StaticBody3D" parent="." groups=["pathable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground1"]
+mesh = SubResource("BoxMesh_y7u2c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground1"]
+shape = SubResource("BoxShape3D_u283p")
+
+[node name="Ground2" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
+mesh = SubResource("BoxMesh_a1vlg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
+shape = SubResource("BoxShape3D_8e1ud")
+
+[node name="Ground3" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3"]
+mesh = SubResource("BoxMesh_xeehj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3"]
+shape = SubResource("BoxShape3D_bmoao")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.583102, 0.812399, 0, -0.812399, 0.583102, 0, 11.5935, 9.0532)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.807908, 0.589309, 0, -0.589309, 0.807908, 0, 3.39835, 1.72384)
+light_energy = 2.067
+
+[node name="PlayerController" type="Node3D" parent="."]
+script = ExtResource("2_g4cbh")
+
+[node name="Jack" type="CharacterBody3D" parent="." groups=["jogador"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51088, 2, 3.55114)
+script = ExtResource("3_cqqk7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Jack"]
+mesh = SubResource("CapsuleMesh_enhex")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Jack"]
+shape = SubResource("CapsuleShape3D_5fm0q")
+
+[node name="Zombo" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87521, 1.88271, 0)
+script = ExtResource("3_v8aqi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Zombo"]
+mesh = SubResource("CapsuleMesh_fod50")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zombo"]
+shape = SubResource("CapsuleShape3D_ld5wn")
