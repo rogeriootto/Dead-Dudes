@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 project/assembly_name="pathfindingBase"
 
+[file_customization]
+
+folder_colors={
+"res://main/": "yellow"
+}
+
 [input]
 
 left_click={

@@ -5,7 +5,7 @@ extends CharacterBody3D
 var path := []
 var current_target := Vector3.INF
 var current_velocity := Vector3.ZERO
-var speed := 5.0
+var speed := 3.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 

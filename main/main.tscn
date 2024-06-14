@@ -7,37 +7,40 @@
 [ext_resource type="Texture2D" uid="uid://ccr1c54bvntgu" path="res://Jack_jack-basic.png" id="4_40uor"]
 [ext_resource type="Script" path="res://main/ObstacleHandler.gd" id="6_evsrb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uybay"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpmdg"]
 albedo_color = Color(0.8, 0.811765, 0.984314, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y7u2c"]
-material = SubResource("StandardMaterial3D_uybay")
-size = Vector3(16, 0.5, 12)
+material = SubResource("StandardMaterial3D_mpmdg")
+size = Vector3(15, 1.5, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u283p"]
 margin = 0.0
-size = Vector3(16, 0.5, 12)
+size = Vector3(15, 1.5, 12)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj1uk"]
 albedo_color = Color(0.592157, 0.74902, 0.988235, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1vlg"]
 material = SubResource("StandardMaterial3D_mj1uk")
-size = Vector3(9, 0.5, 6)
+size = Vector3(9, 1.5, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8e1ud"]
-size = Vector3(9, 0.5, 6)
+size = Vector3(9, 1.5, 6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xeehj"]
 material = SubResource("StandardMaterial3D_mj1uk")
-size = Vector3(9, 0.5, 6)
+size = Vector3(9, 1.5, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bmoao"]
-size = Vector3(9, 0.5, 6)
+size = Vector3(9, 1.5, 6)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ekens"]
+[sub_resource type="BoxMesh" id="BoxMesh_6cret"]
+material = SubResource("StandardMaterial3D_mj1uk")
+size = Vector3(20, 1.5, 10)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fehi3"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8edwq"]
+size = Vector3(20, 1.5, 10)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5fm0q"]
 
@@ -94,43 +97,45 @@ script = ExtResource("6_evsrb")
 script = ExtResource("1_tsovw")
 should_draw_cubes = true
 
-[node name="Ground1" type="StaticBody3D" parent="." groups=["pathable"]]
+[node name="World" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground1"]
+[node name="Ground1" type="StaticBody3D" parent="World" groups=["pathable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground1"]
 mesh = SubResource("BoxMesh_y7u2c")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground1"]
 shape = SubResource("BoxShape3D_u283p")
 
-[node name="Ground2" type="StaticBody3D" parent="." groups=["pathable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+[node name="Ground2" type="StaticBody3D" parent="World" groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground2"]
 mesh = SubResource("BoxMesh_a1vlg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground2"]
 shape = SubResource("BoxShape3D_8e1ud")
 
-[node name="Ground3" type="StaticBody3D" parent="." groups=["pathable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 0)
+[node name="Ground3" type="StaticBody3D" parent="World" groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground3"]
 mesh = SubResource("BoxMesh_xeehj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground3"]
 shape = SubResource("BoxShape3D_bmoao")
 
-[node name="Groundbola" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.124991, 0)
+[node name="Ground4" type="StaticBody3D" parent="World/Ground3" groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 11)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Groundbola"]
-mesh = SubResource("CapsuleMesh_ekens")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground3/Ground4"]
+mesh = SubResource("BoxMesh_6cret")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Groundbola"]
-shape = SubResource("CapsuleShape3D_fehi3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground3/Ground4"]
+shape = SubResource("BoxShape3D_8edwq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.801702, 0.597723, 0, -0.597723, 0.801702, 3.09875, 11.594, 10.7941)
+transform = Transform3D(1, 0, 0, 0, 0.573147, 0.819452, 0, -0.819452, 0.573147, 0, 13.2531, 18.1493)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.807908, 0.589309, 0, -0.589309, 0.807908, 0, 3.39835, 1.72384)
@@ -144,6 +149,7 @@ transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 2.51088, 2, 3.55114)
 script = ExtResource("3_cqqk7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Jack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_5fm0q")
 
 [node name="Untitled" type="MeshInstance3D" parent="Jack"]
@@ -152,9 +158,9 @@ mesh = SubResource("ArrayMesh_62s0w")
 skeleton = NodePath("")
 
 [node name="Zombo" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87521, 1.88271, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87521, 1.89647, 0)
 script = ExtResource("3_v8aqi")
-lerp_mult = 4.0
+lerp_mult = 3.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Zombo"]
 mesh = SubResource("CapsuleMesh_fod50")
