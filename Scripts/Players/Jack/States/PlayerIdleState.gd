@@ -1,14 +1,19 @@
 extends PlayerGrounded
 class_name PlayerIdle
 
+var time = 0
 func Enter():
 	animControl.play("Idle")
 	pass
 	
 func Exit():
+	time = 0
 	pass
 	
 func Update(delta: float):
+	time += delta
+	if time > 5:
+		animControl.play("GangnamStyle")
 	pass
 	
 	

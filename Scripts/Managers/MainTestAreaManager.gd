@@ -9,6 +9,8 @@ var player2: CharacterBody3D
 @export var player1SpawnPoint: Vector3
 @export var player2SpawnPoint: Vector3
 
+signal obstacle_should_spawn
+
 func _ready():
 	player1 = player1Preload.instantiate()
 	if player1:
@@ -27,4 +29,6 @@ func _ready():
 		
 
 func _process(delta):
+	if Input.is_action_just_pressed("left_click"):
+		emit_signal("obstacle_should_spawn")
 	pass
