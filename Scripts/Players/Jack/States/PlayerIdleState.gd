@@ -16,10 +16,14 @@ func Update(delta: float):
 		animControl.play("GangnamStyle")
 	pass
 	
-	
 func Physics_Update(delta: float):
 	playerMovement()
+	
+	if Input.is_action_just_pressed("left_click"):
+		dropObstacle()
+		
 	velocityTest = abs(player.velocity.x) + abs(player.velocity.z)
 	if velocityTest > 0:
 		Transitioned.emit(self, 'PlayerWalking')
+		
 	pass

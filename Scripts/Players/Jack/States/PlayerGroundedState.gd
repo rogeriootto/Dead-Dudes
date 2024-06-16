@@ -21,6 +21,11 @@ func Update(delta: float):
 func Physics_Update(delta: float):
 	pass
 
+func dropObstacle():
+	var spawnPosition = player.position - player.basis.z.normalized() * -2
+
+	player.signalManager.emitObstacleSpawnRequest('box1x1', spawnPosition)
+
 func playerMovement():
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO

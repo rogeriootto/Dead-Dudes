@@ -1,10 +1,8 @@
 extends Node3D
 
 @export var should_draw_cubes := false
-
-#temporario; so pra debugar os obstaculos
-@onready var cubo_cena = preload("res://Scenes/Objects/Jack.tscn") #mudar dps
-
+@onready var cubo_cena = preload("res://Scenes/Objects/Obstacles/obstacle.tscn")
+@export var signal_manager: Node3D
 
 var astar = AStar3D.new()
 const grid_step := 1.5 #size of the grid's cells
@@ -14,6 +12,9 @@ var cube_mesh = BoxMesh.new()
 var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
 
+var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn")}
+
+
 func _ready():
 	red_material.albedo_color = Color.RED
 	green_material.albedo_color = Color.GREEN
@@ -21,7 +22,7 @@ func _ready():
 	var pathables = get_tree().get_nodes_in_group("pathable")
 	_make_grid(pathables)
 	_connect_points()
-	print(points)
+	signal_manager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
 
 func _make_grid(pathables: Array):
 	for pathable in pathables:
@@ -110,64 +111,40 @@ func world_to_astar(world: Vector3) -> String:
 func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
-		cube.mesh = cube_mesh
-		cube.material_override = red_material
+		#TODO: TIRAR ESSE IF DO CARALHO
+		if point_position.y < grid_step * 2:
+			cube.mesh = cube_mesh
+			cube.material_override = red_material
 		add_child(cube)
 #		position.y = grid_y
 		cube.global_transform.origin = point_position
 
-func _on_main_obstacle_should_spawn():
-
-	var result = _raycast()
-	print(result)
-	
-	if not result.is_empty():
-		
-		var teste = cubo_cena.instantiate()
-		add_child(teste)
-		teste.add_to_group("obstacle")	
+func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vector3):
+	if obstacleDictionary[obstacleName] and obstaclePosition.y > 0:
+		var obstacle = obstacleDictionary[obstacleName].instantiate()
+		add_child(obstacle)
+		obstacle.add_to_group("obstacle")	
 		
 		#essa parte foi feita na raiva deve dar pra deixar melhor dps
 		#o cubo ta aparecendo em lugar estranho. n sei pq 
-		var cubo_x = snapped(result.position.x, grid_step) - grid_step/2
-		var cubo_y = snapped(result.position.y, grid_step)
-		var cubo_z = snapped(result.position.z, grid_step) - grid_step/2
-		teste.position = Vector3(cubo_x,cubo_y,cubo_z)
+		obstacle.position.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
+		obstacle.position.y = snapped(obstaclePosition.y, grid_step)
+		obstacle.position.z = snapped(obstaclePosition.z, grid_step) - grid_step/2
 
-		var point_key = world_to_astar(result.position)
+		if obstacle.position.y < 1:
+			obstacle.position.y = 1.5
+		
+		var point_key = world_to_astar(obstacle.position)
 		var obstacle_id = points[point_key]
 		
-		result.position.y += grid_step
-		var above_obstacle_key = world_to_astar(result.position)
+		obstaclePosition.y += grid_step
+		var above_obstacle_key = world_to_astar(obstaclePosition)
 		var above_obstacle_id = points[above_obstacle_key]
 
 		if not astar.is_point_disabled(obstacle_id):
 			astar.set_point_disabled(obstacle_id, true)
-			if should_draw_cubes:
-				get_child(obstacle_id).material_override = red_material
-			print(points)
-			print(points.find_key(0))
-			#var kms = world_to_astar(points.find_key(0))
-			#print(kms)
-			if astar.is_point_disabled(above_obstacle_id):
-				print(points)
 
-	
-func _raycast():
-	var viewport := get_viewport()
-	var mouse_position := viewport.get_mouse_position()
-	var camera := viewport.get_camera_3d()
-	var origin := camera.project_ray_origin(mouse_position)
-	var direction := camera.project_ray_normal(mouse_position)
-	var ray_length := camera.far
-	var end := origin + direction * ray_length
-	var space_state := get_world_3d().direct_space_state
-	
-	var query := PhysicsRayQueryParameters3D.create(origin, end)
-	return space_state.intersect_ray(query)
-
-
-
+			
 #funcao guardada pra backup
 
 #func _get_adjacent_points(world_point: Vector3) -> Array:
