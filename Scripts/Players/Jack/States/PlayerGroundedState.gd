@@ -21,9 +21,11 @@ func Update(delta: float):
 func Physics_Update(delta: float):
 	pass
 
-func dropObstacle():
-	var spawnPosition = player.position - player.basis.z.normalized() * -2
+func buttonsCheck():
+	if Input.is_action_just_pressed("buildingMode_" + player.getPlayerNumber()):
+		Transitioned.emit(self, 'PlayerBuilding')
 
+func dropObstacle(spawnPosition):
 	player.signalManager.emitObstacleSpawnRequest('box1x1', spawnPosition)
 
 func playerMovement():

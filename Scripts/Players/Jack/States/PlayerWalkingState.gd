@@ -9,6 +9,7 @@ func Update(delta: float):
 	
 func Physics_Update(delta: float):
 	playerMovement()
+	buttonsCheck()
 	velocityTest = abs(player.velocity.x) + abs(player.velocity.z)
 	if velocityTest == 0:
 		Transitioned.emit(self, 'PlayerIdle')

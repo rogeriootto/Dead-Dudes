@@ -13,7 +13,7 @@ var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
 
 var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn")}
-
+var buildingShowObject
 
 func _ready():
 	red_material.albedo_color = Color.RED
@@ -23,6 +23,7 @@ func _ready():
 	_make_grid(pathables)
 	_connect_points()
 	signal_manager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
+	signal_manager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
 
 func _make_grid(pathables: Array):
 	for pathable in pathables:
@@ -121,29 +122,52 @@ func _create_nav_cube(point_position: Vector3):
 
 func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vector3):
 	if obstacleDictionary[obstacleName] and obstaclePosition.y > 0:
-		var obstacle = obstacleDictionary[obstacleName].instantiate()
-		add_child(obstacle)
-		obstacle.add_to_group("obstacle")	
 		
-		#essa parte foi feita na raiva deve dar pra deixar melhor dps
-		#o cubo ta aparecendo em lugar estranho. n sei pq 
-		obstacle.position.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
-		obstacle.position.y = snapped(obstaclePosition.y, grid_step)
-		obstacle.position.z = snapped(obstaclePosition.z, grid_step) - grid_step/2
+		obstaclePosition.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
+		obstaclePosition.y = snapped(obstaclePosition.y, grid_step)
+		obstaclePosition.z = snapped(obstaclePosition.z, grid_step) - grid_step/2
 
-		if obstacle.position.y < 1:
-			obstacle.position.y = 1.5
-		
-		var point_key = world_to_astar(obstacle.position)
-		var obstacle_id = points[point_key]
-		
-		obstaclePosition.y += grid_step
-		var above_obstacle_key = world_to_astar(obstaclePosition)
-		var above_obstacle_id = points[above_obstacle_key]
+		if obstaclePosition.y < 1:
+			obstaclePosition.y = 1.5
+
+		var point_key = world_to_astar(obstaclePosition)
+		var obstacle_id
+
+		if points.has(point_key):
+			obstacle_id = points[point_key]
+		else:
+			return
 
 		if not astar.is_point_disabled(obstacle_id):
-			astar.set_point_disabled(obstacle_id, true)
+			var obstacle = obstacleDictionary[obstacleName].instantiate()
+			obstacle.position = obstaclePosition
+			add_child(obstacle)
+			obstacle.add_to_group("obstacle")	
 
+			astar.set_point_disabled(obstacle_id, true)
+			if should_draw_cubes:
+				get_child(obstacle_id).material_override = red_material
+
+func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
+
+	if !buildingShowObject:
+		buildingShowObject = obstacleDictionary[obstacleName].instantiate()
+		add_child(buildingShowObject)
+		buildingShowObject.get_node("CollisionShape3D").disabled = true
+
+		var objectColor = StandardMaterial3D.new()
+		objectColor.albedo_color = Color(1,1,1,0.1)
+		buildingShowObject.get_node("MeshInstance3D").material_override = objectColor
+
+	if showObjectFlag:
+		obstaclePosition.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
+		obstaclePosition.y = snapped(obstaclePosition.y, grid_step)
+		obstaclePosition.z = snapped(obstaclePosition.z, grid_step) - grid_step/2
+		if obstaclePosition.y < 1:
+			obstaclePosition.y = 1.5
+		buildingShowObject.position = obstaclePosition
+	else:
+		buildingShowObject.queue_free()
 			
 #funcao guardada pra backup
 
