@@ -91,6 +91,23 @@ func _get_adjacent_points(world_point: Vector3) -> Array:
 	else: 
 		var adjacent_points = []
 		return adjacent_points
+		
+func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
+	
+	var adjacent_points = []
+	var search_coords = [-grid_step, 0, grid_step]
+	for x in search_coords:
+		for y in search_coords:
+			for z in search_coords:
+				var search_offset = Vector3(x, y, z)
+				if search_offset == Vector3.ZERO:
+					continue
+				var potential_neighbor = world_to_astar(world_point + search_offset)
+				if points.has(potential_neighbor):
+					if not astar.is_point_disabled(points[potential_neighbor]):
+						adjacent_points.append(points[potential_neighbor])
+	return adjacent_points
+
 
 
 func find_path(from: Vector3, to: Vector3) -> Array:
@@ -136,19 +153,27 @@ func _on_main_obstacle_should_spawn():
 		var obstacle_id = points[point_key]
 		
 		result.position.y += grid_step
-		var above_obstacle_key = world_to_astar(result.position)
+		#me perdoa por isso aq rogerio eu lembro q tu mudou no teu mas n lembro como
+		#ta assim so pra n bugar dps mas ta feiao
+		var above_obstacle_key = world_to_astar(Vector3(cubo_x,result.position.y, cubo_z))
 		var above_obstacle_id = points[above_obstacle_key]
 
-		if not astar.is_point_disabled(obstacle_id):
+		#nao esquecer. precisa conectar o obstaculo e DEPOIS desconectar o de baixo. vai economizar
+		#eu tb preciso mudar pra tds vermelhos serem CONECTADOS mas DISABLED. n eh a mesma coisa q desconectado
+		if not astar.is_point_disabled(points[point_key]):
+			#essa variavel pra funcao ta horrivel tb
+			var adjacent_points = _get_obstacle_adjacent_points(Vector3(cubo_x,result.position.y, cubo_z))
+			for neighbor_id in adjacent_points:
+				if not astar.are_points_connected(above_obstacle_id, neighbor_id):
+					astar.connect_points(above_obstacle_id, neighbor_id)
+				if should_draw_cubes:
+					get_child(above_obstacle_id).material_override = green_material
+					get_child(neighbor_id).material_override = green_material
+#			if astar.is_point_disabled(points[above_obstacle_key]): ISSO TEM Q VOLTAR DPS
 			astar.set_point_disabled(obstacle_id, true)
 			if should_draw_cubes:
 				get_child(obstacle_id).material_override = red_material
-			print(points)
-			print(points.find_key(0))
-			var kms = world_to_astar(points.find_key(0))
-			print(kms)
-			if astar.is_point_disabled(above_obstacle_id):
-				print(points)
+
 
 	
 func _raycast():
