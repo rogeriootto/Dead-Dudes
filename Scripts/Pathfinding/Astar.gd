@@ -66,34 +66,33 @@ func _connect_points():
 		var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
 		var adjacent_points = _get_adjacent_points(world_pos)
 		var current_id = points[point]
+		if(world_pos[1] >= 1.5):
+			astar.set_point_disabled(current_id,1)
 
 		for neighbor_id in adjacent_points:
 			if not astar.are_points_connected(current_id, neighbor_id):
 				astar.connect_points(current_id, neighbor_id)
-				if should_draw_cubes:
+				if should_draw_cubes && not astar.is_point_disabled(current_id):
 					get_child(current_id).material_override = green_material
-					get_child(neighbor_id).material_override = green_material
+#					get_child(neighbor_id).material_override = green_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	
 	#esse if else eh hard code pra so conectar a primeira camada
 #	print(world_point[1])
-	if world_point[1] == 1:
-		var adjacent_points = []
-		var search_coords = [-grid_step, 0, grid_step]
-		for x in search_coords:
+	#if world_point[1] == 1:
+	var adjacent_points = []
+	var search_coords = [-grid_step, 0, grid_step]
+	for x in search_coords:
+		for y in search_coords:
 			for z in search_coords:
-				var search_offset = Vector3(x, 0, z)
+				var search_offset = Vector3(x, y, z)
 				if search_offset == Vector3.ZERO:
 					continue
 				var potential_neighbor = world_to_astar(world_point + search_offset)
 				if points.has(potential_neighbor):
 					adjacent_points.append(points[potential_neighbor])
-		return adjacent_points
-	else: 
-		var adjacent_points = []
-		return adjacent_points
-
+	return adjacent_points
 
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
@@ -112,9 +111,9 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO: TIRAR ESSE IF DO CARALHO
-		if point_position.y < grid_step * 2:
-			cube.mesh = cube_mesh
-			cube.material_override = red_material
+
+		cube.mesh = cube_mesh
+		cube.material_override = red_material
 		add_child(cube)
 #		position.y = grid_y
 		cube.global_transform.origin = point_position
@@ -137,14 +136,29 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 		else:
 			return
 
+		var above_obstacle_key = world_to_astar(Vector3(obstaclePosition.x, obstaclePosition.y + grid_step, obstaclePosition.z))
+		var above_obstacle_id
+
+		if points.has(above_obstacle_key):
+			above_obstacle_id = points[above_obstacle_key]
+		else:
+			return
+
 		if not astar.is_point_disabled(obstacle_id):
+
+			var adjacent_points = _get_obstacle_adjacent_points(Vector3(obstaclePosition.x,obstaclePosition.y + grid_step, obstaclePosition.z))
+			for neighbor_id in adjacent_points:
+				if should_draw_cubes:
+					get_child(above_obstacle_id).material_override = green_material
+
 			var obstacle = obstacleDictionary[obstacleName].instantiate()
 			obstacle.position = obstaclePosition
 			add_child(obstacle)
 			obstacle.add_to_group("obstacle")	
-			print(obstacle_id)
 
+			astar.set_point_disabled(above_obstacle_id, false)
 			astar.set_point_disabled(obstacle_id, true)
+			
 			if should_draw_cubes:
 				get_child(obstacle_id).material_override = red_material
 
@@ -168,6 +182,22 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 		buildingShowObject.position = obstaclePosition
 	else:
 		buildingShowObject.queue_free()
+
+func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
+	
+	var adjacent_points = []
+	var search_coords = [-grid_step, 0, grid_step]
+	for x in search_coords:
+		for y in search_coords:
+			for z in search_coords:
+				var search_offset = Vector3(x, y, z)
+				if search_offset == Vector3.ZERO:
+					continue
+				var potential_neighbor = world_to_astar(world_point + search_offset)
+				if points.has(potential_neighbor):
+					if not astar.is_point_disabled(points[potential_neighbor]):
+						adjacent_points.append(points[potential_neighbor])
+	return adjacent_points
 			
 #funcao guardada pra backup
 

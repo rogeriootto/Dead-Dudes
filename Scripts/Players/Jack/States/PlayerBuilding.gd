@@ -18,15 +18,13 @@ func Physics_Update(delta: float):
 	playerMovement()
 	
 	if Input.is_action_just_pressed("buildingPut_" + player.getPlayerNumber()):
-		dropObstacle('box1x1', getSpawnPosition(3))
+		dropObstacle('box1x1', getSpawnPosition(-1))
 	
 	if Input.is_action_just_released("buildingMode_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerIdle')
 
-	player.signalManager.emitShowObstacle(true ,'box1x1', getSpawnPosition(3))
+	player.signalManager.emitShowObstacle(true ,'box1x1', getSpawnPosition(-1))
 	
 
 func getSpawnPosition(distance: int):
-	print("player.position" + player.getPlayerNumber(), player.position)
-	print("player.basis.z.normalized()" + player.getPlayerNumber(), player.basis.z.normalized())
 	return player.position - player.basis.z.normalized() * -distance
