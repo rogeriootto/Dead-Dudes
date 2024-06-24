@@ -2442,7 +2442,7 @@ _data = {
 }
 
 [node name="jack" type="CharacterBody3D"]
-transform = Transform3D(1, -0.000169975, 0.000122063, 0.000169976, 1, -8.58358e-06, -0.000122062, 8.60433e-06, 1, 0, 0, 0)
+transform = Transform3D(0.7, -0.000118982, 8.54444e-05, 0.000118983, 0.7, -6.00851e-06, -8.54434e-05, 6.02303e-06, 0.7, 0, 0, 0)
 script = ExtResource("1_6pykx")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -2687,7 +2687,7 @@ skin = SubResource("Skin_hffv2")
 surface_material_override/0 = SubResource("StandardMaterial3D_wacjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2.35, -8.15972e-11, -8.73115e-11, -8.15965e-11, 2.35, 0, 8.73115e-11, 0, 2.35, 0, 2.35, 0)
+transform = Transform3D(1.63349, 9.28941e-11, -5.82077e-11, 1.53211e-12, 2.35012, -1.81899e-12, 0, -5.45697e-12, 2.34991, 5.71032e-12, 2.35, -1.81899e-12)
 shape = SubResource("CapsuleShape3D_3lfo0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

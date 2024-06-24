@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="Script" path="res://Scripts/Pathfinding/Astar.gd" id="2_blrme"]
 [ext_resource type="Script" path="res://Scripts/Managers/SignalManager.gd" id="3_qtmjm"]
+[ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="5_8eklo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7o0f"]
 size = Vector3(30, 1, 30)
@@ -36,7 +37,7 @@ mesh = SubResource("BoxMesh_sqsrc")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, -21.467, 23.244, 35.296)
 projection = 1
-size = 20.587
+size = 15.433
 script = ExtResource("2_bim0t")
 offset = Vector3(-18, 20, 30)
 
@@ -45,3 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 0.680811, 0.73246, 0, -0.73246, 0.680811, 0,
 light_energy = 2.055
 shadow_enabled = true
 shadow_blur = 0.289
+
+[node name="policeCar" parent="." groups=["obstacle"] instance=ExtResource("5_8eklo")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, -1.05516, 0.75, -5.94315)

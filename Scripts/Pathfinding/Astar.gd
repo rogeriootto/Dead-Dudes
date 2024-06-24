@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var should_draw_cubes := false
-@onready var cubo_cena = preload("res://Scenes/Objects/Obstacles/obstacle.tscn")
 @export var signal_manager: Node3D
 
 var astar = AStar3D.new()
@@ -12,7 +11,7 @@ var cube_mesh = BoxMesh.new()
 var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
 
-var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn")}
+var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
 var buildingShowObject
 
 func _ready():
@@ -143,6 +142,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 			obstacle.position = obstaclePosition
 			add_child(obstacle)
 			obstacle.add_to_group("obstacle")	
+			print(obstacle_id)
 
 			astar.set_point_disabled(obstacle_id, true)
 			if should_draw_cubes:
@@ -155,9 +155,9 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 		add_child(buildingShowObject)
 		buildingShowObject.get_node("CollisionShape3D").disabled = true
 
-		var objectColor = StandardMaterial3D.new()
-		objectColor.albedo_color = Color(1,1,1,0.1)
-		buildingShowObject.get_node("MeshInstance3D").material_override = objectColor
+		# var objectColor = StandardMaterial3D.new()
+		# objectColor.albedo_color = Color(1,1,1,0.1)
+		# buildingShowObject.get_node("MeshInstance3D").material_override = objectColor
 
 	if showObjectFlag:
 		obstaclePosition.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
