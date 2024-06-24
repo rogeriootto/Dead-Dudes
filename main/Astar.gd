@@ -161,20 +161,20 @@ func _on_main_obstacle_should_spawn():
 
 		#nao esquecer. precisa conectar o obstaculo e DEPOIS desconectar o de baixo. vai economizar
 		#eu tb preciso mudar pra tds vermelhos serem CONECTADOS mas DISABLED. n eh a mesma coisa q desconectado
+		print(astar.is_point_disabled(points[point_key]))
 		if not astar.is_point_disabled(points[point_key]):
 			#essa variavel pra funcao ta horrivel tb
-			var adjacent_points = _get_obstacle_adjacent_points(Vector3(cubo_x,result.position.y, cubo_z))
-			for neighbor_id in adjacent_points:
-				if not astar.are_points_connected(above_obstacle_id, neighbor_id):
-					astar.connect_points(above_obstacle_id, neighbor_id)
-				if should_draw_cubes:
-					get_child(above_obstacle_id).material_override = green_material
-					get_child(neighbor_id).material_override = green_material
+#			var adjacent_points = _get_obstacle_adjacent_points(Vector3(cubo_x,result.position.y, cubo_z))
+			astar.set_point_disabled(above_obstacle_id,false)
+
+			if should_draw_cubes:
+				get_child(above_obstacle_id).material_override = green_material
+
 #			if astar.is_point_disabled(points[above_obstacle_key]): ISSO TEM Q VOLTAR DPS
 			astar.set_point_disabled(obstacle_id, true)
 			if should_draw_cubes:
 				get_child(obstacle_id).material_override = red_material
-
+			print(astar.is_point_disabled(points[point_key]))
 
 func _on_main_obstacle_should_explode():
 	
