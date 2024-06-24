@@ -64,33 +64,34 @@ func _connect_points():
 		var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
 		var adjacent_points = _get_adjacent_points(world_pos)
 		var current_id = points[point]
+		if(world_pos[1] >= 1.5):
+			astar.set_point_disabled(current_id,1)
 
 		for neighbor_id in adjacent_points:
 			if not astar.are_points_connected(current_id, neighbor_id):
 				astar.connect_points(current_id, neighbor_id)
-				if should_draw_cubes:
+				if should_draw_cubes && not astar.is_point_disabled(current_id):
 					get_child(current_id).material_override = green_material
-					get_child(neighbor_id).material_override = green_material
+#					get_child(neighbor_id).material_override = green_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	
 	#esse if else eh hard code pra so conectar a primeira camada
 #	print(world_point[1])
-	if world_point[1] == 1:
-		var adjacent_points = []
-		var search_coords = [-grid_step, 0, grid_step]
-		for x in search_coords:
+	#if world_point[1] == 1:
+	var adjacent_points = []
+	var search_coords = [-grid_step, 0, grid_step]
+	for x in search_coords:
+		for y in search_coords:
 			for z in search_coords:
-				var search_offset = Vector3(x, 0, z)
+				var search_offset = Vector3(x, y, z)
 				if search_offset == Vector3.ZERO:
 					continue
 				var potential_neighbor = world_to_astar(world_point + search_offset)
 				if points.has(potential_neighbor):
 					adjacent_points.append(points[potential_neighbor])
-		return adjacent_points
-	else: 
-		var adjacent_points = []
-		return adjacent_points
+	return adjacent_points
+
 		
 func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
 	
@@ -175,6 +176,12 @@ func _on_main_obstacle_should_spawn():
 				get_child(obstacle_id).material_override = red_material
 
 
+func _on_main_obstacle_should_explode():
+	
+	var result = _raycast()
+	
+	if not result.is_empty():
+		pass
 	
 func _raycast():
 	var viewport := get_viewport()
@@ -207,3 +214,4 @@ func _raycast():
 #				if points.has(potential_neighbor):
 #					adjacent_points.append(points[potential_neighbor])
 #	return adjacent_points
+

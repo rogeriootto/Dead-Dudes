@@ -135,7 +135,7 @@ mesh = SubResource("BoxMesh_6cret")
 shape = SubResource("BoxShape3D_8edwq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.573147, 0.819452, 0, -0.819452, 0.573147, 0, 13.2531, 18.1493)
+transform = Transform3D(1, 0, 0, 0, 0.839174, 0.543863, 0, -0.543863, 0.839174, 0, 12.759, 20.3987)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.807908, 0.589309, 0, -0.589309, 0.807908, 0, 3.39835, 1.72384)
@@ -168,4 +168,5 @@ mesh = SubResource("CapsuleMesh_fod50")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zombo"]
 shape = SubResource("CapsuleShape3D_ld5wn")
 
+[connection signal="obstacle_should_explode" from="." to="Astar" method="_on_main_obstacle_should_explode"]
 [connection signal="obstacle_should_spawn" from="." to="Astar" method="_on_main_obstacle_should_spawn"]
