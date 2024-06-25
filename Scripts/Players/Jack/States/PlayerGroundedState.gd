@@ -21,6 +21,13 @@ func Update(delta: float):
 func Physics_Update(delta: float):
 	pass
 
+func buttonsCheck():
+	if Input.is_action_just_pressed("buildingMode_" + player.getPlayerNumber()):
+		Transitioned.emit(self, 'PlayerBuilding')
+
+func dropObstacle(obstacleName: String, spawnPosition: Vector3):
+	player.signalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
+
 func playerMovement():
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
@@ -42,6 +49,9 @@ func playerMovement():
 			var look_direction = Vector2(velocity.z, velocity.x)
 			player.rotation.y = look_direction.angle()
 		
+		if(Input.is_action_just_pressed("action_" + player.getPlayerNumber())):
+			velocity.y += 10
 		player.velocity = velocity
+		
 		player.move_and_slide()
 
