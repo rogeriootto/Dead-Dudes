@@ -48,4 +48,4 @@ shadow_enabled = true
 shadow_blur = 0.289
 
 [node name="policeCar" parent="." groups=["obstacle"] instance=ExtResource("5_8eklo")]
-transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, -1.05516, 0.75, -5.94315)
+transform = Transform3D(-9.83506e-08, 0, -2.25, 0, 2.25, 0, 2.25, 0, -9.83506e-08, -1.05516, 0.75, -3.94315)
