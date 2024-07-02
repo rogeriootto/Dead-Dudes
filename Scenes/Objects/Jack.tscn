@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://4t2p680180rg"]
+[gd_scene load_steps=28 format=3 uid="uid://4t2p680180rg"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
 [ext_resource type="Texture2D" uid="uid://0sws4bl6bjqe" path="res://Assets/Models/Jack/jack_jack-basic.png" id="2_8ygy8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="6_72ui3"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="7_mv8pv"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="8_jubk0"]
+[ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="9_pagb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbiw2"]
 resource_name = "palettemat"
@@ -2441,8 +2442,11 @@ _data = {
 "Walk": SubResource("Animation_ju37s")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvh7f"]
+
 [node name="jack" type="CharacterBody3D"]
 transform = Transform3D(0.7, -0.000118982, 8.54444e-05, 0.000118983, 0.7, -6.00851e-06, -8.54434e-05, 6.02303e-06, 0.7, 0, 0, 0)
+collision_layer = 2
 script = ExtResource("1_6pykx")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -2695,6 +2699,13 @@ libraries = {
 "": SubResource("AnimationLibrary_vdo2r")
 }
 autoplay = "Idle"
+
+[node name="InteractionArea" parent="." groups=["playerInteractableArea"] instance=ExtResource("9_pagb7")]
+transform = Transform3D(1, -1.70752e-11, 7.27596e-12, 1.20277e-11, 1, 0, 0, 9.09495e-13, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(0.997087, -2.03191e-10, 3.7835e-10, 4.37093e-10, 0.997087, -1.09139e-11, 0, -9.09495e-13, 0.997087, -7.50322e-05, 0.750005, 1.86471)
+shape = SubResource("BoxShape3D_jvh7f")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_1uyk6")

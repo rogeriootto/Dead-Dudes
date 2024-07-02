@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://siar22dy0mwm"]
+[gd_scene load_steps=6 format=3 uid="uid://siar22dy0mwm"]
+
+[ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="1_whorb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07igv"]
 transparency = 1
@@ -11,6 +13,10 @@ size = Vector3(1.5, 1.5, 1.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7kcs8"]
 size = Vector3(1.5, 1.5, 1.5)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ltf6"]
+height = 0.29258
+radius = 0.305104
+
 [node name="obstacle" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -18,3 +24,10 @@ mesh = SubResource("BoxMesh_yuw1a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_7kcs8")
+
+[node name="InteractionArea" parent="." instance=ExtResource("1_whorb")]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_8ltf6")

@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Levels/MainTestArea.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InteractionManager="*res://Scenes/Managers/Interaction/interactionManager.tscn"
+
 [input]
 
 up_p1={
@@ -85,6 +89,17 @@ action_p1={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+interact={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+
+[layer_names]
+
+3d_physics/layer_1="objects"
+3d_physics/layer_2="player"
+3d_physics/layer_3="obstacleInteractable"
 
 [rendering]
 

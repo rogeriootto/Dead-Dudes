@@ -23,7 +23,7 @@ func _ready():
 		player1.signalManager = signalManager
 	
 	player2 = player2Preload.instantiate()
-	if player2:
+	if !player2:
 		add_child(player2)
 		player2.position = player2SpawnPoint
 		player2.playerNumber = 'p2'
