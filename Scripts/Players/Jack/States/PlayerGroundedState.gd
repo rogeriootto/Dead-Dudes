@@ -57,6 +57,8 @@ func playerMovement():
 		
 		if(Input.is_action_just_pressed("action_" + player.getPlayerNumber())):
 			velocity.y += 10
+		if(Input.is_action_just_pressed("action2_" + player.getPlayerNumber())):
+			velocity.y -= 10
 		player.velocity = velocity
 		
 		player.move_and_slide()

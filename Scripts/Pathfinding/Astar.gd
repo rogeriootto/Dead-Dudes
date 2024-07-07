@@ -197,6 +197,8 @@ func _on_main_obstacle_should_remove(obstacle: StaticBody3D):
 
 	if points.has(above_obstacle_key):
 		above_obstacle_id = points[above_obstacle_key]
+		if astar.is_point_disabled(above_obstacle_id):
+			return
 
 	if astar.is_point_disabled(obstacle_id):
 		if(above_obstacle_id):

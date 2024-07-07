@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://4t2p680180rg"]
+[gd_scene load_steps=27 format=3 uid="uid://4t2p680180rg"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
 [ext_resource type="Texture2D" uid="uid://0sws4bl6bjqe" path="res://Assets/Models/Jack/jack_jack-basic.png" id="2_8ygy8"]
@@ -2444,10 +2444,6 @@ _data = {
 "Walk": SubResource("Animation_ju37s")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jvh7f"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_3ijd3"]
-
 [node name="jack" type="CharacterBody3D"]
 transform = Transform3D(0.7, -0.000118982, 8.54444e-05, 0.000118983, 0.7, -6.00851e-06, -8.54434e-05, 6.02303e-06, 0.7, 0, 0, 0)
 collision_layer = 2
@@ -2706,13 +2702,6 @@ autoplay = "Idle"
 
 [node name="InteractionArea" parent="." groups=["playerInteractableArea"] instance=ExtResource("9_pagb7")]
 transform = Transform3D(1, -1.70752e-11, 7.27596e-12, 1.20277e-11, 1, 0, 0, 9.09495e-13, 1, 0, 0.75, 1.865)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, -4.3837e-10, -5.19816e-21, 4.3837e-10, 1, 9.12152e-13, 4.7983e-21, -9.12152e-13, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_jvh7f")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionArea"]
-mesh = SubResource("BoxMesh_3ijd3")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_1uyk6")
