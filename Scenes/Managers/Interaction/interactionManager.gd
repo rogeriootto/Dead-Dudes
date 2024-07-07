@@ -44,5 +44,5 @@ func _input(event):
 		if active_areas.size() > 0:
 			can_interact = false
 			label.hide()
-			interactableFunction.call()
+			interactableFunction.call(active_areas[0].global_position)
 			can_interact = true

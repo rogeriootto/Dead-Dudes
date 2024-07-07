@@ -30,8 +30,8 @@ func buttonsCheck():
 func dropObstacle(obstacleName: String, spawnPosition: Vector3):
 	player.signalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
 
-var _onRemoveObstacle = func():
-	print('funcionou o remove obstacle')
+var _onRemoveObstacle = func(obstaclePosition: Vector3):
+	player.signalManager.emitObstacleRemoveRequest(obstaclePosition)
 
 func playerMovement():
 	var move_direction := Vector3.ZERO
@@ -39,9 +39,7 @@ func playerMovement():
 
 	interaction_area.interact(_onRemoveObstacle)
 	
-	
 	var camera3Dnode = get_tree().get_first_node_in_group("camera")
-	#CASO O PERSONAGEM NÃO ANDAR, É PQ NÃO ACHOU A REF DA CAMERA
 	
 	if player:
 		move_direction.x = Input.get_action_strength("right_" + player.getPlayerNumber()) - Input.get_action_strength("left_" + player.getPlayerNumber())
@@ -62,4 +60,3 @@ func playerMovement():
 		player.velocity = velocity
 		
 		player.move_and_slide()
-

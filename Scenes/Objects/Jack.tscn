@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://4t2p680180rg"]
+[gd_scene load_steps=29 format=3 uid="uid://4t2p680180rg"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
 [ext_resource type="Texture2D" uid="uid://0sws4bl6bjqe" path="res://Assets/Models/Jack/jack_jack-basic.png" id="2_8ygy8"]
@@ -144,6 +144,8 @@ bind/32/pose = Transform3D(-81.168, -8.75925, -57.7497, -57.9794, 0.0952059, 81.
 albedo_texture = ExtResource("2_8ygy8")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3lfo0"]
+radius = 1.045
+height = 5.001
 
 [sub_resource type="Animation" id="Animation_7vg5j"]
 resource_name = "ClimbingUp"
@@ -2444,6 +2446,8 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jvh7f"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_3ijd3"]
+
 [node name="jack" type="CharacterBody3D"]
 transform = Transform3D(0.7, -0.000118982, 8.54444e-05, 0.000118983, 0.7, -6.00851e-06, -8.54434e-05, 6.02303e-06, 0.7, 0, 0, 0)
 collision_layer = 2
@@ -2691,7 +2695,7 @@ skin = SubResource("Skin_hffv2")
 surface_material_override/0 = SubResource("StandardMaterial3D_wacjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.63349, 9.28941e-11, -5.82077e-11, 1.53211e-12, 2.35012, -1.81899e-12, 0, -5.45697e-12, 2.34991, 5.71032e-12, 2.35, -1.81899e-12)
+transform = Transform3D(1, -9.37937e-13, -2.90391e-24, 9.37937e-13, 1, 2.322e-12, 7.26028e-25, -2.322e-12, 1, 0, 2.205, 0.16)
 shape = SubResource("CapsuleShape3D_3lfo0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -2701,11 +2705,14 @@ libraries = {
 autoplay = "Idle"
 
 [node name="InteractionArea" parent="." groups=["playerInteractableArea"] instance=ExtResource("9_pagb7")]
-transform = Transform3D(1, -1.70752e-11, 7.27596e-12, 1.20277e-11, 1, 0, 0, 9.09495e-13, 1, 0, 0, 0)
+transform = Transform3D(1, -1.70752e-11, 7.27596e-12, 1.20277e-11, 1, 0, 0, 9.09495e-13, 1, 0, 0.75, 1.865)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(0.997087, -2.03191e-10, 3.7835e-10, 4.37093e-10, 0.997087, -1.09139e-11, 0, -9.09495e-13, 0.997087, -7.50322e-05, 0.750005, 1.86471)
+transform = Transform3D(1, -4.3837e-10, -5.19816e-21, 4.3837e-10, 1, 9.12152e-13, 4.7983e-21, -9.12152e-13, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_jvh7f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionArea"]
+mesh = SubResource("BoxMesh_3ijd3")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_1uyk6")
