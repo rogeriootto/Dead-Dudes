@@ -30,8 +30,8 @@ func buttonsCheck():
 func dropObstacle(obstacleName: String, spawnPosition: Vector3):
 	player.signalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
 
-var _onRemoveObstacle = func(obstaclePosition: Vector3):
-	player.signalManager.emitObstacleRemoveRequest(obstaclePosition)
+var _onRemoveObstacle = func(obstacle: StaticBody3D):
+	player.signalManager.emitObstacleRemoveRequest(obstacle)
 
 func playerMovement():
 	var move_direction := Vector3.ZERO

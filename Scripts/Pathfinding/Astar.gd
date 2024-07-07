@@ -181,9 +181,9 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 	else:
 		buildingShowObject.queue_free()
 
-func _on_main_obstacle_should_remove(obstaclePosition: Vector3):
-	print("o obstaculo ta em : ", obstaclePosition)
+func _on_main_obstacle_should_remove(obstacle: StaticBody3D):
 
+	var obstaclePosition = obstacle.global_position
 	var point_key = world_to_astar(obstaclePosition)
 	var obstacle_id
 
@@ -204,6 +204,8 @@ func _on_main_obstacle_should_remove(obstaclePosition: Vector3):
 			astar.set_point_disabled(above_obstacle_id, true)
 		astar.set_point_disabled(obstacle_id, false)
 		get_child(obstacle_id).material_override = purple_material
+		obstacle.queue_free()
+
 func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
 	
 	var adjacent_points = []

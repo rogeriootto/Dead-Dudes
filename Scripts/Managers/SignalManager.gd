@@ -23,5 +23,5 @@ func emitObstacleSpawnRequest(obstacleName: String, obstaclePosition: Vector3):
 func emitShowObstacle(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
 	emit_signal("showObstacleRequest", showObjectFlag, obstacleName, obstaclePosition)
 
-func emitObstacleRemoveRequest(obstaclePosition: Vector3):
-	emit_signal("obstacleRemoveRequest",obstaclePosition)
+func emitObstacleRemoveRequest(obstacle: StaticBody3D):
+	emit_signal("obstacleRemoveRequest",obstacle)
