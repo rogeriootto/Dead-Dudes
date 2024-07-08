@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="5_8eklo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7o0f"]
-size = Vector3(30, 1, 30)
+size = Vector3(30, 1.5, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sqsrc"]
-size = Vector3(30, 1, 30)
+size = Vector3(30, 1.5, 30)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
@@ -27,14 +27,12 @@ script = ExtResource("3_qtmjm")
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["pathable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_g7o0f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_sqsrc")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, -21.467, 23.244, 35.296)
 projection = 1
 size = 15.433

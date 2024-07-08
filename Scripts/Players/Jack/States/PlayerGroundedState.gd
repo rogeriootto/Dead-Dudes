@@ -8,6 +8,8 @@ var speed: float = 7.0
 var velocityTest : float
 var cameraRotation: Vector3
 
+@onready var interaction_area = get_tree().get_first_node_in_group("playerInteractableArea")
+
 func Enter():
 	pass
 	
@@ -28,12 +30,16 @@ func buttonsCheck():
 func dropObstacle(obstacleName: String, spawnPosition: Vector3):
 	player.signalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
 
+var _onRemoveObstacle = func(obstacle: StaticBody3D):
+	player.signalManager.emitObstacleRemoveRequest(obstacle)
+
 func playerMovement():
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
+
+	interaction_area.interact(_onRemoveObstacle)
 	
-	var camera3Dnode = get_node("../../../../Camera3D")
-	#CASO O PERSONAGEM NÃO ANDAR, É PQ NÃO ACHOU A REF DA CAMERA
+	var camera3Dnode = get_tree().get_first_node_in_group("camera")
 	
 	if player:
 		move_direction.x = Input.get_action_strength("right_" + player.getPlayerNumber()) - Input.get_action_strength("left_" + player.getPlayerNumber())
@@ -51,7 +57,8 @@ func playerMovement():
 		
 		if(Input.is_action_just_pressed("action_" + player.getPlayerNumber())):
 			velocity.y += 10
+		if(Input.is_action_just_pressed("action2_" + player.getPlayerNumber())):
+			velocity.y -= 10
 		player.velocity = velocity
 		
 		player.move_and_slide()
-
