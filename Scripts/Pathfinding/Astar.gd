@@ -23,6 +23,10 @@ func _ready():
 	var pathables = get_tree().get_nodes_in_group("pathable")
 	_make_grid(pathables)
 	_connect_points()
+	var obstacle_group = get_tree().get_nodes_in_group('obstacle')
+	obstacle_group = sort_by_y(obstacle_group)
+	_connect_obstacles(obstacle_group)
+	
 	signal_manager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
 	signal_manager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
 	signal_manager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
@@ -78,6 +82,21 @@ func _connect_points():
 				if should_draw_cubes && not astar.is_point_disabled(current_id):
 					get_child(current_id).material_override = green_material
 #					get_child(neighbor_id).material_override = green_material
+
+func _connect_obstacles(obstacle_group: Array):
+	for obstacle in obstacle_group:
+		var obstacle_key = world_to_astar(obstacle.position)
+		var obstacle_id
+		if points.has(obstacle_key):
+			obstacle_id = points[obstacle_key]
+			astar.set_point_disabled(obstacle_id,true)
+			get_child(obstacle_id).material_override = red_material
+		var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x, obstacle.position.y + grid_step, obstacle.position.z))
+		var above_obstacle_id
+		if points.has(above_obstacle_key):
+			above_obstacle_id = points[above_obstacle_key]
+			astar.set_point_disabled(above_obstacle_id,false)
+			get_child(above_obstacle_id).material_override = green_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	
@@ -154,7 +173,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 			obstacle.position = obstaclePosition
 			add_child(obstacle)
 			obstacle.add_to_group("obstacle")	
-			
+#			print("obstaculos sao ", get_tree().get_nodes_in_group(obstacle))
 			astar.set_point_disabled(obstacle_id, true)
 			
 			if should_draw_cubes:
@@ -224,6 +243,16 @@ func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
 						adjacent_points.append(points[potential_neighbor])
 	return adjacent_points
 	
+#em caso de duvida ta dando problema nissso aq
+func sort_by_y(arrayToSort: Array):
+#	print(arrayToSort)
+	var _compare_y_position = func(a, b):
+		return a.position.y < b.position.y
+	arrayToSort.sort_custom(_compare_y_position)
+	return arrayToSort
+		
+		
+		
 # a funcao era chamada assim		
 #	var adjacent_points = _get_obstacle_adjacent_points(Vector3(obstaclePosition.x,obstaclePosition.y + grid_step, obstaclePosition.z))
 #	for neighbor_id in adjacent_points:

@@ -11,11 +11,11 @@ var interactableFunction: Callable = func():
 	pass
 
 func register_area(area: InteractionArea):
-	print('registered area: ', area)
+#	print('registered area: ', area)
 	active_areas.push_back(area)
 
 func unregister_area(area: InteractionArea):
-	print('unregister area: ', area)
+#	print('unregister area: ', area)
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
@@ -40,7 +40,7 @@ func _sortByDistanceToPlayer(area1, area2):
 
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:
-		print("active_areas size: ", active_areas.size())
+#		print("active_areas size: ", active_areas.size())
 		if active_areas.size() > 0:
 			can_interact = false
 			label.hide()

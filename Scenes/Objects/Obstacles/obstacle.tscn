@@ -17,7 +17,7 @@ size = Vector3(1.5, 1.5, 1.5)
 height = 1.076
 radius = 1.106
 
-[node name="obstacle" type="StaticBody3D"]
+[node name="obstacle" type="StaticBody3D" groups=["obstacle"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_yuw1a")
