@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="Script" path="res://Scripts/Pathfinding/Astar.gd" id="2_blrme"]
-[ext_resource type="Script" path="res://Scripts/Managers/SignalManager.gd" id="3_qtmjm"]
 [ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="4_ngilo"]
 [ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="5_8eklo"]
 
@@ -17,13 +16,9 @@ size = Vector3(30, 1.5, 30)
 script = ExtResource("1_xp11h")
 player1SpawnPoint = Vector3(1, 0, 1)
 
-[node name="Astar" type="Node3D" parent="." node_paths=PackedStringArray("signal_manager")]
+[node name="Astar" type="Node3D" parent="."]
 script = ExtResource("2_blrme")
 should_draw_cubes = true
-signal_manager = NodePath("../SignalManager")
-
-[node name="SignalManager" type="Node3D" parent="."]
-script = ExtResource("3_qtmjm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["pathable"]]
 
