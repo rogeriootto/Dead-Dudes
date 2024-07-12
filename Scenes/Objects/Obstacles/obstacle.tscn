@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://siar22dy0mwm"]
+[gd_scene load_steps=7 format=3 uid="uid://siar22dy0mwm"]
 
+[ext_resource type="Script" path="res://Scenes/Objects/Obstacles/obstacle.gd" id="1_4nhe8"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="1_whorb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07igv"]
@@ -17,7 +18,12 @@ size = Vector3(1.5, 1.5, 1.5)
 height = 1.076
 radius = 1.106
 
-[node name="obstacle" type="StaticBody3D"]
+[node name="obstacle" type="StaticBody3D" groups=["obstacle"]]
+script = ExtResource("1_4nhe8")
+comprimento = 1
+largura = 1
+altura = 1
+type = "caixa"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_yuw1a")

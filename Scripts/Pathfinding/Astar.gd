@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var should_draw_cubes := false
-@export var signal_manager: Node3D
 
 var astar = AStar3D.new()
 const grid_step := 1.5 #size of the grid's cells
@@ -23,9 +22,13 @@ func _ready():
 	var pathables = get_tree().get_nodes_in_group("pathable")
 	_make_grid(pathables)
 	_connect_points()
-	signal_manager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
-	signal_manager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
-	signal_manager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
+	var obstacle_group = get_tree().get_nodes_in_group('obstacle')
+	obstacle_group = sort_by_y(obstacle_group)
+	_connect_obstacles(obstacle_group)
+	SignalManager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
+	SignalManager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
+	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
+#	SignalManager.registerListner('disconnectAreaRequest', self, "disconnect_by_area")
 
 func _make_grid(pathables: Array):
 	for pathable in pathables:
@@ -79,6 +82,39 @@ func _connect_points():
 					get_child(current_id).material_override = green_material
 #					get_child(neighbor_id).material_override = green_material
 
+func _connect_obstacles(obstacle_group: Array):
+	for obstacle in obstacle_group:
+		var obstacle_key = world_to_astar(obstacle.position)
+		var obstacle_id
+		if points.has(obstacle_key):
+			if obstacle.type == 'caixa':
+				obstacle_id = points[obstacle_key]
+				astar.set_point_disabled(obstacle_id,true)
+				get_child(obstacle_id).material_override = red_material
+				var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x, obstacle.position.y + grid_step, obstacle.position.z))
+				var above_obstacle_id
+				if points.has(above_obstacle_key):
+					above_obstacle_id = points[above_obstacle_key]
+					astar.set_point_disabled(above_obstacle_id,false)
+					get_child(above_obstacle_id).material_override = green_material
+		
+			else:
+				for eixo_z in obstacle.comprimento:
+					for eixo_y in obstacle.altura:
+						for eixo_x in obstacle.largura:
+							var obstacle_node_key = world_to_astar(Vector3(obstacle.position.x - (grid_step * eixo_x), obstacle.position.y + (grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+							if points.has(obstacle_node_key):
+								obstacle_id = points[obstacle_node_key]
+								astar.set_point_disabled(obstacle_id,true)
+								get_child(obstacle_id).material_override = purple_material
+							if eixo_y == obstacle.altura-1:
+								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x - (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+								var above_obstacle_id
+								if points.has(above_obstacle_key):
+									above_obstacle_id = points[above_obstacle_key]
+									astar.set_point_disabled(above_obstacle_id,false)
+									get_child(above_obstacle_id).material_override = green_material
+
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	
 	#esse if else eh hard code pra so conectar a primeira camada
@@ -102,19 +138,19 @@ func find_path(from: Vector3, to: Vector3) -> Array:
 	var end_id = astar.get_closest_point(to)
 	return astar.get_point_path(start_id, end_id)
 
-
 func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
 	var y = snapped(world.y, grid_step)
 	var z = snapped(world.z, grid_step)
 	return "%d,%d,%d" % [x, y, z]	
 
-
 func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO: TIRAR ESSE IF DO CARALHO
-
+		#if point_position.y < grid_step * 2:
+			#cube.mesh = cube_mesh
+			#cube.material_override = red_material
 		cube.mesh = cube_mesh
 		cube.material_override = red_material
 		add_child(cube)
@@ -223,7 +259,16 @@ func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
 					if not astar.is_point_disabled(points[potential_neighbor]):
 						adjacent_points.append(points[potential_neighbor])
 	return adjacent_points
-	
+
+func sort_by_y(arrayToSort: Array):
+	var _compare_y_position = func(a, b):
+		return a.position.y < b.position.y
+	arrayToSort.sort_custom(_compare_y_position)
+	return arrayToSort
+
+func disconnect_by_area(obstacle: Object, comprimento: int, largura: int, altura: int):
+	print("object pos : ", obstacle.position)
+	pass
 # a funcao era chamada assim		
 #	var adjacent_points = _get_obstacle_adjacent_points(Vector3(obstaclePosition.x,obstaclePosition.y + grid_step, obstaclePosition.z))
 #	for neighbor_id in adjacent_points:
@@ -233,7 +278,6 @@ func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
 #funcao guardada pra backup
 
 #func _get_adjacent_points(world_point: Vector3) -> Array:
-	
 #	var adjacent_points = []
 #	var search_coords = [-grid_step, 0, grid_step]
 #	for x in search_coords:

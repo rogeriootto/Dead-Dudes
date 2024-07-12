@@ -11,13 +11,14 @@ var interactableFunction: Callable = func():
 	pass
 
 func register_area(area: InteractionArea):
-	print('registered area: ', area)
+#	print('registered area: ', area)
 	active_areas.push_back(area)
 
 func unregister_area(area: InteractionArea):
-	print('unregister area: ', area)
+#	print('unregister area: ', area)
 	var index = active_areas.find(area)
 	if index != -1:
+		SignalManager.unregisterListner("interactRequest", active_areas[index].get_parent_node_3d(), "interact")
 		active_areas.remove_at(index)
 
 func _process(delta):
@@ -25,6 +26,7 @@ func _process(delta):
 		active_areas.sort_custom(_sortByDistanceToPlayer)
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position + Vector3(0, 5, 0)
+		SignalManager.registerListner("interactRequest", active_areas[0].get_parent_node_3d(), "interact")
 		label.show()
 	else:
 		label.hide()
@@ -40,9 +42,9 @@ func _sortByDistanceToPlayer(area1, area2):
 
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:
-		print("active_areas size: ", active_areas.size())
+#		print("active_areas size: ", active_areas.size())
 		if active_areas.size() > 0:
 			can_interact = false
 			label.hide()
-			interactableFunction.call(active_areas[0].get_parent_node_3d())
+			interactableFunction.call()
 			can_interact = true
