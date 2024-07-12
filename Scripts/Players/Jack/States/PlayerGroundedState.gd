@@ -30,14 +30,14 @@ func buttonsCheck():
 func dropObstacle(obstacleName: String, spawnPosition: Vector3):
 	SignalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
 
-var _onRemoveObstacle = func(obstacle: StaticBody3D):
-	SignalManager.emitObstacleRemoveRequest(obstacle)
+var _onInteract = func():
+	SignalManager.emitInteractRequest()
 
 func playerMovement():
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
 
-	interaction_area.interact(_onRemoveObstacle)
+	interaction_area.interact(_onInteract)
 	
 	var camera3Dnode = get_tree().get_first_node_in_group("camera")
 	

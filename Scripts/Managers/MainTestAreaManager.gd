@@ -9,10 +9,7 @@ var player2: CharacterBody3D
 @export var player1SpawnPoint: Vector3
 @export var player2SpawnPoint: Vector3
 
-
-
 func _ready():
-	
 	player1 = player1Preload.instantiate()
 	if player1:
 		add_child(player1)
@@ -26,7 +23,6 @@ func _ready():
 		player2.position = player2SpawnPoint
 		player2.playerNumber = 'p2'
 		get_node('Camera3D').player2 = player2
-		
 
 func _process(delta):
 	pass
