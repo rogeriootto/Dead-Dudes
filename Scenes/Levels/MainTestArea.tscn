@@ -43,8 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 12.75)
 [node name="obstacle3" parent="." instance=ExtResource("4_ngilo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 14.25)
 
-[node name="policeCar" parent="." groups=["obstacle"] instance=ExtResource("5_8eklo")]
-transform = Transform3D(-9.83506e-08, 0, -2.25, 0, 2.25, 0, 2.25, 0, -9.83506e-08, -1.055, 1.5, -3.943)
+[node name="policeCar" parent="." instance=ExtResource("5_8eklo")]
+transform = Transform3D(-9.83506e-08, 0, -2.25, 0, 2.25, 0, 2.25, 0, -9.83506e-08, -6.86073, 1.5, -4.14218)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, -21.467, 23.244, 35.296)
@@ -58,3 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 0.680811, 0.73246, 0, -0.73246, 0.680811, 0,
 light_energy = 2.055
 shadow_enabled = true
 shadow_blur = 0.289
+
+[node name="policeCar2" parent="." instance=ExtResource("5_8eklo")]
+transform = Transform3D(-9.83506e-08, 0, -2.25, 0, 2.25, 0, 2.25, 0, -9.83506e-08, 1.87447, 1.61478, -0.249546)

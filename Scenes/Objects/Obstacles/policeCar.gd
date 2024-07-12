@@ -5,4 +5,5 @@ extends StaticBody3D
 @export var altura: int
 @export var type: String
 func interact():
-	SignalManager.emitObstacleRemoveRequest(self)
+#	SignalManager.emitDisconnectAreaRequest(self, 6, 3, 2)
+	pass

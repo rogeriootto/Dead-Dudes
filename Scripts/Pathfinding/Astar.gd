@@ -28,6 +28,7 @@ func _ready():
 	SignalManager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
 	SignalManager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
 	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
+#	SignalManager.registerListner('disconnectAreaRequest', self, "disconnect_by_area")
 
 func _make_grid(pathables: Array):
 	for pathable in pathables:
@@ -86,16 +87,33 @@ func _connect_obstacles(obstacle_group: Array):
 		var obstacle_key = world_to_astar(obstacle.position)
 		var obstacle_id
 		if points.has(obstacle_key):
-			obstacle_id = points[obstacle_key]
-			astar.set_point_disabled(obstacle_id,true)
-			get_child(obstacle_id).material_override = red_material
-		var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x, obstacle.position.y + grid_step, obstacle.position.z))
-		var above_obstacle_id
-		if points.has(above_obstacle_key):
-			above_obstacle_id = points[above_obstacle_key]
-			astar.set_point_disabled(above_obstacle_id,false)
-			get_child(above_obstacle_id).material_override = green_material
-
+			if obstacle.type == 'caixa':
+				obstacle_id = points[obstacle_key]
+				astar.set_point_disabled(obstacle_id,true)
+				get_child(obstacle_id).material_override = red_material
+				var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x, obstacle.position.y + grid_step, obstacle.position.z))
+				var above_obstacle_id
+				if points.has(above_obstacle_key):
+					above_obstacle_id = points[above_obstacle_key]
+					astar.set_point_disabled(above_obstacle_id,false)
+					get_child(above_obstacle_id).material_override = green_material
+		
+			else:
+				for eixo_z in obstacle.comprimento:
+					for eixo_y in obstacle.altura:
+						for eixo_x in obstacle.largura:
+							var obstacle_node_key = world_to_astar(Vector3(obstacle.position.x - (grid_step * eixo_x), obstacle.position.y + (grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+							if points.has(obstacle_node_key):
+								obstacle_id = points[obstacle_node_key]
+								astar.set_point_disabled(obstacle_id,true)
+								get_child(obstacle_id).material_override = purple_material
+							if eixo_y == obstacle.altura-1:
+								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x - (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+								var above_obstacle_id
+								if points.has(above_obstacle_key):
+									above_obstacle_id = points[above_obstacle_key]
+									astar.set_point_disabled(above_obstacle_id,false)
+									get_child(above_obstacle_id).material_override = green_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	
@@ -120,23 +138,21 @@ func find_path(from: Vector3, to: Vector3) -> Array:
 	var end_id = astar.get_closest_point(to)
 	return astar.get_point_path(start_id, end_id)
 
-
 func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
 	var y = snapped(world.y, grid_step)
 	var z = snapped(world.z, grid_step)
 	return "%d,%d,%d" % [x, y, z]	
 
-
 func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO: TIRAR ESSE IF DO CARALHO
-		if point_position.y < grid_step * 2:
-			cube.mesh = cube_mesh
-			cube.material_override = red_material
-		#cube.mesh = cube_mesh
-		#cube.material_override = red_material
+		#if point_position.y < grid_step * 2:
+			#cube.mesh = cube_mesh
+			#cube.material_override = red_material
+		cube.mesh = cube_mesh
+		cube.material_override = red_material
 		add_child(cube)
 #		position.y = grid_y
 		cube.global_transform.origin = point_position
@@ -250,6 +266,9 @@ func sort_by_y(arrayToSort: Array):
 	arrayToSort.sort_custom(_compare_y_position)
 	return arrayToSort
 
+func disconnect_by_area(obstacle: Object, comprimento: int, largura: int, altura: int):
+	print("object pos : ", obstacle.position)
+	pass
 # a funcao era chamada assim		
 #	var adjacent_points = _get_obstacle_adjacent_points(Vector3(obstaclePosition.x,obstaclePosition.y + grid_step, obstaclePosition.z))
 #	for neighbor_id in adjacent_points:

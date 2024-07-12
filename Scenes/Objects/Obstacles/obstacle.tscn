@@ -20,6 +20,10 @@ radius = 1.106
 
 [node name="obstacle" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_4nhe8")
+comprimento = 1
+largura = 1
+altura = 1
+type = "caixa"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_yuw1a")
