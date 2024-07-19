@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InteractionManager="*res://Scenes/Managers/Interaction/interactionManager.tscn"
 SignalManager="*res://Scenes/Managers/signal_manager.tscn"
+AstarManager="*res://Scenes/Managers/astar.tscn"
 
 [input]
 

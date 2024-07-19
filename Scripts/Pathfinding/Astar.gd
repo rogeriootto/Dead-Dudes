@@ -1,9 +1,10 @@
 extends Node3D
 
 @export var should_draw_cubes := false
+const grid_step := 1.5 #size of the grid's cells
 
 var astar = AStar3D.new()
-const grid_step := 1.5 #size of the grid's cells
+
 var points := {}
 
 var cube_mesh = BoxMesh.new()

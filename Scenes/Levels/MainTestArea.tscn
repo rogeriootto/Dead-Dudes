@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=7 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
-[ext_resource type="Script" path="res://Scripts/Pathfinding/Astar.gd" id="2_blrme"]
 [ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="4_ngilo"]
 [ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="5_8eklo"]
 
@@ -15,10 +14,6 @@ size = Vector3(30, 1.5, 30)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
 player1SpawnPoint = Vector3(1, 0, 1)
-
-[node name="Astar" type="Node3D" parent="."]
-script = ExtResource("2_blrme")
-should_draw_cubes = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["pathable"]]
 
@@ -35,19 +30,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 1.5, 14.25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 3, 14.25)
 
 [node name="obstacle" parent="." instance=ExtResource("4_ngilo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 12.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 12.8275)
 
 [node name="obstacle2" parent="." instance=ExtResource("4_ngilo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 12.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 12.5199)
 
 [node name="obstacle3" parent="." instance=ExtResource("4_ngilo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 14.25)
 
 [node name="policeCar" parent="." instance=ExtResource("5_8eklo")]
-transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 3.05573, 1.5, -11.201)
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 5.09315, 1.5, -7.80356)
 
 [node name="policeCar2" parent="." instance=ExtResource("5_8eklo")]
-transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 1.87447, 1.61478, -0.249546)
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, -13.6463, 1.61478, -0.249546)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, -21.467, 23.244, 35.296)
@@ -61,3 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 0.680811, 0.73246, 0, -0.73246, 0.680811, 0,
 light_energy = 2.055
 shadow_enabled = true
 shadow_blur = 0.289
+
+[node name="obstacle4" parent="." instance=ExtResource("4_ngilo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.441, 1.5, 11.6105)
