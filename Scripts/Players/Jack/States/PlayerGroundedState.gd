@@ -31,9 +31,13 @@ func dropObstacle(obstacleName: String, spawnPosition: Vector3):
 	SignalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
 
 var _onInteract = func():
-	SignalManager.emitInteractRequest()
+	if player.interactableName == 'carro':
+		Transitioned.emit(self, 'PlayerMovingObstacle')
+	else:
+		print('tirou')
+		SignalManager.emitInteractRequest(player.getPlayerNumber())
 
-func playerMovement():
+func playerMovement(speedModifier: float = 0.0):
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
 
@@ -48,8 +52,8 @@ func playerMovement():
 		if camera3Dnode:
 			move_direction = move_direction.rotated(Vector3.UP, camera3Dnode.global_rotation.y)
 
-		velocity.x = move_direction.x * speed
-		velocity.z = move_direction.z * speed
+		velocity.x = move_direction.x * (speed + speedModifier)
+		velocity.z = move_direction.z * (speed + speedModifier)
 		
 		if velocity.length() > 0.2:
 			var look_direction = Vector2(velocity.z, velocity.x)

@@ -1,11 +1,12 @@
-extends StaticBody3D
+extends CharacterBody3D
 
 @export var comprimento: int
 @export var largura: int
 @export var altura: int
 @export var type: String
-func interact():
-	SignalManager.emitMoveObstacleRequest(self)
+func interact(playerNumber: String):
+	print('player number: ', playerNumber)
+	SignalManager.emitMoveObstacleRequest(self, true, playerNumber)
 
 func _ready():
 	self.position.x = snapped(position.x, AstarManager.grid_step)

@@ -19,6 +19,7 @@ func unregister_area(area: InteractionArea):
 	var index = active_areas.find(area)
 	if index != -1:
 		SignalManager.unregisterListner("interactRequest", active_areas[index].get_parent_node_3d(), "interact")
+		SignalManager.emitInteractableName('')
 		active_areas.remove_at(index)
 
 func _process(delta):
@@ -27,6 +28,7 @@ func _process(delta):
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position + Vector3(0, 5, 0)
 		SignalManager.registerListner("interactRequest", active_areas[0].get_parent_node_3d(), "interact")
+		SignalManager.emitInteractableName(active_areas[0].get_parent_node_3d().type)
 		label.show()
 	else:
 		label.hide()

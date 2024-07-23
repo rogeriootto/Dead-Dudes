@@ -4,7 +4,8 @@ extends StaticBody3D
 @export var largura: int
 @export var altura: int
 @export var type: String
-func interact():
+
+func interact(playerNumber: String):
 	SignalManager.emitObstacleRemoveRequest(self)
 
 func _ready():
