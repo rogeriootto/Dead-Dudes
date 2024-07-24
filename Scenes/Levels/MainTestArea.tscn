@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="4_ngilo"]
+[ext_resource type="PackedScene" uid="uid://6s7mtctrg5sp" path="res://Scenes/Enemies/dead.tscn" id="5_5lgff"]
 [ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="5_8eklo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7o0f"]
@@ -59,3 +60,93 @@ shadow_blur = 0.289
 
 [node name="obstacle4" parent="." instance=ExtResource("4_ngilo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.441, 1.5, 11.6105)
+
+[node name="Dead" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50027, -5.1813)
+
+[node name="Dead2" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.89395, 1.96791, 7.47803)
+
+[node name="Dead3" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93465, 1.96839, 3.37291)
+
+[node name="Dead4" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18798, 1.70749, 9.11865)
+
+[node name="Dead5" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.80359, 1.70749, 5.3874)
+
+[node name="Dead6" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52356, 1.70749, 10.3788)
+
+[node name="Dead7" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4871, 1.70749, 9.64327)
+
+[node name="Dead8" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9555, 1.70749, 7.72175)
+
+[node name="Dead9" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3367, 1.70749, 2.73533)
+
+[node name="Dead10" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79498, 1.70749, 12.4829)
+
+[node name="Dead11" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87233, 1.70749, 11.3077)
+
+[node name="Dead12" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75165, 1.70749, 7.06053)
+
+[node name="Dead13" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43169, 1.70749, 9.11865)
+
+[node name="Dead14" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81607, 1.70749, 5.3874)
+
+[node name="Dead15" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0961, 1.70749, 10.3788)
+
+[node name="Dead16" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13256, 1.70749, 9.64327)
+
+[node name="Dead17" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66413, 1.70749, 7.72175)
+
+[node name="Dead18" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28301, 1.70749, 2.73533)
+
+[node name="Dead19" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82468, 1.70749, 12.4829)
+
+[node name="Dead20" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74734, 1.70749, 11.3077)
+
+[node name="Dead21" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.86801, 1.70749, 7.06053)
+
+[node name="Dead22" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43169, 1.70749, -6.51085)
+
+[node name="Dead23" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81607, 1.70749, -10.2421)
+
+[node name="Dead24" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0961, 1.70749, -5.25065)
+
+[node name="Dead25" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13256, 1.70749, -5.98623)
+
+[node name="Dead26" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66413, 1.70749, -7.90775)
+
+[node name="Dead27" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28301, 1.70749, -12.8942)
+
+[node name="Dead28" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82468, 1.70749, -3.14658)
+
+[node name="Dead29" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74734, 1.70749, -4.32179)
+
+[node name="Dead30" parent="." instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.86801, 1.70749, -8.56897)

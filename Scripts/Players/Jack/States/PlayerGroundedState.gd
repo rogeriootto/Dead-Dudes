@@ -34,7 +34,6 @@ var _onInteract = func():
 	if player.interactableName == 'carro':
 		Transitioned.emit(self, 'PlayerMovingObstacle')
 	else:
-		print('tirou')
 		SignalManager.emitInteractRequest(player.getPlayerNumber())
 
 func playerMovement(speedModifier: float = 0.0):
@@ -49,6 +48,9 @@ func playerMovement(speedModifier: float = 0.0):
 		move_direction.x = Input.get_action_strength("right_" + player.getPlayerNumber()) - Input.get_action_strength("left_" + player.getPlayerNumber())
 		move_direction.z = Input.get_action_strength("down_"  + player.getPlayerNumber()) - Input.get_action_strength("up_" + player.getPlayerNumber())
 		
+		if move_direction.length() > 0:
+			move_direction = move_direction.normalized()
+
 		if camera3Dnode:
 			move_direction = move_direction.rotated(Vector3.UP, camera3Dnode.global_rotation.y)
 
@@ -63,6 +65,7 @@ func playerMovement(speedModifier: float = 0.0):
 			velocity.y += 10
 		if(Input.is_action_just_pressed("action2_" + player.getPlayerNumber())):
 			velocity.y -= 10
-		player.velocity = velocity
+
+		player.velocity = velocity 
 		
 		player.move_and_slide()

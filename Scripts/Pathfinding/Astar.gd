@@ -13,6 +13,8 @@ var green_material = StandardMaterial3D.new()
 var purple_material = StandardMaterial3D.new()
 var golden_material = StandardMaterial3D.new()
 var old_points = []
+var player1Position = Vector3.ZERO
+var player2Position = Vector3.ZERO
 
 var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
 var buildingShowObject
@@ -276,7 +278,6 @@ func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumb
 	var obstaclePosition = obstacle.global_position
 	var point_key = world_to_astar(Vector3(obstaclePosition.x + obstacle.comprimento * grid_step, obstaclePosition.y, obstaclePosition.z + obstacle.largura))
 	var obstacle_id
-	print('function move_by_distance')
 	
 	if points.has(point_key):
 		obstacle_id = points[point_key]
@@ -291,17 +292,11 @@ func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumb
 		move_direction.x = Input.get_action_strength("right_" + playerNumber) - Input.get_action_strength("left_" + playerNumber)
 		move_direction.z = Input.get_action_strength("down_"  + playerNumber) - Input.get_action_strength("up_" + playerNumber)
 
-		print(move_direction)
-
 		velocity.x = move_direction.x * speed
 		velocity.z = move_direction.z * speed
 
-		print('velocity: ', velocity)
-		print('obstacle velocity: ', obstacle.velocity)
-
 		obstacle.velocity = velocity
 		obstacle.move_and_slide()
-		
 		
 	
 	if should_reconect_points:
