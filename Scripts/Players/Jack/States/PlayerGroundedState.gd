@@ -30,17 +30,27 @@ func buttonsCheck():
 func dropObstacle(obstacleName: String, spawnPosition: Vector3):
 	SignalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
 
-var _onInteract = func():
+var _onInteractP1 = func():
 	if player.interactableName == 'carro':
 		Transitioned.emit(self, 'PlayerMovingObstacle')
 	else:
-		SignalManager.emitInteractRequest(player.getPlayerNumber())
+		print('interactableFunctionP1 called')
+		SignalManager.emitInteractRequestP1()
+
+var _onInteractP2 = func():
+	if player.interactableName == 'carro':
+		Transitioned.emit(self, 'PlayerMovingObstacle')
+	else:
+		SignalManager.emitInteractRequestP2()
 
 func playerMovement(speedModifier: float = 0.0):
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
 
-	interaction_area.interact(_onInteract)
+	if player.playerNumber == 'p1':
+		interaction_area.interact(_onInteractP1, player.playerNumber)
+	else:
+		interaction_area.interact(_onInteractP2, player.playerNumber)
 	
 	var camera3Dnode = get_tree().get_first_node_in_group("camera")
 	

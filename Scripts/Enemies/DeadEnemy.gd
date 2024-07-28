@@ -11,7 +11,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta: float):
 	if count > 0.5 and should_update_path:
-		update_path(AstarManager.find_path(self.global_transform.origin, AstarManager.player1Position))
+		var dist_to_p1 = global_transform.origin.distance_to(AstarManager.player1Position)
+		var dist_to_p2 = global_transform.origin.distance_to(AstarManager.player2Position)
+
+		if dist_to_p1 < dist_to_p2:
+			update_path(AstarManager.find_path(self.global_transform.origin, AstarManager.player1Position))
+		else:
+			update_path(AstarManager.find_path(self.global_transform.origin, AstarManager.player2Position))
 		count = 0
 	count += delta
 	
