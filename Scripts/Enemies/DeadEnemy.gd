@@ -31,7 +31,6 @@ func _physics_process(delta: float):
 		velocity = dir_to_target * lerp_mult
 		if global_transform.origin.distance_to(current_target) < 1:
 			find_next_point_in_path()
-			print(current_target)
 			if(self.position.y >= current_target[1] + 1.5):
 				should_update_path = false
 				velocity.y += speed

@@ -15,13 +15,11 @@ func registerListner(signalName: String, target: Object, method: String):
 	var callable = Callable(target, method)
 	if not is_connected(signalName, callable):
 		connect(signalName, callable)
-		print('connected signal: ' + signalName + ' to ' + target.name)
 
 func unregisterListner(signalName: String, target: Object, method: String):
 	var callable = Callable(target, method)
 	if is_connected(signalName, callable):
 		disconnect(signalName, callable)
-		print('disconnected signal: ', signalName)
 
 func emitObstacleSpawnRequest(obstacleName: String, obstaclePosition: Vector3):
 	emit_signal("obstacleSpawnRequest", obstacleName, obstaclePosition)
@@ -36,8 +34,6 @@ func emitMoveObstacleRequest(obstacle: Object, should_reconect_points: bool, pla
 	emit_signal("moveObstacleRequest",obstacle, should_reconect_points, playerNumber)
 
 func emitInteractRequest(playerNumber: String = ''):
-	print('emitInteractRequest')
-	print('playerNumber: ', playerNumber)
 	emit_signal("interactRequest", playerNumber)
 
 func emitInteractRequestP1():
