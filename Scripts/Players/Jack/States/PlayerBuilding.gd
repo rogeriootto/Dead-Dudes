@@ -2,12 +2,10 @@ extends PlayerGrounded
 class_name PlayerBuilding
 
 func Enter():
-#	print('entrou em building mode')
 	animControl.play("Tatsu")
 	pass
 	
 func Exit():
-#	print('saiu do building mode')
 	SignalManager.emitShowObstacle(false ,'box1x1', getSpawnPosition(2))
 	pass
 	

@@ -32,7 +32,6 @@ func emitMoveObstacleRequest(obstacle: Object, should_reconect_points: bool, pla
 	emit_signal("moveObstacleRequest",obstacle, should_reconect_points, playerNumber)
 
 func emitInteractRequest(playerNumber: String = ''):
-	print('emitInteractRequest signal manager')
 	emit_signal("interactRequest", playerNumber)
 
 func emitInteractableName(name: String):
