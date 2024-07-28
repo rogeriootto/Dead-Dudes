@@ -4,7 +4,8 @@ signal obstacleSpawnRequest(obstacleName: String, obstaclePosition: Vector3)
 signal showObstacleRequest(obstacleName: String, obstaclePosition: Vector3)
 signal obstacleRemoveRequest(obstaclePosition: Vector3)
 signal interactRequest()
-#signal disconnectAreaRequest(obstacle: Object, comprimento: int, largura: int, altura: int)
+signal moveObstacleRequest(obstacle: Object)
+signal interactableNameRequest(name: String)
 
 func registerListner(signalName: String, target: Object, method: String): 
 	if not has_signal(signalName):
@@ -27,8 +28,14 @@ func emitShowObstacle(showObjectFlag: bool, obstacleName: String, obstaclePositi
 func emitObstacleRemoveRequest(obstacle: StaticBody3D):
 	emit_signal("obstacleRemoveRequest",obstacle)
 
-func emitInteractRequest():
-	emit_signal("interactRequest")
+func emitMoveObstacleRequest(obstacle: Object, should_reconect_points: bool, playerNumber: String = ''):
+	emit_signal("moveObstacleRequest",obstacle, should_reconect_points, playerNumber)
+
+func emitInteractRequest(playerNumber: String = ''):
+	emit_signal("interactRequest", playerNumber)
+
+func emitInteractableName(name: String):
+	emit_signal("interactableNameRequest", name)
 
 #func emitDisconnectAreaRequest(obstacle: Object, comprimento: int, largura: int, altura: int):
 #	emit_signal("disconnectAreaRequest", obstacle, comprimento, largura, altura)

@@ -1,15 +1,20 @@
 extends Node3D
 
 @export var should_draw_cubes := false
+const grid_step := 1.5 #size of the grid's cells
 
 var astar = AStar3D.new()
-const grid_step := 1.5 #size of the grid's cells
+
 var points := {}
 
 var cube_mesh = BoxMesh.new()
 var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
 var purple_material = StandardMaterial3D.new()
+var golden_material = StandardMaterial3D.new()
+var old_points = []
+var player1Position = Vector3.ZERO
+var player2Position = Vector3.ZERO
 
 var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
 var buildingShowObject
@@ -18,6 +23,7 @@ func _ready():
 	red_material.albedo_color = Color.RED
 	green_material.albedo_color = Color.GREEN
 	purple_material.albedo_color = Color.INDIGO
+	golden_material.albedo_color = Color.GOLD
 	cube_mesh.size = Vector3(0.25, 0.25, 0.25)
 	var pathables = get_tree().get_nodes_in_group("pathable")
 	_make_grid(pathables)
@@ -28,7 +34,7 @@ func _ready():
 	SignalManager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
 	SignalManager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
 	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
-#	SignalManager.registerListner('disconnectAreaRequest', self, "disconnect_by_area")
+	SignalManager.registerListner('moveObstacleRequest', self, "move_by_distance")
 
 func _make_grid(pathables: Array):
 	for pathable in pathables:
@@ -59,7 +65,7 @@ func _add_point(point: Vector3):
 #	point.y = grid_y
 	var id = astar.get_available_point_id()
 	
-	#ALTURA HARD CODED ARRUMAR
+	#TODO ALTURA HARD CODED ARRUMAR
 	var astar_weight = 1 + ((point.y -0.5) * 20)
 
 	astar.add_point(id, point, astar_weight)
@@ -87,33 +93,39 @@ func _connect_obstacles(obstacle_group: Array):
 		var obstacle_key = world_to_astar(obstacle.position)
 		var obstacle_id
 		if points.has(obstacle_key):
+			#conecta os tipos caixa. devem ser 1x1x1
 			if obstacle.type == 'caixa':
 				obstacle_id = points[obstacle_key]
 				astar.set_point_disabled(obstacle_id,true)
-				get_child(obstacle_id).material_override = red_material
+				if should_draw_cubes:
+					get_child(obstacle_id).material_override = red_material
 				var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x, obstacle.position.y + grid_step, obstacle.position.z))
 				var above_obstacle_id
 				if points.has(above_obstacle_key):
 					above_obstacle_id = points[above_obstacle_key]
 					astar.set_point_disabled(above_obstacle_id,false)
-					get_child(above_obstacle_id).material_override = green_material
+					if should_draw_cubes:
+						get_child(above_obstacle_id).material_override = green_material
 		
+			#conecta obstaculos maiores que 1x1x1
 			else:
-				for eixo_z in obstacle.comprimento:
+				for eixo_x in obstacle.comprimento:
 					for eixo_y in obstacle.altura:
-						for eixo_x in obstacle.largura:
-							var obstacle_node_key = world_to_astar(Vector3(obstacle.position.x - (grid_step * eixo_x), obstacle.position.y + (grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+						for eixo_z in obstacle.largura:
+							var obstacle_node_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
 							if points.has(obstacle_node_key):
 								obstacle_id = points[obstacle_node_key]
 								astar.set_point_disabled(obstacle_id,true)
-								get_child(obstacle_id).material_override = purple_material
+								if should_draw_cubes:
+									get_child(obstacle_id).material_override = purple_material
 							if eixo_y == obstacle.altura-1:
-								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x - (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
 								var above_obstacle_id
 								if points.has(above_obstacle_key):
 									above_obstacle_id = points[above_obstacle_key]
 									astar.set_point_disabled(above_obstacle_id,false)
-									get_child(above_obstacle_id).material_override = green_material
+									if should_draw_cubes:
+										get_child(above_obstacle_id).material_override = golden_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	
@@ -148,11 +160,11 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO: TIRAR ESSE IF DO CARALHO
-		#if point_position.y < grid_step * 2:
-			#cube.mesh = cube_mesh
-			#cube.material_override = red_material
-		cube.mesh = cube_mesh
-		cube.material_override = red_material
+		if point_position.y < grid_step * 2:
+			cube.mesh = cube_mesh
+			cube.material_override = red_material
+		# cube.mesh = cube_mesh
+		# cube.material_override = red_material
 		add_child(cube)
 #		position.y = grid_y
 		cube.global_transform.origin = point_position
@@ -183,7 +195,8 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 			
 		if not astar.is_point_disabled(obstacle_id):
 			if(above_obstacle_id):
-				get_child(above_obstacle_id).material_override = green_material
+				if should_draw_cubes:
+					get_child(above_obstacle_id).material_override = green_material
 				astar.set_point_disabled(above_obstacle_id, false)
 				
 			var obstacle = obstacleDictionary[obstacleName].instantiate()
@@ -238,10 +251,12 @@ func _on_main_obstacle_should_remove(obstacle: StaticBody3D):
 
 	if astar.is_point_disabled(obstacle_id):
 		if(above_obstacle_id):
-			get_child(above_obstacle_id).material_override = red_material
+			if should_draw_cubes:
+				get_child(above_obstacle_id).material_override = red_material
 			astar.set_point_disabled(above_obstacle_id, true)
 		astar.set_point_disabled(obstacle_id, false)
-		get_child(obstacle_id).material_override = purple_material
+		if should_draw_cubes:
+			get_child(obstacle_id).material_override = purple_material
 		obstacle.queue_free()
 
 func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
@@ -266,8 +281,74 @@ func sort_by_y(arrayToSort: Array):
 	arrayToSort.sort_custom(_compare_y_position)
 	return arrayToSort
 
-func disconnect_by_area(obstacle: Object, comprimento: int, largura: int, altura: int):
-	print("object pos : ", obstacle.position)
+func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumber: String):
+	var obstaclePosition = obstacle.global_position
+	var point_key = world_to_astar(Vector3(obstaclePosition.x + obstacle.comprimento * grid_step, obstaclePosition.y, obstaclePosition.z + obstacle.largura))
+	var obstacle_id
+	
+	if points.has(point_key):
+		obstacle_id = points[point_key]
+	else:
+		return
+
+	if self.old_points.size() != 0:
+		var speed = 2.0
+		var velocity = Vector3.ZERO
+		var move_direction = Vector3.ZERO
+
+		move_direction.x = Input.get_action_strength("right_" + playerNumber) - Input.get_action_strength("left_" + playerNumber)
+		move_direction.z = Input.get_action_strength("down_"  + playerNumber) - Input.get_action_strength("up_" + playerNumber)
+
+		velocity.x = move_direction.x * speed
+		velocity.z = move_direction.z * speed
+
+		obstacle.velocity = velocity
+		obstacle.move_and_slide()
+		
+	
+	if should_reconect_points:
+		if self.old_points.size() != 0:
+			for old_point_key in self.old_points:
+				if points.has(old_point_key):
+					var pos_str = old_point_key.split(",")
+					var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
+					#TODO vai dar ruim em algum ponto acho	
+					if world_pos[1] < grid_step:
+						astar.set_point_disabled(points[old_point_key], false)
+						if should_draw_cubes:
+							get_child(points[old_point_key]).material_override = green_material
+					elif not astar.is_point_disabled(points[old_point_key]):
+						astar.set_point_disabled(points[old_point_key], true)
+						if should_draw_cubes:
+							get_child(points[old_point_key]).material_override = red_material
+					
+			self.old_points = []
+
+		for eixo_x in obstacle.comprimento:
+			for eixo_y in obstacle.altura + 1:
+				for eixo_z in obstacle.largura:
+					#salva os velhos
+					self.old_points.append(world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z))))
+					
+					#reconecta os pontos
+					if eixo_y < obstacle.altura:
+						var obstacle_node_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+						if points.has(obstacle_node_key):
+							obstacle_id = points[obstacle_node_key]
+							astar.set_point_disabled(obstacle_id,true)
+							if should_draw_cubes:
+								get_child(obstacle_id).material_override = purple_material
+						if eixo_y == obstacle.altura-1:
+							var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+							var above_obstacle_id
+							if points.has(above_obstacle_key):
+								above_obstacle_id = points[above_obstacle_key]
+								astar.set_point_disabled(above_obstacle_id,false)
+								if should_draw_cubes:
+									get_child(above_obstacle_id).material_override = golden_material
+	
+	#mover o objeto
+	
 	pass
 # a funcao era chamada assim		
 #	var adjacent_points = _get_obstacle_adjacent_points(Vector3(obstaclePosition.x,obstaclePosition.y + grid_step, obstaclePosition.z))

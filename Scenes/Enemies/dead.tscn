@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://6s7mtctrg5sp"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/DeadEnemy.gd" id="1_8g46f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xorsv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4prna"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lyth3"]
+material = SubResource("StandardMaterial3D_4prna")
+
+[node name="Dead" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50027, 0)
+script = ExtResource("1_8g46f")
+lerp_mult = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xorsv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_lyth3")

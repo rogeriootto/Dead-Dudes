@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bonxjlt4ysdp4"]
+
+[ext_resource type="Script" path="res://Scripts/Pathfinding/Astar.gd" id="1_m48c0"]
+
+[node name="Astar" type="Node3D"]
+script = ExtResource("1_m48c0")
+should_draw_cubes = true
