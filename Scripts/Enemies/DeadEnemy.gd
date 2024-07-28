@@ -4,13 +4,13 @@ extends CharacterBody3D
 var path := []
 var current_target := Vector3.INF
 var current_velocity := Vector3.ZERO
-var speed := 3.0
+var speed := 10
 var count = 0
-
+var should_update_path:bool = true
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta: float):
-	if count > 0.5:
+	if count > 0.5 and should_update_path:
 		update_path(AstarManager.find_path(self.global_transform.origin, AstarManager.player1Position))
 		count = 0
 	count += delta
@@ -23,9 +23,16 @@ func _physics_process(delta: float):
 	if current_target != Vector3.INF:
 		var dir_to_target = global_transform.origin.direction_to(current_target).normalized()
 		velocity = dir_to_target * lerp_mult
-		if global_transform.origin.distance_to(current_target) < 1.0:
+		if global_transform.origin.distance_to(current_target) < 1:
 			find_next_point_in_path()
+			print(current_target)
+			if(self.position.y >= current_target[1] + 1.5):
+				should_update_path = false
+				velocity.y += speed
+				move_and_slide()
+			
 	else:
+		#TODO Colocar aqui o comportamento do zumbi quando ele não encontra um caminho
 		velocity = lerp(velocity, Vector3.ZERO, lerp_weight)
 	move_and_slide()
 
@@ -34,6 +41,8 @@ func find_next_point_in_path():
 	if path.size() > 0:
 		var new_target = path.pop_front()
 		current_target = new_target
+		if is_on_floor():
+			should_update_path = true
 	else:
 		current_target = Vector3.INF
 

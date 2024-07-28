@@ -39,7 +39,6 @@ func _ready():
 func _make_grid(pathables: Array):
 	for pathable in pathables:
 		var mesh = pathable.get_node("MeshInstance3D")
-#		var aabb: AABB = mesh.get_transformed_aabb()   isso era usado no godot 3
 		var aabb: AABB = mesh.global_transform * mesh.get_aabb() 
 
 		var start_point = aabb.position
@@ -55,22 +54,21 @@ func _make_grid(pathables: Array):
 		
 		for x in x_steps:
 #			for y in y_steps:
-			for y in 3:
+			for y in 5:
 				for z in z_steps:
-					
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)
 				
 func _add_point(point: Vector3):
 #	point.y = grid_y
 	var id = astar.get_available_point_id()
-	
 	#TODO ALTURA HARD CODED ARRUMAR
-	var astar_weight = 1 + ((point.y -0.5) * 20)
+	var astar_weight = 1 + ((point.y -0.5) * 10)
 
 	astar.add_point(id, point, astar_weight)
 	points[world_to_astar(point)] = id
 	_create_nav_cube(point)
+	
 
 func _connect_points():
 	for point in points:
@@ -78,7 +76,7 @@ func _connect_points():
 		var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
 		var adjacent_points = _get_adjacent_points(world_pos)
 		var current_id = points[point]
-		if(world_pos[1] >= 1.5):
+		if(world_pos[1] >= 3):
 			astar.set_point_disabled(current_id,1)
 
 		for neighbor_id in adjacent_points:
@@ -87,6 +85,13 @@ func _connect_points():
 				if should_draw_cubes && not astar.is_point_disabled(current_id):
 					get_child(current_id).material_override = green_material
 #					get_child(neighbor_id).material_override = green_material
+
+		# conecta os pontos inferiores de pontos altos unilateralmente
+		if world_pos[1] > 3.5:
+			var adjacent_lower_points = _get_adjacent_lower_points(world_pos)
+			for neighbor_id in adjacent_lower_points:
+				if not astar.are_points_connected(current_id, neighbor_id):
+					astar.connect_points(current_id, neighbor_id, false)
 
 func _connect_obstacles(obstacle_group: Array):
 	for obstacle in obstacle_group:
@@ -145,6 +150,27 @@ func _get_adjacent_points(world_point: Vector3) -> Array:
 					adjacent_points.append(points[potential_neighbor])
 	return adjacent_points
 
+func _get_adjacent_lower_points(world_point: Vector3) -> Array:
+	
+	var adjacent_lower_points = []
+	var search_coords = [-grid_step, 0, grid_step]
+	var height_coords = []
+	var height = world_point[1]/grid_step
+	while (height > 1):
+		height = height - 1
+		height_coords.append(height * (-grid_step))
+	
+	for y in height_coords:
+		for x in search_coords:
+			for z in search_coords:
+				if x == 0 and z == 0:
+					continue
+				var search_offset = Vector3(x, y, z)
+				var potential_neighbor = world_to_astar(world_point + search_offset)
+				if points.has(potential_neighbor):
+					adjacent_lower_points.append(points[potential_neighbor])
+	return adjacent_lower_points
+
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
@@ -154,7 +180,7 @@ func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
 	var y = snapped(world.y, grid_step)
 	var z = snapped(world.z, grid_step)
-	return "%d,%d,%d" % [x, y, z]	
+	return "%.1f,%.1f,%.1f" % [x, y, z]	
 
 func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
@@ -163,8 +189,8 @@ func _create_nav_cube(point_position: Vector3):
 		if point_position.y < grid_step * 2:
 			cube.mesh = cube_mesh
 			cube.material_override = red_material
-		# cube.mesh = cube_mesh
-		# cube.material_override = red_material
+		#cube.mesh = cube_mesh
+		#cube.material_override = red_material
 		add_child(cube)
 #		position.y = grid_y
 		cube.global_transform.origin = point_position
