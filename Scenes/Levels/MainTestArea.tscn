@@ -61,6 +61,132 @@ shadow_blur = 0.289
 [node name="obstacle4" parent="." instance=ExtResource("4_ngilo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.441, 1.5, 11.6105)
 
-[node name="Dead" parent="." instance=ExtResource("5_5lgff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1102, 6.57542, 11.6435)
+[node name="Zombies" type="Node" parent="."]
+
+[node name="Dead" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1102, 1.6604, 3.41171)
+lerp_mult = 4.0
+
+[node name="Dead2" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608327, 1.8715, 2.9606)
+lerp_mult = 4.0
+
+[node name="Dead3" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83613, 1.6604, 3.41171)
+lerp_mult = 4.0
+
+[node name="Dead4" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.338, 1.8715, 2.9606)
+lerp_mult = 4.0
+
+[node name="Dead5" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1102, 1.6604, 6.3265)
+lerp_mult = 4.0
+
+[node name="Dead6" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608327, 1.8715, 5.8754)
+lerp_mult = 4.0
+
+[node name="Dead7" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83613, 1.6604, 6.3265)
+lerp_mult = 4.0
+
+[node name="Dead8" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.338, 1.8715, 5.8754)
+lerp_mult = 4.0
+
+[node name="Dead9" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1102, 1.6604, -1.55208)
+lerp_mult = 4.0
+
+[node name="Dead10" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608327, 1.8715, -2.00319)
+lerp_mult = 4.0
+
+[node name="Dead11" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83613, 1.6604, -1.55208)
+lerp_mult = 4.0
+
+[node name="Dead12" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.338, 1.8715, -2.00319)
+lerp_mult = 4.0
+
+[node name="Dead13" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1102, 1.6604, 1.36271)
+lerp_mult = 4.0
+
+[node name="Dead14" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608327, 1.8715, 0.911607)
+lerp_mult = 4.0
+
+[node name="Dead15" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83613, 1.6604, 1.36271)
+lerp_mult = 4.0
+
+[node name="Dead16" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.338, 1.8715, 0.911607)
+lerp_mult = 4.0
+
+[node name="Dead17" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44155, 1.6604, 3.41171)
+lerp_mult = 4.0
+
+[node name="Dead18" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94342, 1.8715, 2.9606)
+lerp_mult = 4.0
+
+[node name="Dead19" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.38788, 1.6604, 3.41171)
+lerp_mult = 4.0
+
+[node name="Dead20" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8897, 1.8715, 2.9606)
+lerp_mult = 4.0
+
+[node name="Dead21" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44155, 1.6604, 6.3265)
+lerp_mult = 4.0
+
+[node name="Dead22" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94342, 1.8715, 5.8754)
+lerp_mult = 4.0
+
+[node name="Dead23" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.38788, 1.6604, 6.3265)
+lerp_mult = 4.0
+
+[node name="Dead24" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8897, 1.8715, 5.8754)
+lerp_mult = 4.0
+
+[node name="Dead25" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44155, 1.6604, -1.55208)
+lerp_mult = 4.0
+
+[node name="Dead26" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94342, 1.8715, -2.00319)
+lerp_mult = 4.0
+
+[node name="Dead27" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.38788, 1.6604, -1.55208)
+lerp_mult = 4.0
+
+[node name="Dead28" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8897, 1.8715, -2.00319)
+lerp_mult = 4.0
+
+[node name="Dead29" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44155, 1.6604, 1.36271)
+lerp_mult = 4.0
+
+[node name="Dead30" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94342, 1.8715, 0.911607)
+lerp_mult = 4.0
+
+[node name="Dead31" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.38788, 1.6604, 1.36271)
+lerp_mult = 4.0
+
+[node name="Dead32" parent="Zombies" instance=ExtResource("5_5lgff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8897, 1.8715, 0.911607)
 lerp_mult = 4.0

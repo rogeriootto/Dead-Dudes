@@ -3,7 +3,9 @@ extends Node3D
 signal obstacleSpawnRequest(obstacleName: String, obstaclePosition: Vector3)
 signal showObstacleRequest(obstacleName: String, obstaclePosition: Vector3)
 signal obstacleRemoveRequest(obstaclePosition: Vector3)
-signal interactRequest()
+signal interactRequest(playerNumber: String)
+signal interactRequestP1()
+signal interactRequestP2()
 signal moveObstacleRequest(obstacle: Object)
 signal interactableNameRequest(name: String)
 
@@ -34,8 +36,14 @@ func emitMoveObstacleRequest(obstacle: Object, should_reconect_points: bool, pla
 func emitInteractRequest(playerNumber: String = ''):
 	emit_signal("interactRequest", playerNumber)
 
-func emitInteractableName(name: String):
-	emit_signal("interactableNameRequest", name)
+func emitInteractRequestP1():
+	emit_signal("interactRequestP1", 'p1')
+
+func emitInteractRequestP2():
+	emit_signal("interactRequestP2", 'p2')
+
+func emitInteractableName(obstacleName: String):
+	emit_signal("interactableNameRequest", obstacleName)
 
 #func emitDisconnectAreaRequest(obstacle: Object, comprimento: int, largura: int, altura: int):
 #	emit_signal("disconnectAreaRequest", obstacle, comprimento, largura, altura)
