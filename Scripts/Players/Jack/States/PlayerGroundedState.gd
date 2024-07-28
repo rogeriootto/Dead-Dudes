@@ -34,7 +34,6 @@ var _onInteractP1 = func():
 	if player.interactableName == 'carro':
 		Transitioned.emit(self, 'PlayerMovingObstacle')
 	else:
-		print('interactableFunctionP1 called')
 		SignalManager.emitInteractRequestP1()
 
 var _onInteractP2 = func():
