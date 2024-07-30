@@ -186,11 +186,11 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO: TIRAR ESSE IF DO CARALHO
-		if point_position.y < grid_step * 2:
-			cube.mesh = cube_mesh
-			cube.material_override = red_material
-		#cube.mesh = cube_mesh
-		#cube.material_override = red_material
+		#if point_position.y < grid_step * 2:
+			#cube.mesh = cube_mesh
+			#cube.material_override = red_material
+		cube.mesh = cube_mesh
+		cube.material_override = red_material
 		add_child(cube)
 #		position.y = grid_y
 		cube.global_transform.origin = point_position
@@ -339,7 +339,7 @@ func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumb
 					var pos_str = old_point_key.split(",")
 					var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
 					#TODO vai dar ruim em algum ponto acho	
-					if world_pos[1] < grid_step:
+					if world_pos[1] <= grid_step:
 						astar.set_point_disabled(points[old_point_key], false)
 						if should_draw_cubes:
 							get_child(points[old_point_key]).material_override = green_material
