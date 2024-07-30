@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=10 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
@@ -12,6 +12,12 @@ size = Vector3(30, 1.5, 30)
 [sub_resource type="BoxMesh" id="BoxMesh_sqsrc"]
 size = Vector3(30, 1.5, 30)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mopbj"]
+size = Vector3(15, 1.5, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gp31f"]
+size = Vector3(15, 1.5, 15)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
 player1SpawnPoint = Vector3(1, 0, 1)
@@ -23,6 +29,15 @@ shape = SubResource("BoxShape3D_g7o0f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_sqsrc")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.508, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_mopbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_gp31f")
 
 [node name="cubo de baixo" parent="." instance=ExtResource("4_ngilo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 1.5, 14.25)

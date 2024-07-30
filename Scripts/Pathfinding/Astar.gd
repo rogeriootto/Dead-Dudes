@@ -207,9 +207,13 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 
 		var point_key = world_to_astar(obstaclePosition)
 		var obstacle_id
-
+		var pos_str:PackedStringArray
+		var world_pos:Vector3
+		
 		if points.has(point_key):
 			obstacle_id = points[point_key]
+			pos_str = point_key.split(",")
+			world_pos = Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
 		else:
 			return
 
@@ -218,7 +222,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 		
 		if points.has(above_obstacle_key):
 			above_obstacle_id = points[above_obstacle_key]
-			
+
 		if not astar.is_point_disabled(obstacle_id):
 			if(above_obstacle_id):
 				if should_draw_cubes:
@@ -226,7 +230,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 				astar.set_point_disabled(above_obstacle_id, false)
 				
 			var obstacle = obstacleDictionary[obstacleName].instantiate()
-			obstacle.position = obstaclePosition
+			obstacle.position = world_pos
 			add_child(obstacle)
 			obstacle.add_to_group("obstacle")	
 			
