@@ -27,9 +27,6 @@ func buttonsCheck():
 	if Input.is_action_just_pressed("buildingMode_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerBuilding')
 
-func dropObstacle(obstacleName: String, spawnPosition: Vector3):
-	SignalManager.emitObstacleSpawnRequest(obstacleName, spawnPosition)
-
 var _onInteractP1 = func():
 	if player.interactableName == 'carro':
 		Transitioned.emit(self, 'PlayerMovingObstacle')

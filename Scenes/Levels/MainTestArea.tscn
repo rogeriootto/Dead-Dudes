@@ -1,19 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=6 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="3_huhms"]
+[ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="4_54jyd"]
+[ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="5_ks407"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
 player1SpawnPoint = Vector3(1, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
+transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999999, 0, -0.999999, -4.37113e-08, 10, 10, 10)
 projection = 1
 size = 17.495
 script = ExtResource("2_bim0t")
-offset = Vector3(10, 10, 10)
+offset = Vector3(0, 20, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.680811, 0.73246, 0, -0.73246, 0.680811, 0, 0, 0)
@@ -24,4 +26,25 @@ shadow_blur = 0.289
 [node name="Road1" parent="." instance=ExtResource("3_huhms")]
 
 [node name="Road2" parent="." instance=ExtResource("3_huhms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37.8041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37.5)
+
+[node name="obstacle" parent="." instance=ExtResource("4_54jyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76491, 1.81716, 8.30686)
+
+[node name="obstacle2" parent="." instance=ExtResource("4_54jyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35108, 1.98582, 12.2528)
+
+[node name="obstacle3" parent="." instance=ExtResource("4_54jyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97391, 1.67864, -24.0396)
+
+[node name="obstacle4" parent="." instance=ExtResource("4_54jyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94094, 1.25007, 1.2003)
+
+[node name="Road3" parent="." instance=ExtResource("3_huhms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33581, 0, 38.0183)
+
+[node name="obstacle5" parent="." instance=ExtResource("4_54jyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54589, 1.98345, 28.8489)
+
+[node name="policeCar" parent="." instance=ExtResource("5_ks407")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 3.04857, 0.78349, 20.4856)

@@ -62,16 +62,16 @@ altura = 2
 type = "carro"
 
 [node name="Untitled" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.083, 0, 0, 0, -4.73394e-08, -1.083, 0, 1.083, -4.73394e-08, 1.25, -0.5, 0.878827)
+transform = Transform3D(1.083, 0, 0, 0, -4.73394e-08, -1.083, 0, 1.083, -4.73394e-08, 1.65032, -0.5, 0.643225)
 mesh = SubResource("ArrayMesh_g4j1b")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 1.25, 0.25, 0.854795)
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 1.65032, 0.25, 0.619193)
 shape = SubResource("BoxShape3D_j8onb")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_k3hfn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, -0.5, 0.878827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65032, -0.5, 0.643225)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70578, 0.548734, -0.0692682)
