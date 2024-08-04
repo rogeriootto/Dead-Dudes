@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfa1awmpwg1u4"]
+[gd_scene load_steps=9 format=3 uid="uid://bfa1awmpwg1u4"]
 
 [ext_resource type="ArrayMesh" uid="uid://b4eyvmjfq2r6n" path="res://Assets/Models/Road/road1.obj" id="1_p617w"]
 [ext_resource type="Texture2D" uid="uid://dbcwwaragj02o" path="res://Assets/Models/Road/Texture/roads.png" id="1_qw4kw"]
+[ext_resource type="PackedScene" uid="uid://huwyyumt2jdp" path="res://Scenes/Objects/Road/sideWalk.tscn" id="3_ng52y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cpm7"]
 albedo_texture = ExtResource("1_qw4kw")
@@ -17,6 +18,9 @@ albedo_color = Color(1, 1, 1, 0)
 material = SubResource("StandardMaterial3D_k3d8a")
 size = Vector3(18, 1.5, 37.5)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p4pen"]
+points = PackedVector3Array(0.06, 0, -19, 0.06, 0, 19, 0.06, 0.4, 19, 0.06, 0.4, -19, 1, 0, 19, 1, 0, -19)
+
 [node name="Road1" type="StaticBody3D" groups=["pathable"]]
 
 [node name="Road" type="MeshInstance3D" parent="."]
@@ -30,3 +34,17 @@ shape = SubResource("BoxShape3D_dld1a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_mwehf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96164, 0.794706, 0.0149536)
+shape = SubResource("ConvexPolygonShape3D_p4pen")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.981, 0.795, 0)
+shape = SubResource("ConvexPolygonShape3D_p4pen")
+
+[node name="Sidewalk" parent="." instance=ExtResource("3_ng52y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.234, 0.005, 0)
+
+[node name="Sidewalk2" parent="." instance=ExtResource("3_ng52y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.116, 0.005, 0)
