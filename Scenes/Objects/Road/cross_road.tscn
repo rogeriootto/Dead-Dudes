@@ -1,0 +1,173 @@
+[gd_scene load_steps=15 format=3 uid="uid://d16e4fp48se7t"]
+
+[ext_resource type="ArrayMesh" uid="uid://tk7qhxlbl5ro" path="res://Assets/Models/Road/road4.obj" id="1_0j7e8"]
+[ext_resource type="Texture2D" uid="uid://dbcwwaragj02o" path="res://Assets/Models/Road/Texture/roads.png" id="1_i2emy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53bp5"]
+albedo_texture = ExtResource("1_i2emy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3d8a"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifwak"]
+material = SubResource("StandardMaterial3D_k3d8a")
+size = Vector3(18, 1.5, 51)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhlon"]
+size = Vector3(17.8447, 1, 50.8147)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1hhpf"]
+material = SubResource("StandardMaterial3D_k3d8a")
+size = Vector3(16.5, 1.5, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rg1rm"]
+size = Vector3(17.8447, 1, 16.015)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68w7j"]
+albedo_color = Color(0.266667, 0.266667, 0.266667, 0.309804)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o7sk4"]
+material = SubResource("StandardMaterial3D_68w7j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywpsa"]
+size = Vector3(5.54102, 1, 12.0244)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hoa0g"]
+material = SubResource("StandardMaterial3D_68w7j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ol4bt"]
+size = Vector3(16.0441, 1, 5.21533)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0n5g"]
+size = Vector3(15.6177, 1, 4.75684)
+
+[node name="CrossRoad" type="Node3D"]
+
+[node name="Road4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.944981, 0, 0, 0, 0.416027, 0, 0, 0, 0.97063, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_53bp5")
+mesh = ExtResource("1_0j7e8")
+
+[node name="Mesh1" type="StaticBody3D" parent="." groups=["pathable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh1"]
+visible = false
+mesh = SubResource("BoxMesh_ifwak")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh1"]
+transform = Transform3D(1.00741, 0, 0, 0, 1.00741, 0, 0, 0, 1.00741, 0, 0, 0)
+shape = SubResource("BoxShape3D_lhlon")
+
+[node name="Mesh2" type="StaticBody3D" parent="." groups=["pathable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8999, 0, 0)
+mesh = SubResource("BoxMesh_1hhpf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh2"]
+transform = Transform3D(-4.40353e-08, 0, 1.00741, 0, 1.00741, 0, -1.00741, 0, -4.40353e-08, -16.9756, 0, 7.42027e-07)
+shape = SubResource("BoxShape3D_rg1rm")
+
+[node name="Mesh3" type="StaticBody3D" parent="." groups=["pathable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9, 0, 0)
+mesh = SubResource("BoxMesh_1hhpf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Mesh3"]
+transform = Transform3D(-4.40353e-08, 0, 1.00741, 0, 1.00741, 0, -1.00741, 0, -4.40353e-08, 16.976, 0, 0)
+shape = SubResource("BoxShape3D_rg1rm")
+
+[node name="Sidewalk1" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1758, 0.0657808, -19.6942)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk1"]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 12, 0.926368, 0, 0)
+mesh = SubResource("BoxMesh_o7sk4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224613, 0, 0)
+shape = SubResource("BoxShape3D_ywpsa")
+
+[node name="Sidewalk2" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -17.3727, 0.0657808, -11.6767)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk2"]
+transform = Transform3D(-1.96701e-07, 0, 15, 0, 1, 0, -4.5, 0, -6.55671e-07, 0, 0, 0)
+mesh = SubResource("BoxMesh_hoa0g")
+skeleton = NodePath("../../Sidewalk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362488, 0, -0.085083)
+shape = SubResource("BoxShape3D_ol4bt")
+
+[node name="Sidewalk3" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7939, 0.0657808, -19.723)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk3"]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 12, 0.351501, 0, 0)
+mesh = SubResource("BoxMesh_hoa0g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk3"]
+shape = SubResource("BoxShape3D_ywpsa")
+
+[node name="Sidewalk4" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1077, 0.0657808, -11.4853)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk4"]
+transform = Transform3D(-1.96701e-07, 0, 15, 0, 1, 0, -4.5, 0, -6.55671e-07, 0, 0, 0)
+mesh = SubResource("BoxMesh_hoa0g")
+skeleton = NodePath("../../Sidewalk3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.292725, 0, 0.144165)
+shape = SubResource("BoxShape3D_y0n5g")
+
+[node name="Sidewalk5" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1758, 0.0657808, 19.7139)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk5"]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 12, 0.926368, 0, 0)
+mesh = SubResource("BoxMesh_o7sk4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224613, 0, 0)
+shape = SubResource("BoxShape3D_ywpsa")
+
+[node name="Sidewalk6" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7939, 0.0657808, 19.6851)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk6"]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 12, 0.351501, 0, 0)
+mesh = SubResource("BoxMesh_hoa0g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk6"]
+shape = SubResource("BoxShape3D_ywpsa")
+
+[node name="Sidewalk7" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -17.3727, 0.0657808, 11.5209)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk7"]
+transform = Transform3D(-1.96701e-07, 0, 15, 0, 1, 0, -4.5, 0, -6.55671e-07, 0, 0, 0)
+mesh = SubResource("BoxMesh_hoa0g")
+skeleton = NodePath("../../Sidewalk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362488, 0, -0.085083)
+shape = SubResource("BoxShape3D_ol4bt")
+
+[node name="Sidewalk8" type="StaticBody3D" parent="." groups=["pathable"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 17.4704, 0.0657808, 11.5209)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sidewalk8"]
+transform = Transform3D(-1.96701e-07, 0, 15, 0, 1, 0, -4.5, 0, -6.55671e-07, 0, 0, 0)
+mesh = SubResource("BoxMesh_hoa0g")
+skeleton = NodePath("../../Sidewalk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362488, 0, -0.085083)
+shape = SubResource("BoxShape3D_ol4bt")

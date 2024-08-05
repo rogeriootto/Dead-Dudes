@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=6 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="3_huhms"]
 [ext_resource type="PackedScene" uid="uid://6s7mtctrg5sp" path="res://Scenes/Enemies/dead.tscn" id="5_b5t6g"]
+[ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="5_q8l14"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
@@ -17,7 +18,7 @@ script = ExtResource("2_bim0t")
 offset = Vector3(10, 10, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.680811, 0.73246, 0, -0.73246, 0.680811, 0, 0, 0)
+transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672447, 0.625029, 0, 0, 0)
 light_energy = 2.055
 shadow_enabled = true
 shadow_blur = 0.289
@@ -27,19 +28,10 @@ shadow_blur = 0.289
 [node name="Road1" parent="Pathables" instance=ExtResource("3_huhms")]
 
 [node name="Road2" parent="Pathables" instance=ExtResource("3_huhms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37.8149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89)
 
-[node name="Road3" parent="Pathables" instance=ExtResource("3_huhms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 37.7865)
-
-[node name="Road4" parent="Pathables" instance=ExtResource("3_huhms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -113.356)
-
-[node name="Road5" parent="Pathables" instance=ExtResource("3_huhms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -151.171)
-
-[node name="Road6" parent="Pathables" instance=ExtResource("3_huhms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75.5694)
+[node name="CrossRoad" parent="Pathables" instance=ExtResource("5_q8l14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, -44.482)
 
 [node name="Dead" parent="." instance=ExtResource("5_b5t6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0809612, 2.50028, -6.05648)
