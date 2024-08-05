@@ -100,12 +100,20 @@ func _connect_obstacles(obstacle_group: Array):
 	
 	for obstacle in obstacle_group:
 		obstacle.position = scene_to_grid(obstacle.position)
+		print('obstacle ', obstacle)
+		print('obstacle.position ', obstacle.position)
+		print('scene_to_grid(obstacle.position) ', scene_to_grid(obstacle.position))
 		obstacle_key = world_to_astar(obstacle.position)
+		print('obstacle_key ', obstacle_key)
 		if points.has(obstacle_key):
 			#conecta os tipos caixa. devem ser 1x1x1
 			if obstacle.type == 'caixa':
 				obstacle_id = points[obstacle_key]
+				print('obstacle_id ', obstacle_id)
 				astar.set_point_disabled(obstacle_id,true)
+				print('obstacle_id ', obstacle_id)
+				print('get_child(obstacle_id) ', get_child(obstacle_id))
+				print('get_child(obstacle_id).global_position ', get_child(obstacle_id).global_position)
 				obstacle.global_position = get_child(obstacle_id).global_position
 				
 				if should_draw_cubes:
@@ -245,12 +253,12 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 			
 			if should_draw_cubes:
 				get_child(obstacle_id).material_override = red_material
-				print(get_child(obstacle_id).global_position)
 
 func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
 
 	if !buildingShowObject:
 		buildingShowObject = obstacleDictionary[obstacleName].instantiate()
+		buildingShowObject.get_node("InteractionArea").can_interact = false
 		add_child(buildingShowObject)
 		buildingShowObject.get_node("CollisionShape3D").disabled = true
 

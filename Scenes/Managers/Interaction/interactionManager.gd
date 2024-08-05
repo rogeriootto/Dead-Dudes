@@ -2,9 +2,7 @@ extends Node3D
 
 @onready var p1 = get_tree().get_first_node_in_group("p1")
 @onready var p2 = get_tree().get_first_node_in_group("p2")
-@onready var label = $Label3D
 
-const base_text = "Interaction Button"
 var p1_active_areas = []
 var p2_active_areas = []
 var p1_can_interact = true
@@ -27,58 +25,57 @@ func unregister_area(area: InteractionArea, playerNumber: String):
 		var index = p1_active_areas.find(area)
 		if index != -1:
 			SignalManager.unregisterListner("interactRequestP1", p1_active_areas[index].get_parent_node_3d(), "interact")
-			SignalManager.emitInteractableName('')
+			SignalManager.emitInteractableNameP1('')
 			p1_active_areas.remove_at(index)
 	else:
 		var index = p2_active_areas.find(area)
 		if index != -1:
 			SignalManager.unregisterListner("interactRequestP2", p2_active_areas[index].get_parent_node_3d(), "interact")
-			SignalManager.emitInteractableName('')
+			SignalManager.emitInteractableNameP2('')
+			p2_active_areas.remove_at(index)
 
 func _process(delta):
 	if (p1 == null and p2 == null) :
 		p1 = get_tree().get_first_node_in_group("p1")
 		p2 = get_tree().get_first_node_in_group("p2")
 		return
+	
+	print('p1_active_areas: ', p1_active_areas)
+	print('p1 interactable name ', p1.interactableName)
 
 	if p1_active_areas.size() > 0 && p1_can_interact:
-		p1_active_areas.sort_custom(_sortByDistanceToPlayer)
-		label.text = base_text + p1_active_areas[0].action_name
-		label.global_position = p1_active_areas[0].global_position + Vector3(0, 5, 0)
+		p1_active_areas.sort_custom(_sortByDistanceToPlayer1)
 		SignalManager.registerListner("interactRequestP1", p1_active_areas[0].get_parent_node_3d(), "interact")
-		SignalManager.emitInteractableName(p1_active_areas[0].get_parent_node_3d().type)
-		label.show()
-	else:
-		label.hide()
+		SignalManager.emitInteractableNameP1(p1_active_areas[0].get_parent_node_3d().type)
 	
 	if p2_active_areas.size() > 0 && p2_can_interact:
-		p2_active_areas.sort_custom(_sortByDistanceToPlayer)
-		label.text = base_text + p2_active_areas[0].action_name
-		label.global_position = p2_active_areas[0].global_position + Vector3(0, 5, 0)
+		p2_active_areas.sort_custom(_sortByDistanceToPlayer2)
 		SignalManager.registerListner("interactRequestP2", p2_active_areas[0].get_parent_node_3d(), "interact")
-		SignalManager.emitInteractableName(p2_active_areas[0].get_parent_node_3d().type)
-		label.show()
-	else:
-		label.hide()
+		SignalManager.emitInteractableNameP2(p2_active_areas[0].get_parent_node_3d().type)
 
-func _sortByDistanceToPlayer(area1, area2):
+func _sortByDistanceToPlayer1(area1, area2):
 	if area1 == null or area2 == null or area1.global_position == null or area2.global_position == null or p1 == null or p1.global_position == null:
 		return
 	var distance1 = p1.global_position.distance_to(area1.global_position)
 	var distance2 = p1.global_position.distance_to(area2.global_position)
 	return distance1 < distance2
 
+func _sortByDistanceToPlayer2(area1, area2):
+	if area1 == null or area2 == null or area1.global_position == null or area2.global_position == null or p2 == null or p2.global_position == null:
+		return
+	var distance1 = p2.global_position.distance_to(area1.global_position)
+	var distance2 = p2.global_position.distance_to(area2.global_position)
+	return distance1 < distance2
+
 func _input(event):
 	if event.is_action_pressed("interact_p1") && p1_can_interact:
 		if p1_active_areas.size() > 0:
 			p1_can_interact = false
-			label.hide()
 			interactableFunctionP1.call()
 			p1_can_interact = true
 	
 	if event.is_action_pressed("interact_p2") && p2_can_interact:
 		if p2_active_areas.size() > 0:	
 			p2_can_interact = false
-			label.hide()
 			interactableFunctionP2.call()
 			p2_can_interact = true

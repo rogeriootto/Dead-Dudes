@@ -3,10 +3,12 @@ class_name PlayerBuilding
 
 func Enter():
 	animControl.play("Tatsu")
+	interaction_area.can_interact = false
 	pass
 	
 func Exit():
 	SignalManager.emitShowObstacle(false ,'box1x1', getSpawnPosition(3))
+	interaction_area.can_interact = true
 	pass
 	
 func Update(delta: float):
