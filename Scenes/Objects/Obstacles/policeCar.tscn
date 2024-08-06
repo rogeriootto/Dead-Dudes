@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnq44767neap2"]
+[gd_scene load_steps=8 format=3 uid="uid://bnq44767neap2"]
 
-[ext_resource type="Texture2D" uid="uid://yqkk2vbl1h8o" path="res://Assets/Models/Obstacles/policeCar_cars.png" id="1_62jgd"]
 [ext_resource type="Script" path="res://Scenes/Objects/Obstacles/policeCar.gd" id="1_rymtv"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="3_k3hfn"]
 
@@ -8,7 +7,6 @@
 resource_name = "palette"
 cull_mode = 2
 albedo_color = Color(1, 1, 1, 0.32549)
-albedo_texture = ExtResource("1_62jgd")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_652cb"]
 _surfaces = [{
