@@ -1,21 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="3_huhms"]
 [ext_resource type="PackedScene" uid="uid://6s7mtctrg5sp" path="res://Scenes/Enemies/dead.tscn" id="5_b5t6g"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="5_q8l14"]
+[ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="6_veqvt"]
+[ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="7_qwuxr"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
 player1SpawnPoint = Vector3(1, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
-projection = 1
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 10, 10, 10)
 size = 14.402
 script = ExtResource("2_bim0t")
-offset = Vector3(10, 10, 10)
+offset = Vector3(1, 10, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672447, 0.625029, 0, 0, 0)
@@ -31,7 +32,28 @@ shadow_blur = 0.289
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89)
 
 [node name="CrossRoad" parent="Pathables" instance=ExtResource("5_q8l14")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, -44.482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52486, 0.367, -44.482)
 
 [node name="Dead" parent="." instance=ExtResource("5_b5t6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0809612, 2.50028, -6.05648)
+
+[node name="obstacle" parent="." instance=ExtResource("6_veqvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43863, 0.78349, 1.09366)
+
+[node name="obstacle2" parent="." instance=ExtResource("6_veqvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905605, 2.81902, -27.2904)
+
+[node name="obstacle3" parent="." instance=ExtResource("6_veqvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69892, 0.78349, 4.25655)
+
+[node name="obstacle4" parent="." instance=ExtResource("6_veqvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40559, 0.870705, -27.3121)
+
+[node name="obstacle5" parent="." instance=ExtResource("6_veqvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8385, 1.83826, -35.3603)
+
+[node name="obstacle6" parent="." instance=ExtResource("6_veqvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7762, 0.78349, -17.3442)
+
+[node name="policeCar" parent="." instance=ExtResource("7_qwuxr")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, -1.41554, 0.870705, -43.3173)
