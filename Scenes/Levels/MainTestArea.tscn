@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=13 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="3_huhms"]
-[ext_resource type="PackedScene" uid="uid://6s7mtctrg5sp" path="res://Scenes/Enemies/dead.tscn" id="5_b5t6g"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="5_q8l14"]
-[ext_resource type="PackedScene" uid="uid://dvdn3ftflwqsw" path="res://Scenes/Objects/Background/building1.tscn" id="6_igdnm"]
+[ext_resource type="PackedScene" uid="uid://bk7hivcv4x642" path="res://Scenes/Objects/Background/building-bar.tscn" id="7_2c5is"]
 [ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="7_svofs"]
+[ext_resource type="PackedScene" uid="uid://db8qf7oqtx1fj" path="res://Scenes/Objects/Background/building-clothing.tscn" id="8_m030y"]
+[ext_resource type="PackedScene" uid="uid://0882i6a2xiw3" path="res://Scenes/Objects/Background/building-drugstore.tscn" id="9_y0nkc"]
+[ext_resource type="PackedScene" uid="uid://b1c1d47i7qa6t" path="res://Scenes/Objects/Background/Prop_sinaleira.tscn" id="10_xw5vv"]
+[ext_resource type="PackedScene" uid="uid://dgw6w5oluopnn" path="res://Scenes/Objects/Background/building-gasstation.tscn" id="11_xfaed"]
+[ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="12_6srwl"]
+[ext_resource type="PackedScene" uid="uid://5as0ols6ijwy" path="res://Scenes/Objects/Background/Prop_bench.tscn" id="13_et0ti"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
@@ -17,7 +22,7 @@ transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.7071
 projection = 1
 size = 14.402
 script = ExtResource("2_bim0t")
-offset = Vector3(10, 10, 10)
+offset = Vector3(15, 15, 15)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672447, 0.625029, 0, 0, 0)
@@ -35,11 +40,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89)
 [node name="CrossRoad" parent="Pathables" instance=ExtResource("5_q8l14")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, -44.482)
 
-[node name="Dead" parent="." instance=ExtResource("5_b5t6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0809612, 2.50028, -6.05648)
+[node name="Buildings" type="Node" parent="."]
 
-[node name="StaticBody3D" parent="." instance=ExtResource("6_igdnm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.4454, 0, 0)
+[node name="Building DrugStore" parent="Buildings" instance=ExtResource("9_y0nkc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.0852, 0.986373, -81.141)
+
+[node name="Building Bar" parent="Buildings" instance=ExtResource("7_2c5is")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.785, 0.870705, -71.9129)
+
+[node name="Building clothing" parent="Buildings" instance=ExtResource("8_m030y")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -16.8728, 0.986373, -62.1012)
+
+[node name="Root Scene" parent="." instance=ExtResource("10_xw5vv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.4313, 0.665187, -34.6717)
+
+[node name="Building Gas Station" parent="." instance=ExtResource("11_xfaed")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.4727, 0.981057, -97.2682)
+
+[node name="Root Scene2" parent="." instance=ExtResource("10_xw5vv")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 10.4302, 0.685883, -33.015)
+
+[node name="Root Scene3" parent="." instance=ExtResource("10_xw5vv")]
+transform = Transform3D(1.58933e-08, 0, 1, 0, 1, 0, -1, 0, 1.58933e-08, 10.8548, 0.492595, -54.4475)
+
+[node name="Root Scene4" parent="." instance=ExtResource("10_xw5vv")]
+transform = Transform3D(-1, 0, 1.47027e-07, 0, 1, 0, -1.47027e-07, 0, -1, -10.6338, 0.640765, -55.4487)
+
+[node name="policeCar" parent="." instance=ExtResource("12_6srwl")]
+transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, -0.321962, 1.64138, -11.5808)
 
 [node name="Bus" parent="." instance=ExtResource("7_svofs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.24732, 0.78349, -41.4489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -18)
+
+[node name="Root Scene5" parent="." instance=ExtResource("13_et0ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 0)
+comprimento = 4
+largura = 1
+altura = 3

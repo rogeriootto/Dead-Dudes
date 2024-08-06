@@ -47,11 +47,11 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8jurr")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4h1v"]
-size = Vector3(3.29663, 3.53186, 9.35938)
+size = Vector3(4.79858, 5.31427, 13.5974)
 
 [node name="Bus" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_2mdjp")
-comprimento = 11
+comprimento = 9
 largura = 4
 altura = 5
 type = "bus"
@@ -63,5 +63,5 @@ mesh = SubResource("ArrayMesh_mir6n")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.55671e-06, 0, -150, 0, 150, 0, 150, 0, -6.55671e-06, 6.40688, 1.78046, 2.25043)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.40688, 2.67166, 2.25043)
 shape = SubResource("BoxShape3D_f4h1v")

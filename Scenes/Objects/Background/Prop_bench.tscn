@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://fak5dapho4mq"]
+[gd_scene load_steps=8 format=3 uid="uid://5as0ols6ijwy"]
 
+[ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_j58m1"]
 [ext_resource type="Texture2D" uid="uid://b4p1buct1jubl" path="res://Assets/Models/Background/Textures/Props_Props_01.png" id="1_mktvr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ghxb"]
@@ -46,14 +47,18 @@ shadow_mesh = SubResource("ArrayMesh_4prl8")
 [sub_resource type="BoxShape3D" id="BoxShape3D_8v0dg"]
 size = Vector3(3.9, 1, 1)
 
-[node name="Root Scene" type="StaticBody3D"]
+[node name="Root Scene" type="StaticBody3D" groups=["obstacle"]]
+script = ExtResource("1_j58m1")
+comprimento = 2
+largura = 2
+altura = 1
 
 [node name="Props_Bench_1" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 1.62517, 0, 0)
 material_override = SubResource("StandardMaterial3D_5ghxb")
 mesh = SubResource("ArrayMesh_803xb")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485517, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62517, 0.485517, 0)
 shape = SubResource("BoxShape3D_8v0dg")

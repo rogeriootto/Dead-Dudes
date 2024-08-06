@@ -13,7 +13,7 @@ material = SubResource("StandardMaterial3D_4prna")
 [node name="Dead" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50027, 0)
 script = ExtResource("1_8g46f")
-lerp_mult = 3.0
+lerp_mult = 50.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
