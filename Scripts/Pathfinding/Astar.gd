@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var should_draw_cubes := false
+var grid_is_built := false
 const grid_step := 1.5 #size of the grid's cells
 
 var astar = AStar3D.new()
@@ -31,6 +32,7 @@ func _ready():
 	var obstacle_group = get_tree().get_nodes_in_group('obstacle')
 	obstacle_group = sort_by_y(obstacle_group)
 	_connect_obstacles(obstacle_group)
+	grid_is_built = true
 	SignalManager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
 	SignalManager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
 	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
@@ -54,21 +56,19 @@ func _make_grid(pathables: Array):
 		
 		for x in x_steps:
 #			for y in y_steps:
-			for y in 5:
+			for y in 3:
 				for z in z_steps:
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)
 				
 func _add_point(point: Vector3):
-#	point.y = grid_y
 	var id = astar.get_available_point_id()
-	#TODO ALTURA HARD CODED ARRUMAR
+	#TODO peso do astar
 	var astar_weight = 1 + ((point.y -0.5) * 10)
 
 	astar.add_point(id, point, astar_weight)
 	points[world_to_astar(point)] = id
-	_create_nav_cube(point)
-	
+	_create_nav_cube(scene_to_grid(point))
 
 func _connect_points():
 	for point in points:
@@ -86,7 +86,7 @@ func _connect_points():
 					get_child(current_id).material_override = green_material
 #					get_child(neighbor_id).material_override = green_material
 
-		# conecta os pontos inferiores de pontos altos unilateralmente
+		# connects high points to low points allowing planned falls
 		if world_pos[1] > 3.5:
 			var adjacent_lower_points = _get_adjacent_lower_points(world_pos)
 			for neighbor_id in adjacent_lower_points:
@@ -94,14 +94,22 @@ func _connect_points():
 					astar.connect_points(current_id, neighbor_id, false)
 
 func _connect_obstacles(obstacle_group: Array):
+	var obstacle_key = null
+	var obstacle_id = null
+	
 	for obstacle in obstacle_group:
-		var obstacle_key = world_to_astar(obstacle.position)
-		var obstacle_id
+		obstacle.position = scene_to_grid(obstacle.position)
+		obstacle_key = world_to_astar(obstacle.position)
 		if points.has(obstacle_key):
 			#conecta os tipos caixa. devem ser 1x1x1
 			if obstacle.type == 'caixa':
 				obstacle_id = points[obstacle_key]
 				astar.set_point_disabled(obstacle_id,true)
+				# obstacle.global_position = get_child(obstacle_id).global_position
+				var pos_str = obstacle_key.split(",")
+				var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
+				obstacle.global_position = world_pos
+				
 				if should_draw_cubes:
 					get_child(obstacle_id).material_override = red_material
 				var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x, obstacle.position.y + grid_step, obstacle.position.z))
@@ -114,6 +122,9 @@ func _connect_obstacles(obstacle_group: Array):
 		
 			#conecta obstaculos maiores que 1x1x1
 			else:
+				var pos_str = obstacle_key.split(",")
+				var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
+				obstacle.global_position = world_pos
 				for eixo_x in obstacle.comprimento:
 					for eixo_y in obstacle.altura:
 						for eixo_z in obstacle.largura:
@@ -133,10 +144,6 @@ func _connect_obstacles(obstacle_group: Array):
 										get_child(above_obstacle_id).material_override = golden_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
-	
-	#esse if else eh hard code pra so conectar a primeira camada
-#	print(world_point[1])
-	#if world_point[1] == 1:
 	var adjacent_points = []
 	var search_coords = [-grid_step, 0, grid_step]
 	for x in search_coords:
@@ -180,46 +187,44 @@ func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
 	var y = snapped(world.y, grid_step)
 	var z = snapped(world.z, grid_step)
-	return "%.1f,%.1f,%.1f" % [x, y, z]	
+	return "%.2f,%.2f,%.2f" % [x, y, z]
 
+func scene_to_grid(obstaclePosition: Vector3):
+	obstaclePosition.x = snapped(obstaclePosition.x, grid_step)
+	obstaclePosition.y = snapped(obstaclePosition.y, grid_step)
+	obstaclePosition.z = snapped(obstaclePosition.z, grid_step)
+	if obstaclePosition.y < 1.5:
+		obstaclePosition.y = 1.5
+	return obstaclePosition
+		
 func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
-		#TODO: TIRAR ESSE IF DO CARALHO
-		#if point_position.y < grid_step * 2:
-			#cube.mesh = cube_mesh
-			#cube.material_override = red_material
-		cube.mesh = cube_mesh
-		cube.material_override = red_material
+		#TODO IF DO CARALHO
+		if point_position.y < grid_step * 2:
+			cube.mesh = cube_mesh
+			cube.material_override = red_material
+		#cube.mesh = cube_mesh
+		#cube.material_override = red_material
 		add_child(cube)
-#		position.y = grid_y
+		#position.y = grid_y
 		cube.global_transform.origin = point_position
+	
 
 func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vector3):
 	if obstacleDictionary[obstacleName] and obstaclePosition.y > 0:
 		
-		obstaclePosition.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
-		obstaclePosition.y = snapped(obstaclePosition.y, grid_step)
-		obstaclePosition.z = snapped(obstaclePosition.z, grid_step) - grid_step/2
-
-		if obstaclePosition.y < 1:
-			obstaclePosition.y = 1.5
+		obstaclePosition = scene_to_grid(obstaclePosition)
 
 		var point_key = world_to_astar(obstaclePosition)
 		var obstacle_id
-		var pos_str:PackedStringArray
-		var world_pos:Vector3
-		
-		if points.has(point_key):
-			obstacle_id = points[point_key]
-			pos_str = point_key.split(",")
-			world_pos = Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
-		else:
-			return
-
 		var above_obstacle_key = world_to_astar(Vector3(obstaclePosition.x, obstaclePosition.y + grid_step, obstaclePosition.z))
 		var above_obstacle_id
 		
+		if points.has(point_key):
+			obstacle_id = points[point_key]
+		else:
+			return
 		if points.has(above_obstacle_key):
 			above_obstacle_id = points[above_obstacle_key]
 
@@ -230,10 +235,11 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 				astar.set_point_disabled(above_obstacle_id, false)
 				
 			var obstacle = obstacleDictionary[obstacleName].instantiate()
-			obstacle.position = world_pos
+			var pos_str = point_key.split(",")
+			var world_pos := Vector3(float(pos_str[0]), float(pos_str[1]), float(pos_str[2]))
+			obstacle.global_position = world_pos
 			add_child(obstacle)
 			obstacle.add_to_group("obstacle")	
-			
 			astar.set_point_disabled(obstacle_id, true)
 			
 			if should_draw_cubes:
@@ -243,6 +249,7 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 
 	if !buildingShowObject:
 		buildingShowObject = obstacleDictionary[obstacleName].instantiate()
+		buildingShowObject.get_node("InteractionArea").can_interact = false
 		add_child(buildingShowObject)
 		buildingShowObject.get_node("CollisionShape3D").disabled = true
 
@@ -251,9 +258,9 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 		# buildingShowObject.get_node("MeshInstance3D").material_override = objectColor
 
 	if showObjectFlag:
-		obstaclePosition.x = snapped(obstaclePosition.x, grid_step) - grid_step/2
+		obstaclePosition.x = snapped(obstaclePosition.x, grid_step)
 		obstaclePosition.y = snapped(obstaclePosition.y, grid_step)
-		obstaclePosition.z = snapped(obstaclePosition.z, grid_step) - grid_step/2
+		obstaclePosition.z = snapped(obstaclePosition.z, grid_step)
 		if obstaclePosition.y < 1:
 			obstaclePosition.y = 1.5
 		buildingShowObject.position = obstaclePosition

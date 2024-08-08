@@ -7,7 +7,9 @@ signal interactRequest(playerNumber: String)
 signal interactRequestP1()
 signal interactRequestP2()
 signal moveObstacleRequest(obstacle: Object)
-signal interactableNameRequest(name: String)
+signal interactableNameRequestP1(name: String)
+signal interactableNameRequestP2(name: String)
+
 
 func registerListner(signalName: String, target: Object, method: String): 
 	if not has_signal(signalName):
@@ -42,8 +44,11 @@ func emitInteractRequestP1():
 func emitInteractRequestP2():
 	emit_signal("interactRequestP2", 'p2')
 
-func emitInteractableName(obstacleName: String):
-	emit_signal("interactableNameRequest", obstacleName)
+func emitInteractableNameP1(obstacleName: String):
+	emit_signal("interactableNameRequestP1", obstacleName)
+
+func emitInteractableNameP2(obstacleName: String):
+	emit_signal("interactableNameRequestP2", obstacleName)
 
 #func emitDisconnectAreaRequest(obstacle: Object, comprimento: int, largura: int, altura: int):
 #	emit_signal("disconnectAreaRequest", obstacle, comprimento, largura, altura)

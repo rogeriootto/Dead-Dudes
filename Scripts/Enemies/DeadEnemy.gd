@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var lerp_mult : float = 0
+@export var lerp_mult : float
 var path := []
 var current_target := Vector3.INF
 var current_velocity := Vector3.ZERO
