@@ -16,6 +16,7 @@ func _ready():
 		player1.position = player1SpawnPoint
 		player1.playerNumber = 'p1'
 		player1.add_to_group('p1')
+		player1.add_to_group('players')
 		get_node('Camera3D').player1 = player1
 	
 	player2 = player2Preload.instantiate()
@@ -24,6 +25,7 @@ func _ready():
 		player2.position = player2SpawnPoint
 		player2.playerNumber = 'p2'
 		player2.add_to_group('p2')
+		player2.add_to_group('players')
 		get_node('Camera3D').player2 = player2
 
 func _process(delta):

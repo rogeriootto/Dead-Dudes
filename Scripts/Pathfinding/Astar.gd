@@ -56,7 +56,7 @@ func _make_grid(pathables: Array):
 		
 		for x in x_steps:
 #			for y in y_steps:
-			for y in 3:
+			for y in 5:
 				for z in z_steps:
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)
@@ -196,7 +196,7 @@ func scene_to_grid(obstaclePosition: Vector3):
 	if obstaclePosition.y < 1.5:
 		obstaclePosition.y = 1.5
 	return obstaclePosition
-		
+
 func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
@@ -209,7 +209,6 @@ func _create_nav_cube(point_position: Vector3):
 		add_child(cube)
 		#position.y = grid_y
 		cube.global_transform.origin = point_position
-	
 
 func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vector3):
 	if obstacleDictionary[obstacleName] and obstaclePosition.y > 0:
@@ -387,24 +386,3 @@ func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumb
 	#mover o objeto
 	
 	pass
-# a funcao era chamada assim		
-#	var adjacent_points = _get_obstacle_adjacent_points(Vector3(obstaclePosition.x,obstaclePosition.y + grid_step, obstaclePosition.z))
-#	for neighbor_id in adjacent_points:
-#		if should_draw_cubes && points.has(above_obstacle_id):
-#			get_child(above_obstacle_id).material_override = green_material
-
-#funcao guardada pra backup
-
-#func _get_adjacent_points(world_point: Vector3) -> Array:
-#	var adjacent_points = []
-#	var search_coords = [-grid_step, 0, grid_step]
-#	for x in search_coords:
-#		for y in search_coords:
-#			for z in search_coords:
-#				var search_offset = Vector3(x, y, z)
-#				if search_offset == Vector3.ZERO:
-#					continue
-#				var potential_neighbor = world_to_astar(world_point + search_offset)
-#				if points.has(potential_neighbor):
-#					adjacent_points.append(points[potential_neighbor])
-#	return adjacent_points
