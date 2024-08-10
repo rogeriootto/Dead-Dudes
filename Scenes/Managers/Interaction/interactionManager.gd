@@ -40,8 +40,8 @@ func _process(delta):
 		p2 = get_tree().get_first_node_in_group("p2")
 		return
 	
-	print('p1_active_areas: ', p1_active_areas)
-	print('p1 interactable name ', p1.interactableName)
+	#print('p1_active_areas: ', p1_active_areas)
+	#print('p1 interactable name ', p1.interactableName)
 
 	if p1_active_areas.size() > 0 && p1_can_interact:
 		p1_active_areas.sort_custom(_sortByDistanceToPlayer1)

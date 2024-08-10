@@ -12,8 +12,10 @@ material = SubResource("StandardMaterial3D_4prna")
 
 [node name="Dead" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50027, 0)
+collision_layer = 8
+collision_mask = 11
 script = ExtResource("1_8g46f")
-lerp_mult = 50.0
+lerp_mult = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -22,3 +24,6 @@ shape = SubResource("CapsuleShape3D_xorsv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_lyth3")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 7
