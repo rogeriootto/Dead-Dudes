@@ -1,7 +1,7 @@
 extends Node3D
 
 var player1Preload := preload("res://Scenes/Objects/Jack.tscn")
-var player2Preload := preload("res://Scenes/Objects/Jack.tscn")
+var player2Preload := preload("res://Scenes/Objects/John.tscn")
 
 var player1: CharacterBody3D
 var player2: CharacterBody3D

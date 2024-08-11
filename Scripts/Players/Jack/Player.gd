@@ -19,5 +19,4 @@ func getPlayerNumber():
 	return playerNumber
 
 func setInteractableName(name: String):
-	print('name: ', name)
 	interactableName = name
