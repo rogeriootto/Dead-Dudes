@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cufa1ra5l2ke" path="res://Assets/Models/Background/Textures/Natures.png" id="1_s5frv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vkun"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eoter"]
 albedo_texture = ExtResource("1_s5frv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2ho3"]
@@ -49,7 +49,7 @@ size = Vector3(10, 1, 10)
 
 [node name="Natures_Grass Tile Small" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 100, -4.37114e-06, 0, 4.37114e-06, 100, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_0vkun")
+material_override = SubResource("StandardMaterial3D_eoter")
 mesh = SubResource("ArrayMesh_icews")
 skeleton = NodePath("")
 
