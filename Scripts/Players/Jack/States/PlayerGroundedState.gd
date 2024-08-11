@@ -32,12 +32,14 @@ var _onInteractP1 = func():
 		Transitioned.emit(self, 'PlayerMovingObstacle')
 	else:
 		SignalManager.emitInteractRequestP1()
+		Transitioned.emit(self, 'PlayerPickingUp')
 
 var _onInteractP2 = func():
 	if player.interactableName == 'carro':
 		Transitioned.emit(self, 'PlayerMovingObstacle')
 	else:
 		SignalManager.emitInteractRequestP2()
+		Transitioned.emit(self, 'PlayerPickingUp')
 
 func playerMovement(speedModifier: float = 0.0):
 	var move_direction := Vector3.ZERO
@@ -53,9 +55,6 @@ func playerMovement(speedModifier: float = 0.0):
 	if player:
 		move_direction.x = Input.get_action_strength("right_" + player.getPlayerNumber()) - Input.get_action_strength("left_" + player.getPlayerNumber())
 		move_direction.z = Input.get_action_strength("down_"  + player.getPlayerNumber()) - Input.get_action_strength("up_" + player.getPlayerNumber())
-		
-		if move_direction.length() > 0:
-			move_direction = move_direction.normalized()
 
 		if camera3Dnode:
 			move_direction = move_direction.rotated(Vector3.UP, camera3Dnode.global_rotation.y)
@@ -63,7 +62,7 @@ func playerMovement(speedModifier: float = 0.0):
 		velocity.x = move_direction.x * (speed + speedModifier)
 		velocity.z = move_direction.z * (speed + speedModifier)
 		
-		if velocity.length() > 0.2:
+		if velocity.length() > 0.2 && !player.axis_lock_angular_y:
 			var look_direction = Vector2(velocity.z, velocity.x)
 			player.rotation.y = look_direction.angle()
 		

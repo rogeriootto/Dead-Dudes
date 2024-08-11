@@ -29,6 +29,7 @@ func _physics_process(delta: float):
 		raycast.target_position = (AstarManager.player2Position - position)
 	
 	if raycast.get_collider() != null:
+		print(raycast.instance.name)
 		var collision_result = raycast.get_collider()
 		if collision_result.is_in_group("players"):
 			if seeking_p1:
@@ -36,7 +37,6 @@ func _physics_process(delta: float):
 			else:
 				velocity = (Vector3(AstarManager.player2Position.x - position.x,0,AstarManager.player2Position.z - position.z)).normalized() * speed
 			move_and_slide()
-			
 		else:			
 			count += delta
 			if count > 0.5 and should_update_path:
@@ -55,11 +55,10 @@ func _physics_process(delta: float):
 					if(self.position.y >= current_target[1] + 1.5):
 						should_update_path = false
 						velocity.y += speed
-						move_and_slide()	
+						move_and_slide()
 						
 			#this section happens when zombies cant see the player and have no path
 			else:
-				print("n achei caminnn")
 				if seeking_p1:
 					velocity = (Vector3(AstarManager.player1Position.x - position.x,0,AstarManager.player1Position.z - position.z)).normalized() * speed
 				else:

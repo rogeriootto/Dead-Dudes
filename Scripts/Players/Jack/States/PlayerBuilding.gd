@@ -24,6 +24,15 @@ func Physics_Update(delta: float):
 		Transitioned.emit(self, 'PlayerIdle')
 
 	SignalManager.emitShowObstacle(true ,'box1x1', getSpawnPosition(3))
+
+	velocityTest = abs(player.velocity.x) + abs(player.velocity.z)
+
+	if velocityTest == 0:
+		animControl.play("Idle")
+	elif velocityTest > 0 && velocityTest <= 6:
+		animControl.play("Walk")
+	elif velocityTest > 6:
+		animControl.play("Running")
 	
 
 func getSpawnPosition(distance: int):

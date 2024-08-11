@@ -2,10 +2,12 @@ extends PlayerGrounded
 class_name PlayerMovingObstacleState
 
 func Enter():
-	animControl.play("Tatsu")
+	animControl.play("Pushing")
+	player.axis_lock_angular_y = true
 	pass
 	
 func Exit():
+	player.axis_lock_angular_y = false
 	pass
 	
 func Update(delta: float):
@@ -22,5 +24,4 @@ func Physics_Update(delta: float):
 	
 	if Input.is_action_just_released("interact_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerIdle')
-
 	

@@ -50,8 +50,9 @@ size = Vector3(3.9, 1, 1)
 [node name="Root Scene" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_j58m1")
 comprimento = 2
-largura = 2
-altura = 1
+largura = 3
+altura = 2
+type = "carro"
 
 [node name="Props_Bench_1" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 1.62517, 0, 0)

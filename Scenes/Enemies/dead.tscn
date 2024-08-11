@@ -11,7 +11,7 @@ albedo_color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_4prna")
 
 [node name="Dead" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50027, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 2.50027, 0)
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("1_8g46f")
@@ -27,3 +27,4 @@ mesh = SubResource("CapsuleMesh_lyth3")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 collision_mask = 7
+collide_with_areas = true
