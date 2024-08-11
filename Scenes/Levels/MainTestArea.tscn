@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="3_huhms"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="5_q8l14"]
 [ext_resource type="PackedScene" uid="uid://bk7hivcv4x642" path="res://Scenes/Objects/Background/building-bar.tscn" id="7_2c5is"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Obstacles/bus.tscn" id="7_svofs"]
+[ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="7_svofs"]
 [ext_resource type="PackedScene" uid="uid://db8qf7oqtx1fj" path="res://Scenes/Objects/Background/building-clothing.tscn" id="8_m030y"]
 [ext_resource type="PackedScene" uid="uid://0882i6a2xiw3" path="res://Scenes/Objects/Background/building-drugstore.tscn" id="9_y0nkc"]
 [ext_resource type="PackedScene" uid="uid://b1c1d47i7qa6t" path="res://Scenes/Objects/Background/Prop_sinaleira.tscn" id="10_xw5vv"]
@@ -20,7 +20,6 @@ player2SpawnPoint = Vector3(5, 0, 5)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
-projection = 1
 current = true
 size = 14.402
 script = ExtResource("2_bim0t")

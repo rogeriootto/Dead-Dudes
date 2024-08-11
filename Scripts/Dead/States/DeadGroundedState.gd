@@ -44,12 +44,11 @@ func deadMovement(delta: float):
 	#TODO ver pq o raycast não ta batendo em algumas merda exemplo, banco
 
 	if seeking_p1:
-		raycast.target_position = (AstarManager.player1Position - dead.position)
+		raycast.target_position = (Vector3(AstarManager.player1Position.x,AstarManager.player1Position.y+1,AstarManager.player1Position.z) - dead.position)
 	else:
-		raycast.target_position = (AstarManager.player2Position - dead.position)
+		raycast.target_position = (Vector3(AstarManager.player2Position.x,AstarManager.player2Position.y+1,AstarManager.player2Position.z) - dead.position)
 	
 	if raycast.get_collider() != null:
-		
 		var collision_result = raycast.get_collider()
 		if collision_result.is_in_group("players"):
 			if seeking_p1:
@@ -58,7 +57,6 @@ func deadMovement(delta: float):
 				dead.velocity = (Vector3(AstarManager.player2Position.x - dead.position.x, 0, AstarManager.player2Position.z - dead.position.z)).normalized() * speed
 			rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 			dead.move_and_slide()
-			
 		else:	
 			count += delta
 			if count > 0.5 and should_update_path:
@@ -79,7 +77,7 @@ func deadMovement(delta: float):
 						should_update_path = false
 						dead.velocity.y += speed
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
-						dead.move_and_slide()	
+						dead.move_and_slide()
 			else:
 				if seeking_p1:
 					dead.velocity = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
@@ -87,6 +85,7 @@ func deadMovement(delta: float):
 					dead.velocity = (Vector3(AstarManager.player2Position.x - dead.position.x, 0, AstarManager.player2Position.z - dead.position.z)).normalized() * speed
 				rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 				dead.move_and_slide()
+
 
 func rotate_towards_movement_direction(velocity, object):
 	if velocity.length() > 0.2:

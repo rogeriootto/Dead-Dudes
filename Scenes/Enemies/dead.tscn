@@ -27,3 +27,4 @@ mesh = SubResource("CapsuleMesh_lyth3")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 collision_mask = 7
+collide_with_areas = true
