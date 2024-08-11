@@ -23,14 +23,14 @@ func unregisterListner(signalName: String, target: Object, method: String):
 	if is_connected(signalName, callable):
 		disconnect(signalName, callable)
 
-func emitObstacleSpawnRequest(obstacleName: String, obstaclePosition: Vector3):
-	emit_signal("obstacleSpawnRequest", obstacleName, obstaclePosition)
+func emitObstacleSpawnRequest(obstacleName: String, obstaclePosition: Vector3, player: Object):
+	emit_signal("obstacleSpawnRequest", obstacleName, obstaclePosition, player)
 
 func emitShowObstacle(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
 	emit_signal("showObstacleRequest", showObjectFlag, obstacleName, obstaclePosition)
 
-func emitObstacleRemoveRequest(obstacle: StaticBody3D):
-	emit_signal("obstacleRemoveRequest",obstacle)
+func emitObstacleRemoveRequest(obstacle: StaticBody3D, player: Object):
+	emit_signal("obstacleRemoveRequest",obstacle, player)
 
 func emitMoveObstacleRequest(obstacle: Object, should_reconect_points: bool, playerNumber: String = ''):
 	emit_signal("moveObstacleRequest",obstacle, should_reconect_points, playerNumber)

@@ -65,11 +65,6 @@ func playerMovement(speedModifier: float = 0.0):
 		if velocity.length() > 0.2 && !player.axis_lock_angular_y:
 			var look_direction = Vector2(velocity.z, velocity.x)
 			player.rotation.y = look_direction.angle()
-		
-		if(Input.is_action_just_pressed("action_" + player.getPlayerNumber())):
-			velocity.y += 10
-		if(Input.is_action_just_pressed("action2_" + player.getPlayerNumber())):
-			velocity.y -= 10
 
 		player.velocity = velocity 
 		
