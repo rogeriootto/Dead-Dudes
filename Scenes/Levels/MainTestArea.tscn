@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=14 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
@@ -13,11 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="12_6srwl"]
 [ext_resource type="PackedScene" uid="uid://5as0ols6ijwy" path="res://Scenes/Objects/Background/Prop_bench.tscn" id="13_et0ti"]
 [ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="14_rwyvf"]
-[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="15_41qpd"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
-player1SpawnPoint = Vector3(1, 0, 1)
+player2SpawnPoint = Vector3(5, 0, 5)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
@@ -98,6 +97,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05778, 4.061, 5.46383)
 
 [node name="obstacle6" parent="." instance=ExtResource("14_rwyvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0143, 4.2056, 3.99005)
-
-[node name="dead1" parent="." instance=ExtResource("15_41qpd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29311, 1.25576, -10.4822)

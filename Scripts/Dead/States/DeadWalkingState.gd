@@ -13,7 +13,7 @@ func Update(delta: float):
 	
 func Physics_Update(delta: float):
 	deadMovement(delta)
+	check_if_player_is_close_to_attack()
 
 	if (abs(dead.velocity.x) + abs(dead.velocity.z)) == 0:
-		print('teste')
 		Transitioned.emit(self, 'DeadIdleState')

@@ -35,7 +35,6 @@ func on_child_transition(state, new_state_name):
 		return
 		
 	var new_state = states.get(new_state_name.to_lower())
-	print(states)
 	if current_state:
 		if current_state.Exit():
 			current_state.Exit()

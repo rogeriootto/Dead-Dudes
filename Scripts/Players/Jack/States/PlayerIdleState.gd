@@ -13,7 +13,7 @@ func Exit():
 func Update(delta: float):
 	time += delta
 	if time > 5:
-		animControl.play("GangnamStyle")
+		animControl.play("Idle2")
 	pass
 	
 func Physics_Update(delta: float):
@@ -25,3 +25,9 @@ func Physics_Update(delta: float):
 		Transitioned.emit(self, 'PlayerWalking')
 		
 	pass
+
+
+func _on_animation_player_animation_finished(anim_name:StringName):
+	if anim_name == "Idle2":
+		animControl.play("Idle")
+		time = 0

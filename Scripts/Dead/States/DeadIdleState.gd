@@ -12,13 +12,16 @@ func Exit():
 	
 func Physics_Update(delta: float):
 	deadMovement(delta)
+	check_if_player_is_close_to_attack()
 	if time > 5:
 		animControl.play("Scream")
-		time = 0
-
+	
 	if (abs(dead.velocity.x) + abs(dead.velocity.z)) > 0:
 		Transitioned.emit(self, 'DeadWalking')
-	
+
 	time += delta
-		
-	pass
+
+func _on_animation_player_animation_finished(anim_name:StringName):
+	if anim_name == "Scream":
+		animControl.play("Idle")
+		time = 0

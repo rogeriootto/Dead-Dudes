@@ -7,12 +7,10 @@ class_name DeadGrounded
 
 var path := []
 var current_target := Vector3.INF
-var speed := 2
+var speed := RandomNumberGenerator.new().randi_range(1, 4)
 var count = 0 
 var should_update_path:bool = true
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var dist_to_p1:float
-var dist_to_p2:float
 
 func Enter():
 	pass
@@ -30,12 +28,18 @@ func Physics_Update(delta: float):
 func Exit():
 	pass
 
+func check_if_player_is_close_to_attack():
+	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
+	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
+	if dist_to_p1 < 2 or dist_to_p2 < 2:
+		Transitioned.emit(self, 'DeadAttackState')
+
 func deadMovement(delta: float):
 	if not dead.is_on_floor():
 		dead.velocity.y -= gravity * delta
 	
-	dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
-	dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
+	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
+	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
 	var seeking_p1 = dist_to_p1 < dist_to_p2
 	#TODO ver pq o raycast não ta batendo em algumas merda exemplo, banco
 
