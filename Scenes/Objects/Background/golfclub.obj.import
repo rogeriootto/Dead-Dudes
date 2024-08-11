@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3v3qdrng0sij"
+path="res://.godot/imported/golfclub.obj-dc5bdc2f2fbe8fd7ac714604c4b16ec4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/golfclub.obj-dc5bdc2f2fbe8fd7ac714604c4b16ec4.mesh"]
+
+source_file="res://Scenes/Objects/Background/golfclub.obj"
+dest_files=["res://.godot/imported/golfclub.obj-dc5bdc2f2fbe8fd7ac714604c4b16ec4.mesh", "res://.godot/imported/golfclub.obj-dc5bdc2f2fbe8fd7ac714604c4b16ec4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
