@@ -7,7 +7,7 @@ class_name DeadGrounded
 
 var path := []
 var current_target := Vector3.INF
-var speed := RandomNumberGenerator.new().randi_range(1, 4)
+var speed := RandomNumberGenerator.new().randi_range(2, 4)
 var count = 0 
 var should_update_path:bool = true
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -59,7 +59,7 @@ func deadMovement(delta: float):
 			dead.move_and_slide()
 		else:	
 			count += delta
-			if count > 0.5 and should_update_path:
+			if count > 1.5 and should_update_path:
 				if seeking_p1:
 					update_path(AstarManager.find_path(dead.global_transform.origin, AstarManager.player1Position))
 				else:

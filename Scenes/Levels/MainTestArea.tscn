@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=18 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
@@ -12,7 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dgw6w5oluopnn" path="res://Scenes/Objects/Background/building-gasstation.tscn" id="11_xfaed"]
 [ext_resource type="PackedScene" uid="uid://bnq44767neap2" path="res://Scenes/Objects/Obstacles/policeCar.tscn" id="12_6srwl"]
 [ext_resource type="PackedScene" uid="uid://5as0ols6ijwy" path="res://Scenes/Objects/Background/Prop_bench.tscn" id="13_et0ti"]
+[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="14_3txi5"]
 [ext_resource type="PackedScene" uid="uid://siar22dy0mwm" path="res://Scenes/Objects/Obstacles/obstacle.tscn" id="14_rwyvf"]
+[ext_resource type="PackedScene" uid="uid://dw02gbl7syq5a" path="res://Scenes/Objects/Background/N_grassFENCE.tscn" id="15_5lf3d"]
+[ext_resource type="PackedScene" uid="uid://cvo16d804tnjh" path="res://Scenes/Objects/Background/Prop_bench2.tscn" id="16_gihtf"]
+[ext_resource type="PackedScene" uid="uid://bkwprnsvv668g" path="res://Scenes/Objects/Background/N_tree.tscn" id="17_bioea"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
@@ -73,12 +77,6 @@ transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, -0.321962, 1.64138, 
 [node name="Bus" parent="." instance=ExtResource("7_svofs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -18)
 
-[node name="Root Scene5" parent="." instance=ExtResource("13_et0ti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 0)
-comprimento = 4
-largura = 1
-altura = 3
-
 [node name="obstacle" parent="." instance=ExtResource("14_rwyvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35352, 1.75014, 5.32065)
 
@@ -96,3 +94,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05778, 4.061, 5.46383)
 
 [node name="obstacle6" parent="." instance=ExtResource("14_rwyvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0143, 4.2056, 3.99005)
+
+[node name="Root Scene5" parent="." instance=ExtResource("13_et0ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.89767, 0.78349, 3.18686)
+
+[node name="Root Scene6" parent="." instance=ExtResource("15_5lf3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1247, 0.78349, -0.352861)
+
+[node name="Root Scene7" parent="." instance=ExtResource("16_gihtf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35275, 0.783491, 5.58309)
+
+[node name="dead1" parent="." instance=ExtResource("14_3txi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26551, 1.83239, -1.244)
+
+[node name="N_tree" parent="." instance=ExtResource("17_bioea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13427, 0.78349, 7.75917)

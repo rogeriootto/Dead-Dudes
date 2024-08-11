@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvc05m6p1amtj"]
+[gd_scene load_steps=9 format=3 uid="uid://bvc05m6p1amtj"]
 
 [ext_resource type="Texture2D" uid="uid://h6nuacq3jmgt" path="res://Assets/Models/Background/Textures/Vehicle_Bus_3.png" id="1_1y57g"]
 [ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_2mdjp"]
@@ -49,6 +49,9 @@ shadow_mesh = SubResource("ArrayMesh_8jurr")
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4h1v"]
 size = Vector3(4.79858, 5.31427, 13.5974)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc8kh"]
+size = Vector3(5.80469, 5.74023, 14.7676)
+
 [node name="Bus" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_2mdjp")
 comprimento = 9
@@ -65,3 +68,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.40688, 2.67166, 2.25043)
 shape = SubResource("BoxShape3D_f4h1v")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.569472, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26513, 2.12674, 3.30607)
+shape = SubResource("BoxShape3D_wc8kh")
