@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://kkwfdln3nkd6"]
+[gd_scene load_steps=27 format=3 uid="uid://kkwfdln3nkd6"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_xp11h"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_bim0t"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="22_jx562"]
 [ext_resource type="PackedScene" uid="uid://p430nthgdxi8" path="res://Scenes/Objects/Obstacles/normalCar.tscn" id="23_edgxq"]
 [ext_resource type="PackedScene" uid="uid://d2fl0f7k3f3iv" path="res://Scenes/Objects/Obstacles/normalCarFLIP.tscn" id="24_3w05n"]
+[ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="25_s0gnb"]
+[ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="26_7xotj"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xp11h")
@@ -194,3 +196,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.975
 
 [node name="dead2" parent="." instance=ExtResource("14_3txi5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78903, 0.870705, -104.739)
+
+[node name="big_wall" parent="." instance=ExtResource("25_s0gnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.174895, 0.78349, -83.9515)
+
+[node name="box_small2" parent="." instance=ExtResource("26_7xotj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 6)

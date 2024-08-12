@@ -42,9 +42,7 @@ func deadMovement(delta: float):
 	
 	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
-	
-	print("aquii a distance o  ", dist_to_p1)
-	
+		
 	if (should_activate_zombie == false && (dist_to_p1 > 50 && dist_to_p2 > 50)):
 		return
 	else:
@@ -83,11 +81,23 @@ func deadMovement(delta: float):
 				dead.move_and_slide()
 				if dead.global_transform.origin.distance_to(current_target) < 1:
 					find_next_point_in_path()
+					# if zombie will should fall form tall height
 					if(dead.position.y >= current_target[1] + 1.5):
 						should_update_path = false
 						dead.velocity.y += speed
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
+						
+					# if zombie will should jump
+					# TODO debuggar o valor da comparacao amanha
+					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
+						should_update_path = false
+						#LOGICA DO PULO
+						#LOGICA DO PULO
+						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+						dead.move_and_slide()
+						
+				
 			else:
 				if seeking_p1:
 					dead.velocity = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
