@@ -57,17 +57,17 @@ largura = 1
 altura = 2
 
 [node name="Props_Bench_1" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 1.72365, 0, 0.233882)
+transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 1.72365, -0.518511, 0.233882)
 material_override = SubResource("StandardMaterial3D_5ghxb")
 mesh = SubResource("ArrayMesh_803xb")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72365, 0.364639, 0.233882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72365, -0.153872, 0.233882)
 shape = SubResource("BoxShape3D_8v0dg")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.569472, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.0509613, 0)
 collision_layer = 128
 collision_mask = 128
 
