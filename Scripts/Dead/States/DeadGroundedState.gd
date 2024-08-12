@@ -7,9 +7,10 @@ class_name DeadGrounded
 
 var path := []
 var current_target := Vector3.INF
-var speed := RandomNumberGenerator.new().randi_range(1, 4)
+var speed := RandomNumberGenerator.new().randi_range(2, 4)
 var count = 0 
 var should_update_path:bool = true
+var should_activate_zombie:bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func Enter():
@@ -35,11 +36,18 @@ func check_if_player_is_close_to_attack():
 		Transitioned.emit(self, 'DeadAttackState')
 
 func deadMovement(delta: float):
+
 	if not dead.is_on_floor():
 		dead.velocity.y -= gravity * delta
 	
 	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
+		
+	if (should_activate_zombie == false && (dist_to_p1 > 50 && dist_to_p2 > 50)):
+		return
+	else:
+		should_activate_zombie = true
+
 	var seeking_p1 = dist_to_p1 < dist_to_p2
 	#TODO ver pq o raycast não ta batendo em algumas merda exemplo, banco
 
@@ -59,7 +67,7 @@ func deadMovement(delta: float):
 			dead.move_and_slide()
 		else:	
 			count += delta
-			if count > 0.5 and should_update_path:
+			if count > 1.5 and should_update_path:
 				if seeking_p1:
 					update_path(AstarManager.find_path(dead.global_transform.origin, AstarManager.player1Position))
 				else:
@@ -73,11 +81,23 @@ func deadMovement(delta: float):
 				dead.move_and_slide()
 				if dead.global_transform.origin.distance_to(current_target) < 1:
 					find_next_point_in_path()
+					# if zombie will should fall form tall height
 					if(dead.position.y >= current_target[1] + 1.5):
 						should_update_path = false
 						dead.velocity.y += speed
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
+						
+					# if zombie will should jump
+					# TODO debuggar o valor da comparacao amanha
+					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
+						should_update_path = false
+						#LOGICA DO PULO
+						#LOGICA DO PULO
+						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+						dead.move_and_slide()
+						
+				
 			else:
 				if seeking_p1:
 					dead.velocity = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
@@ -89,8 +109,8 @@ func deadMovement(delta: float):
 
 func rotate_towards_movement_direction(velocity, object):
 	if velocity.length() > 0.2:
-			var look_direction = Vector2(velocity.z, velocity.x)
-			object.rotation.y = look_direction.angle()
+		var look_direction = Vector2(velocity.z, velocity.x)
+		object.rotation.y = look_direction.angle()
 
 func find_next_point_in_path():
 	if path.size() > 0:

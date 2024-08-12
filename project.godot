@@ -109,8 +109,8 @@ interact_p2={
 3d_physics/layer_2="player"
 3d_physics/layer_3="obstacleInteractable"
 3d_physics/layer_4="zombie"
+3d_physics/layer_8="raycastDebug"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://siar22dy0mwm"]
+[gd_scene load_steps=8 format=3 uid="uid://siar22dy0mwm"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Obstacles/obstacle.gd" id="1_4nhe8"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="1_whorb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07igv"]
 transparency = 1
-albedo_color = Color(0, 0.509804, 0.780392, 0.231373)
+albedo_color = Color(0, 0.509804, 0.780392, 0.329412)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yuw1a"]
 material = SubResource("StandardMaterial3D_07igv")
@@ -17,6 +17,9 @@ size = Vector3(1.5, 1.5, 1.5)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8ltf6"]
 height = 1.076
 radius = 1.106
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gtrie"]
+size = Vector3(1.65137, 1.64941, 1.65063)
 
 [node name="obstacle" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_4nhe8")
@@ -36,3 +39,12 @@ collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 shape = SubResource("CylinderShape3D_8ltf6")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.016804, -0.0936095, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00313225, 0.0514949, -0.0194972)
+shape = SubResource("BoxShape3D_gtrie")

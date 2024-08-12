@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnq44767neap2"]
+[gd_scene load_steps=11 format=3 uid="uid://bnq44767neap2"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Obstacles/policeCar.gd" id="1_rymtv"]
 [ext_resource type="Texture2D" uid="uid://yqkk2vbl1h8o" path="res://Assets/Models/Obstacles/policeCar_cars.png" id="2_weblf"]
@@ -50,6 +50,9 @@ size = Vector3(3.4, 1.395, 1.55513)
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1wk0"]
 size = Vector3(1, 1, 1.04492)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_q8f5j"]
+size = Vector3(1.90137, 1.52344, 3.87262)
+
 [node name="policeCar" type="CharacterBody3D" groups=["obstacle"]]
 transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 0, 0, 0)
 axis_lock_linear_y = true
@@ -79,3 +82,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65032, -0.5, 0.643225)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70578, 0.548734, -0.0692682)
 shape = SubResource("BoxShape3D_l1wk0")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.569472, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61535, -0.360958, -1.46988)
+shape = SubResource("BoxShape3D_q8f5j")
