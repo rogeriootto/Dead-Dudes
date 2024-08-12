@@ -20,10 +20,6 @@ func Update(delta: float):
 	pass
 		
 func Physics_Update(delta: float):
-	if (abs(dead.velocity.x) + abs(dead.velocity.z)) == 0:
-		Transitioned.emit(self, 'DeadIdle')
-	else:
-		Transitioned.emit(self, 'DeadWalking')
 	pass
 
 func Exit():
@@ -35,14 +31,25 @@ func check_if_player_is_close_to_attack():
 	if dist_to_p1 < 2 or dist_to_p2 < 2:
 		Transitioned.emit(self, 'DeadAttackState')
 
+func checkIfIsDeadDead():
+	if dead.isDead:
+		Transitioned.emit(self, 'DeadDeadState')
+
+func checkIfTookHit():
+	if dead.tookHit:
+		Transitioned.emit(self, 'DeadHurtState')
+
 func deadMovement(delta: float):
+
+	checkIfTookHit()
+	checkIfIsDeadDead()
 
 	if not dead.is_on_floor():
 		dead.velocity.y -= gravity * delta
 	
 	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
-		
+			
 	if (should_activate_zombie == false && (dist_to_p1 > 50 && dist_to_p2 > 50)):
 		return
 	else:
@@ -87,7 +94,7 @@ func deadMovement(delta: float):
 						dead.velocity.y += speed
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
-						
+												
 					# if zombie will should jump
 					# TODO debuggar o valor da comparacao amanha
 					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
@@ -96,8 +103,6 @@ func deadMovement(delta: float):
 						#LOGICA DO PULO
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
-						
-				
 			else:
 				if seeking_p1:
 					dead.velocity = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
@@ -109,8 +114,8 @@ func deadMovement(delta: float):
 
 func rotate_towards_movement_direction(velocity, object):
 	if velocity.length() > 0.2:
-		var look_direction = Vector2(velocity.z, velocity.x)
-		object.rotation.y = look_direction.angle()
+			var look_direction = Vector2(velocity.z, velocity.x)
+			object.rotation.y = look_direction.angle()
 
 func find_next_point_in_path():
 	if path.size() > 0:

@@ -13,6 +13,7 @@ func Exit():
 	pass
 	
 func Physics_Update(delta: float):
+	checkIfTookHit()
 	if animControl.current_animation_position > 1.5:
 		attackHitbox.monitoring = true
 
