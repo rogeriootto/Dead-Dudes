@@ -13,11 +13,12 @@ var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
 var purple_material = StandardMaterial3D.new()
 var golden_material = StandardMaterial3D.new()
+var transparent_material = StandardMaterial3D.new()
 var old_points = []
 var player1Position = Vector3.ZERO
 var player2Position = Vector3.ZERO
 
-var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
+var obstacleDictionary = {"box1x1": preload("res://Assets/Models/Obstacles/box_small.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
 var buildingShowObject
 
 func _ready():
@@ -25,6 +26,7 @@ func _ready():
 	green_material.albedo_color = Color.GREEN
 	purple_material.albedo_color = Color.INDIGO
 	golden_material.albedo_color = Color.GOLD
+	transparent_material.albedo_color = Color(1,1,1,0.3)
 	cube_mesh.size = Vector3(0.25, 0.25, 0.25)
 	var pathables = get_tree().get_nodes_in_group("pathable")
 	_make_grid(pathables)
@@ -253,9 +255,9 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 		add_child(buildingShowObject)
 		buildingShowObject.get_node("CollisionShape3D").disabled = true
 
-		# var objectColor = StandardMaterial3D.new()
-		# objectColor.albedo_color = Color(1,1,1,0.1)
-		# buildingShowObject.get_node("MeshInstance3D").material_override = objectColor
+		transparent_material.albedo_texture = buildingShowObject.get_node("MeshInstance3D").material_override.albedo_texture
+		transparent_material.albedo_color = Color(0,0,0,0.1)
+		buildingShowObject.get_node("MeshInstance3D").material_override = transparent_material
 
 	if showObjectFlag:
 		obstaclePosition.x = snapped(obstaclePosition.x, grid_step)

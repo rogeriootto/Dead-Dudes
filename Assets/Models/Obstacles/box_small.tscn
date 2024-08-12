@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="3_6l7g5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7hy3"]
+transparency = 4
 albedo_texture = ExtResource("2_it32c")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgun5"]
@@ -60,7 +61,7 @@ largura = 1
 altura = 1
 type = "caixa"
 
-[node name="box_small" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.784723, 0)
 material_override = SubResource("StandardMaterial3D_y7hy3")
 mesh = SubResource("ArrayMesh_i7n6b")
