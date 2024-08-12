@@ -39,13 +39,20 @@ func checkIfTookHit():
 	if dead.tookHit:
 		Transitioned.emit(self, 'DeadHurtState')
 
+func gravityPhysics(delta: float, jumping: bool):
+	var jumpVelocity = 4
+	if not dead.is_on_floor():
+		dead.velocity.y -= gravity * delta
+	
+	if jumping and dead.is_on_floor():
+		dead.velocity.y = jumpVelocity
+
+	dead.move_and_slide()
+
 func deadMovement(delta: float):
 
 	checkIfTookHit()
 	checkIfIsDeadDead()
-
-	if not dead.is_on_floor():
-		dead.velocity.y -= gravity * delta
 	
 	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
@@ -67,9 +74,13 @@ func deadMovement(delta: float):
 		var collision_result = raycast.get_collider()
 		if collision_result.is_in_group("players"):
 			if seeking_p1:
-				dead.velocity = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
+				var vectorTowardsPlayer = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
+				dead.velocity.x = vectorTowardsPlayer.x
+				dead.velocity.z = vectorTowardsPlayer.z
 			else:
-				dead.velocity = (Vector3(AstarManager.player2Position.x - dead.position.x, 0, AstarManager.player2Position.z - dead.position.z)).normalized() * speed
+				var vectorTowardsPlayer = (Vector3(AstarManager.player2Position.x - dead.position.x, 0, AstarManager.player2Position.z - dead.position.z)).normalized() * speed
+				dead.velocity.x = vectorTowardsPlayer.x
+				dead.velocity.z = vectorTowardsPlayer.z
 			rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 			dead.move_and_slide()
 		else:	
@@ -83,7 +94,9 @@ func deadMovement(delta: float):
 				
 			if current_target != Vector3.INF:
 				var dir_to_target = dead.global_transform.origin.direction_to(current_target).normalized()
-				dead.velocity = dir_to_target * speed
+				var towardsVector = dir_to_target * speed
+				dead.velocity.x = towardsVector.x
+				dead.velocity.z = towardsVector.z
 				rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 				dead.move_and_slide()
 				if dead.global_transform.origin.distance_to(current_target) < 1:
@@ -91,23 +104,27 @@ func deadMovement(delta: float):
 					# if zombie will should fall form tall height
 					if(dead.position.y >= current_target[1] + 1.5):
 						should_update_path = false
-						dead.velocity.y += speed
+						# dead.velocity.y += speed
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
 												
 					# if zombie will should jump
 					# TODO debuggar o valor da comparacao amanha
+					print(dead.position.y + 1 < current_target[1] && current_target[1] != INF)
 					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
-						should_update_path = false
-						#LOGICA DO PULO
-						#LOGICA DO PULO
+						# should_update_path = false
+						Transitioned.emit(self, 'DeadJump')
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
 			else:
 				if seeking_p1:
-					dead.velocity = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
+					var vectorTowardsDead = (Vector3(AstarManager.player1Position.x - dead.position.x, 0, AstarManager.player1Position.z - dead.position.z)).normalized() * speed
+					dead.velocity.x = vectorTowardsDead.x
+					dead.velocity.z = vectorTowardsDead.z
 				else:
-					dead.velocity = (Vector3(AstarManager.player2Position.x - dead.position.x, 0, AstarManager.player2Position.z - dead.position.z)).normalized() * speed
+					var vectorTowardsDead = (Vector3(AstarManager.player2Position.x - dead.position.x, 0, AstarManager.player2Position.z - dead.position.z)).normalized() * speed
+					dead.velocity.x = vectorTowardsDead.x
+					dead.velocity.z = vectorTowardsDead.z
 				rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 				dead.move_and_slide()
 

@@ -19,6 +19,7 @@ func Update(delta: float):
 func Physics_Update(delta: float):
 	playerMovement()
 	buttonsCheck()
+	gravityPhysics(delta, false)
 		
 	velocityTest = abs(player.velocity.x) + abs(player.velocity.z)
 	if velocityTest > 0:

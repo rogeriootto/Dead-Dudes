@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c3wxmcjxt0lg8"]
+[gd_scene load_steps=41 format=3 uid="uid://c3wxmcjxt0lg8"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
 [ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="1_suxmb"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_eltgk"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_d8rt1"]
 [ext_resource type="Script" path="res://Scripts/Players/John/JohnAttack.gd" id="13_4fw3o"]
+[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_gihen"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="14_3obfa"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="15_b0liw"]
 
@@ -3188,7 +3189,7 @@ bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.05, -0.202969, -1.56125)
 bones/0/enabled = true
-bones/0/position = Vector3(-0.176147, -0.0468624, -1.21547)
+bones/0/position = Vector3(0.0654533, -0.084104, -1.14271)
 bones/0/rotation = Quaternion(-0.442459, -0.484604, 0.531881, 0.535249)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "mixamorig_Spine"
@@ -3422,7 +3423,7 @@ mesh = SubResource("ArrayMesh_2al7b")
 skin = SubResource("Skin_ouf6t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.851872, -0.367543, 0.373129, -0.521323, -0.663514, 0.53663, 0.0503416, -0.651661, -0.756838, -0.836569, -0.668759, -2.16811)
+transform = Transform3D(-0.15696, -0.251986, 0.954917, 0.936608, 0.268705, 0.224857, -0.313252, 0.929678, 0.193837, -0.827444, -0.382419, -1.07865)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
@@ -3489,6 +3490,11 @@ animControl = NodePath("../../../AnimationPlayer")
 
 [node name="PlayerPickingUp" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("animControl")]
 script = ExtResource("11_d8rt1")
+animControl = NodePath("../../../AnimationPlayer")
+
+[node name="PlayerJump" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
+script = ExtResource("13_gihen")
+player = NodePath("../../..")
 animControl = NodePath("../../../AnimationPlayer")
 
 [node name="JohnSpecialAttack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("tacoBox", "player", "animControl")]
