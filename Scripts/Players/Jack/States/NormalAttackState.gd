@@ -28,6 +28,4 @@ func _on_animation_player_animation_finished(anim_name:StringName):
 
 func _on_kick_punch_area_body_entered(body:Node3D):
 	body.dealDamage(1)
-	var look_direction = (body.global_position - player.global_position)
-	body.velocity = look_direction * 25
-	body.move_and_slide()
+	

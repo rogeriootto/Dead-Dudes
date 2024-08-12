@@ -12,6 +12,7 @@ func Exit():
 	
 func Physics_Update(delta: float):
 	deadMovement(delta)
+	gravityPhysics(delta, false)
 	check_if_player_is_close_to_attack()
 	if time > 5:
 		animControl.play("Scream")

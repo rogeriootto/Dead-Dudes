@@ -3,12 +3,13 @@ class_name PlayerGrounded
 
 @export var player: CharacterBody3D
 @export var animControl : AnimationPlayer
-var speed: float = 7.0
+var speed: float = 4
 
 var velocityTest : float
 var cameraRotation: Vector3
 
 @onready var interaction_area = get_tree().get_first_node_in_group("playerInteractableArea")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func Enter():
 	pass
@@ -26,6 +27,9 @@ func Physics_Update(delta: float):
 func buttonsCheck():
 	if Input.is_action_just_pressed("buildingMode_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerBuilding')
+
+	if Input.is_action_just_pressed("jump_" + player.getPlayerNumber()):
+		Transitioned.emit(self, 'PlayerJump')
 	
 	if Input.is_action_just_pressed("specialAttack_" + player.getPlayerNumber()):
 		if player.playerNumber == 'p1':
@@ -54,6 +58,16 @@ func checkIfPlayerIsDead():
 	if player.isPlayerDead:
 		Transitioned.emit(self, 'PlayerDying')
 
+func gravityPhysics(delta: float, jumping: bool):
+	var jumpVelocity = 6
+	if not player.is_on_floor():
+		player.velocity.y -= gravity * delta
+	
+	if jumping and player.is_on_floor():
+		player.velocity.y = jumpVelocity
+
+	player.move_and_slide()
+
 func playerMovement(speedModifier: float = 0.0):
 	checkIfPlayerIsDead()
 	var move_direction := Vector3.ZERO
@@ -80,6 +94,7 @@ func playerMovement(speedModifier: float = 0.0):
 			var look_direction = Vector2(velocity.z, velocity.x)
 			player.rotation.y = look_direction.angle()
 
-		player.velocity = velocity 
+		player.velocity.x = velocity.x
+		player.velocity.z = velocity.z
 		
 		player.move_and_slide()
