@@ -26,6 +26,15 @@ func Physics_Update(delta: float):
 func buttonsCheck():
 	if Input.is_action_just_pressed("buildingMode_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerBuilding')
+	
+	if Input.is_action_just_pressed("specialAttack_" + player.getPlayerNumber()):
+		if player.playerNumber == 'p1':
+			Transitioned.emit(self, 'JackSpecialAttack')
+		else:	
+			Transitioned.emit(self, 'JohnSpecialAttack')
+
+	if Input.is_action_just_pressed("normalAttack_" + player.getPlayerNumber()):
+		Transitioned.emit(self, 'NormalAttack')
 
 var _onInteractP1 = func():
 	if player.interactableName == 'carro':
@@ -41,7 +50,12 @@ var _onInteractP2 = func():
 		SignalManager.emitInteractRequestP2()
 		Transitioned.emit(self, 'PlayerPickingUp')
 
+func checkIfPlayerIsDead():
+	if player.isPlayerDead:
+		Transitioned.emit(self, 'PlayerDying')
+
 func playerMovement(speedModifier: float = 0.0):
+	checkIfPlayerIsDead()
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
 
@@ -65,11 +79,6 @@ func playerMovement(speedModifier: float = 0.0):
 		if velocity.length() > 0.2 && !player.axis_lock_angular_y:
 			var look_direction = Vector2(velocity.z, velocity.x)
 			player.rotation.y = look_direction.angle()
-		
-		if(Input.is_action_just_pressed("action_" + player.getPlayerNumber())):
-			velocity.y += 10
-		if(Input.is_action_just_pressed("action2_" + player.getPlayerNumber())):
-			velocity.y -= 10
 
 		player.velocity = velocity 
 		

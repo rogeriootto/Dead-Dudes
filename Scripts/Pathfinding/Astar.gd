@@ -13,11 +13,12 @@ var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
 var purple_material = StandardMaterial3D.new()
 var golden_material = StandardMaterial3D.new()
+var transparent_material = StandardMaterial3D.new()
 var old_points = []
 var player1Position = Vector3.ZERO
 var player2Position = Vector3.ZERO
 
-var obstacleDictionary = {"box1x1": preload("res://Scenes/Objects/Obstacles/obstacle.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
+var obstacleDictionary = {"box1x1": preload("res://Assets/Models/Obstacles/box_small.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
 var buildingShowObject
 
 func _ready():
@@ -25,6 +26,7 @@ func _ready():
 	green_material.albedo_color = Color.GREEN
 	purple_material.albedo_color = Color.INDIGO
 	golden_material.albedo_color = Color.GOLD
+	transparent_material.albedo_color = Color(1,1,1,0.3)
 	cube_mesh.size = Vector3(0.25, 0.25, 0.25)
 	var pathables = get_tree().get_nodes_in_group("pathable")
 	_make_grid(pathables)
@@ -201,16 +203,16 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO IF DO CARALHO
-		if point_position.y < grid_step * 2:
-			cube.mesh = cube_mesh
-			cube.material_override = red_material
-		#cube.mesh = cube_mesh
-		#cube.material_override = red_material
+		#if point_position.y < grid_step * 2:
+			#cube.mesh = cube_mesh
+			#cube.material_override = red_material
+		cube.mesh = cube_mesh
+		cube.material_override = red_material
 		add_child(cube)
 		#position.y = grid_y
 		cube.global_transform.origin = point_position
 
-func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vector3):
+func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vector3, player: Object):
 	if obstacleDictionary[obstacleName] and obstaclePosition.y > 0:
 		
 		obstaclePosition = scene_to_grid(obstaclePosition)
@@ -227,7 +229,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 		if points.has(above_obstacle_key):
 			above_obstacle_id = points[above_obstacle_key]
 
-		if not astar.is_point_disabled(obstacle_id):
+		if not astar.is_point_disabled(obstacle_id) && player.playerInventory > 0:
 			if(above_obstacle_id):
 				if should_draw_cubes:
 					get_child(above_obstacle_id).material_override = green_material
@@ -240,6 +242,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 			add_child(obstacle)
 			obstacle.add_to_group("obstacle")	
 			astar.set_point_disabled(obstacle_id, true)
+			player.removePlayerInventory()
 			
 			if should_draw_cubes:
 				get_child(obstacle_id).material_override = red_material
@@ -252,9 +255,9 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 		add_child(buildingShowObject)
 		buildingShowObject.get_node("CollisionShape3D").disabled = true
 
-		# var objectColor = StandardMaterial3D.new()
-		# objectColor.albedo_color = Color(1,1,1,0.1)
-		# buildingShowObject.get_node("MeshInstance3D").material_override = objectColor
+		transparent_material.albedo_texture = buildingShowObject.get_node("MeshInstance3D").material_override.albedo_texture
+		transparent_material.albedo_color = Color(0,0,0,0.1)
+		buildingShowObject.get_node("MeshInstance3D").material_override = transparent_material
 
 	if showObjectFlag:
 		obstaclePosition.x = snapped(obstaclePosition.x, grid_step)
@@ -266,7 +269,7 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 	else:
 		buildingShowObject.queue_free()
 
-func _on_main_obstacle_should_remove(obstacle: StaticBody3D):
+func _on_main_obstacle_should_remove(obstacle: StaticBody3D, player: Object):
 
 	var obstaclePosition = obstacle.global_position
 	var point_key = world_to_astar(obstaclePosition)
@@ -285,7 +288,7 @@ func _on_main_obstacle_should_remove(obstacle: StaticBody3D):
 		if astar.is_point_disabled(above_obstacle_id):
 			return
 
-	if astar.is_point_disabled(obstacle_id):
+	if astar.is_point_disabled(obstacle_id) && player.playerInventory < player.playerMaxInventorySpace:
 		if(above_obstacle_id):
 			if should_draw_cubes:
 				get_child(above_obstacle_id).material_override = red_material
@@ -294,6 +297,7 @@ func _on_main_obstacle_should_remove(obstacle: StaticBody3D):
 		if should_draw_cubes:
 			get_child(obstacle_id).material_override = purple_material
 		obstacle.queue_free()
+		player.addPlayerInventory()
 
 func _get_obstacle_adjacent_points(world_point: Vector3) -> Array:
 	
