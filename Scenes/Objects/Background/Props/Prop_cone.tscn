@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr5pk615o3bie"]
+[gd_scene load_steps=9 format=3 uid="uid://cng2notrls8u1"]
 
+[ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_kapn8"]
 [ext_resource type="Texture2D" uid="uid://r78ayo426474" path="res://Assets/Models/Background/Textures/Props_TrafficProps.png" id="1_lsulj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2joy"]
@@ -48,14 +49,31 @@ shadow_mesh = SubResource("ArrayMesh_7jiub")
 [sub_resource type="BoxShape3D" id="BoxShape3D_82tuo"]
 size = Vector3(0.775, 1, 0.8)
 
-[node name="Root Scene" type="StaticBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fr6w0"]
+size = Vector3(0.915039, 1.40063, 0.933594)
+
+[node name="Root Scene" type="StaticBody3D" groups=["obstacle"]]
+script = ExtResource("1_kapn8")
+comprimento = 1
+largura = 1
+altura = 1
+type = "caixa"
 
 [node name="Props_Traffic cone" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0, 0, 0)
+transform = Transform3D(150, 0, 0, 0, 150, -2.44382e-05, 0, 2.44382e-05, 150, 0, -0.6429, 0)
 material_override = SubResource("StandardMaterial3D_h2joy")
 mesh = SubResource("ArrayMesh_kyvbn")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475515, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232731, 0)
 shape = SubResource("BoxShape3D_82tuo")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.242784, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616297, 0)
+shape = SubResource("BoxShape3D_fr6w0")

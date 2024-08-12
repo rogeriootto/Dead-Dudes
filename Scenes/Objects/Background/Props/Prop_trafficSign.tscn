@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bco4bcijuouty"]
+[gd_scene load_steps=8 format=3 uid="uid://bco4bcijuouty"]
 
 [ext_resource type="Texture2D" uid="uid://r78ayo426474" path="res://Assets/Models/Background/Textures/Props_TrafficProps.png" id="1_tssdq"]
 
@@ -43,10 +43,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_spk45")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cns6k"]
+height = 3.78604
+radius = 0.0858046
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dfeuo"]
+height = 3.27989
+radius = 0.083514
+
 [node name="Node3D" type="StaticBody3D"]
 
 [node name="Props_Traffic Sign_speed limit" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0, 0, 0)
+transform = Transform3D(170, 0, 0, 0, 170, -2.76966e-05, 0, 2.76966e-05, 170, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_c3ycy")
 mesh = SubResource("ArrayMesh_le5ge")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91409, 0)
+shape = SubResource("CylinderShape3D_cns6k")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.242784, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00284576, 1.79302, 1.24392e-10)
+shape = SubResource("CylinderShape3D_dfeuo")

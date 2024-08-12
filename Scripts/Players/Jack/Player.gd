@@ -24,7 +24,7 @@ func setInteractableName(name: String):
 
 func dealDamage(damage: int):
 	playerHP -= damage
-	print("Player " + playerNumber + " took " + str(damage) + " damage. HP: " + str(playerHP))
+	#print("Player " + playerNumber + " took " + str(damage) + " damage. HP: " + str(playerHP))
 	# if playerHP <= 0:
 	# 	SignalManager.emitSignal("playerDied", playerNumber)
 	# 	queue_free()

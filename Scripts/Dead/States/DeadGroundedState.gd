@@ -10,6 +10,7 @@ var current_target := Vector3.INF
 var speed := RandomNumberGenerator.new().randi_range(2, 4)
 var count = 0 
 var should_update_path:bool = true
+var should_activate_zombie:bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func Enter():
@@ -35,11 +36,20 @@ func check_if_player_is_close_to_attack():
 		Transitioned.emit(self, 'DeadAttackState')
 
 func deadMovement(delta: float):
+
 	if not dead.is_on_floor():
 		dead.velocity.y -= gravity * delta
 	
 	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
+	
+	print("aquii a distance o  ", dist_to_p1)
+	
+	if (should_activate_zombie == false && (dist_to_p1 > 50 && dist_to_p2 > 50)):
+		return
+	else:
+		should_activate_zombie = true
+
 	var seeking_p1 = dist_to_p1 < dist_to_p2
 	#TODO ver pq o raycast não ta batendo em algumas merda exemplo, banco
 
@@ -89,8 +99,8 @@ func deadMovement(delta: float):
 
 func rotate_towards_movement_direction(velocity, object):
 	if velocity.length() > 0.2:
-			var look_direction = Vector2(velocity.z, velocity.x)
-			object.rotation.y = look_direction.angle()
+		var look_direction = Vector2(velocity.z, velocity.x)
+		object.rotation.y = look_direction.angle()
 
 func find_next_point_in_path():
 	if path.size() > 0:

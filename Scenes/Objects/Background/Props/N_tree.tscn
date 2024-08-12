@@ -45,16 +45,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iftse")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwsyw"]
-size = Vector3(1.5, 3, 1.5)
+size = Vector3(1.08203, 3, 0.987305)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k0ol8"]
 size = Vector3(1.81445, 4.38965, 1.81445)
 
-[node name="N_tree" type="StaticBody3D"]
+[node name="N_tree" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_abmtt")
 comprimento = 1
 largura = 1
-altura = 4
+altura = 3
 
 [node name="Natures_Big Tree" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0, 0, 0)
@@ -63,7 +63,7 @@ mesh = SubResource("ArrayMesh_aig1o")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58251, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58251, -0.0705428)
 shape = SubResource("BoxShape3D_kwsyw")
 
 [node name="Area3D" type="Area3D" parent="."]

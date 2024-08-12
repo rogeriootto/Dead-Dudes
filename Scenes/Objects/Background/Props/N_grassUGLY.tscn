@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cufa1ra5l2ke" path="res://Assets/Models/Background/Textures/Natures.png" id="1_s5frv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eoter"]
+diffuse_mode = 3
+disable_ambient_light = true
 albedo_texture = ExtResource("1_s5frv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2ho3"]
@@ -43,7 +45,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2jnmo")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgoao"]
-size = Vector3(10, 1, 10)
+size = Vector3(10.2002, 1, 10.3115)
 
 [node name="Root Scene" type="StaticBody3D"]
 
