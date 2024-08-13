@@ -58,6 +58,7 @@ script = ExtResource("1_l14i3")
 comprimento = 4
 largura = 9
 altura = 5
+type = "bus"
 
 [node name="Vehicle_Bus" type="MeshInstance3D" parent="."]
 transform = Transform3D(-6.55671e-06, -2.44381e-05, -150, 0, 150, -2.44381e-05, 150, -1.06822e-12, -6.55671e-06, 6.11726, -0.297965, -2.01368)

@@ -82,17 +82,17 @@ altura = 2
 type = "carro"
 
 [node name="Vehicle_Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(130, 0, 0, 0, 130, -2.11797e-05, 0, 2.11797e-05, 130, -1.50451, -0.515303, 3.81004)
+transform = Transform3D(130, 0, 0, 0, 130, -2.11797e-05, 0, 2.11797e-05, 130, 1.31668, -0.515303, -3.16157)
 material_override = SubResource("StandardMaterial3D_cfgoj")
 mesh = SubResource("ArrayMesh_ppp32")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, -1.54192, 0.533212, 3.71362)
+transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.27927, 0.533212, -3.25799)
 shape = SubResource("BoxShape3D_4c6fx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_pmwsf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.58379, -0.311467, 2.23631)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.2374, -0.311467, -4.7353)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37188, 1.19157, -0.0692682)
@@ -103,7 +103,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0885, 0.913319, -0.138537)
 shape = SubResource("BoxShape3D_81lh2")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64649, 0.0541694, 3.81004)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.46768, 0.0541694, -3.16157)
 collision_layer = 128
 collision_mask = 128
 
