@@ -386,7 +386,4 @@ func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumb
 								astar.set_point_disabled(above_obstacle_id,false)
 								if should_draw_cubes:
 									get_child(above_obstacle_id).material_override = golden_material
-	
-	#mover o objeto
-	
-	pass
+									
