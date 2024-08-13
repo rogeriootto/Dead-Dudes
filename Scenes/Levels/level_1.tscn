@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ba3q7ksqr35hb"]
+[gd_scene load_steps=25 format=3 uid="uid://ba3q7ksqr35hb"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="21_1kj55"]
 [ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="22_esin8"]
 [ext_resource type="PackedScene" uid="uid://cbdfh6veian4s" path="res://Scenes/Objects/Obstacles/normalCar2.tscn" id="24_hiqdl"]
+[ext_resource type="AudioStream" uid="uid://j3r65dx1qcko" path="res://Assets/BGM/cb1.mp3" id="24_lsot4"]
 [ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="25_y1fp7"]
 
 [node name="Level1" type="Node3D"]
@@ -335,6 +336,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78697, 3.12413, -2.09008)
 
 [node name="box_small6" parent="." instance=ExtResource("21_1kj55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81311, 1.64129, -0.460206)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_lsot4")
+autoplay = true
 
 [editable path="Scene/Pathables/CrossRoad"]
 [editable path="Scene/Pathables/CrossRoad2"]
