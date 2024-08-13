@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://co40jls0cyt1t"]
+
+[ext_resource type="Texture2D" uid="uid://bx8arfcwkoh62" path="res://Assets/HUD/Jack.png" id="1_d51o2"]
+[ext_resource type="Script" path="res://Scripts/Managers/p1HP.gd" id="2_1h17y"]
+[ext_resource type="Texture2D" uid="uid://bqoj3culxtbsu" path="res://Assets/HUD/John.png" id="2_lhbws"]
+[ext_resource type="Script" path="res://Scripts/Managers/p2HP.gd" id="3_fyf0s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c03nh"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hpja"]
+bg_color = Color(0.403922, 0, 0, 1)
+border_width_left = 4
+border_width_top = 3
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg0v0"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdoxs"]
+bg_color = Color(0.403922, 0, 0, 1)
+border_width_left = 4
+border_width_top = 3
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 43.0
+offset_top = 41.0
+offset_right = 137.0
+offset_bottom = 130.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_d51o2")
+expand_mode = 2
+
+[node name="p1HP" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_c03nh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7hpja")
+max_value = 3.0
+step = 1.0
+value = 2.0
+show_percentage = false
+script = ExtResource("2_1h17y")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = -34.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="p2HP" type="ProgressBar" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(200, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_vg0v0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qdoxs")
+max_value = 3.0
+step = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("3_fyf0s")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_lhbws")
+expand_mode = 2

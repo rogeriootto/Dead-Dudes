@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://ba3q7ksqr35hb"]
+[gd_scene load_steps=22 format=3 uid="uid://ba3q7ksqr35hb"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="2_c2wxd"]
+[ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_u8tjc"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="3_wrd2h"]
 [ext_resource type="PackedScene" uid="uid://2pm2ysglg5su" path="res://Scenes/Objects/Background/Props/N_grassUGLY.tscn" id="4_d7v3l"]
 [ext_resource type="PackedScene" uid="uid://0882i6a2xiw3" path="res://Scenes/Objects/Background/Buildings/building-drugstore.tscn" id="5_lik5g"]
@@ -31,6 +32,8 @@ current = true
 size = 14.402
 script = ExtResource("1_nee8d")
 offset = Vector3(15, 15, 15)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_u8tjc")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672447, 0.625029, 0, 0, 0)

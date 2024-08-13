@@ -35,6 +35,10 @@ func removePlayerInventory():
 
 func dealDamage(damage: int):
 	playerHP -= damage
+	if playerNumber == 'p1':
+		HUDmanager.Player1Health = playerHP
+	else:
+		HUDmanager.Player2Health = playerHP
 	print("Player " + playerNumber + " took " + str(damage) + " damage. HP: " + str(playerHP))
 	if playerHP <= 0:
 		isPlayerDead = true
