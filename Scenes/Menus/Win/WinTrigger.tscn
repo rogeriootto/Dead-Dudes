@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqel614dkd1lh"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Win/WinTrigger.gd" id="1_qkgab"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rifg6"]
+
+[node name="WinTrigger" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qkgab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rifg6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
