@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ba3q7ksqr35hb"]
+[gd_scene load_steps=24 format=3 uid="uid://ba3q7ksqr35hb"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
@@ -16,11 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://bkwprnsvv668g" path="res://Scenes/Objects/Background/Props/N_tree.tscn" id="11_eij7p"]
 [ext_resource type="PackedScene" uid="uid://dvdn3ftflwqsw" path="res://Scenes/Objects/Background/Buildings/building1.tscn" id="14_yqn04"]
 [ext_resource type="PackedScene" uid="uid://b0uia0eitcso" path="res://Scenes/Objects/Background/Buildings/level_limit.tscn" id="15_7ylcc"]
-[ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="16_pmgnb"]
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="17_b8oxc"]
 [ext_resource type="PackedScene" uid="uid://cng2notrls8u1" path="res://Scenes/Objects/Background/Props/Prop_cone.tscn" id="18_0bg8j"]
 [ext_resource type="PackedScene" uid="uid://dgw6w5oluopnn" path="res://Scenes/Objects/Background/Buildings/building-gasstation.tscn" id="19_7gxjb"]
-[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="20_mnnhd"]
+[ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="21_1kj55"]
+[ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="22_esin8"]
+[ext_resource type="PackedScene" uid="uid://cbdfh6veian4s" path="res://Scenes/Objects/Obstacles/normalCar2.tscn" id="24_hiqdl"]
+[ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="25_y1fp7"]
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_8wddr")
@@ -45,16 +47,28 @@ shadow_blur = 0.289
 
 [node name="Pathables" type="Node" parent="Scene"]
 
+[node name="Road4" parent="Scene/Pathables" instance=ExtResource("2_c2wxd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 43.9167, -0.00541413, -44.8141)
+
 [node name="Road1" parent="Scene/Pathables" instance=ExtResource("2_c2wxd")]
+
+[node name="box_small3" parent="Scene/Pathables/Road1" instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05513, 2.13757, -4.08451)
+
+[node name="box_small4" parent="Scene/Pathables/Road1" instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.84631, 2.13757, -8.4834)
 
 [node name="Road2" parent="Scene/Pathables" instance=ExtResource("2_c2wxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89)
 
 [node name="Road3" parent="Scene/Pathables" instance=ExtResource("2_c2wxd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -43.8013, -0.165871, -45.8549)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -43.8013, 0.0428664, -45.8549)
 
 [node name="CrossRoad" parent="Scene/Pathables" instance=ExtResource("3_wrd2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, -44.482)
+
+[node name="MeshInstance3D" parent="Scene/Pathables/CrossRoad/Sidewalk4" index="0"]
+transform = Transform3D(-1.96701e-07, 0, 15, 0, 1, 0, -4.5, 0, -6.55671e-07, 0, -0.0494471, 0)
 
 [node name="Root Scene9" parent="Scene/Pathables/CrossRoad" index="19"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.5946, 1.04344, 19.4125)
@@ -62,27 +76,39 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.594
 [node name="Root Scene10" parent="Scene/Pathables/CrossRoad" index="20"]
 transform = Transform3D(1.18574, 0, -0.265044, 0, 1.215, 0, 0.265044, 0, 1.18574, 19.6221, 0.301918, -21.0457)
 
+[node name="CrossRoad2" parent="Scene/Pathables" instance=ExtResource("3_wrd2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, 43.9207)
+
+[node name="grassUGLY4" parent="Scene/Pathables/CrossRoad2" index="13"]
+transform = Transform3D(1.99254, 0, 0, 0, 1, 0, 0, 0, 1.30943, -19.2659, 0.112697, -19.087)
+
+[node name="Root Scene9" parent="Scene/Pathables/CrossRoad2" index="19"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.5946, 1.04344, 19.4125)
+
+[node name="Root Scene10" parent="Scene/Pathables/CrossRoad2" index="20"]
+transform = Transform3D(1.18574, 0, -0.265044, 0, 1.215, 0, 0.265044, 0, 1.18574, 19.6221, 0.301918, -21.0457)
+
 [node name="Background" type="Node" parent="Scene"]
 
 [node name="Grass" type="Node" parent="Scene/Background"]
 
 [node name="grassUGLY5" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9737, 0.898, -6.1568)
+transform = Transform3D(2.17082, 0, 0, 0, 1, 0, 0, 0, 1, 25.0253, 0.898, -6.1568)
 
 [node name="grassUGLY2" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9559, 0.898, -16.1875)
+transform = Transform3D(2.2269, 0, 0, 0, 1, 0, 0, 0, 1.16922, 25.0781, 0.898, -16.1875)
 
 [node name="grassUGLY" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9559, 0.898, -26.1715)
+transform = Transform3D(2.31931, 0, 0, 0, 1, 0, 0, 0, 1, 24.8116, 0.898, -26.1715)
 
 [node name="grassUGLY3" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9916, 0.898, 13.5233)
+transform = Transform3D(2.17428, 0, 0, 0, 1, 0, 0, 0, 1, 25.1845, 0.898, 13.5233)
 
 [node name="grassUGLY4" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9737, 0.898, 3.70463)
+transform = Transform3D(2.15162, 0, 0, 0, 1, 0, 0, 0, 1, 24.4921, 0.898, 3.70463)
 
 [node name="grassUGLY6" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.348, 0.898, -92.788)
+transform = Transform3D(2.25008, 0, 0, 0, 1, 0, 0, 0, 1.20014, 23.3903, 0.898, -92.788)
 
 [node name="grassUGLY7" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3001, 0.898, -82.5608)
@@ -100,31 +126,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2822, 0.898, -62.8807)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3001, 0.898, -72.6994)
 
 [node name="grassUGLY12" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3658, 0.898, -82.7573)
+transform = Transform3D(2.30519, 0, 0, 0, 1, 0, 0, 0, 1, 22.7861, 0.898, -82.7573)
 
 [node name="grassUGLY13" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.348, 0.898, -102.772)
+transform = Transform3D(2.32945, 0, 0, 0, 1, 0, 0, 0, 1, 23.7383, 0.898, -102.772)
 
 [node name="grassUGLY14" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3837, 0.898, -63.0772)
+transform = Transform3D(2.04949, 0, 0, 0, 1, 0, 0, 0, 1, 23.649, 0.903905, -63.0772)
 
 [node name="grassUGLY15" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3658, 0.898, -72.8958)
+transform = Transform3D(2.10851, 0, 0, 0, 1, 0, 0, 0, 1, 23.6311, 0.898, -72.8958)
 
 [node name="grassUGLY16" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3854, 0.898, -5.84813)
+transform = Transform3D(1.69747, 0, 0, 0, 1, 0, 0, 0, 1.11245, -20.1137, 0.898, -5.84813)
 
 [node name="grassUGLY17" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4033, 0.898, -15.8788)
+transform = Transform3D(1.56393, 0, 0, 0, 1, 0, 0, 0, 1, -21.1466, 0.898, -15.8788)
 
 [node name="grassUGLY18" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4033, 0.898, -25.8628)
+transform = Transform3D(1.52406, 0, 0, 0, 1, 0, 0, 0, 1, -21.2524, 0.898, -25.8628)
 
 [node name="grassUGLY19" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3676, 0.898, 13.832)
+transform = Transform3D(1.86167, 0, 0, 0, 1, 0, 0, 0, 1.98712, -19.8183, 0.898, 13.832)
 
 [node name="grassUGLY20" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3854, 0.898, 4.0133)
+transform = Transform3D(1.59598, 0, 0, 0, 1, 0, 0, 0, 1, -20.8338, 0.898, 4.0133)
+
+[node name="grassUGLY21" parent="Scene/Background/Grass" instance=ExtResource("4_d7v3l")]
+transform = Transform3D(2.68691, 0, 0, 0, 0.988304, 0, 0, 0, 1.65398, 24.4781, 0.898, 22.3824)
 
 [node name="Decor" type="Node" parent="Scene/Background"]
 
@@ -203,13 +232,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1.11709, -104)
 [node name="N_tree9" parent="Scene/Background/Decor" instance=ExtResource("8_onioe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8747, 0.935309, 15.2799)
 
-[node name="Bus" parent="Scene/Background/Decor" instance=ExtResource("16_pmgnb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.3899, 0.61279, -31.381)
-comprimento = 1
-largura = 1
-altura = 1
-type = ""
-
 [node name="car" parent="Scene/Background/Decor" instance=ExtResource("17_b8oxc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8223, 0.828594, -53.9284)
 
@@ -231,6 +253,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3571, 0.870828, -49.3999)
 [node name="Root Scene22" parent="Scene/Background/Decor" instance=ExtResource("18_0bg8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2963, 0.870828, -52.4299)
 
+[node name="car2" parent="Scene/Background/Decor" instance=ExtResource("24_hiqdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4336, 1.48858, -57.0348)
+
+[node name="busFLIP" parent="Scene/Background/Decor" instance=ExtResource("25_y1fp7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.3828, 1, -43.5914)
+
+[node name="big_wall" parent="Scene/Background/Decor" instance=ExtResource("22_esin8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3673, 1.20309, -29.3658)
+
 [node name="Buildings" type="Node" parent="Scene/Background"]
 
 [node name="Building DrugStore" parent="Scene/Background/Buildings" instance=ExtResource("5_lik5g")]
@@ -249,7 +280,7 @@ transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -19.462,
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.5444, 0.935638, -1.56302)
 
 [node name="building1" parent="Scene/Background/Buildings" instance=ExtResource("14_yqn04")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.8743, 1.60553, -94.0063)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.8743, 0.779823, -94.0063)
 
 [node name="Building Gas Station" parent="Scene/Background/Buildings" instance=ExtResource("19_7gxjb")]
 transform = Transform3D(-0.0139098, 0, -0.999903, 0, 1, 0, 0.999903, 0, -0.0139098, -33.9241, 0.919017, -63.7755)
@@ -271,19 +302,39 @@ transform = Transform3D(0.219235, 0, 0.843119, 0, 2.52815, 0, -0.343745, 0, 0.53
 [node name="LevelLimit5" parent="Scene/Background/InvisibleWalls" instance=ExtResource("15_7ylcc")]
 transform = Transform3D(-7.47085e-07, 0, 1.00731, 0, 2.54662, 0, -12.534, 0, -6.00401e-08, 14.8222, 12.435, -45.9446)
 
-[node name="dead1" parent="." instance=ExtResource("20_mnnhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7549, 0.870705, -44.9487)
+[node name="LevelLimit6" parent="Scene/Background/InvisibleWalls" instance=ExtResource("15_7ylcc")]
+transform = Transform3D(-3.26369, 0, -6.9839e-05, 0, 2.52815, 0, 0.000227939, 0, -0.999975, 0.496917, 12.435, 12.6174)
 
-[node name="dead2" parent="." instance=ExtResource("20_mnnhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.69581, 0.78349, -87.7188)
+[node name="Interactables" type="Node" parent="Scene"]
 
-[node name="dead3" parent="." instance=ExtResource("20_mnnhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55286, 1.45067, -94.2477)
+[node name="Puzzle1" type="Node" parent="Scene/Interactables"]
 
-[node name="dead4" parent="." instance=ExtResource("20_mnnhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01535, 0.842463, 4.24669)
+[node name="box_small2" parent="Scene/Interactables/Puzzle1" instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0764, 0.870705, -52.3023)
 
-[node name="dead5" parent="." instance=ExtResource("20_mnnhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4474, 1.13628, -3.27305)
+[node name="box_small3" parent="Scene/Interactables/Puzzle1" instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1041, 0.870705, -50.3138)
+
+[node name="box_small4" parent="Scene/Interactables/Puzzle1" instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2522, 2.28469, -50.3011)
+
+[node name="box_small5" parent="Scene/Interactables/Puzzle1" instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1856, 0.870705, -48.6511)
+
+[node name="box_small2" parent="." instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1932, 1.9599, 0.102696)
+
+[node name="box_small3" parent="." instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40855, 2.13757, -4.08451)
+
+[node name="box_small4" parent="." instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65695, 1.7646, -1.93121)
+
+[node name="box_small5" parent="." instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78697, 3.12413, -2.09008)
+
+[node name="box_small6" parent="." instance=ExtResource("21_1kj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81311, 1.64129, -0.460206)
 
 [editable path="Scene/Pathables/CrossRoad"]
+[editable path="Scene/Pathables/CrossRoad2"]

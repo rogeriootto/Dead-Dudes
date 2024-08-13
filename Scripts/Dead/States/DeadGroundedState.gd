@@ -7,7 +7,7 @@ class_name DeadGrounded
 
 var path := []
 var current_target := Vector3.INF
-var speed := RandomNumberGenerator.new().randi_range(2, 4)
+var speed := RandomNumberGenerator.new().randi_range(2, 3)
 var count = 0 
 var should_update_path:bool = true
 var should_activate_zombie:bool = false
@@ -57,7 +57,7 @@ func deadMovement(delta: float):
 	var dist_to_p1 = dead.global_transform.origin.distance_to(AstarManager.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(AstarManager.player2Position)
 			
-	if (should_activate_zombie == false && (dist_to_p1 > 50 && dist_to_p2 > 50)):
+	if (should_activate_zombie == false && (dist_to_p1 > 40 && dist_to_p2 > 40)):
 		return
 	else:
 		should_activate_zombie = true
