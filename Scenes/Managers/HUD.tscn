@@ -1,9 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://co40jls0cyt1t"]
+[gd_scene load_steps=20 format=3 uid="uid://co40jls0cyt1t"]
 
 [ext_resource type="Texture2D" uid="uid://bx8arfcwkoh62" path="res://Assets/HUD/Jack.png" id="1_d51o2"]
 [ext_resource type="Script" path="res://Scripts/Managers/p1HP.gd" id="2_1h17y"]
 [ext_resource type="Texture2D" uid="uid://bqoj3culxtbsu" path="res://Assets/HUD/John.png" id="2_lhbws"]
 [ext_resource type="Script" path="res://Scripts/Managers/p2HP.gd" id="3_fyf0s"]
+[ext_resource type="Texture2D" uid="uid://mkhuvpvys3vp" path="res://Assets/HUD/leftStick.png" id="5_jamul"]
+[ext_resource type="Texture2D" uid="uid://de03airt5v8s1" path="res://Assets/HUD/bg.png" id="5_ndnkj"]
+[ext_resource type="Texture2D" uid="uid://c1tjpk32w7mch" path="res://Assets/HUD/Cross.png" id="6_rance"]
+[ext_resource type="Texture2D" uid="uid://bocwjmumx50tb" path="res://Assets/HUD/square.png" id="7_lcoot"]
+[ext_resource type="Texture2D" uid="uid://dq1xyu1n6c3cf" path="res://Assets/HUD/Circle.png" id="8_3gwl0"]
+[ext_resource type="Texture2D" uid="uid://dg6atoxui3lau" path="res://Assets/HUD/triangle.png" id="9_xwpoh"]
+[ext_resource type="Texture2D" uid="uid://c23vdi1277y25" path="res://Assets/HUD/l1.png" id="10_se2t0"]
+[ext_resource type="Texture2D" uid="uid://bbknhqkeg2nt5" path="res://Assets/HUD/r1.png" id="11_q0nlh"]
+[ext_resource type="Texture2D" uid="uid://dqmp1e8e1iyyb" path="res://Assets/HUD/Office_-12_icon-icons.com_73953 (1).png" id="13_7tc75"]
+[ext_resource type="Script" path="res://Scenes/Managers/InventoryHUDP1.gd" id="14_n3kut"]
+[ext_resource type="Script" path="res://Scenes/Managers/InventoryHUDP2.gd" id="15_biafi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c03nh"]
 bg_color = Color(0, 0, 0, 1)
@@ -111,10 +122,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -310.0
-offset_top = -28.0
-offset_right = 310.0
-offset_bottom = 12.0
+offset_left = -306.0
+offset_top = -31.0
+offset_right = 314.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -123,3 +134,172 @@ custom_minimum_size = Vector2(620, 25)
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 0.258824)
 text = "VERSÃO NÃO FINAL --- Dead Dudes Versão Alpha 000.1   --- VERSÃO NÃO FINAL"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0.231373)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -292.0
+offset_top = -88.0
+offset_right = 52.0
+offset_bottom = 225.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("5_ndnkj")
+expand_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
+offset_top = 12.0
+offset_right = 18.0
+offset_bottom = 211.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("5_jamul")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+text = "Movimentação"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("6_rance")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+text = "Pulo"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("7_lcoot")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+text = "Ataque Normal"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("8_3gwl0")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+text = "Ataque Especial"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer5"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("9_xwpoh")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer5"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+text = "Interação"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer6"]
+custom_minimum_size = Vector2(35, 25)
+layout_mode = 2
+texture = ExtResource("10_se2t0")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer6"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+text = "Entrar modo Construção"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/HBoxContainer7"]
+custom_minimum_size = Vector2(35, 25)
+layout_mode = 2
+texture = ExtResource("10_se2t0")
+expand_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer7"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+text = "+"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer7"]
+custom_minimum_size = Vector2(35, 25)
+layout_mode = 2
+texture = ExtResource("11_q0nlh")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer7"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+text = "Construir Bloco"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+offset_left = 148.0
+offset_top = 33.0
+offset_right = 1172.0
+offset_bottom = 65.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer4"]
+custom_minimum_size = Vector2(32, 20)
+layout_mode = 2
+texture = ExtResource("13_7tc75")
+stretch_mode = 1
+script = ExtResource("14_n3kut")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -116.0
+offset_right = -138.0
+offset_bottom = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer5"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("13_7tc75")
+stretch_mode = 1
+flip_h = true
+script = ExtResource("15_biafi")
