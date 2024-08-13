@@ -60,15 +60,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vw0p3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c6fx"]
-size = Vector3(5.66943, 1.80176, 2.06592)
+size = Vector3(5.37649, 1.86865, 2.066)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81lh2"]
 size = Vector3(2.74414, 1.88281, 2.22485)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mt6sf"]
-size = Vector3(8.82422, 3.05249, 3.72852)
+size = Vector3(8.38672, 3.09424, 3.63281)
 
-[node name="car" type="CharacterBody3D" groups=["obstacle"]]
+[node name="car2FLIP" type="CharacterBody3D" groups=["obstacle"]]
 axis_lock_linear_y = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -81,17 +81,17 @@ altura = 2
 type = "carro"
 
 [node name="Vehicle_Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(-5.68248e-06, 2.11797e-05, 130, 0, 130, -2.11797e-05, -130, -9.25794e-13, -5.68248e-06, 3.9804, -0.515303, 1.10996)
+transform = Transform3D(-5.68248e-06, 2.11798e-05, 130, 0, 130, -2.11798e-05, -130, -9.25798e-13, -5.68248e-06, 3.9804, -0.515303, 1.47046)
 material_override = SubResource("StandardMaterial3D_7s2dk")
 mesh = SubResource("ArrayMesh_ppp32")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.56, 0, 0, 0, 1.56, 0, 0, 0, 1.56, 3.94299, 0.533212, 1.01354)
+transform = Transform3D(1.56, 0, 0, 0, 1.56, 0, 0, 0, 1.56, 3.71483, 0.94761, 1.37404)
 shape = SubResource("BoxShape3D_4c6fx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_bc2nc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27673, -0.311467, 1.13578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27673, -0.311467, 1.49628)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37188, 1.19157, -0.0692682)
@@ -102,10 +102,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0885, 0.913319, -0.138537)
 shape = SubResource("BoxShape3D_81lh2")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1314, 0.0541694, 1.10996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1314, 0.0541694, 1.47046)
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3662, 1.07752, -0.0211866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3662, 0.922129, -0.0211866)
 shape = SubResource("BoxShape3D_mt6sf")

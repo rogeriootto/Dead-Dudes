@@ -60,15 +60,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vw0p3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c6fx"]
-size = Vector3(5.66943, 1.80176, 2.06592)
+size = Vector3(5.669, 1.6884, 2.066)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81lh2"]
 size = Vector3(2.08887, 1.88281, 2.29114)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mt6sf"]
-size = Vector3(3.729, 3.052, 8.6084)
+size = Vector3(3.63025, 2.97522, 8.4541)
 
-[node name="car" type="CharacterBody3D" groups=["obstacle"]]
+[node name="car3FLIP" type="CharacterBody3D" groups=["obstacle"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 axis_lock_linear_y = true
 axis_lock_linear_z = true
@@ -82,13 +82,13 @@ altura = 2
 type = "carro"
 
 [node name="Vehicle_Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(130, 0, 0, 0, 130, -2.11797e-05, 0, 2.11797e-05, 130, 1.31668, -0.515303, -3.16157)
+transform = Transform3D(130, 0, 0, 0, 130, -2.11797e-05, 0, 2.11797e-05, 130, 1.31668, -0.38874, -3.16157)
 material_override = SubResource("StandardMaterial3D_cfgoj")
 mesh = SubResource("ArrayMesh_ppp32")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.27927, 0.533212, -3.25799)
+transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.27927, 1.12282, -3.25799)
 shape = SubResource("BoxShape3D_4c6fx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_pmwsf")]
@@ -108,5 +108,5 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11496, 1.07752, -0.307977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16434, 1.03913, -0.307977)
 shape = SubResource("BoxShape3D_mt6sf")

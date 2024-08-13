@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvdn3ftflwqsw"]
+[gd_scene load_steps=7 format=3 uid="uid://dvdn3ftflwqsw"]
 
 [ext_resource type="Texture2D" uid="uid://16umovdq3la" path="res://Assets/Models/Background/Textures/Building Sky_big_color01.png" id="1_vs22w"]
 
@@ -43,6 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5w80v")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwchb"]
+size = Vector3(12.4646, 7.14056, 2.57428)
+
 [node name="building1" type="Node3D"]
 
 [node name="Building Sky_big_color01" type="MeshInstance3D" parent="."]
@@ -50,3 +53,12 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_an4ax")
 mesh = SubResource("ArrayMesh_uglrr")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.33202, -0.243795, 3.81004)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.22985e-08, 0, -4.78462, 0, 3.03334, 0, 0.967677, 0, -2.09143e-07, 3.86914, 11.4111, -4.2636)
+shape = SubResource("BoxShape3D_pwchb")

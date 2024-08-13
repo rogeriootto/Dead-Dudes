@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://br2egniaxtoag"]
+[gd_scene load_steps=7 format=3 uid="uid://br2egniaxtoag"]
 
 [ext_resource type="Texture2D" uid="uid://djt8c58lc3ukt" path="res://Assets/Models/Background/Textures/Building_Music Store.png" id="1_h23rx"]
 
@@ -43,6 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gcocs")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_n35vd"]
+size = Vector3(11.6096, 5.92963, 1.97729)
+
 [node name="Building Music Store" type="Node3D"]
 
 [node name="Building_Music Store" type="MeshInstance3D" parent="."]
@@ -50,3 +53,12 @@ transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0,
 material_override = SubResource("StandardMaterial3D_1ltma")
 mesh = SubResource("ArrayMesh_7qlfw")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.33202, -0.243795, 3.81004)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.22985e-08, 0, -4.78462, 0, 1.69487, 0, 0.967677, 0, -2.09143e-07, 4.42751, 5.11806, -4.2636)
+shape = SubResource("BoxShape3D_n35vd")

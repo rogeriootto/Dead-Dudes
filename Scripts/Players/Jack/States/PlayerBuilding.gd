@@ -15,6 +15,7 @@ func Update(delta: float):
 	pass
 	
 func Physics_Update(delta: float):
+	gravityPhysics(delta, false)
 	playerMovement()
 	
 	if Input.is_action_just_pressed("buildingPut_" + player.getPlayerNumber()):

@@ -78,6 +78,7 @@ script = SubResource("GDScript_dqafp")
 comprimento = 3
 largura = 6
 altura = 2
+type = "carro"
 
 [node name="Vehicle_Car" type="MeshInstance3D" parent="."]
 transform = Transform3D(130, 0, 0, 0, 130, -2.11797e-05, 0, 2.11797e-05, 130, 1.47064, -0.515303, 3.81004)

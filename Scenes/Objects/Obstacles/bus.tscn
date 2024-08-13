@@ -50,7 +50,7 @@ shadow_mesh = SubResource("ArrayMesh_qtkhw")
 size = Vector3(4.63184, 5.31427, 13.3376)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tj37l"]
-size = Vector3(13.4841, 5.79492, 5.05664)
+size = Vector3(13.4841, 5.79492, 5.27197)
 
 [node name="Bus" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_2mdjp")
@@ -75,5 +75,5 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.47123, 2.617, 1.83292)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5789, 2.617, 1.83292)
 shape = SubResource("BoxShape3D_tj37l")

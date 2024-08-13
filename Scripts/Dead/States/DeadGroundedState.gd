@@ -40,7 +40,7 @@ func checkIfTookHit():
 		Transitioned.emit(self, 'DeadHurtState')
 
 func gravityPhysics(delta: float, jumping: bool):
-	var jumpVelocity = 4
+	var jumpVelocity = 4.5
 	if not dead.is_on_floor():
 		dead.velocity.y -= gravity * delta
 	
@@ -103,7 +103,7 @@ func deadMovement(delta: float):
 					find_next_point_in_path()
 					# if zombie will should fall form tall height
 					if(dead.position.y >= current_target[1] + 1.5):
-						should_update_path = false
+						#should_update_path = false
 						# dead.velocity.y += speed
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()

@@ -52,7 +52,7 @@ size = Vector3(0.775, 1, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fr6w0"]
 size = Vector3(0.915039, 1.40063, 0.933594)
 
-[node name="Root Scene" type="StaticBody3D" groups=["obstacle"]]
+[node name="Cone" type="StaticBody3D" groups=["obstacle"]]
 script = ExtResource("1_kapn8")
 comprimento = 1
 largura = 1

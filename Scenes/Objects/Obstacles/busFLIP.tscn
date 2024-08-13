@@ -50,31 +50,31 @@ shadow_mesh = SubResource("ArrayMesh_8jurr")
 size = Vector3(4.63184, 5.31427, 13.3376)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6eeoc"]
-size = Vector3(13.4841, 5.79492, 5.05664)
+size = Vector3(13.7147, 5.79492, 5.11914)
 
 [node name="busFLIP" type="StaticBody3D" groups=["obstacle"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_l14i3")
 comprimento = 4
-largura = 9
+largura = 10
 altura = 5
 type = "bus"
 
 [node name="Vehicle_Bus" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.55671e-06, -2.44381e-05, -150, 0, 150, -2.44381e-05, 150, -1.06822e-12, -6.55671e-06, 6.11726, -0.297965, -2.01368)
+transform = Transform3D(-6.55671e-06, -2.44381e-05, -150, 0, 150, -2.44381e-05, 150, -1.06822e-12, -6.55671e-06, 6.20335, -0.297965, -2.14282)
 material_override = SubResource("StandardMaterial3D_fjj26")
 mesh = SubResource("ArrayMesh_ly8qp")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.11726, 2.3737, -2.01368)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.20335, 2.3737, -2.14282)
 shape = SubResource("BoxShape3D_7sw5n")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.33202, -0.243795, -0.454071)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.41811, -0.243795, -0.583214)
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.57123, 2.617, 1.83292)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.57123, 2.95008, 1.71762)
 shape = SubResource("BoxShape3D_6eeoc")
