@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4fvfv5fyi5rk"]
+[gd_scene load_steps=5 format=3 uid="uid://b5gqb5ceora51"]
 
 [ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="1_ca7vw"]
 [ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="2_1bcgh"]
@@ -135,63 +135,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6747, 3.30196, 10.1923)
 
 [node name="box_small39" parent="." instance=ExtResource("1_ca7vw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1823, 3.30196, 10.1923)
-
-[node name="box_small40" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0089, 4.82734, 10.1923)
-
-[node name="box_small41" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4612, 4.82734, 10.1923)
-
-[node name="box_small42" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.89367, 4.82734, 10.1923)
-
-[node name="box_small43" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39025, 4.82734, 10.1923)
-
-[node name="box_small44" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84257, 4.82734, 10.1743)
-
-[node name="box_small45" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3216, 4.82734, 10.1923)
-
-[node name="box_small46" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83275, 4.82734, 10.1923)
-
-[node name="box_small47" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28507, 4.82734, 10.1743)
-
-[node name="box_small48" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.764104, 4.82734, 10.1923)
-
-[node name="box_small49" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534958, 4.82734, 10.1743)
-
-[node name="box_small50" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05593, 4.82734, 10.1923)
-
-[node name="box_small51" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54477, 4.82734, 10.1923)
-
-[node name="box_small52" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09245, 4.82734, 10.1743)
-
-[node name="box_small53" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61342, 4.82734, 10.1923)
-
-[node name="box_small54" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.09016, 4.82734, 10.1923)
-
-[node name="box_small55" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.63784, 4.82734, 10.1743)
-
-[node name="box_small56" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1588, 4.82734, 10.1923)
-
-[node name="box_small57" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6747, 4.82734, 10.1923)
-
-[node name="box_small58" parent="." instance=ExtResource("1_ca7vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1823, 4.82734, 10.1923)
 
 [node name="Bus" parent="." instance=ExtResource("2_1bcgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.764, 0.828594, 26.576)

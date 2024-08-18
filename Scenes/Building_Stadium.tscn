@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr8nnjr3ojsn"]
+[gd_scene load_steps=9 format=3 uid="uid://cr8nnjr3ojsn"]
 
 [ext_resource type="Texture2D" uid="uid://bqprhr3amtgx1" path="res://Assets/Models/Background/Textures/Building_Stadium.png" id="1_0migh"]
+[ext_resource type="PackedScene" uid="uid://npa7quhm6nxe" path="res://Scenes/Objects/Background/Buildings/level_limit.tscn" id="2_jx6u6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mks3g"]
 albedo_texture = ExtResource("1_0migh")
@@ -43,10 +44,43 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e5tu4")
 
-[node name="Building_Stadium" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bee26"]
+size = Vector3(209.98, 2.69379, 161.697)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1nei2"]
+size = Vector3(140, 1, 85)
+
+[node name="Building_Stadium" type="StaticBody3D"]
 
 [node name="Building_Stadium" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0, 0, 0)
+transform = Transform3D(342.127, -5.94045e-05, -364.622, 0, 500, -8.14605e-05, 364.622, 5.57397e-05, 342.127, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_mks3g")
 mesh = SubResource("ArrayMesh_wyesq")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.948575, -0.245668, -1.80658)
+shape = SubResource("BoxShape3D_bee26")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.743145, 0, 0.669131, 0, 1, 0, -0.669131, 0, 0.743145, 0, 0, -1.337)
+visible = false
+mesh = SubResource("BoxMesh_1nei2")
+
+[node name="LevelLimit" parent="." instance=ExtResource("2_jx6u6")]
+transform = Transform3D(-17.887, 0, -1.89798, 0, -3.05621, 0, 17.4674, 0, -1.94357, -39.1844, 15.434, -21.2484)
+
+[node name="LevelLimit3" parent="." instance=ExtResource("2_jx6u6")]
+transform = Transform3D(-10.6503, 0, 1.37237, 0, -3.05621, 0, -11.9159, 0, -1.22661, 37.8425, 15.434, -37.4081)
+
+[node name="LevelLimit4" parent="." instance=ExtResource("2_jx6u6")]
+transform = Transform3D(-10.6503, 0, 1.37237, 0, -3.05621, 0, -11.9159, 0, -1.22661, -84.9706, 15.434, 10.2682)
+
+[node name="LevelLimit5" parent="." instance=ExtResource("2_jx6u6")]
+transform = Transform3D(-0.0440003, 0, 0.264321, 0, -3.05621, 0, 2.14525, 0, 0.00542132, -28.6696, 1.66116, 80.8009)
+
+[node name="LevelLimit6" parent="." instance=ExtResource("2_jx6u6")]
+transform = Transform3D(-0.0440003, 0, 0.264321, 0, -3.05621, 0, 2.14525, 0, 0.00542132, -13.8134, 1.66116, 80.8009)
+
+[node name="LevelLimit2" parent="." instance=ExtResource("2_jx6u6")]
+transform = Transform3D(-8.02504, 0, -1.14883, 0, -3.05621, 0, 7.82912, 0, -1.17758, 27.9389, 3.25934, 29.5224)

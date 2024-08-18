@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://ba3q7ksqr35hb"]
+[gd_scene load_steps=38 format=3 uid="uid://drn2c6a5rj0d2"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="2_c2wxd"]
-[ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_u8tjc"]
+[ext_resource type="PackedScene" path="res://Scenes/Managers/HUD.tscn" id="3_u8tjc"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="3_wrd2h"]
 [ext_resource type="PackedScene" uid="uid://2pm2ysglg5su" path="res://Scenes/Objects/Background/Props/N_grassUGLY.tscn" id="4_d7v3l"]
 [ext_resource type="PackedScene" uid="uid://0882i6a2xiw3" path="res://Scenes/Objects/Background/Buildings/building-drugstore.tscn" id="5_lik5g"]
@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bk7hivcv4x642" path="res://Scenes/Objects/Background/Buildings/building-bar.tscn" id="6_sf343"]
 [ext_resource type="PackedScene" uid="uid://db8qf7oqtx1fj" path="res://Scenes/Objects/Background/Buildings/building-clothing.tscn" id="7_ogmv0"]
 [ext_resource type="PackedScene" uid="uid://dw02gbl7syq5a" path="res://Scenes/Objects/Background/Props/N_grassFENCE.tscn" id="8_htelg"]
-[ext_resource type="PackedScene" uid="uid://7m0d0qtbm0w8" path="res://Scenes/Objects/Background/Props/N_tree2.tscn" id="8_onioe"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Background/Props/N_tree2.tscn" id="8_onioe"]
 [ext_resource type="PackedScene" uid="uid://br2egniaxtoag" path="res://Scenes/Objects/Background/Buildings/building-musicstore.tscn" id="10_rewgx"]
 [ext_resource type="PackedScene" uid="uid://bkwprnsvv668g" path="res://Scenes/Objects/Background/Props/N_tree.tscn" id="11_eij7p"]
 [ext_resource type="PackedScene" uid="uid://dvdn3ftflwqsw" path="res://Scenes/Objects/Background/Buildings/building1.tscn" id="14_yqn04"]
-[ext_resource type="PackedScene" uid="uid://b0uia0eitcso" path="res://Scenes/Objects/Background/Buildings/level_limit.tscn" id="15_7ylcc"]
+[ext_resource type="PackedScene" uid="uid://npa7quhm6nxe" path="res://Scenes/Objects/Background/Buildings/level_limit.tscn" id="15_7ylcc"]
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="17_b8oxc"]
 [ext_resource type="PackedScene" uid="uid://cvo16d804tnjh" path="res://Scenes/Objects/Background/Props/Prop_bench2.tscn" id="17_ov7ia"]
 [ext_resource type="PackedScene" uid="uid://cng2notrls8u1" path="res://Scenes/Objects/Background/Props/Prop_cone.tscn" id="18_0bg8j"]
@@ -26,18 +26,22 @@
 [ext_resource type="PackedScene" uid="uid://bco4bcijuouty" path="res://Scenes/Objects/Background/Props/Prop_trafficSign.tscn" id="22_px8a5"]
 [ext_resource type="PackedScene" uid="uid://cbdfh6veian4s" path="res://Scenes/Objects/Obstacles/normalCar2.tscn" id="24_hiqdl"]
 [ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="24_k1581"]
-[ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="25_y1fp7"]
-[ext_resource type="PackedScene" uid="uid://b5aoxatou8q0w" path="res://Scenes/Levels/puzzle_1.tscn" id="26_4y2mh"]
-[ext_resource type="PackedScene" uid="uid://b4fvfv5fyi5rk" path="res://Scenes/Levels/tutorial.tscn" id="28_0plyg"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="25_y1fp7"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/puzzle_1.tscn" id="26_4y2mh"]
+[ext_resource type="PackedScene" uid="uid://b5gqb5ceora51" path="res://Scenes/Levels/tutorial.tscn" id="28_0plyg"]
 [ext_resource type="PackedScene" uid="uid://baocscj4qtxk8" path="res://Scenes/Objects/Background/Props/Prop_Letreiro.tscn" id="29_k7sdq"]
 [ext_resource type="PackedScene" uid="uid://p430nthgdxi8" path="res://Scenes/Objects/Obstacles/normalCar.tscn" id="31_cpwgv"]
 [ext_resource type="PackedScene" uid="uid://b1c1d47i7qa6t" path="res://Scenes/Objects/Background/Props/Prop_sinaleira.tscn" id="32_0p8qn"]
-[ext_resource type="PackedScene" uid="uid://b73aa7gweqrmf" path="res://Scenes/Levels/puzzle_2.tscn" id="33_iht7e"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/puzzle_2.tscn" id="33_iht7e"]
+[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="34_jcy58"]
+[ext_resource type="PackedScene" uid="uid://cr8nnjr3ojsn" path="res://Scenes/Building_Stadium.tscn" id="35_w4uys"]
+[ext_resource type="PackedScene" uid="uid://cqel614dkd1lh" path="res://Scenes/Menus/Win/WinTrigger.tscn" id="36_yyykf"]
+[ext_resource type="PackedScene" uid="uid://d3sl5p161wnvx" path="res://Scenes/Objects/Obstacles/policeCar2FLIP.tscn" id="37_wrgox"]
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_8wddr")
-player1SpawnPoint = Vector3(10, 3.094, -70)
-player2SpawnPoint = Vector3(10, 3.094, -70)
+player1SpawnPoint = Vector3(-1.27594, 1.74671, 48.9641)
+player2SpawnPoint = Vector3(3, 1.747, 48.964)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
@@ -480,6 +484,78 @@ transform = Transform3D(-7.47085e-07, 0, 1.00731, 0, 2.54662, 0, -12.534, 0, -6.
 [node name="Puzzle1" parent="Scene/Interactables" instance=ExtResource("26_4y2mh")]
 
 [node name="Puzzle2" parent="Scene/Interactables" instance=ExtResource("33_iht7e")]
+
+[node name="dead1" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76102, 0.78349, -103.887)
+
+[node name="dead2" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.192, 0.856373, -106.118)
+
+[node name="dead3" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.814, 1.45146, -108.394)
+
+[node name="dead4" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.89965, 0.78349, -162.578)
+
+[node name="dead5" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.03, 0.78349, -139.864)
+
+[node name="dead6" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76102, 0.78349, -146.011)
+
+[node name="dead14" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46999, 0.78349, -171.4)
+
+[node name="dead7" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.03, 0.78349, -146.011)
+
+[node name="dead8" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 8.65483, 0.78349, -132.999)
+
+[node name="dead9" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 11.5718, 0.78349, -137.387)
+
+[node name="dead10" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 7.85424, 0.78349, -161.414)
+
+[node name="dead11" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 3.95507, 0.78349, -150.629)
+
+[node name="dead12" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, -4.32457, 0.78349, -139.247)
+
+[node name="dead13" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, -1.40759, 0.78349, -143.635)
+
+[node name="dead15" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 2.60489, 0.78349, -163.412)
+
+[node name="dead16" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, -5.67474, 0.78349, -167.237)
+
+[node name="dead17" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, -2.75777, 0.78349, -160.909)
+
+[node name="dead18" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 8.88883, 0.78349, -164.303)
+
+[node name="dead19" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 0.60919, 0.78349, -159.949)
+
+[node name="dead20" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, -0.949205, 0.78349, -172.755)
+
+[node name="Building_Stadium" parent="." instance=ExtResource("35_w4uys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7378, -1.0347, -273.095)
+
+[node name="WinTrigger" parent="." instance=ExtResource("36_yyykf")]
+transform = Transform3D(17.0108, 0, 0, 0, 7.83216, 0, 0, 0, 1, 0.655104, 0.98718, -204.586)
+
+[node name="car" parent="." instance=ExtResource("37_wrgox")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.04512, 0.856373, -177.485)
+
+[node name="car2" parent="." instance=ExtResource("37_wrgox")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67435, 0.78349, -171.277)
 
 [editable path="Scene/Pathables/CrossRoad"]
 [editable path="Scene/Pathables/CrossRoad2"]
