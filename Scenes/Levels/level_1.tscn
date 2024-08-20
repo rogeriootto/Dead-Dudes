@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://drn2c6a5rj0d2"]
+[gd_scene load_steps=38 format=3 uid="uid://drn2c6a5rj0d2"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
@@ -35,7 +35,6 @@
 [ext_resource type="PackedScene" uid="uid://b1c1d47i7qa6t" path="res://Scenes/Objects/Background/Props/Prop_sinaleira.tscn" id="32_0p8qn"]
 [ext_resource type="PackedScene" uid="uid://b73aa7gweqrmf" path="res://Scenes/Levels/puzzle_2.tscn" id="33_iht7e"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="34_jcy58"]
-[ext_resource type="PackedScene" uid="uid://cr8nnjr3ojsn" path="res://Scenes/Building_Stadium.tscn" id="35_w4uys"]
 [ext_resource type="PackedScene" uid="uid://cqel614dkd1lh" path="res://Scenes/Menus/Win/WinTrigger.tscn" id="36_yyykf"]
 [ext_resource type="PackedScene" uid="uid://d3sl5p161wnvx" path="res://Scenes/Objects/Obstacles/policeCar2FLIP.tscn" id="37_wrgox"]
 
@@ -547,9 +546,6 @@ transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, 0.
 
 [node name="dead20" parent="." instance=ExtResource("34_jcy58")]
 transform = Transform3D(0.55361, 0, 0.832776, 0, 1, 0, -0.832776, 0, 0.55361, -0.949205, 0.78349, -172.755)
-
-[node name="Building_Stadium" parent="." instance=ExtResource("35_w4uys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7378, -1.0347, -273.095)
 
 [node name="WinTrigger" parent="." instance=ExtResource("36_yyykf")]
 transform = Transform3D(17.0108, 0, 0, 0, 7.83216, 0, 0, 0, 1, 0.655104, 0.98718, -204.586)

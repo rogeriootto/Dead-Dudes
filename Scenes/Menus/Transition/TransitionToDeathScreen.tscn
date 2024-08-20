@@ -1,6 +1,43 @@
 [gd_scene load_steps=6 format=3 uid="uid://bouyhhkomwtfn"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/transition_to_death_screen.gd" id="1_mh03c"]
+[sub_resource type="GDScript" id="GDScript_2ng0i"]
+script/source = "extends CanvasLayer
+
+signal onTransitionToDeathFinished
+
+@onready var colorRect = $ColorRect
+@onready var animationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	colorRect.visible = false
+
+func transition():
+	colorRect.visible = true
+	animationPlayer.play(\"fade_in\")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == \"fade_in\":
+		onTransitionToDeathFinished.emit()
+		animationPlayer.play(\"fade_out\")
+	elif anim_name == \"fade_out\":
+		colorRect.visible = false
+	pass 
+"
+
+[sub_resource type="Animation" id="Animation_1eucy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.443137, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ri3ny"]
 resource_name = "fade_in"
@@ -16,21 +53,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.443137, 0, 0, 0), Color(0.443137, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1eucy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.443137, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_o4qgp"]
@@ -56,7 +78,7 @@ _data = {
 }
 
 [node name="TransitionToDeathScreen" type="CanvasLayer"]
-script = ExtResource("1_mh03c")
+script = SubResource("GDScript_2ng0i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
