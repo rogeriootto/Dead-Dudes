@@ -27,14 +27,26 @@ func setInteractableName(name: String):
 
 func addPlayerInventory():
 	playerInventory += 1
+	if playerNumber == 'p1':
+		HUDmanager.Player1InventorySize = playerInventory
+	else:
+		HUDmanager.Player2InventorySize = playerInventory 
 	print("Player " + playerNumber + " has " + str(playerInventory) + " items.")
 
 func removePlayerInventory():
 	playerInventory -= 1
+	if playerNumber == 'p1':
+		HUDmanager.Player1InventorySize = playerInventory
+	else:
+		HUDmanager.Player2InventorySize = playerInventory 
 	print("Player " + playerNumber + " has " + str(playerInventory) + " items left.")
 
 func dealDamage(damage: int):
 	playerHP -= damage
+	if playerNumber == 'p1':
+		HUDmanager.Player1Health = playerHP
+	else:
+		HUDmanager.Player2Health = playerHP
 	print("Player " + playerNumber + " took " + str(damage) + " damage. HP: " + str(playerHP))
 	if playerHP <= 0:
 		isPlayerDead = true

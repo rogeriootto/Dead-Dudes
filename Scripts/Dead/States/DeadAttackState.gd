@@ -26,6 +26,7 @@ func _on_attack_body_entered(body:Node3D):
 	if body.is_in_group("players") && animControl.current_animation_position > 1:
 		body.dealDamage(1)
 		var look_direction = (body.global_position - dead.global_position)
-		body.velocity = look_direction * 50
+		body.velocity.x = look_direction.x * 50
+		body.velocity.z = look_direction.z * 50
 		body.move_and_slide()
 

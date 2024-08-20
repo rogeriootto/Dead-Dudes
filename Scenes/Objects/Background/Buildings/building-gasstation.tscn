@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgw6w5oluopnn"]
+[gd_scene load_steps=7 format=3 uid="uid://dgw6w5oluopnn"]
 
 [ext_resource type="Texture2D" uid="uid://du7hmf4lt6acd" path="res://Assets/Models/Background/Textures/Building_Gas Station.png" id="1_0tdwp"]
 
@@ -43,6 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_84jgc")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gutr3"]
+size = Vector3(13.4841, 5.79492, 5.27197)
+
 [node name="Building Gas Station" type="Node3D"]
 
 [node name="Building_Gas Station" type="MeshInstance3D" parent="."]
@@ -50,3 +53,12 @@ transform = Transform3D(100, 0, 0, 0, 100, -1.62921e-05, 0, 1.62921e-05, 100, 0,
 material_override = SubResource("StandardMaterial3D_l27a2")
 mesh = SubResource("ArrayMesh_sd235")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.33202, -0.243795, 3.81004)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.22985e-08, 0, -4.78462, 0, 1.69487, 0, 0.967677, 0, -2.09143e-07, 1.5789, 5.00391, -4.38331)
+shape = SubResource("BoxShape3D_gutr3")

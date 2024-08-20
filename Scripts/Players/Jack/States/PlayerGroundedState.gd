@@ -59,7 +59,7 @@ func checkIfPlayerIsDead():
 		Transitioned.emit(self, 'PlayerDying')
 
 func gravityPhysics(delta: float, jumping: bool):
-	var jumpVelocity = 6
+	var jumpVelocity = 4
 	if not player.is_on_floor():
 		player.velocity.y -= gravity * delta
 	

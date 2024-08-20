@@ -16,4 +16,3 @@ func Physics_Update(delta: float):
 		Transitioned.emit(self, 'PlayerIdle')
 	if velocityTest > 2:
 		Transitioned.emit(self, 'PlayerRun')
-

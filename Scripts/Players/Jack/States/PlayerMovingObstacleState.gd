@@ -14,7 +14,7 @@ func Update(delta: float):
 	pass
 	
 func Physics_Update(delta: float):
-	playerMovement(-5.0)
+	playerMovement(-3)
 	
 	if Input.is_action_pressed("interact_" + player.getPlayerNumber()):
 		if player.getPlayerNumber() == 'p1':

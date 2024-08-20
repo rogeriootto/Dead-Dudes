@@ -15,7 +15,8 @@ func Update(delta: float):
 	pass
 	
 func Physics_Update(delta: float):
-	playerMovement()
+	gravityPhysics(delta, false)
+	playerMovement(-2)
 	
 	if Input.is_action_just_pressed("buildingPut_" + player.getPlayerNumber()):
 		SignalManager.emitObstacleSpawnRequest("box1x1", getSpawnPosition(3), player)

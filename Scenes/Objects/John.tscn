@@ -3179,6 +3179,7 @@ height = 2.79673
 [node name="john" type="CharacterBody3D"]
 transform = Transform3D(0.7, 0.000697672, -0.00029323, -0.000697944, 0.699999, -0.000656294, 0.000292583, 0.000656582, 0.7, 0, 0, 0)
 collision_layer = 2
+collision_mask = 65
 script = ExtResource("1_2qywr")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -3423,7 +3424,7 @@ mesh = SubResource("ArrayMesh_2al7b")
 skin = SubResource("Skin_ouf6t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.15696, -0.251986, 0.954917, 0.936608, 0.268705, 0.224857, -0.313252, 0.929678, 0.193837, -0.827444, -0.382419, -1.07865)
+transform = Transform3D(0.851872, -0.367543, 0.373129, -0.521323, -0.663514, 0.53663, 0.0503416, -0.651661, -0.756838, -0.594968, -0.706001, -2.09535)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 

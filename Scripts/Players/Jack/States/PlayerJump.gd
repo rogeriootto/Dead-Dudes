@@ -11,7 +11,7 @@ func Update(delta: float):
 	pass
 	
 func Physics_Update(delta: float):
-	playerMovement(-3)
+	playerMovement(-2)
 	gravityPhysics(delta, jumping)
 	if jumping:
 		jumping = false

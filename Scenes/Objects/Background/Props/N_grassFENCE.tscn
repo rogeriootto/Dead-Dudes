@@ -57,17 +57,17 @@ largura = 1
 altura = 2
 
 [node name="Natures_Grass Fence" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-06, 1.62921e-05, 100, 0, 100, -1.62921e-05, -100, -7.1215e-13, -4.37114e-06, 3.151, -0.28965, 0)
+transform = Transform3D(-4.37114e-06, 1.62921e-05, 100, 0, 100, -1.62921e-05, -100, -7.1215e-13, -4.37114e-06, 3.151, -0.622689, 0)
 material_override = SubResource("StandardMaterial3D_jhbl0")
 mesh = SubResource("ArrayMesh_k8vva")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.285104, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, -0.0479355, 0)
 shape = SubResource("BoxShape3D_6ikh0")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.569472, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, 0.236432, 0)
 collision_layer = 128
 collision_mask = 128
 

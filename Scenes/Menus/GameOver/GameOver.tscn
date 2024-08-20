@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dsb6l7nd6k6v"]
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -86.0
+offset_right = 300.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 101
+text = "GAME OVER"
