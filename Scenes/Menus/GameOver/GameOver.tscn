@@ -1,36 +1,234 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsb6l7nd6k6v"]
+[gd_scene load_steps=7 format=3 uid="uid://dsb6l7nd6k6v"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="1_6ffcp"]
+[ext_resource type="Script" path="res://Scenes/Menus/GameOver/game_over.gd" id="1_15ayt"]
+[ext_resource type="FontFile" uid="uid://dj81mxv5mbgbe" path="res://Assets/Fonts/Melted Monster.ttf" id="1_wqbgy"]
+[ext_resource type="PackedScene" uid="uid://5bic8mtgqw4o" path="res://Scenes/Objects/dancing_dude.tscn" id="4_ffee4"]
 
-[node name="GameOver" type="CanvasLayer"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8kbu"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[sub_resource type="BoxMesh" id="BoxMesh_c3dw2"]
+material = SubResource("StandardMaterial3D_q8kbu")
+
+[node name="GameOver" type="Node3D"]
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+script = ExtResource("1_15ayt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -179.0
+offset_right = 350.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect" type="ColorRect" parent="GameOver/HBoxContainer"]
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+color = Color(0, 0, 0, 0.164706)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -125.0
+offset_right = 302.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOver/VBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_wqbgy")
+theme_override_font_sizes/normal_font_size = 101
+bbcode_enabled = true
+text = "[center]Dude's Dead"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -86.0
+offset_top = -128.0
 offset_right = 300.0
-offset_bottom = 64.0
+offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOver/VBoxContainer"]
+modulate = Color(0.780392, 0, 0, 1)
 clip_contents = false
-custom_minimum_size = Vector2(600, 150)
+custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_wqbgy")
 theme_override_font_sizes/normal_font_size = 101
-text = "GAME OVER"
+bbcode_enabled = true
+text = "[center]Dude's Dead"
+fit_content = true
 
-[node name="Button" type="Button" parent="."]
-offset_left = 269.0
-offset_top = 428.0
-offset_right = 842.0
-offset_bottom = 532.0
-text = "RESET"
+[node name="SubTitle" type="RichTextLabel" parent="GameOver/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Jack morreu..."
+fit_content = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 113.0
+offset_right = 250.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="GameOver/VBoxContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resetar fase"
 script = ExtResource("1_6ffcp")
 
-[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="dancing dude2" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6712, 6.45631, -17.3378)
+
+[node name="dancing dude3" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1659, 4.00406, -17.3378)
+
+[node name="dancing dude4" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.279, 6.64493, -17.3378)
+
+[node name="dancing dude5" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58784, 6.45631, -14.999)
+
+[node name="dancing dude6" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08251, 4.00406, -14.999)
+
+[node name="dancing dude7" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19558, 6.64493, -14.999)
+
+[node name="dancing dude8" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48426, 6.45631, -14.999)
+
+[node name="dancing dude9" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98959, 4.00406, -14.999)
+
+[node name="dancing dude10" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87652, 6.64493, -14.999)
+
+[node name="dancing dude11" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6967, 6.45631, -18.9599)
+
+[node name="dancing dude12" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.202, 4.00406, -18.9599)
+
+[node name="dancing dude13" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.089, 6.64493, -18.9599)
+
+[node name="dancing dude14" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6712, -6.94638, -17.3378)
+
+[node name="dancing dude15" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1659, -9.39862, -17.3378)
+
+[node name="dancing dude16" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.279, -6.75776, -17.3378)
+
+[node name="dancing dude17" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58784, -6.94638, -14.999)
+
+[node name="dancing dude18" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08251, -9.39862, -14.999)
+
+[node name="dancing dude19" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19558, -6.75776, -14.999)
+
+[node name="dancing dude20" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48426, -6.94638, -14.999)
+
+[node name="dancing dude21" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98959, -9.39862, -14.999)
+
+[node name="dancing dude22" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87652, -6.75776, -14.999)
+
+[node name="dancing dude23" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6967, -6.94638, -18.9599)
+
+[node name="dancing dude24" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.202, -9.39862, -18.9599)
+
+[node name="dancing dude25" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.089, -6.75776, -18.9599)
+
+[node name="dancing dude26" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6712, -0.667624, -17.3378)
+
+[node name="dancing dude27" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1659, -3.11987, -17.3378)
+
+[node name="dancing dude28" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.279, -0.479007, -17.3378)
+
+[node name="dancing dude29" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58784, -0.667624, -14.999)
+
+[node name="dancing dude30" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08251, -3.11987, -14.999)
+
+[node name="dancing dude31" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19558, -0.479007, -14.999)
+
+[node name="dancing dude32" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48426, -0.667624, -14.999)
+
+[node name="dancing dude33" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98959, -3.11987, -14.999)
+
+[node name="dancing dude34" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87652, -0.479007, -14.999)
+
+[node name="dancing dude35" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6967, -0.667624, -18.9599)
+
+[node name="dancing dude36" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.202, -3.11987, -18.9599)
+
+[node name="dancing dude37" parent="." instance=ExtResource("4_ffee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.089, -0.479007, -18.9599)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(862.475, 0, 0, 0, 198.028, 0, 0, 0, 1, 0, 0, -31.0903)
+gi_mode = 0
+mesh = SubResource("BoxMesh_c3dw2")
+
+[connection signal="button_down" from="GameOver/VBoxContainer3/Button" to="GameOver/VBoxContainer3/Button" method="_on_button_down"]
+[connection signal="pressed" from="GameOver/VBoxContainer3/Button" to="GameOver/VBoxContainer3/Button" method="_on_pressed"]
