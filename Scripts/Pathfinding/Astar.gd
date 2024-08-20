@@ -22,6 +22,7 @@ var obstacleDictionary = {"box1x1": preload("res://Assets/Models/Obstacles/box_s
 var buildingShowObject
 
 func _ready():
+	GlobalVariables.astarNode = self
 	red_material.albedo_color = Color.RED
 	green_material.albedo_color = Color.GREEN
 	purple_material.albedo_color = Color.INDIGO

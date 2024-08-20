@@ -21,7 +21,7 @@ func register_area(area: InteractionArea, playerNumber: String):
 		p2_active_areas.push_back(area)
 
 func unregister_area(area: InteractionArea, playerNumber: String):
-	AstarManager.old_points = []
+	GlobalVariables.astarNode.old_points = []
 	if playerNumber == 'p1':
 		var index = p1_active_areas.find(area)
 		if index != -1:
@@ -36,13 +36,11 @@ func unregister_area(area: InteractionArea, playerNumber: String):
 			p2_active_areas.remove_at(index)
 
 func _process(delta):
+	
 	if (p1 == null and p2 == null) :
 		p1 = get_tree().get_first_node_in_group("p1")
 		p2 = get_tree().get_first_node_in_group("p2")
 		return
-	
-	#print('p1_active_areas: ', p1_active_areas)
-	#print('p1 interactable name ', p1.interactableName)
 
 	if p1_active_areas.size() > 0 && p1_can_interact:
 		p1_active_areas.sort_custom(_sortByDistanceToPlayer1)
