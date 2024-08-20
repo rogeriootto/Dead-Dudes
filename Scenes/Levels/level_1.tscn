@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://drn2c6a5rj0d2"]
+[gd_scene load_steps=39 format=3 uid="uid://drn2c6a5rj0d2"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="2_c2wxd"]
+[ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_xfd8i"]
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_u8tjc"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="3_wrd2h"]
 [ext_resource type="PackedScene" uid="uid://2pm2ysglg5su" path="res://Scenes/Objects/Background/Props/N_grassUGLY.tscn" id="4_d7v3l"]
@@ -42,6 +43,8 @@
 script = ExtResource("1_8wddr")
 player1SpawnPoint = Vector3(-1.27594, 1.74671, 48.9641)
 player2SpawnPoint = Vector3(3, 1.747, 48.964)
+
+[node name="Astar" parent="." instance=ExtResource("2_xfd8i")]
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
@@ -556,6 +559,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.045
 
 [node name="car2" parent="." instance=ExtResource("37_wrgox")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67435, 0.78349, -171.277)
+
+[node name="dead21" parent="." instance=ExtResource("34_jcy58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8271, 0.870705, 45.5882)
 
 [editable path="Scene/Pathables/CrossRoad"]
 [editable path="Scene/Pathables/CrossRoad2"]

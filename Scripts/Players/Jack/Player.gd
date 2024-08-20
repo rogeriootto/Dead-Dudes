@@ -15,9 +15,9 @@ func _process(delta):
 		SignalManager.registerListner("interactableNameRequestP2", self, "setInteractableName")
 		
 	if playerNumber == 'p1':
-		AstarManager.player1Position = global_position
+		GlobalVariables.player1Position = global_position
 	else:
-		AstarManager.player2Position = global_position
+		GlobalVariables.player2Position = global_position
 
 func getPlayerNumber():
 	return playerNumber
