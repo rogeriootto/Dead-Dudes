@@ -82,7 +82,7 @@ func deadMovement(delta: float):
 				var vectorTowardsPlayer = (Vector3(GlobalVariables.player2Position.x - dead.position.x, 0, GlobalVariables.player2Position.z - dead.position.z)).normalized() * speed
 				dead.velocity.x = vectorTowardsPlayer.x
 				dead.velocity.z = vectorTowardsPlayer.z
-			rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+			rotate_towards_movement_direction(dead.velocity, dead.get_child(0), delta)
 			dead.move_and_slide()
 		
 		#searching by Astar
@@ -113,7 +113,7 @@ func deadMovement(delta: float):
 				var towardsVector = dir_to_target * speed
 				dead.velocity.x = towardsVector.x
 				dead.velocity.z = towardsVector.z
-				rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+				rotate_towards_movement_direction(dead.velocity, dead.get_child(0), delta)
 				dead.move_and_slide()
 				if dead.global_transform.origin.distance_to(current_target) < 1:
 					find_next_point_in_path()
@@ -121,14 +121,14 @@ func deadMovement(delta: float):
 					if(dead.position.y >= current_target[1] + 1.5):
 						#should_update_path = false
 						# dead.velocity.y += speed
-						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+						rotate_towards_movement_direction(dead.velocity, dead.get_child(0), delta)
 						dead.move_and_slide()
 												
 					# if zombie should jump
 					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
 						# should_update_path = false
 						Transitioned.emit(self, 'DeadJump')
-						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+						rotate_towards_movement_direction(dead.velocity, dead.get_child(0), delta)
 						dead.move_and_slide()
 			
 			#walking straight when no path
@@ -147,14 +147,15 @@ func deadMovement(delta: float):
 					var vectorTowardsDead = (Vector3(GlobalVariables.player2Position.x - dead.position.x, 0, GlobalVariables.player2Position.z - dead.position.z)).normalized() * speed
 					dead.velocity.x = vectorTowardsDead.x
 					dead.velocity.z = vectorTowardsDead.z
-				rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
+				rotate_towards_movement_direction(dead.velocity, dead.get_child(0), delta)
 				dead.move_and_slide()
 
 
-func rotate_towards_movement_direction(velocity, object):
+func rotate_towards_movement_direction(velocity, object, delta):
 	if velocity.length() > 0.2:
-			var look_direction = Vector2(velocity.z, velocity.x)
-			object.rotation.y = look_direction.angle()
+		var look_direction = Vector2(velocity.z, velocity.x)
+		var target_angle = look_direction.angle()
+		object.rotation.y = lerp_angle(object.rotation.y, target_angle, 5 * delta)
 
 func find_next_point_in_path():
 	if path.size() > 0:
