@@ -137,7 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6747, 3.30196, 10.1923)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1823, 3.30196, 10.1923)
 
 [node name="Bus" parent="." instance=ExtResource("2_1bcgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.764, 0.828594, 26.576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8764, 0.443145, 26.576)
 
 [node name="car" parent="." instance=ExtResource("3_en02q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.102477, 0.870705, 32.5602)

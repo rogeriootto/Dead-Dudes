@@ -29,4 +29,3 @@ func _on_attack_body_entered(body:Node3D):
 		body.velocity.x = look_direction.x * 50
 		body.velocity.z = look_direction.z * 50
 		body.move_and_slide()
-
