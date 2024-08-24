@@ -12,7 +12,6 @@ script/source = "extends CharacterBody3D
 @export var type: String
 func interact(playerNumber: String):
 	SignalManager.emitMoveObstacleRequest(self, true, playerNumber)
-
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2kpc"]

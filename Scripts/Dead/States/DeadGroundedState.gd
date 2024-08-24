@@ -7,14 +7,14 @@ class_name DeadGrounded
 
 var path := []
 var current_target := Vector3.INF
+var old_position:String
 var speed := RandomNumberGenerator.new().randi_range(2, 3)
-var count = 0 
-#var should_update_path:bool = true
+var count:float = 0
 var should_activate_zombie:bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func Enter():
-	pass
+	should_activate_zombie = false
 	
 func Update(delta: float):
 	pass
@@ -40,7 +40,7 @@ func checkIfTookHit():
 		Transitioned.emit(self, 'DeadHurtState')
 
 func gravityPhysics(delta: float, jumping: bool):
-	var jumpVelocity = 4.5
+	var jumpVelocity = 5
 	if not dead.is_on_floor():
 		dead.velocity.y -= gravity * delta
 	
@@ -86,16 +86,28 @@ func deadMovement(delta: float):
 			dead.move_and_slide()
 		
 		#searching by Astar
-		else:	
+		else:
 			count += delta
-			#if count > 1.5 and should_update_path:
-			if count > 1.5:
+			if count > 1.5 or dead.should_update_path:
+				print("UPDATING ASTAR, O BOOL TA : ", dead.should_update_path)
+				print("UPDATING ASTAR, O BOOL TA : ", dead.should_update_path)
+				#if zombie should fall into crumple state
+				if old_position == GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin):
+					dead.count_fallen += 1
+					if dead.count_fallen > 3.0:
+						dead.count_fallen = 0
+						Transitioned.emit(self, 'DeadFallen')
+				else:
+					dead.count_fallen = 0
+					
 				if seeking_p1:
 					update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, GlobalVariables.player1Position))
 				else:
 					update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, GlobalVariables.player2Position))
+				old_position = GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin)
 				count = 0
-				
+				dead.should_update_path = false
+
 			if current_target != Vector3.INF:
 				var dir_to_target = dead.global_transform.origin.direction_to(current_target).normalized()
 				var towardsVector = dir_to_target * speed
@@ -113,15 +125,20 @@ func deadMovement(delta: float):
 						dead.move_and_slide()
 												
 					# if zombie should jump
-					print(dead.position.y + 1 < current_target[1] && current_target[1] != INF)
 					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
 						# should_update_path = false
 						Transitioned.emit(self, 'DeadJump')
 						rotate_towards_movement_direction(dead.velocity, dead.get_child(0))
 						dead.move_and_slide()
 			
-			#walking straight when 
+			#walking straight when no path
 			else:
+				if dead.is_on_wall():
+					dead.count_fallen += delta
+					if dead.count_fallen > 4:
+						Transitioned.emit(self, 'DeadFallen')
+				else:
+					dead.count_fallen = 0
 				if seeking_p1:
 					var vectorTowardsDead = (Vector3(GlobalVariables.player1Position.x - dead.position.x, 0, GlobalVariables.player1Position.z - dead.position.z)).normalized() * speed
 					dead.velocity.x = vectorTowardsDead.x

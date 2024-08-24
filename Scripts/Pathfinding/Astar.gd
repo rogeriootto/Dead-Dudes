@@ -387,4 +387,27 @@ func move_by_distance(obstacle: Object, should_reconect_points: bool, playerNumb
 								astar.set_point_disabled(above_obstacle_id,false)
 								if should_draw_cubes:
 									get_child(above_obstacle_id).material_override = golden_material
-									
+
+func dead_should_fall(dead_position: Vector3):
+	dead_position = scene_to_grid(dead_position)
+	var point_key = world_to_astar(dead_position)
+	var point_id
+	var above_dead_key = world_to_astar(Vector3(dead_position.x, dead_position.y + grid_step, dead_position.z))
+	var above_dead_id
+	
+	if points.has(point_key):
+		point_id = points[point_key]
+	else:
+		return
+	if points.has(above_dead_key):
+		above_dead_id = points[above_dead_key]
+
+	if not astar.is_point_disabled(point_id):
+		if(above_dead_id):
+			if should_draw_cubes:
+				get_child(above_dead_id).material_override = green_material
+			astar.set_point_disabled(above_dead_id, false)
+	astar.set_point_disabled(point_id, true)
+	if should_draw_cubes:
+		get_child(point_id).material_override = red_material
+	return dead_position
