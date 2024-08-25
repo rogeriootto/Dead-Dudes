@@ -24,6 +24,7 @@ GlobalVariables="*res://Scenes/Managers/GlobalVariables.tscn"
 TransitionToDeathScreen="*res://Scenes/Menus/Transition/TransitionToDeathScreen.tscn"
 LoadingScreen="*res://Scenes/Menus/Loading/Loading.tscn"
 TransitionToBlack="*res://Scenes/Menus/Transition/TransitionToBlack.tscn"
+TransitionBetweenLevels="res://Scenes/Menus/Transition/TransitionBetweenLevels.tscn"
 
 [input]
 

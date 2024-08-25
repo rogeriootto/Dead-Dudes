@@ -11,7 +11,6 @@ func Update(delta: float):
 		Transitioned.emit(self, 'PlayerIdle')
 
 func _on_animation_player_animation_finished(anim_name:StringName):
-	print('acabou p2 animation')
 	if anim_name == "Pickup":
 		Transitioned.emit(self, 'PlayerIdle')
 	pass

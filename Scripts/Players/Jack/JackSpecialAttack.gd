@@ -21,6 +21,5 @@ func Physics_Update(delta: float):
 	pass
 
 func _on_animation_player_animation_finished(anim_name:StringName):
-	print('anim name', anim_name)
 	if anim_name == "Gun":
 		Transitioned.emit(self, 'PlayerIdle')

@@ -11,6 +11,9 @@ var cameraRotation: Vector3
 @onready var interaction_area = get_tree().get_first_node_in_group("playerInteractableArea")
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready() -> void:
+	SignalManager.registerListner('changeScenes', self, 'changeToChangeSceneState')
+
 func Enter():
 	pass
 	
@@ -25,6 +28,11 @@ func Physics_Update(delta: float):
 	pass
 
 func buttonsCheck():
+	if player.playerNumber == 'p1':
+		interaction_area.interact(_onInteractP1, player.playerNumber)
+	else:
+		interaction_area.interact(_onInteractP2, player.playerNumber)
+		
 	if Input.is_action_just_pressed("buildingMode_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerBuilding')
 
@@ -58,6 +66,11 @@ func checkIfPlayerIsDead():
 	if player.isPlayerDead:
 		Transitioned.emit(self, 'PlayerDying')
 
+func changeToChangeSceneState(shouldChangeScene: bool):
+	if shouldChangeScene:
+		Transitioned.emit(self, 'PlayerChangeScene')
+	
+
 func gravityPhysics(delta: float, jumping: bool):
 	var jumpVelocity = 4
 	if not player.is_on_floor():
@@ -72,11 +85,6 @@ func playerMovement(speedModifier: float = 0.0):
 	checkIfPlayerIsDead()
 	var move_direction := Vector3.ZERO
 	var velocity := Vector3.ZERO
-
-	if player.playerNumber == 'p1':
-		interaction_area.interact(_onInteractP1, player.playerNumber)
-	else:
-		interaction_area.interact(_onInteractP2, player.playerNumber)
 	
 	var camera3Dnode = get_tree().get_first_node_in_group("camera")
 	

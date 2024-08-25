@@ -67,13 +67,13 @@ func _sortByDistanceToPlayer2(area1, area2):
 	return distance1 < distance2
 
 func _input(event):
-	if event.is_action_pressed("interact_p1") && p1_can_interact:
+	if event.is_action_pressed("interact_p1") && p1_can_interact && p1.is_on_floor():
 		if p1_active_areas.size() > 0:
 			p1_can_interact = false
 			interactableFunctionP1.call()
 			p1_can_interact = true
 	
-	if event.is_action_pressed("interact_p2") && p2_can_interact:
+	if event.is_action_pressed("interact_p2") && p2_can_interact && p2.is_on_floor():
 		if p2_active_areas.size() > 0:	
 			p2_can_interact = false
 			interactableFunctionP2.call()

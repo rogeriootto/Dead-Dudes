@@ -1,4 +1,8 @@
 extends Area3D
 
 func _on_body_entered(body:Node3D):
-	get_tree().change_scene_to_file("res://Scenes/Menus/Win/WinScreen.tscn")
+	SignalManager.emitChangeScenes()
+	get_tree().get_first_node_in_group("camera").changeSceneState = true
+	TransitionBetweenLevels.position = get_tree().get_first_node_in_group("camera").position
+	TransitionBetweenLevels.transition()
+	await TransitionBetweenLevels.onTransitionToNextSceneFinished

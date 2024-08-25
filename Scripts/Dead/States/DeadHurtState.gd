@@ -3,7 +3,6 @@ class_name DeadHurt
 
 func Enter():
 	animControl.play("GetHit", -1, 3)
-	print("Dead Hurt State")
 	pass
 
 func Exit():

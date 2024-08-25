@@ -41,8 +41,8 @@
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_8wddr")
-player1SpawnPoint = Vector3(-1.276, 1.747, 27)
-player2SpawnPoint = Vector3(3, 1.747, 28)
+player1SpawnPoint = Vector3(0, 1.747, 0)
+player2SpawnPoint = Vector3(0, 1.747, 0)
 
 [node name="Astar" parent="." instance=ExtResource("2_xfd8i")]
 
@@ -57,10 +57,10 @@ offset = Vector3(15, 15, 15)
 [node name="CanvasLayer" parent="." instance=ExtResource("3_u8tjc")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672447, 0.625029, 0, 0, 0)
-light_energy = 2.055
+transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672446, 0.625029, 9.51741, -19.5893, -15.4859)
+light_energy = 0.924
 shadow_enabled = true
-shadow_blur = 0.289
+shadow_blur = 1.101
 
 [node name="Scene" type="Node" parent="."]
 
@@ -296,6 +296,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.25
 [node name="Road2" parent="Scene/Background/Decor" instance=ExtResource("2_c2wxd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.0017, 0, 43.9577)
 
+[node name="Road3" parent="Scene/Background/Decor" instance=ExtResource("2_c2wxd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -43.7502, 0, -44.3963)
+
+[node name="Road4" parent="Scene/Background/Decor" instance=ExtResource("2_c2wxd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.972, 0, -44.3963)
+
 [node name="N_tree11" parent="Scene/Background/Decor" instance=ExtResource("8_onioe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2728, 0.935309, -112.783)
 
@@ -480,7 +486,7 @@ transform = Transform3D(-7.47085e-07, 0, 1.00731, 0, 2.54662, 0, -12.534, 0, -6.
 [node name="Puzzle2" parent="Scene/Interactables" instance=ExtResource("33_iht7e")]
 
 [node name="WinTrigger" parent="." instance=ExtResource("36_yyykf")]
-transform = Transform3D(17.0108, 0, 0, 0, 7.83216, 0, 0, 0, 1, 0.655104, 0.98718, -204.586)
+transform = Transform3D(17.0108, 0, 0, 0, 7.83216, 0, 0, 0, 1, 0.655104, 0.98718, -160.228)
 
 [node name="car" parent="." instance=ExtResource("37_wrgox")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.04512, 0.856373, -177.485)

@@ -19,7 +19,8 @@ var player1Position = Vector3.ZERO
 var player2Position = Vector3.ZERO
 
 var obstacleDictionary = {"box1x1": preload("res://Assets/Models/Obstacles/box_small.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
-var buildingShowObject
+var buildingShowObjectP1
+var buildingShowObjectP2
 
 func _ready():
 	GlobalVariables.astarNode = self
@@ -37,7 +38,8 @@ func _ready():
 	_connect_obstacles(obstacle_group)
 	grid_is_built = true
 	SignalManager.registerListner('obstacleSpawnRequest', self, "_on_main_obstacle_should_spawn")
-	SignalManager.registerListner('showObstacleRequest', self, "_on_main_obstacle_should_show")
+	SignalManager.registerListner('showObstacleToP1Request', self, "_on_main_obstacle_should_show_P1")
+	SignalManager.registerListner('showObstacleToP2Request', self, "_on_main_obstacle_should_show_P2")
 	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
 	SignalManager.registerListner('moveObstacleRequest', self, "move_by_distance")
 
@@ -248,17 +250,16 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 			if should_draw_cubes:
 				get_child(obstacle_id).material_override = red_material
 
-func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
+func _on_main_obstacle_should_show_P1(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
+	if !buildingShowObjectP1:
+		buildingShowObjectP1 = obstacleDictionary[obstacleName].instantiate()
+		buildingShowObjectP1.get_node("InteractionArea").can_interact = false
+		add_child(buildingShowObjectP1)
+		buildingShowObjectP1.get_node("CollisionShape3D").disabled = true
 
-	if !buildingShowObject:
-		buildingShowObject = obstacleDictionary[obstacleName].instantiate()
-		buildingShowObject.get_node("InteractionArea").can_interact = false
-		add_child(buildingShowObject)
-		buildingShowObject.get_node("CollisionShape3D").disabled = true
-
-		transparent_material.albedo_texture = buildingShowObject.get_node("MeshInstance3D").material_override.albedo_texture
+		transparent_material.albedo_texture = buildingShowObjectP1.get_node("MeshInstance3D").material_override.albedo_texture
 		transparent_material.albedo_color = Color(0,0,0,0.1)
-		buildingShowObject.get_node("MeshInstance3D").material_override = transparent_material
+		buildingShowObjectP1.get_node("MeshInstance3D").material_override = transparent_material
 
 	if showObjectFlag:
 		obstaclePosition.x = snapped(obstaclePosition.x, grid_step)
@@ -266,9 +267,30 @@ func _on_main_obstacle_should_show(showObjectFlag: bool, obstacleName: String, o
 		obstaclePosition.z = snapped(obstaclePosition.z, grid_step)
 		if obstaclePosition.y < 1:
 			obstaclePosition.y = 1.5
-		buildingShowObject.position = obstaclePosition
+		buildingShowObjectP1.position = obstaclePosition
 	else:
-		buildingShowObject.queue_free()
+		buildingShowObjectP1.queue_free()
+
+func _on_main_obstacle_should_show_P2(showObjectFlag: bool, obstacleName: String, obstaclePosition: Vector3):
+	if !buildingShowObjectP2:
+		buildingShowObjectP2 = obstacleDictionary[obstacleName].instantiate()
+		buildingShowObjectP2.get_node("InteractionArea").can_interact = false
+		add_child(buildingShowObjectP2)
+		buildingShowObjectP2.get_node("CollisionShape3D").disabled = true
+
+		transparent_material.albedo_texture = buildingShowObjectP2.get_node("MeshInstance3D").material_override.albedo_texture
+		transparent_material.albedo_color = Color(0,0,0,0.1)
+		buildingShowObjectP2.get_node("MeshInstance3D").material_override = transparent_material
+
+	if showObjectFlag:
+		obstaclePosition.x = snapped(obstaclePosition.x, grid_step)
+		obstaclePosition.y = snapped(obstaclePosition.y, grid_step)
+		obstaclePosition.z = snapped(obstaclePosition.z, grid_step)
+		if obstaclePosition.y < 1:
+			obstaclePosition.y = 1.5
+		buildingShowObjectP2.position = obstaclePosition
+	else:
+		buildingShowObjectP2.queue_free()
 
 func _on_main_obstacle_should_remove(obstacle: StaticBody3D, player: Object):
 

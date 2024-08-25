@@ -4,7 +4,3 @@
 
 [node name="InteractionManager" type="Node3D"]
 script = ExtResource("1_0d5an")
-
-[node name="Label3D" type="Label3D" parent="."]
-text = "Interaction Button"
-font_size = 200

@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://brxccltqw6gk4"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Transition/transition_between_levels.gd" id="1_2ku4d"]
+[ext_resource type="PackedScene" uid="uid://cyj3sr0mnm7xh" path="res://Scenes/Menus/Transition/jack_running.tscn" id="2_8qbiw"]
+[ext_resource type="PackedScene" uid="uid://v655wa0wc4bj" path="res://Scenes/Menus/Transition/john_running.tscn" id="3_st4h0"]
+[ext_resource type="PackedScene" uid="uid://5bic8mtgqw4o" path="res://Scenes/Objects/dancing_dude.tscn" id="4_ld851"]
+[ext_resource type="Script" path="res://Scenes/Menus/Transition/dead_running.gd" id="5_sbl2d"]
+[ext_resource type="PackedScene" uid="uid://dssyd3t4pvbys" path="res://Assets/Models/DeadB/deadb.glb" id="6_1rslc"]
+
+[node name="TransitionBetweenLevels" type="Node3D"]
+script = ExtResource("1_2ku4d")
+
+[node name="Jack" parent="." instance=ExtResource("2_8qbiw")]
+transform = Transform3D(-0.7, 0, -2.98023e-08, 0, 0.7, 0, 2.98023e-08, 0, -0.7, 1.04167, 0, -9.27267)
+
+[node name="john" parent="." instance=ExtResource("3_st4h0")]
+transform = Transform3D(-0.7, -0.000697672, 0.000293169, -0.000697944, 0.699999, -0.000656294, -0.000292522, -0.000656582, -0.7, -1.71022, 0, -7.81285)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="dead1" parent="." instance=ExtResource("4_ld851")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -1.73056, 9.53674e-07, -2.43478)
+script = ExtResource("5_sbl2d")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781995, 0)
+
+[node name="deadb" parent="." instance=ExtResource("6_1rslc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222033, 0, 2.33715)
