@@ -10,12 +10,8 @@ var current_target := Vector3.INF
 var old_position:String
 var speed := RandomNumberGenerator.new().randi_range(2, 3)
 var count:float = 0
-var should_activate_zombie:bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func Enter():
-	should_activate_zombie = false
-	
 func Update(delta: float):
 	pass
 		
@@ -57,10 +53,10 @@ func deadMovement(delta: float):
 	var dist_to_p1 = dead.global_transform.origin.distance_to(GlobalVariables.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(GlobalVariables.player2Position)
 			
-	if (should_activate_zombie == false && (dist_to_p1 > 40 && dist_to_p2 > 40)):
+	if (dead.should_activate_zombie == false && (dist_to_p1 > 40 && dist_to_p2 > 40)):
 		return
 	else:
-		should_activate_zombie = true
+		dead.should_activate_zombie = true
 
 	var seeking_p1 = dist_to_p1 < dist_to_p2
 

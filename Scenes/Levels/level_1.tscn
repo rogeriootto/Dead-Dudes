@@ -113,6 +113,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11237, 1.27387, -89.3002)
 [node name="Cone3" parent="Scene/Pathables" instance=ExtResource("16_n2m6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22324, 1.27387, -81.2218)
 
+[node name="VFX-Fogo" parent="Scene/Pathables" instance=ExtResource("12_lge7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19642, 0.679208, 21.8496)
+
 [node name="Background" type="Node" parent="Scene"]
 
 [node name="Decor" type="Node" parent="Scene/Background"]
@@ -685,13 +688,13 @@ transform = Transform3D(-0.0762989, -0.056444, 0.995486, 0.530334, -0.847756, -0
 [node name="Deads" type="Node3D" parent="Scene"]
 
 [node name="dead2" parent="Scene/Deads" instance=ExtResource("24_73m8e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16892, 0.78349, -52.199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16892, 0.78349, -43.6972)
 
 [node name="dead1" parent="Scene/Deads" instance=ExtResource("6_6rrj5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23255, 0.78349, -44.8346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23255, 0.78349, -55.7956)
 
 [node name="dead3" parent="Scene/Deads" instance=ExtResource("29_ost2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56136, 0.78349, -48.2772)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56136, 0.78349, -55.5207)
 
 [node name="dead4" parent="Scene/Deads" instance=ExtResource("24_73m8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9306, 0.492749, -84.6559)

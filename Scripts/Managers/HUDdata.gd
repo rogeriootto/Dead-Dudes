@@ -6,7 +6,6 @@ var Player1InventorySize: int = 4
 var Player2InventorySize: int = 4
 var alreadyGameOver = false
 
-
 func checkIfGameOver():
 	if (Player1Health <= 0 or Player2Health <= 0) and !alreadyGameOver:
 		alreadyGameOver = true
