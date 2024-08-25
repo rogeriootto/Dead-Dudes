@@ -42,10 +42,7 @@ script = ExtResource("1_kj1lm")
 emitting = false
 amount = 100
 lifetime = 0.39
+explosiveness = 0.5
+randomness = 0.59
 process_material = SubResource("ParticleProcessMaterial_b38le")
 draw_pass_1 = SubResource("SphereMesh_3lym3")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.449607, 0)
-light_color = Color(0.899262, 0.540691, 0.0895253, 1)
-light_energy = 3.875

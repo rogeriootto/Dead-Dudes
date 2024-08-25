@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://50ag862ghg6i"]
+
+[ext_resource type="Script" path="res://Scenes/VFX/vfx-default.gd" id="1_l5h2i"]
+
+[sub_resource type="Gradient" id="Gradient_m5ihd"]
+colors = PackedColorArray(0.563264, 0.066032, 0.0714822, 1, 0.443137, 0, 0.0901961, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tcdmk"]
+gradient = SubResource("Gradient_m5ihd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b38le"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(0.05, 0.05, 0.05)
+direction = Vector3(0, 1, 0)
+spread = 88.22
+initial_velocity_min = 0.5
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 0.00999776
+tangential_accel_max = 0.00999776
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_tcdmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unk3o"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6123, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3lym3"]
+material = SubResource("StandardMaterial3D_unk3o")
+radius = 0.05
+height = 0.1
+
+[node name="VFX-Sangue" type="Node3D"]
+script = ExtResource("1_l5h2i")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_b38le")
+draw_pass_1 = SubResource("SphereMesh_3lym3")

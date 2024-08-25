@@ -11,4 +11,3 @@ func _on_button_down():
 	LoadingScreen.onLoadingReady()
 	await LoadingScreen.onLoadingFinished
 	
-	

@@ -30,6 +30,7 @@ player1SpawnPoint = Vector3(-1, 0, 0)
 player2SpawnPoint = Vector3(1, 0, 0)
 
 [node name="Astar" parent="." instance=ExtResource("2_6o166")]
+should_draw_cubes = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("3_dqs8d")]
 

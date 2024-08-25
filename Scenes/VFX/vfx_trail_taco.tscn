@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://ce6m0a33h2645"]
+
+[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="1_mi017"]
+[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="2_26omh"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="3_gqgak"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="4_wu2mq"]
+[ext_resource type="Texture2D" uid="uid://b7gp5cmwwqjc8" path="res://GPUTrail-main/textures/T_VFX_Trail223.png" id="5_gdmdx"]
+[ext_resource type="Script" path="res://GPUTrail-main/GPUTrail3D.gd" id="6_trfov"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swcuh"]
+shader = ExtResource("1_mi017")
+
+[sub_resource type="Gradient" id="Gradient_0l8y7"]
+colors = PackedColorArray(0.223103, 0.223103, 0.223103, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e2c1q"]
+gradient = SubResource("Gradient_0l8y7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xdpri"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_26omh")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 42
+shader_parameter/tex = ExtResource("5_gdmdx")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_e2c1q")
+shader_parameter/curve = ExtResource("4_wu2mq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_d5138"]
+material = SubResource("ShaderMaterial_xdpri")
+
+[node name="GPUTrail3D" type="GPUParticles3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.693428, 0, 0, 0, 0.1, -0.198515, 0.0729176, -0.069713)
+visible = false
+amount = 25
+lifetime = 25.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_swcuh")
+draw_pass_1 = SubResource("QuadMesh_d5138")
+script = ExtResource("6_trfov")
+length = 25
+texture = ExtResource("5_gdmdx")
+color_ramp = ExtResource("3_gqgak")
+curve = ExtResource("4_wu2mq")
+use_red_as_alpha = true
+_defaults_have_been_set = true

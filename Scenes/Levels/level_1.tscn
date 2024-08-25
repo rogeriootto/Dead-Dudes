@@ -30,10 +30,10 @@
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="23_0hejp"]
 [ext_resource type="PackedScene" uid="uid://0882i6a2xiw3" path="res://Scenes/Objects/Background/Buildings/building-drugstore.tscn" id="23_5illj"]
 [ext_resource type="PackedScene" uid="uid://dvdn3ftflwqsw" path="res://Scenes/Objects/Background/Buildings/building1.tscn" id="23_yki2k"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/dead_2.tscn" id="24_73m8e"]
+[ext_resource type="PackedScene" uid="uid://bp3h0xkfybtyt" path="res://Scenes/Objects/dead_2.tscn" id="24_73m8e"]
 [ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="24_tuqvk"]
 [ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="26_81r8l"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/dead_3.tscn" id="29_ost2p"]
+[ext_resource type="PackedScene" uid="uid://gipbl8hthkwb" path="res://Scenes/Objects/dead_3.tscn" id="29_ost2p"]
 [ext_resource type="PackedScene" uid="uid://bk7hivcv4x642" path="res://Scenes/Objects/Background/Buildings/building-bar.tscn" id="30_g8ni2"]
 [ext_resource type="PackedScene" uid="uid://db8qf7oqtx1fj" path="res://Scenes/Objects/Background/Buildings/building-clothing.tscn" id="31_phfie"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="32_0f2wl"]
@@ -50,6 +50,7 @@ player1SpawnPoint = Vector3(5, 0, 14)
 player2SpawnPoint = Vector3(0, 0, 14)
 
 [node name="Astar" parent="." instance=ExtResource("2_kyp0d")]
+should_draw_cubes = false
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 0, 10)

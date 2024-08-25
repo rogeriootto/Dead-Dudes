@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=4 uid="uid://c3wxmcjxt0lg8"]
+[gd_scene load_steps=47 format=4 uid="uid://c3wxmcjxt0lg8"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
 [ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="1_suxmb"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="3_o2jre"]
 [ext_resource type="Texture2D" uid="uid://irb4vqkub6uj" path="res://Assets/Models/John/golfclub.png" id="3_tdbi6"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="4_l8tnx"]
+[ext_resource type="PackedScene" uid="uid://ce6m0a33h2645" path="res://Scenes/VFX/vfx_trail_taco.tscn" id="4_rvhvk"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="5_rxkvg"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="6_6vhil"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="7_dik4q"]
@@ -188,6 +189,12 @@ shadow_mesh = SubResource("ArrayMesh_7vcya")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mncfr"]
 radius = 0.668983
 height = 3.30821
+
+[sub_resource type="Gradient" id="Gradient_0l8y7"]
+colors = PackedColorArray(0.223103, 0.223103, 0.223103, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e2c1q"]
+gradient = SubResource("Gradient_0l8y7")
 
 [sub_resource type="Animation" id="Animation_ssune"]
 resource_name = "Dying"
@@ -2495,6 +2502,30 @@ tracks/32/path = NodePath("Armature/Skeleton3D:mixamorig_Hips")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = PackedFloat32Array(0, 1, -0.442459, -0.484604, 0.531881, 0.535249)
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Armature/Skeleton3D/BoneAttachment3D/GPUTrail3D:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Armature/Skeleton3D/BoneAttachment3D/GPUTrail3D:length")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
 
 [sub_resource type="Animation" id="Animation_aordu"]
 resource_name = "Running"
@@ -2945,6 +2976,30 @@ tracks/33/path = NodePath("Armature/Skeleton3D:mixamorig_HeadTop_End")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = PackedFloat32Array(0, 1, -1.77636e-15, 0, 0, 1, 0.1, 1, -1.77636e-15, 0, 0, 1, 0.2, 1, -1.77636e-15, 0, 0, 1, 0.3, 1, -1.77636e-15, 0, 0, 1, 0.4, 1, -1.77636e-15, 0, 0, 1, 0.5, 1, -1.77636e-15, 0, 0, 1, 0.6, 1, -1.77636e-15, 0, 0, 1, 0.829167, 1, -1.77636e-15, 0, 0, 1)
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Armature/Skeleton3D/BoneAttachment3D/GPUTrail3D:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 0.566667, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Armature/Skeleton3D/BoneAttachment3D/GPUTrail3D:length")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.566667, 0.833333, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 25, 25, 25, 0]
+}
 
 [sub_resource type="Animation" id="Animation_1gskq"]
 resource_name = "Walk"
@@ -3193,7 +3248,7 @@ bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.05, -0.202969, -1.56125)
 bones/0/enabled = true
-bones/0/position = Vector3(0.0654533, -0.084104, -1.14271)
+bones/0/position = Vector3(0.024458, 0.0524008, -1.15864)
 bones/0/rotation = Quaternion(-0.442459, -0.484604, 0.531881, 0.535249)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "mixamorig_Spine"
@@ -3427,7 +3482,7 @@ mesh = SubResource("ArrayMesh_2al7b")
 skin = SubResource("Skin_ouf6t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.851872, -0.367543, 0.373129, -0.521323, -0.663514, 0.53663, 0.0503416, -0.651661, -0.756838, -0.594968, -0.706001, -2.09535)
+transform = Transform3D(0.851872, -0.367542, 0.373128, -0.521323, -0.663514, 0.53663, 0.0503417, -0.651661, -0.756838, -0.635964, -0.569496, -2.11128)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
@@ -3444,6 +3499,10 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/TacoBox"]
 transform = Transform3D(0.502787, 0.773361, -0.386157, -0.560814, 0.63179, 0.535097, 0.657794, -0.0524765, 0.751368, 1.08741, 1.00707, -0.155707)
 shape = SubResource("CapsuleShape3D_mncfr")
+
+[node name="GPUTrail3D" parent="Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_rvhvk")]
+transform = Transform3D(0.1, 0, 0, 0, 0.693428, 0, 0, 0, 0.1, 1.40331, 1.05949, -0.173363)
+color_ramp = SubResource("GradientTexture1D_e2c1q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
