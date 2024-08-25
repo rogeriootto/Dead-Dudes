@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://c3jbdx6mv45bk"]
+[gd_scene load_steps=8 format=4 uid="uid://c3jbdx6mv45bk"]
 
 [ext_resource type="Texture2D" uid="uid://b4p1buct1jubl" path="res://Assets/Models/Background/Textures/Props_Props_01.png" id="1_iru5u"]
 
@@ -46,6 +46,9 @@ shadow_mesh = SubResource("ArrayMesh_tat4j")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ip4iu"]
 size = Vector3(1.78101, 2.26862, 0.517822)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxbpf"]
+size = Vector3(1.65137, 2.57324, 1.99438)
+
 [node name="Fence" type="StaticBody3D"]
 
 [node name="Props_Fence" type="MeshInstance3D" parent="."]
@@ -57,3 +60,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12753, 0)
 shape = SubResource("BoxShape3D_ip4iu")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.016804, 0.836326, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00313225, 0.526946, -0.0194972)
+shape = SubResource("BoxShape3D_rxbpf")

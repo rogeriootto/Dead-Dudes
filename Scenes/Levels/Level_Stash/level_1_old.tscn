@@ -76,22 +76,19 @@ transform = Transform3D(0.999942, -0.0107336, 0, 0.0107336, 0.999942, 0, 0, 0, 1
 [node name="MeshInstance3D" parent="Scene/Pathables/CrossRoad/Sidewalk4" index="0"]
 transform = Transform3D(-1.96701e-07, 0, 15, 0, 1, 0, -4.5, 0, -6.55671e-07, 0, -0.0494471, 0)
 
-[node name="Root Scene9" parent="Scene/Pathables/CrossRoad" index="19"]
+[node name="Root Scene9" parent="Scene/Pathables/CrossRoad" index="17"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.5946, 1.04344, 19.4125)
 
-[node name="Root Scene10" parent="Scene/Pathables/CrossRoad" index="20"]
+[node name="Root Scene10" parent="Scene/Pathables/CrossRoad" index="18"]
 transform = Transform3D(1.18574, 0, -0.265044, 0, 1.215, 0, 0.265044, 0, 1.18574, 19.6221, 0.301918, -21.0457)
 
 [node name="CrossRoad2" parent="Scene/Pathables" instance=ExtResource("3_wrd2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, 43.9207)
 
-[node name="grassUGLY4" parent="Scene/Pathables/CrossRoad2" index="13"]
-transform = Transform3D(1.99254, 0, 0, 0, 1, 0, 0, 0, 1.30943, -19.2659, 0.112697, -19.087)
-
-[node name="Root Scene9" parent="Scene/Pathables/CrossRoad2" index="19"]
+[node name="Root Scene9" parent="Scene/Pathables/CrossRoad2" index="17"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.5946, 1.04344, 19.4125)
 
-[node name="Root Scene10" parent="Scene/Pathables/CrossRoad2" index="20"]
+[node name="Root Scene10" parent="Scene/Pathables/CrossRoad2" index="18"]
 transform = Transform3D(1.18574, 0, -0.265044, 0, 1.215, 0, 0.265044, 0, 1.18574, 19.6221, 0.301918, -21.0457)
 
 [node name="Road6" parent="Scene/Pathables" instance=ExtResource("2_c2wxd")]

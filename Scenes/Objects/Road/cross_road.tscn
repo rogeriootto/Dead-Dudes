@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://d16e4fp48se7t"]
+[gd_scene load_steps=21 format=3 uid="uid://d16e4fp48se7t"]
 
 [ext_resource type="ArrayMesh" uid="uid://tk7qhxlbl5ro" path="res://Assets/Models/Road/road4.obj" id="1_0j7e8"]
 [ext_resource type="Texture2D" uid="uid://dbcwwaragj02o" path="res://Assets/Models/Road/Texture/roads.png" id="1_i2emy"]
-[ext_resource type="PackedScene" uid="uid://2pm2ysglg5su" path="res://Scenes/Objects/Background/Props/N_grassUGLY.tscn" id="3_8w51m"]
 [ext_resource type="PackedScene" uid="uid://dqstgh7hsll15" path="res://Scenes/Objects/Background/Props/N_bush.tscn" id="6_gveym"]
 [ext_resource type="PackedScene" uid="uid://bkwprnsvv668g" path="res://Scenes/Objects/Background/Props/N_tree.tscn" id="7_bfkqv"]
 [ext_resource type="PackedScene" uid="uid://cvo16d804tnjh" path="res://Scenes/Objects/Background/Props/Prop_bench2.tscn" id="9_bnw04"]
@@ -180,12 +179,6 @@ skeleton = NodePath("../../Sidewalk1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sidewalk8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362488, -0.260437, -0.085083)
 shape = SubResource("BoxShape3D_ol4bt")
-
-[node name="grassUGLY2" parent="." instance=ExtResource("3_8w51m")]
-transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1.65, -14.124, 0.39872, 18)
-
-[node name="grassUGLY4" parent="." instance=ExtResource("3_8w51m")]
-transform = Transform3D(1.44, 0, 0, 0, 1, 0, 0, 0, 1.30943, -13.755, 0.112697, -19.087)
 
 [node name="Root Scene" parent="." instance=ExtResource("6_gveym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4143, -0.672062, -9.53536)
