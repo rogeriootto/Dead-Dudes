@@ -59,10 +59,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vw0p3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c6fx"]
-size = Vector3(5.31373, 1.88646, 2.33203)
+size = Vector3(5.49194, 1.91796, 2.32617)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81lh2"]
-size = Vector3(2.74414, 1.88281, 2.22485)
+size = Vector3(2.74414, 0.835388, 2.22485)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mt6sf"]
 size = Vector3(8.45142, 3.25879, 3.90332)
@@ -86,18 +86,18 @@ mesh = SubResource("ArrayMesh_ppp32")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.47151, 0.933311, 3.54354)
+transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.46694, 0.957882, 3.54354)
 shape = SubResource("BoxShape3D_4c6fx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_5a76f")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.39136, -0.311467, 2.23631)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37188, 1.19157, -0.0692682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37188, 0.722944, -0.0692682)
 shape = SubResource("BoxShape3D_81lh2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0885, 0.913319, -0.138537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0885, 0.681394, -0.138537)
 shape = SubResource("BoxShape3D_81lh2")
 
 [node name="Area3D" type="Area3D" parent="."]
