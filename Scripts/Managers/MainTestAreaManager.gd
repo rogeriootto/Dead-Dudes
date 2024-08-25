@@ -10,6 +10,7 @@ var player2: CharacterBody3D
 @export var player2SpawnPoint: Vector3
 
 func _ready():
+	GlobalVariables.lastSceneLoaded = get_tree().current_scene.scene_file_path
 	player1 = player1Preload.instantiate()
 	if player1:
 		add_child(player1)

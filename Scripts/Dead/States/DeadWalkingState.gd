@@ -2,7 +2,6 @@ extends DeadGrounded
 class_name DeadWalking
 
 func Enter():
-
 	if RandomNumberGenerator.new().randi_range(0, 1) == 0:
 		animControl.play("Walking", -1, 5)
 	else:

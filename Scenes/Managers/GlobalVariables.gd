@@ -5,3 +5,4 @@ var player2Position: Vector3
 var astarNode: Object
 
 var sceneToLoad: String
+var lastSceneLoaded: String

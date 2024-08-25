@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://c3wxmcjxt0lg8"]
+[gd_scene load_steps=42 format=4 uid="uid://c3wxmcjxt0lg8"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
 [ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="1_suxmb"]
