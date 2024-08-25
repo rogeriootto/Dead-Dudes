@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://drn2c6a5rj0d2"]
+[gd_scene load_steps=38 format=3 uid="uid://drn2c6a5rj0d2"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_8wddr"]
 [ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="1_nee8d"]
@@ -28,16 +28,15 @@
 [ext_resource type="PackedScene" uid="uid://cbdfh6veian4s" path="res://Scenes/Objects/Obstacles/normalCar2.tscn" id="24_hiqdl"]
 [ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="24_k1581"]
 [ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="25_y1fp7"]
-[ext_resource type="PackedScene" uid="uid://b5aoxatou8q0w" path="res://Scenes/Levels/puzzle_1.tscn" id="26_4y2mh"]
-[ext_resource type="PackedScene" uid="uid://b5gqb5ceora51" path="res://Scenes/Levels/tutorial.tscn" id="28_0plyg"]
+[ext_resource type="PackedScene" uid="uid://b5aoxatou8q0w" path="res://Scenes/Levels/Level_Stash/puzzle_1.tscn" id="26_4y2mh"]
+[ext_resource type="PackedScene" uid="uid://b5gqb5ceora51" path="res://Scenes/Levels/Level_Stash/tutorial.tscn" id="28_0plyg"]
 [ext_resource type="PackedScene" uid="uid://baocscj4qtxk8" path="res://Scenes/Objects/Background/Props/Prop_Letreiro.tscn" id="29_k7sdq"]
 [ext_resource type="PackedScene" uid="uid://p430nthgdxi8" path="res://Scenes/Objects/Obstacles/normalCar.tscn" id="31_cpwgv"]
 [ext_resource type="PackedScene" uid="uid://b1c1d47i7qa6t" path="res://Scenes/Objects/Background/Props/Prop_sinaleira.tscn" id="32_0p8qn"]
-[ext_resource type="PackedScene" uid="uid://b73aa7gweqrmf" path="res://Scenes/Levels/puzzle_2.tscn" id="33_iht7e"]
+[ext_resource type="PackedScene" uid="uid://b73aa7gweqrmf" path="res://Scenes/Levels/Level_Stash/puzzle_2.tscn" id="33_iht7e"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="34_jcy58"]
 [ext_resource type="PackedScene" uid="uid://cqel614dkd1lh" path="res://Scenes/Menus/Win/WinTrigger.tscn" id="36_yyykf"]
 [ext_resource type="PackedScene" uid="uid://d3sl5p161wnvx" path="res://Scenes/Objects/Obstacles/policeCar2FLIP.tscn" id="37_wrgox"]
-[ext_resource type="PackedScene" uid="uid://bkod508iiqfek" path="res://Scenes/Objects/fallen_dead_box.tscn" id="38_ohir2"]
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_8wddr")
@@ -496,9 +495,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.6743
 
 [node name="dead21" parent="." instance=ExtResource("34_jcy58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5274, 0.870705, 42.5557)
-
-[node name="FallenDeadBox" parent="." instance=ExtResource("38_ohir2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57141, 1.84454, 44.0074)
 
 [node name="dead1" parent="." instance=ExtResource("34_jcy58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49453, 1.50394, 46.3442)
