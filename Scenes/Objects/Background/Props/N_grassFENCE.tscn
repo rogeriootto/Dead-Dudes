@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw02gbl7syq5a"]
+[gd_scene load_steps=9 format=4 uid="uid://dw02gbl7syq5a"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_6m60r"]
 [ext_resource type="Texture2D" uid="uid://cufa1ra5l2ke" path="res://Assets/Models/Background/Textures/Natures.png" id="1_yet42"]
@@ -17,12 +17,12 @@ _surfaces = [{
 "aabb": AABB(-0.005, -6.55651e-09, -0.035, 0.01001, 0.01201, 0.07001),
 "format": 34896613377,
 "index_count": 36,
-"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0, 4, 0, 6, 0, 5, 0, 6, 0, 4, 0, 7, 0, 0, 0, 7, 0, 4, 0, 3, 0, 0, 0, 4, 0, 1, 0, 6, 0, 7, 0, 7, 0, 0, 0, 1, 0, 6, 0, 2, 0, 5, 0, 6, 0, 1, 0, 2, 0, 2, 0, 3, 0, 4, 0, 4, 0, 5, 0, 2, 0),
+"index_data": PackedByteArray("AAACAAEAAgAAAAMABAAGAAUABgAEAAcAAAAHAAQAAwAAAAQAAQAGAAcABwAAAAEABgACAAUABgABAAIAAgADAAQABAAFAAIA"),
 "name": "Natures.007",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(189, 255, 200, 255, 245, 255, 0, 0, 189, 255, 200, 255, 0, 0, 0, 0, 0, 0, 200, 255, 0, 0, 0, 0, 0, 0, 200, 255, 245, 255, 0, 0, 0, 0, 0, 0, 245, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 189, 255, 0, 0, 0, 0, 0, 0, 189, 255, 0, 0, 245, 255, 0, 0)
+"vertex_data": PackedByteArray("vf/I//X/AAC9/8j/AAAAAAAAyP8AAAAAAADI//X/AAAAAAAA9f8AAAAAAAAAAAAAvf8AAAAAAAC9/wAA9f8AAA==")
 }]
 blend_shape_mode = 0
 
@@ -30,16 +30,16 @@ blend_shape_mode = 0
 resource_name = "Root Scene_Natures_Grass Fence"
 _surfaces = [{
 "aabb": AABB(-0.005, -6.55651e-09, -0.035, 0.01001, 0.01201, 0.07001),
-"attribute_data": PackedByteArray(81, 127, 1, 43, 183, 133, 1, 43, 183, 133, 154, 36, 81, 127, 154, 36, 81, 127, 1, 43, 183, 133, 1, 43, 183, 133, 154, 36, 81, 127, 154, 36, 81, 127, 1, 43, 183, 133, 154, 36, 81, 127, 154, 36, 183, 133, 1, 43, 81, 127, 1, 43, 183, 133, 154, 36, 81, 127, 154, 36, 183, 133, 1, 43, 183, 133, 154, 36, 81, 127, 154, 36, 81, 127, 1, 43, 183, 133, 1, 43, 183, 133, 1, 43, 81, 127, 154, 36, 81, 127, 1, 43, 183, 133, 154, 36),
+"attribute_data": PackedByteArray("UX8BK7eFASu3hZokUX+aJFF/ASu3hQErt4WaJFF/miRRfwErt4WaJFF/miS3hQErUX8BK7eFmiRRf5okt4UBK7eFmiRRf5okUX8BK7eFASu3hQErUX+aJFF/ASu3hZok"),
 "format": 34896613399,
 "index_count": 36,
-"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0, 4, 0, 6, 0, 5, 0, 6, 0, 4, 0, 7, 0, 8, 0, 10, 0, 9, 0, 11, 0, 8, 0, 9, 0, 12, 0, 14, 0, 13, 0, 13, 0, 15, 0, 12, 0, 16, 0, 18, 0, 17, 0, 16, 0, 19, 0, 18, 0, 20, 0, 22, 0, 21, 0, 21, 0, 23, 0, 20, 0),
+"index_data": PackedByteArray("AAACAAEAAgAAAAMABAAGAAUABgAEAAcACAAKAAkACwAIAAkADAAOAA0ADQAPAAwAEAASABEAEAATABIAFAAWABUAFQAXABQA"),
 "material": SubResource("StandardMaterial3D_6k4ic"),
 "name": "Natures.007",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray(189, 255, 200, 255, 245, 255, 84, 213, 189, 255, 200, 255, 0, 0, 84, 213, 0, 0, 200, 255, 0, 0, 84, 213, 0, 0, 200, 255, 245, 255, 84, 213, 0, 0, 0, 0, 245, 255, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 189, 255, 0, 0, 0, 0, 84, 213, 189, 255, 0, 0, 245, 255, 84, 213, 189, 255, 200, 255, 245, 255, 255, 255, 0, 0, 0, 0, 245, 255, 255, 255, 189, 255, 0, 0, 245, 255, 255, 255, 0, 0, 200, 255, 245, 255, 255, 255, 189, 255, 200, 255, 0, 0, 255, 255, 189, 255, 0, 0, 245, 255, 255, 255, 189, 255, 0, 0, 0, 0, 255, 255, 189, 255, 200, 255, 245, 255, 255, 255, 189, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 200, 255, 0, 0, 255, 255, 189, 255, 200, 255, 0, 0, 255, 255, 0, 0, 200, 255, 0, 0, 255, 255, 0, 0, 0, 0, 245, 255, 255, 255, 0, 0, 200, 255, 245, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127)
+"vertex_data": PackedByteArray("vf/I//X/VNW9/8j/AABU1QAAyP8AAFTVAADI//X/VNUAAAAA9f9U1QAAAAAAAFTVvf8AAAAAVNW9/wAA9f9U1b3/yP/1////AAAAAPX///+9/wAA9f///wAAyP/1////vf/I/wAA//+9/wAA9f///73/AAAAAP//vf/I//X///+9/wAAAAD//wAAAAAAAP//AADI/wAA//+9/8j/AAD//wAAyP8AAP//AAAAAPX///8AAMj/9f///wAAAAAAAP//VNWqKlTVqipU1aoqVNWqKlVVVVVVVVVVVVVVVVVVVVX/f/9//3//f/9//3//f/9//7//f/+//3//v/9//7//f////3////9/////f////3//P/9//z//f/8//3//P/9/")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tbxir")
@@ -57,13 +57,13 @@ largura = 1
 altura = 2
 
 [node name="Natures_Grass Fence" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-06, 1.62921e-05, 100, 0, 100, -1.62921e-05, -100, -7.1215e-13, -4.37114e-06, 3.151, -0.622689, 0)
+transform = Transform3D(-4.37114e-06, 1.62921e-05, 100, 0, 100, -1.62921e-05, -100, -7.1215e-13, -4.37114e-06, 3.151, -0.813043, 0)
 material_override = SubResource("StandardMaterial3D_jhbl0")
 mesh = SubResource("ArrayMesh_k8vva")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, -0.0479355, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.151, -0.218278, 0)
 shape = SubResource("BoxShape3D_6ikh0")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -72,5 +72,5 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.205496, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.181026, 0)
 shape = SubResource("BoxShape3D_uarny")
