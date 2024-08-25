@@ -1,0 +1,203 @@
+[gd_scene load_steps=23 format=3 uid="uid://d2pl7acd17k62"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_wejyh"]
+[ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_6o166"]
+[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="3_7si1q"]
+[ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_dqs8d"]
+[ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="4_pfact"]
+[ext_resource type="PackedScene" uid="uid://2pm2ysglg5su" path="res://Scenes/Objects/Background/Props/N_grassUGLY.tscn" id="5_mgjik"]
+[ext_resource type="PackedScene" uid="uid://chjxkyj30ejtt" path="res://Scenes/Objects/Obstacles/normalCar3.tscn" id="6_q1lnr"]
+[ext_resource type="PackedScene" uid="uid://cng2notrls8u1" path="res://Scenes/Objects/Background/Props/Prop_cone.tscn" id="7_medi0"]
+[ext_resource type="PackedScene" uid="uid://7m0d0qtbm0w8" path="res://Scenes/Objects/Background/Props/N_tree2.tscn" id="9_dplgo"]
+[ext_resource type="PackedScene" uid="uid://bkwprnsvv668g" path="res://Scenes/Objects/Background/Props/N_tree.tscn" id="10_7agd2"]
+[ext_resource type="PackedScene" uid="uid://bco4bcijuouty" path="res://Scenes/Objects/Background/Props/Prop_trafficSign.tscn" id="11_7iasm"]
+[ext_resource type="PackedScene" uid="uid://4xoikvlqnd7y" path="res://Scenes/Objects/Background/Props/Prop_trafficSTOP.tscn" id="12_rirxq"]
+[ext_resource type="PackedScene" uid="uid://cvo16d804tnjh" path="res://Scenes/Objects/Background/Props/Prop_bench2.tscn" id="13_7fn3u"]
+[ext_resource type="PackedScene" uid="uid://dvdn3ftflwqsw" path="res://Scenes/Objects/Background/Buildings/building1.tscn" id="14_ikypf"]
+[ext_resource type="PackedScene" uid="uid://npa7quhm6nxe" path="res://Scenes/Objects/Background/Buildings/level_limit.tscn" id="15_jhknn"]
+[ext_resource type="PackedScene" uid="uid://dqstgh7hsll15" path="res://Scenes/Objects/Background/Props/N_bush.tscn" id="16_8fcra"]
+[ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="17_5i2g6"]
+[ext_resource type="PackedScene" uid="uid://bdmca6tvipel" path="res://Scenes/Objects/Obstacles/normalCar2FLIP.tscn" id="18_qi6g7"]
+[ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="19_xlf8y"]
+[ext_resource type="PackedScene" uid="uid://cpaedg41nue6s" path="res://Scenes/Objects/Road/road-non-pathable.tscn" id="21_jrmcx"]
+[ext_resource type="PackedScene" uid="uid://c3jbdx6mv45bk" path="res://Scenes/Objects/Background/Props/Prop_wood-fence.tscn" id="21_jxf87"]
+[ext_resource type="PackedScene" uid="uid://dne7d8nlj0ax0" path="res://Scenes/Objects/Background/Props/Prop_streetLight.tscn" id="22_xcl5v"]
+
+[node name="Tutorial" type="Node3D"]
+script = ExtResource("1_wejyh")
+player1SpawnPoint = Vector3(-1, 0, 0)
+player2SpawnPoint = Vector3(1, 0, 0)
+
+[node name="Astar" parent="." instance=ExtResource("2_6o166")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_dqs8d")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
+projection = 1
+current = true
+size = 14.402
+script = ExtResource("3_7si1q")
+offset = Vector3(15, 15, 15)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.73246, -0.396427, -0.672446, 0.625029, 9.51741, -19.5893, -15.4859)
+light_energy = 0.924
+shadow_enabled = true
+shadow_blur = 1.101
+
+[node name="Ruas" type="Node3D" parent="."]
+
+[node name="Road1" parent="Ruas" instance=ExtResource("4_pfact")]
+
+[node name="Road2" parent="Ruas" instance=ExtResource("4_pfact")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37.718)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="grassUGLY" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, 13.8978)
+
+[node name="grassUGLY2" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, 3.92503)
+
+[node name="grassUGLY3" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, -6.03544)
+
+[node name="grassUGLY4" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, -16.0354)
+
+[node name="grassUGLY5" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, -25.8382)
+
+[node name="grassUGLY6" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, -35.8382)
+
+[node name="grassUGLY7" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, -45.6718)
+
+[node name="grassUGLY8" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4522, 0.993765, -55.6718)
+
+[node name="grassUGLY9" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, 13.8978)
+
+[node name="grassUGLY10" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, 3.92503)
+
+[node name="grassUGLY11" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, -6.03544)
+
+[node name="grassUGLY12" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, -16.0354)
+
+[node name="grassUGLY13" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, -25.8382)
+
+[node name="grassUGLY14" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, -35.8382)
+
+[node name="grassUGLY15" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, -45.6718)
+
+[node name="grassUGLY16" parent="Props" instance=ExtResource("5_mgjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3678, 0.993765, -55.6718)
+
+[node name="car" parent="Props" instance=ExtResource("6_q1lnr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.82422, 0.78349, -8.65069)
+
+[node name="Cone12" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.33689, 1.57755, -15.4375)
+
+[node name="Cone13" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89772, 1.57755, -15.4375)
+
+[node name="Cone2" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07575, 1.57755, -17.8482)
+
+[node name="Cone3" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76693, 1.57755, -20.9431)
+
+[node name="Cone11" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45917, 1.57755, -17.6413)
+
+[node name="Cone4" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0426841, 1.57755, -15.4375)
+
+[node name="Cone5" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31242, 1.57755, -15.4375)
+
+[node name="Cone10" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59153, 1.57755, -15.4375)
+
+[node name="Cone6" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9044, 1.57755, -15.4375)
+
+[node name="Cone7" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4387, 1.57755, -15.4375)
+
+[node name="Cone8" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.20356, 1.57755, -15.4375)
+
+[node name="Cone9" parent="Props" instance=ExtResource("7_medi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81145, 1.57755, -15.4375)
+
+[node name="N_tree2" parent="Props" instance=ExtResource("9_dplgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4394, 0.856373, -6.67025)
+
+[node name="N_tree" parent="Props" instance=ExtResource("10_7agd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3147, 1.03107, 1.89666)
+
+[node name="Node3D" parent="Props" instance=ExtResource("11_7iasm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0519, 0.856373, 0.647698)
+
+[node name="Root Scene" parent="Props" instance=ExtResource("12_rirxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4341, 0.856373, -15.9244)
+
+[node name="Root Scene2" parent="Props" instance=ExtResource("13_7fn3u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7485, 1.94256, -12.5046)
+
+[node name="Root Scene3" parent="Props" instance=ExtResource("13_7fn3u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.9376, 1.94256, 18.277)
+
+[node name="building1" parent="Props" instance=ExtResource("14_ikypf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.6136, 1.03107, 12.3853)
+
+[node name="building2" parent="Props" instance=ExtResource("14_ikypf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.6136, 1.03107, 12.3853)
+
+[node name="LevelLimit" parent="Props" instance=ExtResource("15_jhknn")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 12.7294, 0, 0, -13.9568, 5.94486, -19.5021)
+
+[node name="LevelLimit2" parent="Props" instance=ExtResource("15_jhknn")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 12.7294, 0, 0, 14.8186, 5.94486, -19.5021)
+
+[node name="Root Scene4" parent="Props" instance=ExtResource("16_8fcra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2632, 0.99249, 7.83684)
+
+[node name="Root Scene5" parent="Props" instance=ExtResource("16_8fcra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9238, 0.99249, -3.30773)
+
+[node name="Bus" parent="Props" instance=ExtResource("17_5i2g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1552, 0.856373, 14.2429)
+
+[node name="car2FLIP" parent="Props" instance=ExtResource("18_qi6g7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158088, 0.78349, 13.6569)
+
+[node name="car2" parent="Props" instance=ExtResource("19_xlf8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61308, 1.52442, 14.712)
+
+[node name="LevelLimit3" parent="Props" instance=ExtResource("15_jhknn")]
+transform = Transform3D(4.97201, 0, 0, 0, 1, 0, 0, 0, 1, 0.162357, 3.15858, 12.9399)
+
+[node name="Road-non-pathable" parent="Props" instance=ExtResource("21_jrmcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 37.7937)
+
+[node name="Fence" parent="Props" instance=ExtResource("21_jxf87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4634, 0.950188, 14.1004)
+
+[node name="Fence2" parent="Props" instance=ExtResource("21_jxf87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.254, 0.950188, 14.1004)
+
+[node name="StreetLight" parent="." instance=ExtResource("22_xcl5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.30968, 1.06631, 4.63309)
