@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://c3wxmcjxt0lg8"]
+[gd_scene load_steps=44 format=4 uid="uid://c3wxmcjxt0lg8"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
 [ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="1_suxmb"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="14_3obfa"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_a1xn6"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="15_b0liw"]
+[ext_resource type="Texture2D" uid="uid://b86l4hbpimtp4" path="res://Assets/HUD/interaction.png" id="18_mqhyj"]
+[ext_resource type="Script" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_w534f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fl7o"]
 resource_name = "palettemat"
@@ -3529,6 +3531,14 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KickPunchArea"]
 transform = Transform3D(1.31043e-07, 1, -0.000519999, -0.999999, 8.36029e-07, 0.00135595, 0.00135595, 0.000519998, 0.999999, -0.000613496, 1.49827, 2.10025)
 shape = SubResource("CapsuleShape3D_d1an0")
+
+[node name="InteractableMarker" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 5.91901, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+texture = ExtResource("18_mqhyj")
+script = ExtResource("19_w534f")
 
 [connection signal="body_entered" from="Armature/Skeleton3D/BoneAttachment3D/TacoBox" to="PlayerStateMachine/JohnSpecialAttack" method="_on_taco_box_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/JohnSpecialAttack" method="_on_animation_player_animation_finished"]

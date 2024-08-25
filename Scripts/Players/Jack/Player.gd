@@ -7,6 +7,7 @@ var playerHP = 3
 var playerInventory = 4
 var playerMaxInventorySpace = 6
 var isPlayerDead = false
+@onready var interactableMarker = $InteractableMarker
 
 func _process(delta):
 	if playerNumber == 'p1' and not isPlayerNumberSet:

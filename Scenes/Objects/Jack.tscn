@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://4t2p680180rg"]
+[gd_scene load_steps=40 format=4 uid="uid://4t2p680180rg"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
 [ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="1_gm2oo"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_7dwtj"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="14_gs356"]
 [ext_resource type="Script" path="res://Scripts/Players/Jack/JackSpecialAttack.gd" id="15_vqvta"]
+[ext_resource type="Texture2D" uid="uid://b86l4hbpimtp4" path="res://Assets/HUD/interaction.png" id="18_f0w31"]
+[ext_resource type="Script" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_b4b7t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi81c"]
 resource_name = "palettemat"
@@ -3414,6 +3416,14 @@ animationPlayer = NodePath("../../AnimationPlayer")
 script = ExtResource("15_vqvta")
 player = NodePath("../..")
 animControl = NodePath("../../AnimationPlayer")
+
+[node name="InteractableMarker" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 5.91901, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+texture = ExtResource("18_f0w31")
+script = ExtResource("19_b4b7t")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/PlayerGrounded/PlayerIdle" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/PlayerGrounded/PlayerPickingUp" method="_on_animation_player_animation_finished"]
