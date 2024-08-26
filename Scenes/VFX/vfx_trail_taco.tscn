@@ -44,4 +44,3 @@ texture = ExtResource("5_gdmdx")
 color_ramp = ExtResource("3_gqgak")
 curve = ExtResource("4_wu2mq")
 use_red_as_alpha = true
-_defaults_have_been_set = true
