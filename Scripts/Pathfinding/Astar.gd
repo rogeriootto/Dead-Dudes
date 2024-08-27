@@ -140,7 +140,7 @@ func _connect_obstacles(obstacle_group: Array):
 								if should_draw_cubes:
 									get_child(obstacle_id).material_override = purple_material
 							if eixo_y == obstacle.altura-1:
-								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (grid_step * (eixo_y+1)), obstacle.position.z + (grid_step * eixo_z)))
 								var above_obstacle_id
 								if points.has(above_obstacle_key):
 									above_obstacle_id = points[above_obstacle_key]

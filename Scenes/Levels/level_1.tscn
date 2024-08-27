@@ -43,7 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://bdmca6tvipel" path="res://Scenes/Objects/Obstacles/normalCar2FLIP.tscn" id="40_uye62"]
 [ext_resource type="PackedScene" uid="uid://cbdfh6veian4s" path="res://Scenes/Objects/Obstacles/normalCar2.tscn" id="41_w02vs"]
 [ext_resource type="PackedScene" uid="uid://p430nthgdxi8" path="res://Scenes/Objects/Obstacles/normalCar.tscn" id="43_ck0oa"]
-[ext_resource type="PackedScene" path="res://Scenes/Managers/spawner.tscn" id="44_bwky2"]
+[ext_resource type="PackedScene" uid="uid://l27m67lduql4" path="res://Scenes/Managers/spawner.tscn" id="44_bwky2"]
 [ext_resource type="PackedScene" uid="uid://cqel614dkd1lh" path="res://Scenes/Menus/Win/WinTrigger.tscn" id="44_hqeu4"]
 
 [node name="Level_1" type="Node3D"]
@@ -52,7 +52,6 @@ player1SpawnPoint = Vector3(5, 0, 14)
 player2SpawnPoint = Vector3(0, 0, 14)
 
 [node name="Astar" parent="." instance=ExtResource("2_kyp0d")]
-should_draw_cubes = false
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 0, 10)
@@ -536,6 +535,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23784, 1.60497, -13.2666)
 [node name="box_small24" parent="Scene/Interactables/BOXES" instance=ExtResource("17_rcjge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35554, 1.60497, -19.4458)
 
+[node name="box_small40" parent="Scene/Interactables/BOXES" instance=ExtResource("17_rcjge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.147, 1.60497, -21.0959)
+
 [node name="box_small25" parent="Scene/Interactables/BOXES" instance=ExtResource("17_rcjge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19559, 1.60497, -19.4458)
 
@@ -688,13 +690,13 @@ transform = Transform3D(-0.0762989, -0.056444, 0.995486, 0.530334, -0.847756, -0
 [node name="Deads" type="Node3D" parent="Scene"]
 
 [node name="dead2" parent="Scene/Deads" instance=ExtResource("24_73m8e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16892, 0.78349, -43.6972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16892, 0.78349, -52.2055)
 
 [node name="dead1" parent="Scene/Deads" instance=ExtResource("6_6rrj5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23255, 0.78349, -55.7956)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61966, 0.78349, -45.0056)
 
 [node name="dead3" parent="Scene/Deads" instance=ExtResource("29_ost2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56136, 0.78349, -55.5207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56136, 0.78349, -57.1935)
 
 [node name="dead4" parent="Scene/Deads" instance=ExtResource("24_73m8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9306, 0.492749, -84.6559)
@@ -729,4 +731,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280919, 0, -0.0608029)
 
 [node name="WinTrigger" parent="." instance=ExtResource("44_hqeu4")]
 transform = Transform3D(28.1454, 0, 0, 0, 16.8613, 0, 0, 0, 1, 0.244213, 4.20087, -119.304)
-nextLevel = "res://Scenes/Levels/tutorial.tscn"
+nextLevel = "res://Scenes/Levels/level_2.tscn"

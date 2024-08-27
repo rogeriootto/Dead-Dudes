@@ -5,7 +5,6 @@ class_name DeadGrounded
 @export var dead: CharacterBody3D
 @export var animControl: AnimationPlayer
 
-var path := []
 var current_target := Vector3.INF
 var old_position:String
 var speed := RandomNumberGenerator.new().randi_range(2, 3)
@@ -70,6 +69,8 @@ func deadMovement(delta: float):
 		
 		#searching by vision
 		if collision_result.is_in_group("players"):
+			dead.path = []
+			print(dead.path)
 			if seeking_p1:
 				var vectorTowardsPlayer = (Vector3(GlobalVariables.player1Position.x - dead.position.x, 0, GlobalVariables.player1Position.z - dead.position.z)).normalized() * speed
 				dead.velocity.x = vectorTowardsPlayer.x
@@ -85,8 +86,6 @@ func deadMovement(delta: float):
 		else:
 			count += delta
 			if count > 1.5 or dead.should_update_path:
-				print("UPDATING ASTAR, O BOOL TA : ", dead.should_update_path)
-				print("UPDATING ASTAR, O BOOL TA : ", dead.should_update_path)
 				#if zombie should fall into crumple state
 				if old_position == GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin):
 					dead.count_fallen += 1
@@ -113,13 +112,6 @@ func deadMovement(delta: float):
 				dead.move_and_slide()
 				if dead.global_transform.origin.distance_to(current_target) < 1:
 					find_next_point_in_path()
-					# if zombie will should fall form tall height
-					if(dead.position.y >= current_target[1] + 1.5):
-						#should_update_path = false
-						# dead.velocity.y += speed
-						rotate_towards_movement_direction(dead.velocity, dead.get_child(0), delta)
-						dead.move_and_slide()
-												
 					# if zombie should jump
 					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
 						# should_update_path = false
@@ -154,8 +146,8 @@ func rotate_towards_movement_direction(velocity, object, delta):
 		object.rotation.y = lerp_angle(object.rotation.y, target_angle, 5 * delta)
 
 func find_next_point_in_path():
-	if path.size() > 0:
-		var new_target = path.pop_front()
+	if dead.path.size() > 0:
+		var new_target = dead.path.pop_front()
 		current_target = new_target
 		#if dead.is_on_floor():
 			#should_update_path = true
@@ -164,5 +156,5 @@ func find_next_point_in_path():
 
 
 func update_path(new_path: Array):
-	path = new_path
+	dead.path = new_path
 	find_next_point_in_path()

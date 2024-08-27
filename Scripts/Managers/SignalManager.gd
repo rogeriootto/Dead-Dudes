@@ -21,7 +21,7 @@ func registerListner(signalName: String, target: Object, method: String):
 	var callable = Callable(target, method)
 	if not is_connected(signalName, callable):
 		connect(signalName, callable)
-		print("SignalManager: Connected signal " + signalName + " to " + " method " + method)
+		#print("SignalManager: Connected signal " + signalName + " to " + " method " + method)
 	
 func unregisterListner(signalName: String, target: Object, method: String):
 	var callable = Callable(target, method)
@@ -59,7 +59,7 @@ func emitInteractableNameP2(obstacleName: String):
 	emit_signal("interactableNameRequestP2", obstacleName)
 
 func emitChangeScenes():
-	print("emitChangeScenes")
+	#print("emitChangeScenes")
 	emit_signal("changeScenes", true)
 
 #func emitDisconnectAreaRequest(obstacle: Object, comprimento: int, largura: int, altura: int):
