@@ -311,6 +311,8 @@ func _on_main_obstacle_should_remove(obstacle: StaticBody3D, player: Object):
 		if astar.is_point_disabled(above_obstacle_id):
 			return
 
+	if !player:
+		return
 	if astar.is_point_disabled(obstacle_id) && player.playerInventory < player.playerMaxInventorySpace:
 		if(above_obstacle_id):
 			if should_draw_cubes:

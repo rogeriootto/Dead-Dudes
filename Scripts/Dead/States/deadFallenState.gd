@@ -5,6 +5,8 @@ class_name DeadFallen
 @export var dead_collision: CollisionShape3D
 
 func Enter():
+	if !dead:
+		return
 	if dead.position:
 		dead.position = GlobalVariables.astarNode.dead_should_fall(dead.global_transform.origin)
 		animControl.play("Crouching", -1, 3)

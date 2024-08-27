@@ -31,7 +31,7 @@ func _ready():
 		add_child(player2)
 		player2.position = player2SpawnPoint
 		player2.playerNumber = 'p2'
-		player1.playerInventory = inventorySize
+		player2.playerInventory = inventorySize
 		player2.playerHP = 3
 		HUDmanager.Player2InventorySize = inventorySize
 		HUDmanager.Player2Health = 3

@@ -1373,7 +1373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8988, 0.87995, -154.316)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2371, 0.807067, -151.078)
 
 [node name="dead9" parent="Scene/Deads" instance=ExtResource("42_mjxla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7549, 0.856373, -140)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47481, 0.856373, -126.459)
 
 [node name="dead10" parent="Scene/Deads" instance=ExtResource("43_kybkk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.02842, 0.304612, -140)
