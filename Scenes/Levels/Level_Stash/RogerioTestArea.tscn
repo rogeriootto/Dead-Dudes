@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hfpse5crrtm1"]
+[gd_scene load_steps=8 format=3 uid="uid://hfpse5crrtm1"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_84ur6"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="1_uw8k8"]
@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_vfgw4"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="5_c1tuu"]
 [ext_resource type="PackedScene" uid="uid://cqel614dkd1lh" path="res://Scenes/Menus/Win/WinTrigger.tscn" id="6_75xn2"]
-[ext_resource type="PackedScene" uid="uid://bp3h0xkfybtyt" path="res://Scenes/Objects/dead_2.tscn" id="7_ewagr"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="8_idu00"]
-[ext_resource type="PackedScene" uid="uid://gipbl8hthkwb" path="res://Scenes/Objects/dead_3.tscn" id="9_0xq28"]
 
 [node name="RogerioTestArea" type="Node3D"]
 script = ExtResource("1_84ur6")
@@ -39,13 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426843, 0, -38.0216)
 
 [node name="WinTrigger" parent="." instance=ExtResource("6_75xn2")]
 transform = Transform3D(31.9107, 0, 0, 0, 1.00031, 0, 0, 0, 1.00031, 0.463622, 2.04422, -18.4537)
-nextLevel = "res://Scenes/Levels/level_1.tscn"
-
-[node name="dead2" parent="." instance=ExtResource("7_ewagr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8366, 1.34079, -8.72754)
-
-[node name="dead3" parent="." instance=ExtResource("9_0xq28")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97128, 1.39715, -8.88199)
+nextLevel = "res://Scenes/Menus/Win/win.tscn"
 
 [node name="dead1" parent="." instance=ExtResource("8_idu00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66868, 1.54045, -8.64687)

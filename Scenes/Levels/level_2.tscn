@@ -46,7 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="42_mjxla"]
 [ext_resource type="PackedScene" uid="uid://bp3h0xkfybtyt" path="res://Scenes/Objects/dead_2.tscn" id="43_kybkk"]
 [ext_resource type="PackedScene" uid="uid://gipbl8hthkwb" path="res://Scenes/Objects/dead_3.tscn" id="44_nraje"]
-[ext_resource type="PackedScene" path="res://Scenes/Managers/spawner_fogo.tscn" id="47_yqtdm"]
+[ext_resource type="PackedScene" uid="uid://crh5vite5icpr" path="res://Scenes/Managers/spawner_fogo.tscn" id="47_yqtdm"]
 [ext_resource type="PackedScene" uid="uid://cqel614dkd1lh" path="res://Scenes/Menus/Win/WinTrigger.tscn" id="48_ws4sf"]
 [ext_resource type="PackedScene" uid="uid://cr8nnjr3ojsn" path="res://Scenes/Objects/Background/Buildings/Building_Stadium.tscn" id="49_pnrpq"]
 

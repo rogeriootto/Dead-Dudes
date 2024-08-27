@@ -26,5 +26,5 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_taco_box_body_entered(body):
 	body.dealDamage(2)
 	var look_direction = (body.global_position - player.global_position)
-	body.velocity = look_direction * 50
+	body.velocity = look_direction * 25
 	body.move_and_slide()

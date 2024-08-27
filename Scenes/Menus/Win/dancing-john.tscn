@@ -1,35 +1,19 @@
-[gd_scene load_steps=54 format=4 uid="uid://c3wxmcjxt0lg8"]
+[gd_scene load_steps=36 format=4 uid="uid://iivancsvcb8w"]
 
-[ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
-[ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="1_suxmb"]
-[ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="3_o2jre"]
-[ext_resource type="Texture2D" uid="uid://irb4vqkub6uj" path="res://Assets/Models/John/golfclub.png" id="3_tdbi6"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="4_l8tnx"]
-[ext_resource type="PackedScene" uid="uid://ce6m0a33h2645" path="res://Scenes/VFX/vfx_trail_taco.tscn" id="4_rvhvk"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="5_r3j2q"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="5_rxkvg"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="6_6vhil"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_753ss"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="7_1sjq4"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="7_dik4q"]
-[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="8_fb5jy"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="8_xqrra"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="9_dv6ri"]
-[ext_resource type="Texture2D" uid="uid://b7gp5cmwwqjc8" path="res://GPUTrail-main/textures/T_VFX_Trail223.png" id="9_e0bva"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_eltgk"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_d8rt1"]
-[ext_resource type="Script" path="res://Scripts/Players/John/JohnAttack.gd" id="13_4fw3o"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_gihen"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="14_3obfa"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_a1xn6"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="15_b0liw"]
-[ext_resource type="Texture2D" uid="uid://b86l4hbpimtp4" path="res://Assets/HUD/interaction.png" id="18_mqhyj"]
-[ext_resource type="Script" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_w534f"]
+[ext_resource type="Script" path="res://Scenes/Menus/Win/dancing_jack.gd" id="1_603ub"]
+[ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="2_i7emc"]
+[ext_resource type="Texture2D" uid="uid://irb4vqkub6uj" path="res://Assets/Models/John/golfclub.png" id="3_yhkon"]
+[ext_resource type="PackedScene" uid="uid://ce6m0a33h2645" path="res://Scenes/VFX/vfx_trail_taco.tscn" id="4_0dkyi"]
+[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="5_vxl8h"]
+[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_00arb"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="7_psr0p"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="8_gty0w"]
+[ext_resource type="Texture2D" uid="uid://b7gp5cmwwqjc8" path="res://GPUTrail-main/textures/T_VFX_Trail223.png" id="9_1qcp3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fl7o"]
 resource_name = "palettemat"
 cull_mode = 2
-albedo_texture = ExtResource("1_suxmb")
+albedo_texture = ExtResource("2_i7emc")
 roughness = 0.552786
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2al7b"]
@@ -156,7 +140,7 @@ bind/32/pose = Transform3D(-81.4885, -10.6375, -56.978, -57.3349, 0.368022, 81.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40rc8"]
 resource_name = "palette"
-albedo_texture = ExtResource("3_tdbi6")
+albedo_texture = ExtResource("3_yhkon")
 metallic = 0.4
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7vcya"]
@@ -196,17 +180,17 @@ radius = 0.668983
 height = 3.30821
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p5jm6"]
-shader = ExtResource("5_r3j2q")
+shader = ExtResource("5_vxl8h")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xmlf6"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("6_753ss")
+shader = ExtResource("6_00arb")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 42
-shader_parameter/tex = ExtResource("9_e0bva")
-shader_parameter/color_ramp = ExtResource("7_1sjq4")
-shader_parameter/curve = ExtResource("8_fb5jy")
+shader_parameter/tex = ExtResource("9_1qcp3")
+shader_parameter/color_ramp = ExtResource("7_psr0p")
+shader_parameter/curve = ExtResource("8_gty0w")
 
 [sub_resource type="QuadMesh" id="QuadMesh_sjmpn"]
 material = SubResource("ShaderMaterial_xmlf6")
@@ -3451,18 +3435,9 @@ _data = {
 "Walk": SubResource("Animation_1gskq")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_33ak5"]
-radius = 1.045
-height = 5.001
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1an0"]
-height = 2.79673
-
-[node name="john" type="CharacterBody3D"]
+[node name="john" type="Node3D"]
 transform = Transform3D(0.7, 0.000697672, -0.00029323, -0.000697944, 0.699999, -0.000656294, 0.000292583, 0.000656582, 0.7, 0, 0, 0)
-collision_layer = 2
-collision_mask = 65
-script = ExtResource("1_2qywr")
+script = ExtResource("1_603ub")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.309112, 0.184877)
@@ -3706,7 +3681,7 @@ mesh = SubResource("ArrayMesh_2al7b")
 skin = SubResource("Skin_ouf6t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.851872, -0.367543, 0.373129, -0.521323, -0.663514, 0.53663, 0.0503416, -0.651661, -0.756838, -0.836569, -0.668759, -2.16811)
+transform = Transform3D(0.177975, -0.168853, 0.96944, 0.982452, 0.0863283, -0.165328, -0.0557738, 0.981853, 0.181255, -1.09155, 0.0823088, -1.1252)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
@@ -3724,7 +3699,7 @@ monitoring = false
 transform = Transform3D(0.502787, 0.773361, -0.386157, -0.560814, 0.63179, 0.535097, 0.657794, -0.0524765, 0.751368, 1.08741, 1.00707, -0.155707)
 shape = SubResource("CapsuleShape3D_mncfr")
 
-[node name="GPUTrail3D" parent="Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_rvhvk")]
+[node name="GPUTrail3D" parent="Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_0dkyi")]
 transform = Transform3D(0.1, 0, 0, 0, 0.693428, 0, 0, 0, 0.1, 1.40331, 1.05949, -0.173363)
 process_material = SubResource("ShaderMaterial_p5jm6")
 draw_pass_1 = SubResource("QuadMesh_sjmpn")
@@ -3735,97 +3710,3 @@ libraries = {
 "": SubResource("AnimationLibrary_euatw")
 }
 autoplay = "Idle"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, -9.37937e-13, -2.90391e-24, 9.37937e-13, 1, 2.322e-12, 7.26028e-25, -2.322e-12, 1, 0, 2.205, 0.16)
-shape = SubResource("CapsuleShape3D_33ak5")
-
-[node name="InteractionArea" parent="." groups=["playerInteractableArea"] instance=ExtResource("3_o2jre")]
-transform = Transform3D(1, -1.70752e-11, 7.27596e-12, 1.20277e-11, 1, 0, 0, 9.09495e-13, 1, 0, 0.75, 1.865)
-
-[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("4_l8tnx")
-initial_state = NodePath("PlayerGrounded/PlayerIdle")
-
-[node name="PlayerGrounded" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("5_rxkvg")
-player = NodePath("../..")
-animControl = NodePath("../../AnimationPlayer")
-
-[node name="PlayerIdle" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("6_6vhil")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerWalking" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("7_dik4q")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerRun" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("8_xqrra")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerBuilding" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("9_dv6ri")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerMovingObstacle" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("10_eltgk")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerPickingUp" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("animControl")]
-script = ExtResource("11_d8rt1")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerJump" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("13_gihen")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerChangeScene" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("14_a1xn6")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="JohnSpecialAttack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("tacoBox", "player", "animControl")]
-script = ExtResource("13_4fw3o")
-tacoBox = NodePath("../../Armature/Skeleton3D/BoneAttachment3D/TacoBox")
-player = NodePath("../..")
-animControl = NodePath("../../AnimationPlayer")
-
-[node name="NormalAttack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("attackArea", "player", "animControl")]
-script = ExtResource("14_3obfa")
-attackArea = NodePath("../../KickPunchArea")
-player = NodePath("../..")
-animControl = NodePath("../../AnimationPlayer")
-
-[node name="PlayerDying" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("collisionShape", "animationPlayer")]
-script = ExtResource("15_b0liw")
-collisionShape = NodePath("../../CollisionShape3D")
-animationPlayer = NodePath("../../AnimationPlayer")
-
-[node name="KickPunchArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 8
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KickPunchArea"]
-transform = Transform3D(1.31043e-07, 1, -0.000519999, -0.999999, 8.36029e-07, 0.00135595, 0.00135595, 0.000519998, 0.999999, -0.000613496, 1.49827, 2.10025)
-shape = SubResource("CapsuleShape3D_d1an0")
-
-[node name="InteractableMarker" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 5.91901, 0)
-visible = false
-billboard = 1
-texture_filter = 0
-texture = ExtResource("18_mqhyj")
-script = ExtResource("19_w534f")
-
-[connection signal="body_entered" from="Armature/Skeleton3D/BoneAttachment3D/TacoBox" to="PlayerStateMachine/JohnSpecialAttack" method="_on_taco_box_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/JohnSpecialAttack" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/NormalAttack" method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="KickPunchArea" to="PlayerStateMachine/NormalAttack" method="_on_kick_punch_area_body_entered"]

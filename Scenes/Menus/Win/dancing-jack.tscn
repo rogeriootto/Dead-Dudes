@@ -1,30 +1,14 @@
-[gd_scene load_steps=42 format=4 uid="uid://4t2p680180rg"]
+[gd_scene load_steps=24 format=4 uid="uid://xfg1du7s4adb"]
 
-[ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
-[ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="1_gm2oo"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="3_1uyk6"]
-[ext_resource type="ArrayMesh" uid="uid://cqyulqt3q6nir" path="res://Assets/Models/Jack/pistol.obj" id="3_c1gog"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="4_bkvvp"]
-[ext_resource type="PackedScene" uid="uid://c6aitdcddsq0u" path="res://Scenes/VFX/vfx_tiro.tscn" id="4_loq8p"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="5_faxpn"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="6_72ui3"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="7_mv8pv"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="8_jubk0"]
-[ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="9_pagb7"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_6m32d"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_mucv2"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_5y7rt"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="13_bon1w"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_7dwtj"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="14_gs356"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/JackSpecialAttack.gd" id="15_vqvta"]
-[ext_resource type="Texture2D" uid="uid://b86l4hbpimtp4" path="res://Assets/HUD/interaction.png" id="18_f0w31"]
-[ext_resource type="Script" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_b4b7t"]
+[ext_resource type="Script" path="res://Scenes/Menus/Win/dancing_jack.gd" id="1_riy8y"]
+[ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="2_iiqqc"]
+[ext_resource type="ArrayMesh" uid="uid://cqyulqt3q6nir" path="res://Assets/Models/Jack/pistol.obj" id="3_q3tcv"]
+[ext_resource type="PackedScene" uid="uid://c6aitdcddsq0u" path="res://Scenes/VFX/vfx_tiro.tscn" id="4_puhur"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi81c"]
 resource_name = "palettemat"
 cull_mode = 2
-albedo_texture = ExtResource("1_gm2oo")
+albedo_texture = ExtResource("2_iiqqc")
 roughness = 0.552786
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y24b8"]
@@ -3280,18 +3264,9 @@ _data = {
 "Walk": SubResource("Animation_hafk1")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8p8mx"]
-radius = 1.045
-height = 5.001
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ysa0j"]
-height = 2.79673
-
-[node name="Jack" type="CharacterBody3D"]
+[node name="Jack" type="Node3D"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
-collision_layer = 2
-collision_mask = 65
-script = ExtResource("1_6pykx")
+script = ExtResource("1_riy8y")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -3534,15 +3509,15 @@ mesh = SubResource("ArrayMesh_y24b8")
 skin = SubResource("Skin_16him")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.177976, -0.168853, 0.96944, 0.982453, 0.0863284, -0.165328, -0.0557739, 0.981853, 0.181255, -1.19883, 0.0996124, -1.01469)
+transform = Transform3D(0.177976, -0.168854, 0.96944, 0.982453, 0.0863283, -0.165328, -0.0557739, 0.981853, 0.181255, -1.19883, 0.0996123, -1.01469)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(0.0999543, 1.49644, -0.0260378, -0.407277, 0.0523067, 1.4427, 1.44019, -0.0890665, 0.409796, 0.200432, 0.521182, 0.202146)
-mesh = ExtResource("3_c1gog")
+mesh = ExtResource("3_q3tcv")
 
-[node name="VFX-Fogo" parent="Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_loq8p")]
+[node name="VFX-Fogo" parent="Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_puhur")]
 transform = Transform3D(1, 6.51926e-09, -3.44589e-08, -6.51926e-09, 1, 5.96046e-08, -2.28174e-08, 0, 1, 0.331782, 0.920159, 0.343478)
 visible = false
 
@@ -3550,98 +3525,3 @@ visible = false
 libraries = {
 "": SubResource("AnimationLibrary_kjmli")
 }
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, -9.37937e-13, -2.90391e-24, 9.37937e-13, 1, 2.322e-12, 7.26028e-25, -2.322e-12, 1, 0, 2.205, 0.16)
-shape = SubResource("CapsuleShape3D_8p8mx")
-
-[node name="InteractionArea" parent="." groups=["playerInteractableArea"] instance=ExtResource("9_pagb7")]
-transform = Transform3D(1, -1.70752e-11, 7.27596e-12, 1.20277e-11, 1, 0, 0, 9.09495e-13, 1, 0, 0.75, 1.865)
-
-[node name="KickPunchArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 8
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KickPunchArea"]
-transform = Transform3D(1.31043e-07, 1, -0.000519999, -0.999999, 8.36029e-07, 0.00135595, 0.00135595, 0.000519998, 0.999999, -0.000613496, 1.49827, 2.10025)
-shape = SubResource("CapsuleShape3D_ysa0j")
-
-[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_1uyk6")
-initial_state = NodePath("PlayerGrounded/PlayerIdle")
-
-[node name="PlayerGrounded" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("4_bkvvp")
-player = NodePath("../..")
-animControl = NodePath("../../AnimationPlayer")
-
-[node name="PlayerIdle" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("5_faxpn")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerWalking" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("6_72ui3")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerRun" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("7_mv8pv")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerBuilding" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("8_jubk0")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerMovingObstacle" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("10_6m32d")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerPickingUp" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("animControl")]
-script = ExtResource("11_mucv2")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerJump" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("13_5y7rt")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="PlayerChangeScene" type="Node" parent="PlayerStateMachine/PlayerGrounded" node_paths=PackedStringArray("player", "animControl")]
-script = ExtResource("14_7dwtj")
-player = NodePath("../../..")
-animControl = NodePath("../../../AnimationPlayer")
-
-[node name="NormalAttack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("attackArea", "player", "animControl")]
-script = ExtResource("13_bon1w")
-attackArea = NodePath("../../KickPunchArea")
-player = NodePath("../..")
-animControl = NodePath("../../AnimationPlayer")
-
-[node name="PlayerDying" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("collisionShape", "animationPlayer")]
-script = ExtResource("14_gs356")
-collisionShape = NodePath("../../CollisionShape3D")
-animationPlayer = NodePath("../../AnimationPlayer")
-
-[node name="JackSpecialAttack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("bulletVFX", "player", "animControl")]
-script = ExtResource("15_vqvta")
-bulletVFX = NodePath("../../Armature/Skeleton3D/BoneAttachment3D/VFX-Fogo")
-player = NodePath("../..")
-animControl = NodePath("../../AnimationPlayer")
-
-[node name="InteractableMarker" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 5.91901, 0)
-visible = false
-billboard = 1
-texture_filter = 0
-texture = ExtResource("18_f0w31")
-script = ExtResource("19_b4b7t")
-
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/PlayerGrounded/PlayerIdle" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/PlayerGrounded/PlayerPickingUp" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/NormalAttack" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine/JackSpecialAttack" method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="KickPunchArea" to="PlayerStateMachine/NormalAttack" method="_on_kick_punch_area_body_entered"]
