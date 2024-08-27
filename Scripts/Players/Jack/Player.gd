@@ -4,7 +4,7 @@ var interactableName
 
 var isPlayerNumberSet = false
 var playerHP = 3
-var playerInventory = 4
+var playerInventory
 var playerMaxInventorySpace = 6
 var isPlayerDead = false
 @onready var interactableMarker = $InteractableMarker

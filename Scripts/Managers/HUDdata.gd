@@ -1,9 +1,9 @@
 extends Node
 
-var Player1Health: int = 3
-var Player2Health: int = 3
-var Player1InventorySize: int = 4
-var Player2InventorySize: int = 4
+var Player1Health: int
+var Player2Health: int
+var Player1InventorySize: int
+var Player2InventorySize: int 
 var alreadyGameOver = false
 
 func checkIfGameOver():

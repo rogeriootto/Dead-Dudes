@@ -9,6 +9,8 @@ var player2: CharacterBody3D
 @export var player1SpawnPoint: Vector3
 @export var player2SpawnPoint: Vector3
 
+@export var inventorySize: int = 0
+
 func _ready():
 	GlobalVariables.lastSceneLoaded = get_tree().current_scene.scene_file_path
 	player1 = player1Preload.instantiate()
@@ -16,6 +18,10 @@ func _ready():
 		add_child(player1)
 		player1.position = player1SpawnPoint
 		player1.playerNumber = 'p1'
+		player1.playerInventory = inventorySize
+		player1.playerHP = 3
+		HUDmanager.Player1InventorySize = inventorySize
+		HUDmanager.Player1Health = 3
 		player1.add_to_group('p1')
 		player1.add_to_group('players')
 		get_node('Camera3D').player1 = player1
@@ -25,6 +31,10 @@ func _ready():
 		add_child(player2)
 		player2.position = player2SpawnPoint
 		player2.playerNumber = 'p2'
+		player1.playerInventory = inventorySize
+		player2.playerHP = 3
+		HUDmanager.Player2InventorySize = inventorySize
+		HUDmanager.Player2Health = 3
 		player2.add_to_group('p2')
 		player2.add_to_group('players')
 		get_node('Camera3D').player2 = player2

@@ -9,7 +9,6 @@ func Enter():
 	animControl.play("Crouching", -1, 3)
 	dead_collision.disabled = true
 	fall_collision.disabled = false
-	print("Dead FALL State")
 	for deads in $"../../../Area3D".get_overlapping_bodies():
 		deads.should_update_path = true
 		deads.count_fallen = 0.0
