@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crh5vite5icpr"]
+
+[ext_resource type="Script" path="res://Scenes/Managers/spawner_fogo.gd" id="1_8ahbd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hqp5"]
+
+[node name="spawner-fogo" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8ahbd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0hqp5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
