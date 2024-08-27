@@ -1433,7 +1433,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.593646, 1.599, -0.191713)
 
 [node name="WinTrigger" parent="." instance=ExtResource("48_ws4sf")]
 transform = Transform3D(28.1454, 0, 0, 0, 16.8613, 0, 0, 0, 1, 0.244213, 4.20087, -209.304)
-nextLevel = "res://Scenes/Levels/tutorial.tscn"
+nextLevel = "res://Scenes/Menus/Win/win.tscn"
 
 [node name="Building_Stadium" parent="." instance=ExtResource("49_pnrpq")]
 transform = Transform3D(1.24788, 0, 0, 0, 1, 0, 0, 0, 1, 27.0786, -0.481321, -312.182)
