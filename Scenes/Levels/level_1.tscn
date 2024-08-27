@@ -50,6 +50,7 @@
 script = ExtResource("1_i0lpq")
 player1SpawnPoint = Vector3(5, 0, 14)
 player2SpawnPoint = Vector3(0, 0, 14)
+inventorySize = 3
 
 [node name="Astar" parent="." instance=ExtResource("2_kyp0d")]
 

@@ -69,8 +69,7 @@ func deadMovement(delta: float):
 		
 		#searching by vision
 		if collision_result.is_in_group("players"):
-			dead.path = []
-			print(dead.path)
+			dead.should_update_path = true
 			if seeking_p1:
 				var vectorTowardsPlayer = (Vector3(GlobalVariables.player1Position.x - dead.position.x, 0, GlobalVariables.player1Position.z - dead.position.z)).normalized() * speed
 				dead.velocity.x = vectorTowardsPlayer.x
