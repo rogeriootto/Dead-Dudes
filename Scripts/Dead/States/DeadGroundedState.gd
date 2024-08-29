@@ -111,6 +111,8 @@ func deadMovement(delta: float):
 				dead.move_and_slide()
 				if dead.global_transform.origin.distance_to(current_target) < 1:
 					find_next_point_in_path()
+					if(dead.position.y >= current_target[1] + 1.5):
+						Transitioned.emit(self, 'DeadJump')
 					# if zombie should jump
 					if(dead.position.y + 1 < current_target[1] && current_target[1] != INF):
 						# should_update_path = false

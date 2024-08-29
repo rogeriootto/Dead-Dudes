@@ -42,6 +42,7 @@
 script = ExtResource("1_wejyh")
 player1SpawnPoint = Vector3(-1, 0, 0)
 player2SpawnPoint = Vector3(1, 0, 0)
+inventorySize = 1
 
 [node name="Astar" parent="." instance=ExtResource("2_6o166")]
 should_draw_cubes = false
@@ -1619,7 +1620,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6108, 2.83761, -12.181)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.0482, 1.17034, 24.9733)
 
 [node name="VFX-Fogo3" parent="." instance=ExtResource("29_bg8x8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.50386, 7.49219, -29.3228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3922, 2.06529, -29.3228)
 
 [node name="Building House1" parent="." instance=ExtResource("33_wvbbo")]
 transform = Transform3D(0.0501223, 0, 0.998743, 0, 1, 0, -0.998743, 0, 0.0501223, -25.414, 0.112982, -52.2185)

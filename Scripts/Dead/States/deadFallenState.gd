@@ -7,6 +7,8 @@ class_name DeadFallen
 func Enter():
 	if !dead:
 		return
+	if !GlobalVariables.astarNode.dead_should_fall(dead.global_transform.origin):
+		return
 	if dead.position:
 		dead.position = GlobalVariables.astarNode.dead_should_fall(dead.global_transform.origin)
 		animControl.play("Crouching", -1, 3)

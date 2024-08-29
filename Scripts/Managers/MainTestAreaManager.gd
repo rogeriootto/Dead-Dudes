@@ -13,6 +13,7 @@ var player2: CharacterBody3D
 
 func _ready():
 	GlobalVariables.lastSceneLoaded = get_tree().current_scene.scene_file_path
+	HUDmanager.alreadyGameOver = false
 	player1 = player1Preload.instantiate()
 	if player1:
 		add_child(player1)

@@ -6,4 +6,3 @@ extends CharacterBody3D
 @export var type: String
 func interact(playerNumber: String):
 	SignalManager.emitMoveObstacleRequest(self, true, playerNumber)
-

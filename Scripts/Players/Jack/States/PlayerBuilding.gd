@@ -8,9 +8,9 @@ func Enter():
 	
 func Exit():
 	if player.playerNumber == 'p1':
-		SignalManager.emitShowObstacleToP1(false ,'box1x1', getSpawnPosition(3))
+		SignalManager.emitShowObstacleToP1(false ,'box1x1', getSpawnPosition(1.5))
 	else:
-		SignalManager.emitShowObstacleToP2(false ,'box1x1', getSpawnPosition(3))
+		SignalManager.emitShowObstacleToP2(false ,'box1x1', getSpawnPosition(1.5))
 	interaction_area.can_interact = true
 	player.axis_lock_angular_y = false
 	pass
@@ -24,15 +24,15 @@ func Physics_Update(delta: float):
 	player.axis_lock_angular_y = true
 	
 	if Input.is_action_just_pressed("buildingPut_" + player.getPlayerNumber()):
-		SignalManager.emitObstacleSpawnRequest("box1x1", getSpawnPosition(3), player)
+		SignalManager.emitObstacleSpawnRequest("box1x1", getSpawnPosition(1.5), player)
 	
 	if Input.is_action_just_released("buildingMode_" + player.getPlayerNumber()):
 		Transitioned.emit(self, 'PlayerIdle')
 
 	if player.playerNumber == 'p1':
-		SignalManager.emitShowObstacleToP1(true ,'box1x1', getSpawnPosition(3))
+		SignalManager.emitShowObstacleToP1(true ,'box1x1', getSpawnPosition(1.5))
 	else:
-		SignalManager.emitShowObstacleToP2(true ,'box1x1', getSpawnPosition(3))
+		SignalManager.emitShowObstacleToP2(true ,'box1x1', getSpawnPosition(1.5))
 
 	velocityTest = abs(player.velocity.x) + abs(player.velocity.z)
 
@@ -44,5 +44,5 @@ func Physics_Update(delta: float):
 		animControl.play("Running")
 	
 
-func getSpawnPosition(distance: int):
+func getSpawnPosition(distance: float):
 	return player.position - player.basis.z.normalized() * -distance
