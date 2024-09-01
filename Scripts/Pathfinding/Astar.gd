@@ -69,7 +69,7 @@ func _make_grid(pathables: Array):
 func _add_point(point: Vector3):
 	var id = astar.get_available_point_id()
 	#TODO peso do astar
-	var astar_weight = 1 + ((point.y -0.5) * 10)
+	var astar_weight = 1 + ((point.y -0.5) * 2)
 
 	astar.add_point(id, point, astar_weight)
 	points[world_to_astar(point)] = id
@@ -140,7 +140,7 @@ func _connect_obstacles(obstacle_group: Array):
 								if should_draw_cubes:
 									get_child(obstacle_id).material_override = purple_material
 							if eixo_y == obstacle.altura-1:
-								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (2 * grid_step * eixo_y), obstacle.position.z + (grid_step * eixo_z)))
+								var above_obstacle_key = world_to_astar(Vector3(obstacle.position.x + (grid_step * eixo_x), obstacle.position.y + (grid_step * (eixo_y+1)), obstacle.position.z + (grid_step * eixo_z)))
 								var above_obstacle_id
 								if points.has(above_obstacle_key):
 									above_obstacle_id = points[above_obstacle_key]
@@ -311,6 +311,8 @@ func _on_main_obstacle_should_remove(obstacle: StaticBody3D, player: Object):
 		if astar.is_point_disabled(above_obstacle_id):
 			return
 
+	if !player:
+		return
 	if astar.is_point_disabled(obstacle_id) && player.playerInventory < player.playerMaxInventorySpace:
 		if(above_obstacle_id):
 			if should_draw_cubes:

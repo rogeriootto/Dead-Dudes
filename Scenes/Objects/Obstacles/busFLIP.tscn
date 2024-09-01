@@ -57,21 +57,21 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 script = ExtResource("1_l14i3")
 comprimento = 4
 largura = 10
-altura = 5
+altura = 4
 type = "bus"
 
 [node name="Vehicle_Bus" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.55671e-06, -2.44381e-05, -150, 0, 150, -2.44381e-05, 150, -1.06822e-12, -6.55671e-06, 6.20335, -0.41368, -2.14282)
+transform = Transform3D(-6.55671e-06, -2.44381e-05, -150, 0, 150, -2.44381e-05, 150, -1.06822e-12, -6.55671e-06, 5.88265, -0.41368, -2.14282)
 material_override = SubResource("StandardMaterial3D_fjj26")
 mesh = SubResource("ArrayMesh_ly8qp")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.20335, 2.25798, -2.14282)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.88265, 2.25798, -2.14282)
 shape = SubResource("BoxShape3D_7sw5n")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.41811, -0.243795, -0.583214)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.09741, -0.243795, -0.583214)
 collision_layer = 128
 collision_mask = 128
 

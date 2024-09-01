@@ -56,7 +56,7 @@ size = Vector3(13.4841, 5.79492, 5.27197)
 script = ExtResource("1_2mdjp")
 comprimento = 9
 largura = 4
-altura = 5
+altura = 4
 type = "bus"
 
 [node name="Vehicle_Bus" type="MeshInstance3D" parent="."]

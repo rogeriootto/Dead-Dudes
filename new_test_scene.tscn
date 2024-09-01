@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://de5dhiaa2g7vq"]
+[gd_scene load_steps=10 format=3 uid="uid://de5dhiaa2g7vq"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_jdojr"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_0bjb0"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="5_n2euh"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="6_wewg0"]
 [ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="7_ug5nx"]
+[ext_resource type="PackedScene" uid="uid://bvc05m6p1amtj" path="res://Scenes/Objects/Obstacles/bus.tscn" id="8_1a4q0"]
+[ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="9_x86uu"]
 
 [node name="newTestScene" type="Node3D"]
 script = ExtResource("1_jdojr")
@@ -17,7 +19,6 @@ player2SpawnPoint = Vector3(11, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
-projection = 1
 current = true
 size = 14.402
 script = ExtResource("3_k34p0")
@@ -191,3 +192,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96116, 1.66102, 2.05515)
 
 [node name="box_small9" parent="boxes" instance=ExtResource("7_ug5nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50379, 1.66102, 2.05515)
+
+[node name="Bus" parent="." instance=ExtResource("8_1a4q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18211, 1.05018, -11.4315)
+
+[node name="busFLIP" parent="." instance=ExtResource("9_x86uu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.5703, 0.78349, -1.2673)
+largura = 9

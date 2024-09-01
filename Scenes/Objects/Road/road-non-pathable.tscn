@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpaedg41nue6s"]
+
+[ext_resource type="Texture2D" uid="uid://dbcwwaragj02o" path="res://Assets/Models/Road/Texture/roads.png" id="1_vtcjv"]
+[ext_resource type="ArrayMesh" uid="uid://b4eyvmjfq2r6n" path="res://Assets/Models/Road/road1.obj" id="2_r7mlw"]
+[ext_resource type="PackedScene" uid="uid://huwyyumt2jdp" path="res://Scenes/Objects/Road/sideWalk.tscn" id="3_fieet"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cpm7"]
+albedo_texture = ExtResource("1_vtcjv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dld1a"]
+size = Vector3(17.8447, 1, 37.4795)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gegus"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mwehf"]
+material = SubResource("StandardMaterial3D_gegus")
+size = Vector3(18, 1.5, 37.5)
+
+[node name="Road-non-pathable" type="StaticBody3D"]
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.944981, 0, 0, 0, 0.416027, 0, 0, 0, 0.97063, 0, 0.372544, 0)
+material_override = SubResource("StandardMaterial3D_4cpm7")
+mesh = ExtResource("2_r7mlw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.00741, 0, 0, 0, 1.00741, 0, 0, 0, 1.00741, 0, 0.279785, 0)
+shape = SubResource("BoxShape3D_dld1a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mwehf")
+
+[node name="Sidewalk" parent="." instance=ExtResource("3_fieet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.234, -0.204, 0)
+
+[node name="Sidewalk2" parent="." instance=ExtResource("3_fieet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1118, -0.204, 0.0135841)

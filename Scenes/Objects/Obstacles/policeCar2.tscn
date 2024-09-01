@@ -12,7 +12,6 @@ script/source = "extends CharacterBody3D
 @export var type: String
 func interact(playerNumber: String):
 	SignalManager.emitMoveObstacleRequest(self, true, playerNumber)
-
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fwu0"]
@@ -60,10 +59,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vw0p3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c6fx"]
-size = Vector3(5.259, 1.8, 2.29126)
+size = Vector3(5.4458, 1.88909, 2.31421)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81lh2"]
-size = Vector3(2.74414, 1.88281, 2.22485)
+size = Vector3(2.74414, 1.60889, 2.22485)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mt6sf"]
 size = Vector3(8.82422, 3.04919, 3.94043)
@@ -87,18 +86,18 @@ mesh = SubResource("ArrayMesh_ppp32")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.47617, 0.922662, 3.55709)
+transform = Transform3D(-6.81898e-08, 0, 1.56, 0, 1.56, 0, -1.56, 0, -6.81898e-08, 1.47617, 0.99215, 3.57423)
 shape = SubResource("BoxShape3D_4c6fx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_rgs16")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.39136, -0.311467, 2.23631)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37188, 1.19157, -0.0692682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37188, 0.497018, -0.0692682)
 shape = SubResource("BoxShape3D_81lh2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0885, 0.913319, -0.138537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0885, 0.49394, -0.138537)
 shape = SubResource("BoxShape3D_81lh2")
 
 [node name="Area3D" type="Area3D" parent="."]

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2bled2ao20jq"]
+
+[ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="1_4g278"]
+
+[resource]
+resource_name = "palettemat"
+cull_mode = 2
+albedo_texture = ExtResource("1_4g278")
+roughness = 0.552786

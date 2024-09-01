@@ -21,4 +21,3 @@ func calcCameraPos(p1Pos: Vector3, p2Pos: Vector3, multiFlag: bool):
 		position.x = p1Pos.x + p2Pos.x + offset.x
 		position.y = p1Pos.y + p2Pos.y + offset.y
 		position.z = p1Pos.z + p2Pos.z + offset.z
-

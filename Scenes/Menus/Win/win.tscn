@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://dja601dlylsph"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Win/win.gd" id="1_273er"]
+[ext_resource type="FontFile" uid="uid://dj81mxv5mbgbe" path="res://Assets/Fonts/Melted Monster.ttf" id="2_8nj7n"]
+[ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="3_d38ku"]
+[ext_resource type="PackedScene" uid="uid://xfg1du7s4adb" path="res://Scenes/Menus/Win/dancing-jack.tscn" id="4_uwfds"]
+[ext_resource type="PackedScene" uid="uid://iivancsvcb8w" path="res://Scenes/Menus/Win/dancing-john.tscn" id="5_n3265"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8kbu"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3dw2"]
+material = SubResource("StandardMaterial3D_q8kbu")
+
+[node name="Win" type="Node3D"]
+script = ExtResource("1_273er")
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -179.0
+offset_right = 350.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect" type="ColorRect" parent="GameOver/HBoxContainer"]
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+color = Color(0, 0, 0, 0.164706)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -125.0
+offset_right = 302.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOver/VBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_8nj7n")
+theme_override_font_sizes/normal_font_size = 101
+bbcode_enabled = true
+text = "[center]Obrigado
+por jogar"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -128.0
+offset_right = 300.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOver/VBoxContainer"]
+modulate = Color(0.780392, 0, 0, 1)
+clip_contents = false
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_8nj7n")
+theme_override_font_sizes/normal_font_size = 101
+bbcode_enabled = true
+text = "[center]Obrigado
+por jogar"
+fit_content = true
+
+[node name="SubTitle" type="RichTextLabel" parent="GameOver/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Avalie o nosso jogo no form :)"
+fit_content = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 143.0
+offset_right = 250.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="GameOver/VBoxContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resetar fase"
+script = ExtResource("3_d38ku")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(862.475, 0, 0, 0, 198.028, 0, 0, 0, 1, 0, 0, -31.0903)
+mesh = SubResource("BoxMesh_c3dw2")
+
+[node name="Jack" parent="." instance=ExtResource("4_uwfds")]
+transform = Transform3D(0.687006, -0.00117057, 0.134241, 0.00189114, 0.699988, -0.00357446, -0.134233, 0.00387078, 0.686998, -4.37022, -2.07727, -5.31989)
+
+[node name="john" parent="." instance=ExtResource("5_n3265")]
+transform = Transform3D(0.696975, 0.000633978, -0.0650122, -0.000697944, 0.699999, -0.000656294, 0.0650116, 0.000718275, 0.696975, 4.61715, -1.89002, -5.57211)
+
+[connection signal="button_down" from="GameOver/VBoxContainer3/Button" to="GameOver/VBoxContainer3/Button" method="_on_button_down"]
+[connection signal="pressed" from="GameOver/VBoxContainer3/Button" to="GameOver/VBoxContainer3/Button" method="_on_pressed"]
