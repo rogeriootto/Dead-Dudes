@@ -48,7 +48,8 @@ func _process(delta):
 		SignalManager.registerListner("interactRequestP1", p1_active_areas[0].get_parent_node_3d(), "interact")
 		SignalManager.emitInteractableNameP1(p1_active_areas[0].get_parent_node_3d().type)
 	else:
-		p1.interactableMarker.visible = false
+		if p1 != null:
+			p1.interactableMarker.visible = false
 		
 	if p2_active_areas.size() > 0 && p2_can_interact:
 		p2.interactableMarker.visible = true
@@ -56,7 +57,8 @@ func _process(delta):
 		SignalManager.registerListner("interactRequestP2", p2_active_areas[0].get_parent_node_3d(), "interact")
 		SignalManager.emitInteractableNameP2(p2_active_areas[0].get_parent_node_3d().type)
 	else:
-		p2.interactableMarker.visible = false
+		if p2 != null:
+			p2.interactableMarker.visible = false
 
 func _sortByDistanceToPlayer1(area1, area2):
 	if area1 == null or area2 == null or area1.global_position == null or area2.global_position == null or p1 == null or p1.global_position == null:

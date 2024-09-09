@@ -15,7 +15,7 @@ func _ready():
 	GlobalVariables.lastSceneLoaded = get_tree().current_scene.scene_file_path
 	HUDmanager.alreadyGameOver = false
 	player1 = player1Preload.instantiate()
-	if player1:
+	if player1 and GlobalVariables.p1ShouldSpawn:
 		add_child(player1)
 		player1.position = player1SpawnPoint
 		player1.playerNumber = 'p1'
@@ -26,9 +26,12 @@ func _ready():
 		player1.add_to_group('p1')
 		player1.add_to_group('players')
 		get_node('Camera3D').player1 = player1
+	else:
+		HUDmanager.Player1Health = 3
+		GlobalVariables.player1Position = Vector3.INF
 	
 	player2 = player2Preload.instantiate()
-	if player2:
+	if player2 and GlobalVariables.p2ShouldSpawn:
 		add_child(player2)
 		player2.position = player2SpawnPoint
 		player2.playerNumber = 'p2'
@@ -39,6 +42,7 @@ func _ready():
 		player2.add_to_group('p2')
 		player2.add_to_group('players')
 		get_node('Camera3D').player2 = player2
-
-func _process(delta):
-	pass
+	else:
+		HUDmanager.Player2Health = 3
+		GlobalVariables.player2Position = Vector3.INF
+		
