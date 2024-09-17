@@ -24,6 +24,7 @@ GlobalVariables="*res://Scenes/Managers/GlobalVariables.tscn"
 TransitionToDeathScreen="*res://Scenes/Menus/Transition/TransitionToDeathScreen.tscn"
 LoadingScreen="*res://Scenes/Menus/Loading/Loading.tscn"
 TransitionToBlack="*res://Scenes/Menus/Transition/TransitionToBlack.tscn"
+PauseMenu="*res://Scenes/Menus/Pause/pause_menu.tscn"
 
 [input]
 
@@ -148,6 +149,16 @@ jump_p1={
 jump_p2={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+pause_p1={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+pause_p2={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 
