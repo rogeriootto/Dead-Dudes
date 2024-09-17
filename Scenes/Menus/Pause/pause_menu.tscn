@@ -6,6 +6,7 @@
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+visible = false
 script = ExtResource("1_8qdny")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
