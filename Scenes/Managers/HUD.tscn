@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://co40jls0cyt1t"]
+[gd_scene load_steps=21 format=3 uid="uid://co40jls0cyt1t"]
 
 [ext_resource type="Texture2D" uid="uid://bx8arfcwkoh62" path="res://Assets/HUD/Jack.png" id="1_d51o2"]
 [ext_resource type="Script" path="res://Scripts/Managers/p1HP.gd" id="2_1h17y"]
 [ext_resource type="Texture2D" uid="uid://bqoj3culxtbsu" path="res://Assets/HUD/John.png" id="2_lhbws"]
 [ext_resource type="Script" path="res://Scripts/Managers/p2HP.gd" id="3_fyf0s"]
+[ext_resource type="Script" path="res://Scenes/Managers/hudP2.gd" id="3_p7srv"]
 [ext_resource type="Texture2D" uid="uid://mkhuvpvys3vp" path="res://Assets/HUD/leftStick.png" id="5_jamul"]
 [ext_resource type="Texture2D" uid="uid://de03airt5v8s1" path="res://Assets/HUD/bg.png" id="5_ndnkj"]
 [ext_resource type="Texture2D" uid="uid://c1tjpk32w7mch" path="res://Assets/HUD/Cross.png" id="6_rance"]
@@ -97,6 +98,7 @@ offset_right = -34.0
 offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("3_p7srv")
 
 [node name="p2HP" type="ProgressBar" parent="HBoxContainer2"]
 custom_minimum_size = Vector2(200, 27)
@@ -133,7 +135,8 @@ grow_vertical = 0
 custom_minimum_size = Vector2(620, 25)
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 0.258824)
-text = "VERSÃO NÃO FINAL --- Dead Dudes Versão Alpha 000.1   --- VERSÃO NÃO FINAL"
+bbcode_enabled = true
+text = "[center]--- Dead Dudes Versão Alpha 0.2   ---"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="."]
 modulate = Color(1, 1, 1, 0.231373)
