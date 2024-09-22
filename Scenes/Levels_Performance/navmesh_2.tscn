@@ -895,3 +895,56 @@ navigation_mesh = SubResource("NavigationMesh_a6fy0")
 
 [node name="box_small2" parent="NavigationRegion3D/Scene/Boxes" instance=ExtResource("4_d0mmu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9361, 0.5, -18.0904)
+
+[node name="deads" type="Node3D" parent="."]
+
+[node name="dead_nav3" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7457, 0.5, -15.1139)
+
+[node name="dead_nav2" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.1404, 0.5, -7.55583)
+
+[node name="dead_nav" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.807, 0.5, 1.91474)
+
+[node name="dead_nav4" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4422, 0.5, -44.4085)
+
+[node name="dead_nav5" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4042, 0.5, -40.0392)
+
+[node name="dead_nav6" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9265, 0.5, -49.2115)
+
+[node name="dead_nav7" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60373, 0.5, -70.1145)
+
+[node name="dead_nav8" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.3256, 0.5, 90.6514)
+
+[node name="dead_nav9" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.7467, 0.5, 70.1668)
+
+[node name="dead_nav10" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4761, 0.5, 75.3651)
+
+[node name="dead_nav11" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7096, 0.5, 29.2235)
+
+[node name="dead_nav12" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.967, 0.5, -25.1202)
+
+[node name="dead_nav13" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.1488, 0.5, -48.3302)
+
+[node name="dead_nav14" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.467, 0.5, 6.53665)
+
+[node name="dead_nav15" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.4045, 0.5, 7.05647)
+
+[node name="dead_nav16" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.378, 0.5, -25.9335)
+
+[node name="dead_nav17" parent="deads" instance=ExtResource("3_6l7go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.8911, 0.5, 28.4414)

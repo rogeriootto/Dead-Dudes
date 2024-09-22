@@ -105,7 +105,9 @@ func deadMovement(delta: float):
 				var end_time = Time.get_ticks_msec()
 				var execution_time = end_time - start_time
 				print("Tempo de Execução: ", execution_time, " ms")
-			
+				# Adicionar o tempo ao gerenciador (PathfindingData.gd)
+				DataManager.add_pathfinding_time(execution_time)
+				
 			if current_target != Vector3.INF:
 				var dir_to_target = dead.global_transform.origin.direction_to(current_target).normalized()
 				var towardsVector = dir_to_target * speed
