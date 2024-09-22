@@ -52,7 +52,7 @@ func deadMovement(delta: float):
 	var dist_to_p1 = dead.global_transform.origin.distance_to(GlobalVariables.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(GlobalVariables.player2Position)
 			
-	if (dead.should_activate_zombie == false && (dist_to_p1 > 40 && dist_to_p2 > 40)):
+	if (dead.should_activate_zombie == false && (dist_to_p1 > 300 && dist_to_p2 > 300)):
 		return
 	else:
 		dead.should_activate_zombie = true
@@ -85,6 +85,7 @@ func deadMovement(delta: float):
 		else:
 			count += delta
 			if count > 1.5 or dead.should_update_path:
+				var start_time = Time.get_ticks_msec()
 				#if zombie should fall into crumple state
 				if old_position == GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin):
 					dead.count_fallen += 1
@@ -101,7 +102,10 @@ func deadMovement(delta: float):
 				old_position = GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin)
 				count = 0
 				dead.should_update_path = false
-
+				var end_time = Time.get_ticks_msec()
+				var execution_time = end_time - start_time
+				print("Tempo de Execução: ", execution_time, " ms")
+			
 			if current_target != Vector3.INF:
 				var dir_to_target = dead.global_transform.origin.direction_to(current_target).normalized()
 				var towardsVector = dir_to_target * speed

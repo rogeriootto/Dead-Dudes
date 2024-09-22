@@ -4,3 +4,4 @@
 
 [node name="GlobalVariables" type="Node"]
 script = ExtResource("1_y3xy2")
+p2ShouldSpawn = false

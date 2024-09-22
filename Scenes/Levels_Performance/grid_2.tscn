@@ -1,0 +1,1021 @@
+[gd_scene load_steps=10 format=3 uid="uid://4aa11kwlpvo4"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_34gyp"]
+[ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_2e28d"]
+[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="3_gjxsk"]
+[ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="4_lugqr"]
+[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="5_yojjn"]
+[ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="6_ulwxs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2wkmf"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oq47q"]
+albedo_color = Color(0.995629, 0.995624, 0.995147, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ytbse"]
+size = Vector3(200, 1, 200)
+
+[node name="Grid2" type="Node3D"]
+script = ExtResource("1_34gyp")
+
+[node name="Astar" parent="." instance=ExtResource("2_2e28d")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.999999, 0, -0.999999, -4.37114e-08, 0, 0, 0)
+current = true
+fov = 67.6
+size = 14.402
+script = ExtResource("3_gjxsk")
+offset = Vector3(0, 70, 0)
+
+[node name="Scene" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Scene" groups=["pathable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene/Floor"]
+shape = SubResource("BoxShape3D_2wkmf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scene/Floor"]
+material_override = SubResource("StandardMaterial3D_oq47q")
+mesh = SubResource("BoxMesh_ytbse")
+
+[node name="Level_limit" type="Node3D" parent="Scene"]
+
+[node name="big_wall" parent="Scene/Level_limit" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-7.7651e-07, 0, -1, 0, 1, 0, 17.7645, 0, -4.37114e-08, -98.6101, 0.5, -88.9547)
+comprimento = 1
+largura = 135
+altura = 3
+
+[node name="big_wall2" parent="Scene/Level_limit" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-7.7651e-07, 0, -1, 0, 1, 0, 17.7645, 0, -4.37114e-08, 99.6289, 0.5, -89.8443)
+comprimento = 1
+largura = 135
+altura = 3
+
+[node name="big_wall3" parent="Scene/Level_limit" instance=ExtResource("4_lugqr")]
+transform = Transform3D(17.703, 0, -1.78814e-07, 0, 1, 0, 3.15313e-06, 0, 1, -89.8907, 0.5, -98.5994)
+comprimento = 135
+altura = 3
+
+[node name="big_wall4" parent="Scene/Level_limit" instance=ExtResource("4_lugqr")]
+transform = Transform3D(17.8184, 0, -2.84217e-14, 0, 1, 0, -2.01916e-12, 0, 1, -89.2526, 0.5, 98.6569)
+comprimento = 135
+altura = 3
+
+[node name="Obstacles" type="Node3D" parent="Scene"]
+
+[node name="Wall_Horizontal" type="Node3D" parent="Scene/Obstacles"]
+
+[node name="big_wall" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 0, -27.6841)
+altura = 2
+
+[node name="big_wall71" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -53.793, 0, -1.75929)
+altura = 2
+
+[node name="big_wall72" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -42.8213, 0, -1.75929)
+altura = 2
+
+[node name="big_wall73" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -78.7313, 0, -1.75929)
+altura = 2
+
+[node name="big_wall74" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -67.7597, 0, -1.75929)
+altura = 2
+
+[node name="big_wall75" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 10.5968, 0, -1.75929)
+altura = 2
+
+[node name="big_wall76" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 21.5685, 0, -1.75929)
+altura = 2
+
+[node name="big_wall77" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 39.8545, 0, -19.9047)
+altura = 2
+
+[node name="big_wall78" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 50.8262, 0, -19.9047)
+altura = 2
+
+[node name="big_wall79" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 0.0471878, 0, -19.9047)
+altura = 2
+
+[node name="big_wall80" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 11.0188, 0, -19.9047)
+altura = 2
+
+[node name="big_wall81" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -37.7909, 0, -19.9047)
+altura = 2
+
+[node name="big_wall82" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -26.8192, 0, -19.9047)
+altura = 2
+
+[node name="big_wall83" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -34.2743, 0, 6.68043)
+altura = 2
+
+[node name="big_wall84" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -23.3027, 0, 6.68043)
+altura = 2
+
+[node name="big_wall85" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -56.102, 0, 41.7736)
+altura = 2
+
+[node name="big_wall86" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -45.1304, 0, 41.7736)
+altura = 2
+
+[node name="big_wall87" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 17.2197, 0, 25.7344)
+altura = 2
+
+[node name="big_wall88" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 28.1914, 0, 25.7344)
+altura = 2
+
+[node name="big_wall89" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 54.7248, 0, -12.9766)
+altura = 2
+
+[node name="big_wall90" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 65.6964, 0, -12.9766)
+altura = 2
+
+[node name="big_wall91" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 54.7248, 0, -27.2068)
+altura = 2
+
+[node name="big_wall93" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 45.8915, 0, -36.6038)
+altura = 2
+
+[node name="big_wall92" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 65.6964, 0, -27.2068)
+altura = 2
+
+[node name="big_wall2" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 0, -11.0304)
+altura = 2
+
+[node name="big_wall3" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -31.1446, 0, -28.9818)
+altura = 2
+
+[node name="big_wall4" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -26.1701, 0, -50.2126)
+altura = 2
+
+[node name="big_wall5" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -62.9547, 0, -67.6742)
+altura = 2
+
+[node name="big_wall6" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -62.9547, 0, -51.0205)
+altura = 2
+
+[node name="big_wall7" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -94.0993, 0, -68.9719)
+altura = 2
+
+[node name="big_wall8" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -89.1248, 0, -90.2027)
+altura = 2
+
+[node name="big_wall9" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -65.3304, 0, -39.5623)
+altura = 2
+
+[node name="big_wall10" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -65.3304, 0, -22.9086)
+altura = 2
+
+[node name="big_wall11" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -96.4749, 0, -40.86)
+altura = 2
+
+[node name="big_wall12" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -91.5004, 0, -62.0909)
+altura = 2
+
+[node name="big_wall13" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -65.3304, 0, -11.0545)
+altura = 2
+
+[node name="big_wall14" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -65.3304, 0, 5.59918)
+altura = 2
+
+[node name="big_wall15" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -96.4749, 0, -12.3522)
+altura = 2
+
+[node name="big_wall16" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -91.5004, 0, -33.5831)
+altura = 2
+
+[node name="big_wall17" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 30.0916, 0, -36.3948)
+altura = 2
+
+[node name="big_wall18" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 30.0916, 0, -19.7411)
+altura = 2
+
+[node name="big_wall19" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -1.05301, 0, -37.6925)
+altura = 2
+
+[node name="big_wall20" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 3.92148, 0, -58.9233)
+altura = 2
+
+[node name="big_wall21" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 71.2695, 0, 20.6208)
+altura = 2
+
+[node name="big_wall22" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 71.2695, 0, 37.2745)
+altura = 2
+
+[node name="big_wall23" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 40.1249, 0, 19.3231)
+altura = 2
+
+[node name="big_wall24" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 45.0994, 0, -1.90775)
+altura = 2
+
+[node name="big_wall25" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 13.858, 0, 20.6208)
+altura = 2
+
+[node name="big_wall26" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 13.858, 0, 37.2745)
+altura = 2
+
+[node name="big_wall27" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -17.2866, 0, 19.3231)
+altura = 2
+
+[node name="big_wall28" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -12.3121, 0, -1.90775)
+altura = 2
+
+[node name="big_wall29" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -9.08827, 0, 20.6208)
+altura = 2
+
+[node name="big_wall30" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -9.08827, 0, 37.2745)
+altura = 2
+
+[node name="big_wall31" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -40.2329, 0, 19.3231)
+altura = 2
+
+[node name="big_wall32" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -35.2584, 0, -1.90775)
+altura = 2
+
+[node name="big_wall33" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -66.4998, 0, 20.6208)
+altura = 2
+
+[node name="big_wall34" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -66.4998, 0, 37.2745)
+altura = 2
+
+[node name="big_wall35" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -97.6444, 0, 19.3231)
+altura = 2
+
+[node name="big_wall36" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -92.6699, 0, -1.90775)
+altura = 2
+
+[node name="big_wall37" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -9.08827, 0, 64.4943)
+altura = 2
+
+[node name="big_wall38" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -9.08827, 0, 81.148)
+altura = 2
+
+[node name="big_wall39" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -40.2329, 0, 63.1966)
+altura = 2
+
+[node name="big_wall40" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -35.2584, 0, 41.9658)
+altura = 2
+
+[node name="big_wall41" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -66.4998, 0, 64.4943)
+altura = 2
+
+[node name="big_wall42" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -66.4998, 0, 81.148)
+altura = 2
+
+[node name="big_wall43" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -97.6444, 0, 63.1966)
+altura = 2
+
+[node name="big_wall44" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -92.6699, 0, 41.9658)
+altura = 2
+
+[node name="big_wall45" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 77.2733, 0, 49.7159)
+altura = 2
+
+[node name="big_wall46" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 77.2733, 0, 66.3696)
+altura = 2
+
+[node name="big_wall47" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 46.1287, 0, 48.4182)
+altura = 2
+
+[node name="big_wall48" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 51.1032, 0, 27.1873)
+altura = 2
+
+[node name="big_wall49" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 19.8617, 0, 49.7159)
+altura = 2
+
+[node name="big_wall50" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 19.8617, 0, 66.3696)
+altura = 2
+
+[node name="big_wall51" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -11.2828, 0, 48.4182)
+altura = 2
+
+[node name="big_wall52" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -6.30835, 0, 27.1873)
+altura = 2
+
+[node name="big_wall53" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 41.2508, 0, -53.2714)
+altura = 2
+
+[node name="big_wall54" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 41.2508, 0, -36.6177)
+altura = 2
+
+[node name="big_wall61" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 43.8767, 0, 25.7288)
+altura = 2
+
+[node name="big_wall62" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 12.7321, 0, 7.77745)
+altura = 2
+
+[node name="big_wall63" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 17.7066, 0, -13.4534)
+altura = 2
+
+[node name="big_wall64" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 65.2658, 0, -93.9121)
+altura = 2
+
+[node name="big_wall65" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 65.2658, 0, -77.2584)
+altura = 2
+
+[node name="big_wall66" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -47.1031, 0, 25.7288)
+altura = 2
+
+[node name="big_wall67" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -72.2477, 0, 7.77745)
+altura = 2
+
+[node name="big_wall68" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -73.2732, 0, -13.4534)
+altura = 2
+
+[node name="big_wall69" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -25.714, 0, -93.9121)
+altura = 2
+
+[node name="big_wall70" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -25.714, 0, -77.2584)
+altura = 2
+
+[node name="big_wall55" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 10.1063, 0, -54.5691)
+altura = 2
+
+[node name="big_wall56" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 15.0807, 0, -75.8)
+altura = 2
+
+[node name="big_wall57" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -16.1607, 0, -53.2714)
+altura = 2
+
+[node name="big_wall58" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -16.1607, 0, -36.6177)
+altura = 2
+
+[node name="big_wall59" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -47.3053, 0, -54.5691)
+altura = 2
+
+[node name="big_wall60" parent="Scene/Obstacles/Wall_Horizontal" instance=ExtResource("4_lugqr")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -42.3308, 0, -75.8)
+altura = 2
+
+[node name="Wall_Vertical" type="Node3D" parent="Scene/Obstacles"]
+
+[node name="big_wall11" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -10.4387, 0.735215, -39.1724)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall71" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 56.2503, 0.735215, -37.7253)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall72" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 56.2503, 0.735215, -24.9422)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall73" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -46.039, 0.735215, -2.73903)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall74" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -46.039, 0.735215, 10.044)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall75" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -72.7013, 0.735215, -35.5114)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall83" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 29.9149, 0.735215, -35.5114)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall84" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 29.9149, 0.735215, -29.8732)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall85" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 54.5352, 0.735215, -29.8732)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall86" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -72.5134, 0.735215, -1.49397)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall76" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -72.7013, 0.735215, -22.7283)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall77" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -55.8522, 0.735215, -71.6166)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall78" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -55.8522, 0.735215, -58.8335)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall79" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -51.964, 0.735215, -27.9201)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall80" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -51.964, 0.735215, -15.137)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall81" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -44.9281, 0.735215, -77.1712)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall82" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -44.9281, 0.735215, -64.3882)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall13" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -33.3646, 0.735215, -43.9306)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall14" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -26.4436, 0.735215, -19.0582)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall12" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -16.062, 0.735215, -26.6281)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall39" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -10.4387, 0.735215, 42.109)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall40" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -33.3646, 0.735215, 37.3508)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall41" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -26.4436, 0.735215, 62.2232)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall42" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -16.062, 0.735215, 54.6534)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall43" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -50.6176, 0.735215, 28.2542)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall44" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -73.5435, 0.735215, 23.496)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall45" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -66.6225, 0.735215, 48.3684)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall46" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -56.2409, 0.735215, 40.7986)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall47" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -72.3234, 0.735215, 41.6472)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall48" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -95.2493, 0.735215, 36.889)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall49" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -88.3283, 0.735215, 61.7614)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall50" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -77.9467, 0.735215, 54.1915)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall51" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 18.1946, 0.735215, 41.6472)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall52" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -4.73132, 0.735215, 36.889)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall53" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 2.1897, 0.735215, 61.7614)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall54" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 12.5713, 0.735215, 54.1915)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall55" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 18.1946, 0.735215, 3.77742)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall56" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -4.73132, 0.735215, -0.980785)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall57" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 2.1897, 0.735215, 23.8916)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall58" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 12.5713, 0.735215, 16.3218)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall59" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 54.6788, 0.735215, 3.77742)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall60" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 31.753, 0.735215, -0.980785)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall61" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 38.674, 0.735215, 23.8916)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall62" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 49.0555, 0.735215, 16.3218)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall63" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 26.9629, 0.735215, -36.2127)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall64" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 4.03702, 0.735215, -40.9709)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall65" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 10.958, 0.735215, -16.0985)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall66" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 21.3396, 0.735215, -23.6683)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall67" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -8.27596, 0.735215, -79.7663)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall68" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -31.2018, 0.735215, -84.5245)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall69" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -24.2808, 0.735215, -59.6521)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall70" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -13.8993, 0.735215, -67.2219)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall15" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -68.2462, 0.735215, -85.1017)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall16" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -91.1721, 0.735215, -89.8599)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall17" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -84.2511, 0.735215, -64.9874)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall18" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -73.8695, 0.735215, -72.5573)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall19" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -46.0735, 0.735215, -51.8426)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall20" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -68.9993, 0.735215, -56.6008)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall21" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -62.0783, 0.735215, -31.7283)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall22" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -51.6968, 0.735215, -39.2982)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall23" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 40.6378, 0.735215, -85.1017)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall24" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 17.7119, 0.735215, -89.8599)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall25" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 24.6329, 0.735215, -64.9874)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall26" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 35.0145, 0.735215, -72.5573)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall27" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 73.8969, 0.735215, -85.1017)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall28" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 50.971, 0.735215, -89.8599)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall29" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 57.892, 0.735215, -64.9874)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall30" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 68.2736, 0.735215, -72.5573)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall31" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 73.8969, 0.735215, 42.3915)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall32" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 50.971, 0.735215, 37.6334)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall33" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 57.892, 0.735215, 62.5058)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall34" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 68.2736, 0.735215, 54.9359)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall35" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -34.5911, 0.735215, 0.0257988)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall36" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -57.517, 0.735215, -4.7324)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall37" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -50.596, 0.735215, 20.14)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall38" parent="Scene/Obstacles/Wall_Vertical" instance=ExtResource("4_lugqr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -40.2144, 0.735215, 12.5702)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="Boxes" type="Node3D" parent="Scene"]
+
+[node name="box_small2" parent="Scene/Boxes" instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9361, 0.5, -18.0904)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.817968, 0.55559, 0.149154, 0.457447, -0.785417, 0.416968, 0.348812, -0.272837, -0.896599, 0, 33.9169, 50.5428)
+directional_shadow_mode = 0
+
+[node name="Deads" type="Node3D" parent="."]
+
+[node name="dead1" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.4191, 0.5, -42.1987)
+
+[node name="dead2" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06285, 0.499878, -44.8227)
+
+[node name="dead3" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2767, 0.499878, 39.0173)
+
+[node name="dead4" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.6843, 0.499878, 52.4219)
+
+[node name="dead5" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.2591, 0.499878, 49.4973)
+
+[node name="dead6" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811583, 0.499878, 56.3215)
+
+[node name="dead7" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7745, 0.499878, -69.6823)
+
+[node name="dead8" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.5587, 0.499878, -52.1344)
+
+[node name="dead9" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.3401, 0.499878, 7.08984)
+
+[node name="dead10" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.287, 0.499878, 1.9717)
+
+[node name="dead11" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4274, 0.499878, -19.9632)
+
+[node name="dead12" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3549, 0.499878, -43.8479)
+
+[node name="dead13" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1158, 0.499878, -59.9334)
+
+[node name="dead14" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.274, 0.499878, 69.4824)
+
+[node name="dead15" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3195, 0.499878, 64.1206)
+
+[node name="dead16" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.0535, 0.499878, 10.9894)
+
+[node name="dead17" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.7018, 0.499878, -39.9483)
+
+[node name="dead18" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.2293, 0.499878, -65.539)
+
+[node name="dead19" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3568, 0.499878, -68.4637)
+
+[node name="dead20" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1587, 0.499878, -70.9009)
+
+[node name="dead21" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3195, 0.499878, -50.1846)
+
+[node name="dead22" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2694, 0.499878, 11.4768)
+
+[node name="dead23" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.0881, 0.499878, -30.9679)
+
+[node name="dead24" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9996, 0.499878, -31.3438)
+
+[node name="dead25" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1343, 0.499878, -32.8473)
+
+[node name="dead26" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1343, 0.499878, -23.4502)
+
+[node name="dead27" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.9746, 0.499878, -33.4111)
+
+[node name="dead28" parent="Deads" instance=ExtResource("5_yojjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0137, 0.499878, -27.9608)
+
+[node name="box_small2" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6133, 0.499878, 17.709)
+
+[node name="box_small3" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8686, 0.499878, -3.34047)
+
+[node name="box_small4" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.9392, 0.499878, -14.8049)
+
+[node name="box_small5" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1202, 0.499878, 24.287)
+
+[node name="box_small6" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0599, 0.499878, -17.9999)
+
+[node name="box_small7" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13213, 0.499878, 44.5847)
+
+[node name="box_small8" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4307, 0.499878, 44.4266)
+
+[node name="box_small9" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7942, 0.499878, 43.4863)
+
+[node name="box_small10" parent="." instance=ExtResource("6_ulwxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.0192, 0.499878, 5.90806)

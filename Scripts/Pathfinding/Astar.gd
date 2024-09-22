@@ -61,7 +61,7 @@ func _make_grid(pathables: Array):
 		
 		for x in x_steps:
 #			for y in y_steps:
-			for y in 5:
+			for y in 3:
 				for z in z_steps:
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)

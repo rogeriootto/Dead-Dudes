@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://de5dhiaa2g7vq"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_l53vc"]
+[ext_resource type="PackedScene" uid="uid://dhe40t6kk5k8m" path="res://dead_navigator.tscn" id="2_u2m1w"]
+[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="3_a42i8"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_xvk7t"]
+vertices = PackedVector3Array(-9.5, 1, -9.5, -9.5, 1, 9.5, 9.5, 1, 9.5, 9.5, 1, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xncnf"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_prvyu"]
+data = PackedVector3Array(-10, 0.5, 10, 10, 0.5, 10, -10, -0.5, 10, 10, 0.5, 10, 10, -0.5, 10, -10, -0.5, 10, 10, 0.5, -10, -10, 0.5, -10, 10, -0.5, -10, -10, 0.5, -10, -10, -0.5, -10, 10, -0.5, -10, 10, 0.5, 10, 10, 0.5, -10, 10, -0.5, 10, 10, 0.5, -10, 10, -0.5, -10, 10, -0.5, 10, -10, 0.5, -10, -10, 0.5, 10, -10, -0.5, -10, -10, 0.5, 10, -10, -0.5, 10, -10, -0.5, -10, 10, 0.5, 10, -10, 0.5, 10, 10, 0.5, -10, -10, 0.5, 10, -10, 0.5, -10, 10, 0.5, -10, -10, -0.5, 10, 10, -0.5, 10, -10, -0.5, -10, 10, -0.5, 10, 10, -0.5, -10, -10, -0.5, -10)
+
+[node name="Node3D" type="StaticBody3D"]
+script = ExtResource("1_l53vc")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_xvk7t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("BoxMesh_xncnf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D"]
+shape = SubResource("ConcavePolygonShape3D_prvyu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.817968, 0.55559, 0.149154, 0.457447, -0.785417, 0.416968, 0.348812, -0.272837, -0.896599, 0, 33.9169, 50.5428)
+directional_shadow_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.999999, 0, -0.999999, -4.37114e-08, 0, 0, 0)
+current = true
+fov = 67.6
+size = 14.402
+script = ExtResource("3_a42i8")
+offset = Vector3(0, 35, 0)
+
+[node name="dead_nav" parent="." instance=ExtResource("2_u2m1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.66062, 1.53931, -5.58203)

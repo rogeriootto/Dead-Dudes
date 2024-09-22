@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhe40t6kk5k8m"]
+
+[ext_resource type="Script" path="res://dead_navigator.gd" id="1_q2b0v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_alacr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2cyj2"]
+
+[node name="dead_nav" type="CharacterBody3D"]
+script = ExtResource("1_q2b0v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_alacr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2cyj2")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

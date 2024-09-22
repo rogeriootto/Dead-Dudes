@@ -21,7 +21,9 @@ func register_area(area: InteractionArea, playerNumber: String):
 		p2_active_areas.push_back(area)
 
 func unregister_area(area: InteractionArea, playerNumber: String):
-	GlobalVariables.astarNode.old_points = []
+	#TODO isso ainda ta bugando quando eu tendo sair de perto de um interactable num mapa sem Astar
+	if GlobalVariables.astarNode:
+		GlobalVariables.astarNode.old_points = []
 	if playerNumber == 'p1':
 		var index = p1_active_areas.find(area)
 		if index != -1:
