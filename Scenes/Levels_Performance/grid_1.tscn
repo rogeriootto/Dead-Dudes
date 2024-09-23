@@ -18,7 +18,7 @@ size = Vector3(50, 1, 50)
 
 [node name="Grid1" type="Node3D"]
 script = ExtResource("1_ymxju")
-player1SpawnPoint = Vector3(0, 0, 5)
+player1SpawnPoint = Vector3(21, 2.884, 21)
 
 [node name="Astar" parent="." instance=ExtResource("2_2h6v6")]
 
@@ -947,7 +947,4 @@ transform = Transform3D(0.817968, 0.55559, 0.149154, 0.457447, -0.785417, 0.4169
 directional_shadow_mode = 0
 
 [node name="dead1" parent="." instance=ExtResource("6_dylui")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, 0.5, -21.6318)
-
-[node name="dead2" parent="." instance=ExtResource("6_dylui")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6356, 0.5, -16.8955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2029, 1.89185, -21.7052)

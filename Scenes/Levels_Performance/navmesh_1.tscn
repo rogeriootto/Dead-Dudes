@@ -25,7 +25,7 @@ size = Vector3(50, 1, 50)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_soww0")
-player1SpawnPoint = Vector3(0, 0, 5)
+player1SpawnPoint = Vector3(21, 2.884, 21)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.817968, 0.55559, 0.149154, 0.457447, -0.785417, 0.416968, 0.348812, -0.272837, -0.896599, 0, 33.9169, 50.5428)
@@ -41,9 +41,6 @@ offset = Vector3(0, 35, 0)
 
 [node name="Astar" parent="." instance=ExtResource("5_kco6w")]
 should_draw_cubes = false
-
-[node name="dead_nav" parent="." instance=ExtResource("6_mf1ha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0459, 1.89185, -5.16248)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ioia2")
@@ -963,3 +960,6 @@ mesh = SubResource("BoxMesh_ejw7l")
 
 [node name="NavigationRegion3D2" type="NavigationRegion3D" parent="NavigationRegion3D/Scene/Floor/MeshInstance3D"]
 navigation_mesh = SubResource("NavigationMesh_obc8t")
+
+[node name="dead_nav" parent="." instance=ExtResource("6_mf1ha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2029, 1.89185, -21.7052)

@@ -7,7 +7,10 @@ class_name DeadGrounded
 
 var current_target := Vector3.INF
 var old_position:String
-var speed := RandomNumberGenerator.new().randi_range(2, 3)
+#var speed := RandomNumberGenerator.new().randi_range(2, 3)
+var speed = 3
+dead.max_speed = 
+
 var count:float = 0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -105,8 +108,9 @@ func deadMovement(delta: float):
 				var end_time = Time.get_ticks_msec()
 				var execution_time = end_time - start_time
 				print("Tempo de Execução: ", execution_time, " ms")
+				var fps = Engine.get_frames_per_second()
 				# Adicionar o tempo ao gerenciador (PathfindingData.gd)
-				DataManager.add_pathfinding_time(execution_time)
+				DataManager.add_pathfinding_data(execution_time, fps)
 				
 			if current_target != Vector3.INF:
 				var dir_to_target = dead.global_transform.origin.direction_to(current_target).normalized()
