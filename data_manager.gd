@@ -9,21 +9,23 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 
 # Função para adicionar o tempo de pathfinding de um zumbi à list
-func add_pathfinding_data(cpu_time, fps):
-	pathfinding_data.append([cpu_time, fps])
+func add_pathfinding_data(cpu_time, fps, memory_usage):
+	pathfinding_data.append([cpu_time, fps, memory_usage])
 
 func add_pathfinding_distance(total_distance_traveled):
 	pathfinding_distance.append([total_distance_traveled])
-	
+
+
+
 # Função para exportar os dados para CSV (Godot 4.x)
 func export_to_csv():
 	var file_path = "user://pathfinding_data.csv"
 	var file = FileAccess.open(file_path, FileAccess.WRITE)
 	if file:
-		file.store_line("Pathfinding Time (ms), FPS")  # Write CSV header
+		file.store_line("Pathfinding Time (ms), FPS, Memory Usage (MB)")  # CSV header
 		for data in pathfinding_data:
-			if data.size() >= 2:  # Ensure there are at least 2 elements (cpu_time, fps)
-				file.store_line("%s, %s" % [str(data[0]), str(data[1])])  # Write each row as "cpu_time, fps"
+			if data.size() >= 3:  # Ensure there are at least 3 elements (cpu_time, fps, memory)
+				file.store_line("%s, %s, %s" % [str(data[0]), str(data[1]), str(data[2])])  # Write cpu_time, fps, memory
 			else:
 				print("Invalid data format: ", data)
 		file.close()

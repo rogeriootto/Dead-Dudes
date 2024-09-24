@@ -63,13 +63,16 @@ func _physics_process(delta):
 	#print("Total distance walked: ", total_distance_walked)
 	
 	if nav_agent.get_current_navigation_path().size() > 0:
+		
+		var memory_usage = OS.get_static_memory_usage()
+		var memory_usage_mb = memory_usage / (1024 * 1024)
 		# Capture the time after the path has been calculated
 		end_time = Time.get_ticks_msec()
 		var execution_time = end_time - start_time
 		#print("Tempo de Execução: ", execution_time, " ms")
 		var fps = Engine.get_frames_per_second()
 		# Adicionar o tempo ao gerenciador (PathfindingData.gd)
-		DataManager.add_pathfinding_data(execution_time, fps)
+		DataManager.add_pathfinding_data(execution_time, fps, memory_usage_mb)
 		# Now stop checking to avoid printing this every frame
 		set_process(false)
 		
@@ -86,7 +89,6 @@ func move_to_player(delta):
 		velocity = Vector3.ZERO
 		DataManager.add_pathfinding_distance(total_distance_walked)
 		await DataManager.export_to_csv()
-		get_tree().quit()
 
 func follow_path(delta):
 	var next_position = nav_agent.get_next_path_position()
