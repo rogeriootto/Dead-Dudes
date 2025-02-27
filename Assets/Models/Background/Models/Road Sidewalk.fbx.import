@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://jng18tckk2ra"
-path="res://.godot/imported/Road Sidewalk.fbx-a5f11b32057f27f374607b8104fdd4a5.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Sidewalk.fbx"
-dest_files=["res://.godot/imported/Road Sidewalk.fbx-a5f11b32057f27f374607b8104fdd4a5.scn"]
 
 [params]
 

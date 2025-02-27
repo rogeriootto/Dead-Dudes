@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ddlhl53c2xukx"
-path="res://.godot/imported/Road Tile Small.fbx-77e7758ffe58a99ec476e982f9c446af.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Tile Small.fbx"
-dest_files=["res://.godot/imported/Road Tile Small.fbx-77e7758ffe58a99ec476e982f9c446af.scn"]
 
 [params]
 

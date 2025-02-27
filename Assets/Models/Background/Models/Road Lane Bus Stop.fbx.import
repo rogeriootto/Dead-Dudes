@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://tedp4dtylkex"
-path="res://.godot/imported/Road Lane Bus Stop.fbx-695771d1d2106e5d25aafd08c81d8255.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Lane Bus Stop.fbx"
-dest_files=["res://.godot/imported/Road Lane Bus Stop.fbx-695771d1d2106e5d25aafd08c81d8255.scn"]
 
 [params]
 

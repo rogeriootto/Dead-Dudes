@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1bjuxxrg8wbx"
-path="res://.godot/imported/Props_BillBoard_medium.fbx-57cd93ebe584ed913de7693eda7e6d39.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_BillBoard_medium.fbx"
-dest_files=["res://.godot/imported/Props_BillBoard_medium.fbx-57cd93ebe584ed913de7693eda7e6d39.scn"]
 
 [params]
 

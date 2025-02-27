@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dn3n5oysf2iil"
-path="res://.godot/imported/Natures_House Floor.fbx-caf30a005d1580ef10d36c279e3ee32c.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_House Floor.fbx"
-dest_files=["res://.godot/imported/Natures_House Floor.fbx-caf30a005d1580ef10d36c279e3ee32c.scn"]
 
 [params]
 

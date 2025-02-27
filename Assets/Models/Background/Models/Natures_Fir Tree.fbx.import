@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bj3w3ndu7cexk"
-path="res://.godot/imported/Natures_Fir Tree.fbx-a3515b0fda3fdf6f278c17d4b31d8d8d.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Fir Tree.fbx"
-dest_files=["res://.godot/imported/Natures_Fir Tree.fbx-a3515b0fda3fdf6f278c17d4b31d8d8d.scn"]
 
 [params]
 

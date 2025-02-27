@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmr3v8yyegwta"
-path="res://.godot/imported/Props_Windmill.fbx-baf3fec47b274095d466167b7d2bdb48.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Windmill.fbx"
-dest_files=["res://.godot/imported/Props_Windmill.fbx-baf3fec47b274095d466167b7d2bdb48.scn"]
 
 [params]
 

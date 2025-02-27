@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpedmk7dwotvn"
-path="res://.godot/imported/Building_House_03_color01.fbx-b101c9ce76045ffe04572625b78be6ef.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_House_03_color01.fbx"
-dest_files=["res://.godot/imported/Building_House_03_color01.fbx-b101c9ce76045ffe04572625b78be6ef.scn"]
 
 [params]
 

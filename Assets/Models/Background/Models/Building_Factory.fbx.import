@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c6o1fs1aw10qp"
-path="res://.godot/imported/Building_Factory.fbx-6fc7ad09b546461d8b2d341f6decb084.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Factory.fbx"
-dest_files=["res://.godot/imported/Building_Factory.fbx-6fc7ad09b546461d8b2d341f6decb084.scn"]
 
 [params]
 

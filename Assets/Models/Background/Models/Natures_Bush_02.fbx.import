@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dx24mctsdam03"
-path="res://.godot/imported/Natures_Bush_02.fbx-b8d8e9c63caa5ab6f48f31675a49b2ce.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Bush_02.fbx"
-dest_files=["res://.godot/imported/Natures_Bush_02.fbx-b8d8e9c63caa5ab6f48f31675a49b2ce.scn"]
 
 [params]
 

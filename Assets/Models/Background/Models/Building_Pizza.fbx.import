@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ckjhm3225ujil"
-path="res://.godot/imported/Building_Pizza.fbx-7f42cc2062ae6d5d344f89ce7bf252e1.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Pizza.fbx"
-dest_files=["res://.godot/imported/Building_Pizza.fbx-7f42cc2062ae6d5d344f89ce7bf252e1.scn"]
 
 [params]
 

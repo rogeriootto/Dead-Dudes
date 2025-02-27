@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b47c5i2t6otpm"
-path="res://.godot/imported/Road Intersection_02.fbx-cdf2b857fe4123c2b92faa7d438fd706.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Intersection_02.fbx"
-dest_files=["res://.godot/imported/Road Intersection_02.fbx-cdf2b857fe4123c2b92faa7d438fd706.scn"]
 
 [params]
 

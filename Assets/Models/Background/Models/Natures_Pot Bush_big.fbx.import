@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://owg7yojrocp6"
-path="res://.godot/imported/Natures_Pot Bush_big.fbx-a28567ef032ec4f382eb189623d92d72.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Pot Bush_big.fbx"
-dest_files=["res://.godot/imported/Natures_Pot Bush_big.fbx-a28567ef032ec4f382eb189623d92d72.scn"]
 
 [params]
 

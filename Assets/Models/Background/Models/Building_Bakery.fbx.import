@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://iy70fhhwqvut"
-path="res://.godot/imported/Building_Bakery.fbx-171004cc00e149deed26621a882adc36.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Bakery.fbx"
-dest_files=["res://.godot/imported/Building_Bakery.fbx-171004cc00e149deed26621a882adc36.scn"]
 
 [params]
 

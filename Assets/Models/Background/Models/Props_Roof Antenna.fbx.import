@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvx6201u4wwtn"
-path="res://.godot/imported/Props_Roof Antenna.fbx-36f6ff524ac34b223ccf500ac53143b0.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Roof Antenna.fbx"
-dest_files=["res://.godot/imported/Props_Roof Antenna.fbx-36f6ff524ac34b223ccf500ac53143b0.scn"]
 
 [params]
 

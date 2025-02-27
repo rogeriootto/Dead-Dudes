@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bh83x4lgh0h0o"
-path="res://.godot/imported/Road Split Line.fbx-6b0cb9be7dcd8570458a366a64ec5ef5.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Split Line.fbx"
-dest_files=["res://.godot/imported/Road Split Line.fbx-6b0cb9be7dcd8570458a366a64ec5ef5.scn"]
 
 [params]
 

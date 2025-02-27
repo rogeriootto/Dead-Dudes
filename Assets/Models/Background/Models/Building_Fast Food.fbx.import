@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cnedtg2r542n1"
-path="res://.godot/imported/Building_Fast Food.fbx-9258481b4056eca3b51e808a8784da6e.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Fast Food.fbx"
-dest_files=["res://.godot/imported/Building_Fast Food.fbx-9258481b4056eca3b51e808a8784da6e.scn"]
 
 [params]
 

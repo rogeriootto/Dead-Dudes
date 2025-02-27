@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dorh4teufetj0"
-path="res://.godot/imported/Props_Bench_1.fbx-75df54a9c8696958dfcb0879cd6e05b2.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Bench_1.fbx"
-dest_files=["res://.godot/imported/Props_Bench_1.fbx-75df54a9c8696958dfcb0879cd6e05b2.scn"]
 
 [params]
 
