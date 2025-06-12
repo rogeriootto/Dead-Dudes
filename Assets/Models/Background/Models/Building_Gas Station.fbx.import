@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c7ejl8wm5ilrd"
-path="res://.godot/imported/Building_Gas Station.fbx-002288fc8aa2dbe2697cae3249b8baf9.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Gas Station.fbx"
-dest_files=["res://.godot/imported/Building_Gas Station.fbx-002288fc8aa2dbe2697cae3249b8baf9.scn"]
 
 [params]
 

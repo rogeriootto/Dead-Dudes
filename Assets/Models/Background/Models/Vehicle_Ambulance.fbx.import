@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvsa55mkgqcon"
-path="res://.godot/imported/Vehicle_Ambulance.fbx-29587661a2f0bfea30a06b23d9fa099d.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Vehicle_Ambulance.fbx"
-dest_files=["res://.godot/imported/Vehicle_Ambulance.fbx-29587661a2f0bfea30a06b23d9fa099d.scn"]
 
 [params]
 

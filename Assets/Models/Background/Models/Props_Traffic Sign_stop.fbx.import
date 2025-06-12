@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dmm772ip0wy3o"
-path="res://.godot/imported/Props_Traffic Sign_stop.fbx-6b26080860392b7241a7a0291cf2d6fd.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Traffic Sign_stop.fbx"
-dest_files=["res://.godot/imported/Props_Traffic Sign_stop.fbx-6b26080860392b7241a7a0291cf2d6fd.scn"]
 
 [params]
 

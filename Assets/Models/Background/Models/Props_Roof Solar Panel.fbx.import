@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cbgqj62wv6vib"
-path="res://.godot/imported/Props_Roof Solar Panel.fbx-5b40549242cc9e4ca23cedca8b1eeb40.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Roof Solar Panel.fbx"
-dest_files=["res://.godot/imported/Props_Roof Solar Panel.fbx-5b40549242cc9e4ca23cedca8b1eeb40.scn"]
 
 [params]
 

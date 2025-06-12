@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://biv0yncfm36l2"
-path="res://.godot/imported/Vehicle_SUV.fbx-724dc287908458fee09cf7514a8e3896.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Vehicle_SUV.fbx"
-dest_files=["res://.godot/imported/Vehicle_SUV.fbx-724dc287908458fee09cf7514a8e3896.scn"]
 
 [params]
 

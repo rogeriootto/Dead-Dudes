@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bmsobha6at7up"
-path="res://.godot/imported/Vehicle_Police Car.fbx-53db14b2c25fd1e9fc75b18c83c0d687.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Vehicle_Police Car.fbx"
-dest_files=["res://.godot/imported/Vehicle_Police Car.fbx-53db14b2c25fd1e9fc75b18c83c0d687.scn"]
 
 [params]
 

@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b75ftdjwtlt73"
-path="res://.godot/imported/Building_Auto Service.fbx-cd8d090a5f18178d49ecfe79542f4efa.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Auto Service.fbx"
-dest_files=["res://.godot/imported/Building_Auto Service.fbx-cd8d090a5f18178d49ecfe79542f4efa.scn"]
 
 [params]
 

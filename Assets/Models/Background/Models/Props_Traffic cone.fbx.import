@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dafk46ngkwc7g"
-path="res://.godot/imported/Props_Traffic cone.fbx-1a37e8586e108ee5197568d58557b17f.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Traffic cone.fbx"
-dest_files=["res://.godot/imported/Props_Traffic cone.fbx-1a37e8586e108ee5197568d58557b17f.scn"]
 
 [params]
 

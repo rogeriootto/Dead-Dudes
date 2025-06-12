@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wlst4imfqwhi"
-path="res://.godot/imported/Natures_Rock_Big.fbx-0ae58d29bc04b9cdc84ee7787b83519f.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Rock_Big.fbx"
-dest_files=["res://.godot/imported/Natures_Rock_Big.fbx-0ae58d29bc04b9cdc84ee7787b83519f.scn"]
 
 [params]
 

@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://btixk1yfi8w4h"
-path="res://.godot/imported/Road Lane Half.fbx-226dfdf6ceb74af206c1ccc2fa7e33c5.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Lane Half.fbx"
-dest_files=["res://.godot/imported/Road Lane Half.fbx-226dfdf6ceb74af206c1ccc2fa7e33c5.scn"]
 
 [params]
 

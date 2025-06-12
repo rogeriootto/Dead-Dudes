@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://vkrxnaiim8c4"
-path="res://.godot/imported/Building_Stadium.fbx-30bb9966d2b55ea32c1dd8b769449ab1.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Stadium.fbx"
-dest_files=["res://.godot/imported/Building_Stadium.fbx-30bb9966d2b55ea32c1dd8b769449ab1.scn"]
 
 [params]
 

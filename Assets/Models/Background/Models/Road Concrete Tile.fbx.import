@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhl7a6wgjcwvr"
-path="res://.godot/imported/Road Concrete Tile.fbx-5e7e5ab29adb72f29d4f84bf84543f3c.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Concrete Tile.fbx"
-dest_files=["res://.godot/imported/Road Concrete Tile.fbx-5e7e5ab29adb72f29d4f84bf84543f3c.scn"]
 
 [params]
 

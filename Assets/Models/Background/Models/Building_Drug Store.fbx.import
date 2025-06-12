@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cxt1r6gt7luts"
-path="res://.godot/imported/Building_Drug Store.fbx-d43a80978ea6dff00c3bdf98a6e4fd33.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Drug Store.fbx"
-dest_files=["res://.godot/imported/Building_Drug Store.fbx-d43a80978ea6dff00c3bdf98a6e4fd33.scn"]
 
 [params]
 

@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cp8eg7y14lby"
-path="res://.godot/imported/Road Corner_02.fbx-ed1b97b07b68614857891611cda95003.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Corner_02.fbx"
-dest_files=["res://.godot/imported/Road Corner_02.fbx-ed1b97b07b68614857891611cda95003.scn"]
 
 [params]
 

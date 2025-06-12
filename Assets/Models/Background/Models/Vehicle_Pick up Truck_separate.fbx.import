@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dt61sr6sdlw8h"
-path="res://.godot/imported/Vehicle_Pick up Truck_separate.fbx-ff59f3a5a7d691fa59e8f007a3b85ad2.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Vehicle_Pick up Truck_separate.fbx"
-dest_files=["res://.godot/imported/Vehicle_Pick up Truck_separate.fbx-ff59f3a5a7d691fa59e8f007a3b85ad2.scn"]
 
 [params]
 

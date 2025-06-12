@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bmr8ythjfilv1"
-path="res://.godot/imported/Building_Fruits  Shop.fbx-a3b639d35dbb386526f2e36e9c2780e7.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Fruits  Shop.fbx"
-dest_files=["res://.godot/imported/Building_Fruits  Shop.fbx-a3b639d35dbb386526f2e36e9c2780e7.scn"]
 
 [params]
 

@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://de2dj1o4bb3hl"
-path="res://.godot/imported/Building_Shoes Shop.fbx-630e2722d05275019240ac9e85c9d024.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Shoes Shop.fbx"
-dest_files=["res://.godot/imported/Building_Shoes Shop.fbx-630e2722d05275019240ac9e85c9d024.scn"]
 
 [params]
 

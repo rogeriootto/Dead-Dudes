@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cbjlh0uxiigqi"
-path="res://.godot/imported/Props_Roof prop air.fbx-3fe6edc6b792ea98dc186b9666d6534b.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Roof prop air.fbx"
-dest_files=["res://.godot/imported/Props_Roof prop air.fbx-3fe6edc6b792ea98dc186b9666d6534b.scn"]
 
 [params]
 

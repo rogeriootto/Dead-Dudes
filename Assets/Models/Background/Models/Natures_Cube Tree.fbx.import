@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cw7atumtioub3"
-path="res://.godot/imported/Natures_Cube Tree.fbx-7c8559f3cc2678b6a7c81d8e5258d6cf.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Cube Tree.fbx"
-dest_files=["res://.godot/imported/Natures_Cube Tree.fbx-7c8559f3cc2678b6a7c81d8e5258d6cf.scn"]
 
 [params]
 

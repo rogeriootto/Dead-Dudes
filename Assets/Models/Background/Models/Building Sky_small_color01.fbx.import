@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqw78cqsmfarr"
-path="res://.godot/imported/Building Sky_small_color01.fbx-dbb3c8d402fd39365782a0cf0a84084e.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building Sky_small_color01.fbx"
-dest_files=["res://.godot/imported/Building Sky_small_color01.fbx-dbb3c8d402fd39365782a0cf0a84084e.scn"]
 
 [params]
 

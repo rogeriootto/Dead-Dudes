@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bx6p0w3id5vm"
-path="res://.godot/imported/Props_Bus Stop.fbx-460b85bf755775c6b00dad3ae4ba7dfd.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Bus Stop.fbx"
-dest_files=["res://.godot/imported/Props_Bus Stop.fbx-460b85bf755775c6b00dad3ae4ba7dfd.scn"]
 
 [params]
 

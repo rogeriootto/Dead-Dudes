@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://byoo0le7g4uo5"
-path="res://.godot/imported/Building_Super Market.fbx-4f068b2763a1162bc68d549b8c84d005.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Super Market.fbx"
-dest_files=["res://.godot/imported/Building_Super Market.fbx-4f068b2763a1162bc68d549b8c84d005.scn"]
 
 [params]
 

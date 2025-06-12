@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dc18erfuajvix"
-path="res://.godot/imported/Props_Traffic Signal_small.fbx-06252609f6e3fd6c201bdfbf06dd7dc2.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Traffic Signal_small.fbx"
-dest_files=["res://.godot/imported/Props_Traffic Signal_small.fbx-06252609f6e3fd6c201bdfbf06dd7dc2.scn"]
 
 [params]
 

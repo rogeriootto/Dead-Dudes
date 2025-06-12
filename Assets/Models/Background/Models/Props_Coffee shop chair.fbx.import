@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cftc8twxq7boo"
-path="res://.godot/imported/Props_Coffee shop chair.fbx-caa631e2ab24cdc3377fe545abd7c0d1.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Coffee shop chair.fbx"
-dest_files=["res://.godot/imported/Props_Coffee shop chair.fbx-caa631e2ab24cdc3377fe545abd7c0d1.scn"]
 
 [params]
 

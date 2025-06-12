@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvsc2f7ldel2j"
-path="res://.godot/imported/Props_Dustbin.fbx-71035a2f742fd4148a4c8ef2621b37bf.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Props_Dustbin.fbx"
-dest_files=["res://.godot/imported/Props_Dustbin.fbx-71035a2f742fd4148a4c8ef2621b37bf.scn"]
 
 [params]
 

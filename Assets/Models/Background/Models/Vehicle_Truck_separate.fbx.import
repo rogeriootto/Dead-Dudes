@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dxd6lmqy8qv3u"
-path="res://.godot/imported/Vehicle_Truck_separate.fbx-170c1966a74a366856c2f8ea3dfaf996.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Vehicle_Truck_separate.fbx"
-dest_files=["res://.godot/imported/Vehicle_Truck_separate.fbx-170c1966a74a366856c2f8ea3dfaf996.scn"]
 
 [params]
 
