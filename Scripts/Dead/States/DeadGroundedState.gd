@@ -105,6 +105,8 @@ func deadMovement(delta: float):
 					if dead.count_fallen > 3.0:
 						dead.count_fallen = 0
 						Transitioned.emit(self, 'DeadFallen')
+						
+						
 				else:
 					dead.count_fallen = 0
 					

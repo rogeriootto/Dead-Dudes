@@ -61,7 +61,7 @@ func _make_grid(pathables: Array):
 		
 		for x in x_steps:
 #			for y in y_steps:
-			for y in 3:
+			for y in 5:
 				for z in z_steps:
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)
@@ -161,6 +161,20 @@ func _get_adjacent_points(world_point: Vector3) -> Array:
 				if points.has(potential_neighbor):
 					adjacent_points.append(points[potential_neighbor])
 	return adjacent_points
+	
+func _get_adjacent_same_height_points(world_point: Vector3) -> Array:
+	var adjacent_points = []
+	var search_coords = [-grid_step, 0, grid_step]
+	for x in search_coords:
+		for z in search_coords:
+			var search_offset = Vector3(x, 0, z)
+			if search_offset == Vector3.ZERO:
+				continue
+			var potential_neighbor = world_to_astar(world_point + search_offset)
+			if points.has(potential_neighbor):
+				adjacent_points.append(points[potential_neighbor])
+	return adjacent_points
+
 
 func _get_adjacent_lower_points(world_point: Vector3) -> Array:
 	
@@ -422,10 +436,20 @@ func dead_should_fall(dead_position: Vector3):
 	
 	if points.has(point_key):
 		point_id = points[point_key]
+		#TODO
+		#Essas mudanças assumem que os zumbis caidos nunca saem do lugar.
+		#Se eles forem mudar de lugar, provavelmente seria necessário  resetar isso
+		var neighbors = _get_adjacent_same_height_points(dead_position)
+		for neighbor_id in neighbors:
+			astar.set_point_weight_scale(neighbor_id, astar.get_point_weight_scale(neighbor_id) * 0.9)
 	else:
 		return
 	if points.has(above_dead_key):
 		above_dead_id = points[above_dead_key]
+		#TODO
+		#Essas mudanças assumem que os zumbis caidos nunca saem do lugar.
+		#Se eles forem mudar de lugar, provavelmente seria necessário  resetar isso
+		astar.set_point_weight_scale(above_dead_id, astar.get_point_weight_scale(above_dead_id) * 0.8)
 
 	if not astar.is_point_disabled(point_id):
 		if(above_dead_id):
