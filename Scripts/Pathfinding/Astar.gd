@@ -186,7 +186,8 @@ func _get_adjacent_lower_points(world_point: Vector3) -> Array:
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
-	return astar.get_point_path(start_id, end_id)
+	#TODO esse false no get_point_path pode virar true pra aceitar caminho parcial
+	return astar.get_point_path(start_id, end_id, true)
 
 func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
