@@ -65,7 +65,7 @@ func deadMovement(delta: float):
 	var dist_to_p1 = dead.global_transform.origin.distance_to(GlobalVariables.player1Position)
 	var dist_to_p2 = dead.global_transform.origin.distance_to(GlobalVariables.player2Position)
 			
-	if (dead.should_activate_zombie == false && (dist_to_p1 > 300 && dist_to_p2 > 300)):
+	if (dead.should_activate_zombie == false && (dist_to_p1 > 40 && dist_to_p2 > 40)):
 		return
 	else:
 		dead.should_activate_zombie = true

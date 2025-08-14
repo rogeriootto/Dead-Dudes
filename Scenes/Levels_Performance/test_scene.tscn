@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bynn1kttx7tcg"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_32nxq"]
-[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_p2tvm"]
+[ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_32nxq"]
+[ext_resource type="Script" uid="uid://2q6fn161lhvg" path="res://Scripts/Camera/GameCamera.gd" id="2_p2tvm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqv62"]
 

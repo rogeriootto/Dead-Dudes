@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://4aa11kwlpvo4"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_34gyp"]
+[ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_34gyp"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_2e28d"]
-[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="3_gjxsk"]
+[ext_resource type="Script" uid="uid://2q6fn161lhvg" path="res://Scripts/Camera/GameCamera.gd" id="3_gjxsk"]
 [ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="4_lugqr"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="5_yojjn"]
 [ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="6_ulwxs"]

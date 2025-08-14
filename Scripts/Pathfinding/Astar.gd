@@ -69,9 +69,9 @@ func _make_grid(pathables: Array):
 func _add_point(point: Vector3):
 	var id = astar.get_available_point_id()
 	#TODO peso do astar
-	var astar_weight = 1 + ((point.y -0.5) * 2)
+	#var astar_weight = 1 + ((point.y -0.5) * 2)
 
-	astar.add_point(id, point, astar_weight)
+	astar.add_point(id, point)
 	points[world_to_astar(point)] = id
 	_create_nav_cube(scene_to_grid(point))
 
