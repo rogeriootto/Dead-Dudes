@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://da0dv7kwyo8lw"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="1_7y0p5"]
-[ext_resource type="Script" path="res://Scenes/Menus/Pause/pause_menu.gd" id="1_8qdny"]
-[ext_resource type="Script" path="res://Scenes/Menus/Pause/button_2.gd" id="3_lf1a5"]
-[ext_resource type="Script" path="res://Scenes/Menus/Pause/triggerp2.gd" id="4_tck72"]
+[ext_resource type="Script" uid="uid://dqx63vylkymuv" path="res://Scenes/Menus/GameOver/Button.gd" id="1_7y0p5"]
+[ext_resource type="Script" uid="uid://n2cnf0wd1ame" path="res://Scenes/Menus/Pause/pause_menu.gd" id="1_8qdny"]
+[ext_resource type="Script" uid="uid://cgf461ptbnnxa" path="res://Scenes/Menus/Pause/button_2.gd" id="3_lf1a5"]
+[ext_resource type="Script" uid="uid://uk8c5d5iwi76" path="res://Scenes/Menus/Pause/triggerp2.gd" id="4_tck72"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3

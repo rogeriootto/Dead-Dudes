@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dja601dlylsph"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Win/win.gd" id="1_273er"]
+[ext_resource type="Script" uid="uid://b8nhf2ofurhpj" path="res://Scenes/Menus/Win/win.gd" id="1_273er"]
 [ext_resource type="FontFile" uid="uid://dj81mxv5mbgbe" path="res://Assets/Fonts/Melted Monster.ttf" id="2_8nj7n"]
-[ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="3_d38ku"]
+[ext_resource type="Script" uid="uid://dqx63vylkymuv" path="res://Scenes/Menus/GameOver/Button.gd" id="3_d38ku"]
 [ext_resource type="PackedScene" uid="uid://xfg1du7s4adb" path="res://Scenes/Menus/Win/dancing-jack.tscn" id="4_uwfds"]
 [ext_resource type="PackedScene" uid="uid://iivancsvcb8w" path="res://Scenes/Menus/Win/dancing-john.tscn" id="5_n3265"]
 

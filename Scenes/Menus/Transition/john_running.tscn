@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://v655wa0wc4bj"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/jack_running.gd" id="1_rwyub"]
+[ext_resource type="Script" uid="uid://be7r2h5h7pq5i" path="res://Scenes/Menus/Transition/jack_running.gd" id="1_rwyub"]
 [ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="2_a5rs4"]
 [ext_resource type="Texture2D" uid="uid://irb4vqkub6uj" path="res://Assets/Models/John/golfclub.png" id="3_536fm"]
 
@@ -3136,20 +3136,20 @@ tracks/28/keys = PackedFloat32Array(0, 1, 0.386567, 0.0150418, 0.0135024, 0.9220
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_euatw"]
 _data = {
-"Dying": SubResource("Animation_ssune"),
-"Flip": SubResource("Animation_psgnk"),
-"Gun": SubResource("Animation_q7jhj"),
-"Idle": SubResource("Animation_4exuq"),
-"Idle2": SubResource("Animation_pwd7p"),
-"Jump": SubResource("Animation_uvdss"),
-"Kick": SubResource("Animation_75g3c"),
-"Pickup": SubResource("Animation_ng3bj"),
-"Punch": SubResource("Animation_2v8el"),
-"Pushing": SubResource("Animation_3qhhu"),
-"RESET": SubResource("Animation_fygyv"),
-"Running": SubResource("Animation_aordu"),
-"Taco": SubResource("Animation_3mcau"),
-"Walk": SubResource("Animation_1gskq")
+&"Dying": SubResource("Animation_ssune"),
+&"Flip": SubResource("Animation_psgnk"),
+&"Gun": SubResource("Animation_q7jhj"),
+&"Idle": SubResource("Animation_4exuq"),
+&"Idle2": SubResource("Animation_pwd7p"),
+&"Jump": SubResource("Animation_uvdss"),
+&"Kick": SubResource("Animation_75g3c"),
+&"Pickup": SubResource("Animation_ng3bj"),
+&"Punch": SubResource("Animation_2v8el"),
+&"Pushing": SubResource("Animation_3qhhu"),
+&"RESET": SubResource("Animation_fygyv"),
+&"Running": SubResource("Animation_aordu"),
+&"Taco": SubResource("Animation_3mcau"),
+&"Walk": SubResource("Animation_1gskq")
 }
 
 [node name="john" type="Node3D"]

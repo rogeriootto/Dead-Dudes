@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c2sfvc04gjnox"
-path="res://.godot/imported/Building_House_04_color01.fbx-14a46cbfa0cb78fbd63eff88bf00fdc6.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_House_04_color01.fbx"
-dest_files=["res://.godot/imported/Building_House_04_color01.fbx-14a46cbfa0cb78fbd63eff88bf00fdc6.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

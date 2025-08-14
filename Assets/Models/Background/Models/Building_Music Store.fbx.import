@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bt002wffqf0l1"
-path="res://.godot/imported/Building_Music Store.fbx-65a8e9f81f7289d52b3c2d740c9d9f60.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Building_Music Store.fbx"
-dest_files=["res://.godot/imported/Building_Music Store.fbx-65a8e9f81f7289d52b3c2d740c9d9f60.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bonxjlt4ysdp4"]
 
-[ext_resource type="Script" path="res://Scripts/Pathfinding/Astar.gd" id="1_m48c0"]
+[ext_resource type="Script" uid="uid://8qkpbpgoda0j" path="res://Scripts/Pathfinding/Astar.gd" id="1_m48c0"]
 
 [node name="Astar" type="Node3D"]
 script = ExtResource("1_m48c0")

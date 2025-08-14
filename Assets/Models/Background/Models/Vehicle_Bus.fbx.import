@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b02frlqjxlw0x"
-path="res://.godot/imported/Vehicle_Bus.fbx-95d6ae7f9c0a3269001fbaf2a87320b1.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Vehicle_Bus.fbx"
-dest_files=["res://.godot/imported/Vehicle_Bus.fbx-95d6ae7f9c0a3269001fbaf2a87320b1.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

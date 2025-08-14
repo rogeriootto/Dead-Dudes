@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://durohos1o31su"
-path="res://.godot/imported/Road Lane_03.fbx-da1d1a4ffb9a43e5eade62180908124b.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road Lane_03.fbx"
-dest_files=["res://.godot/imported/Road Lane_03.fbx-da1d1a4ffb9a43e5eade62180908124b.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

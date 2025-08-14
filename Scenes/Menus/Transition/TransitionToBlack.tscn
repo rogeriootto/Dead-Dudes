@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://2s42skdilees"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/transition_to_Black.gd" id="1_fnxrn"]
+[ext_resource type="Script" uid="uid://b3b76lttooiyp" path="res://Scenes/Menus/Transition/transition_to_Black.gd" id="1_fnxrn"]
 
 [sub_resource type="Animation" id="Animation_1eucy"]
 length = 0.001
@@ -50,9 +50,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxxie"]
 _data = {
-"RESET": SubResource("Animation_1eucy"),
-"fade_in": SubResource("Animation_ri3ny"),
-"fade_out": SubResource("Animation_o4qgp")
+&"RESET": SubResource("Animation_1eucy"),
+&"fade_in": SubResource("Animation_ri3ny"),
+&"fade_out": SubResource("Animation_o4qgp")
 }
 
 [node name="TransitionToBlack" type="CanvasLayer"]

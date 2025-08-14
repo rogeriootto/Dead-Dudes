@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://dw02gbl7syq5a"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_6m60r"]
+[ext_resource type="Script" uid="uid://drxm8jnofxc86" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_6m60r"]
 [ext_resource type="Texture2D" uid="uid://cufa1ra5l2ke" path="res://Assets/Models/Background/Textures/Natures.png" id="1_yet42"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhbl0"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://co40jls0cyt1t"]
 
 [ext_resource type="Texture2D" uid="uid://bx8arfcwkoh62" path="res://Assets/HUD/Jack.png" id="1_d51o2"]
-[ext_resource type="Script" path="res://Scripts/Managers/p1HP.gd" id="2_1h17y"]
+[ext_resource type="Script" uid="uid://bvbtpgwhha03a" path="res://Scripts/Managers/p1HP.gd" id="2_1h17y"]
 [ext_resource type="Texture2D" uid="uid://bqoj3culxtbsu" path="res://Assets/HUD/John.png" id="2_lhbws"]
-[ext_resource type="Script" path="res://Scripts/Managers/p2HP.gd" id="3_fyf0s"]
-[ext_resource type="Script" path="res://Scenes/Managers/hudP2.gd" id="3_p7srv"]
+[ext_resource type="Script" uid="uid://d0ag0quvqhkx5" path="res://Scripts/Managers/p2HP.gd" id="3_fyf0s"]
+[ext_resource type="Script" uid="uid://c4nccy0u30fyk" path="res://Scenes/Managers/hudP2.gd" id="3_p7srv"]
 [ext_resource type="Texture2D" uid="uid://mkhuvpvys3vp" path="res://Assets/HUD/leftStick.png" id="5_jamul"]
 [ext_resource type="Texture2D" uid="uid://de03airt5v8s1" path="res://Assets/HUD/bg.png" id="5_ndnkj"]
 [ext_resource type="Texture2D" uid="uid://c1tjpk32w7mch" path="res://Assets/HUD/Cross.png" id="6_rance"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://c23vdi1277y25" path="res://Assets/HUD/l1.png" id="10_se2t0"]
 [ext_resource type="Texture2D" uid="uid://bbknhqkeg2nt5" path="res://Assets/HUD/r1.png" id="11_q0nlh"]
 [ext_resource type="Texture2D" uid="uid://dqmp1e8e1iyyb" path="res://Assets/HUD/Office_-12_icon-icons.com_73953 (1).png" id="13_7tc75"]
-[ext_resource type="Script" path="res://Scenes/Managers/InventoryHUDP1.gd" id="14_n3kut"]
-[ext_resource type="Script" path="res://Scenes/Managers/InventoryHUDP2.gd" id="15_biafi"]
+[ext_resource type="Script" uid="uid://wflk6tjypj2y" path="res://Scenes/Managers/InventoryHUDP1.gd" id="14_n3kut"]
+[ext_resource type="Script" uid="uid://ia5sn88h1xth" path="res://Scenes/Managers/InventoryHUDP2.gd" id="15_biafi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c03nh"]
 bg_color = Color(0, 0, 0, 1)

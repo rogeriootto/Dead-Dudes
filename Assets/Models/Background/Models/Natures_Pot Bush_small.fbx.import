@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bj6mmuxobkqf0"
-path="res://.godot/imported/Natures_Pot Bush_small.fbx-80434e22c0a717cb31f07cc0cd46b9dd.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Pot Bush_small.fbx"
-dest_files=["res://.godot/imported/Natures_Pot Bush_small.fbx-80434e22c0a717cb31f07cc0cd46b9dd.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

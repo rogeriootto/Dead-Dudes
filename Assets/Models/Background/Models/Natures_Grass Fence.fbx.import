@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://yjhccp8rquc6"
-path="res://.godot/imported/Natures_Grass Fence.fbx-e5fc671493559e589991d02cf69e9d7e.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Natures_Grass Fence.fbx"
-dest_files=["res://.godot/imported/Natures_Grass Fence.fbx-e5fc671493559e589991d02cf69e9d7e.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

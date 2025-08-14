@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://da4quqhwx6pfb"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/Obstacles/obstacle.gd" id="1_i62g1"]
+[ext_resource type="Script" uid="uid://b4cwdhw6b17o4" path="res://Scenes/Objects/Obstacles/obstacle.gd" id="1_i62g1"]
 [ext_resource type="Texture2D" uid="uid://bwwloipsth3jh" path="res://Assets/Models/Background/Textures/dungeon_texture.png" id="2_it32c"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="3_6l7g5"]
 

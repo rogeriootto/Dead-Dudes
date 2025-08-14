@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dthbkuvpvklu"
-path="res://.godot/imported/Road T_Intersection_01.fbx-042f0621ee7cae86a13fa301cc38cd28.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/Background/Models/Road T_Intersection_01.fbx"
-dest_files=["res://.godot/imported/Road T_Intersection_01.fbx-042f0621ee7cae86a13fa301cc38cd28.scn"]
 
 [params]
 
@@ -18,6 +17,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

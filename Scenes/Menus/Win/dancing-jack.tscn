@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=4 uid="uid://xfg1du7s4adb"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Win/dancing_jack.gd" id="1_riy8y"]
+[ext_resource type="Script" uid="uid://crpieaj5vf52l" path="res://Scenes/Menus/Win/dancing_jack.gd" id="1_riy8y"]
 [ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="2_iiqqc"]
 [ext_resource type="ArrayMesh" uid="uid://cqyulqt3q6nir" path="res://Assets/Models/Jack/pistol.obj" id="3_q3tcv"]
 [ext_resource type="PackedScene" uid="uid://c6aitdcddsq0u" path="res://Scenes/VFX/vfx_tiro.tscn" id="4_puhur"]
@@ -3247,21 +3247,21 @@ tracks/28/keys = PackedFloat32Array(0, 1, 0.421676, 0.00967372, 0.0173386, 0.906
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjmli"]
 _data = {
-"Dying": SubResource("Animation_drx0b"),
-"Flip": SubResource("Animation_5fbe8"),
-"GangnamStyle": SubResource("Animation_46ix6"),
-"Gun": SubResource("Animation_gwdhu"),
-"Idle": SubResource("Animation_cnown"),
-"Idle2": SubResource("Animation_m4wx1"),
-"Jump": SubResource("Animation_p502n"),
-"Kick": SubResource("Animation_4vpfm"),
-"Pickup": SubResource("Animation_isne7"),
-"Punch": SubResource("Animation_nebph"),
-"Pushing": SubResource("Animation_b7t2s"),
-"Running": SubResource("Animation_v30wx"),
-"Taco": SubResource("Animation_h7ch5"),
-"Victory": SubResource("Animation_vtvpa"),
-"Walk": SubResource("Animation_hafk1")
+&"Dying": SubResource("Animation_drx0b"),
+&"Flip": SubResource("Animation_5fbe8"),
+&"GangnamStyle": SubResource("Animation_46ix6"),
+&"Gun": SubResource("Animation_gwdhu"),
+&"Idle": SubResource("Animation_cnown"),
+&"Idle2": SubResource("Animation_m4wx1"),
+&"Jump": SubResource("Animation_p502n"),
+&"Kick": SubResource("Animation_4vpfm"),
+&"Pickup": SubResource("Animation_isne7"),
+&"Punch": SubResource("Animation_nebph"),
+&"Pushing": SubResource("Animation_b7t2s"),
+&"Running": SubResource("Animation_v30wx"),
+&"Taco": SubResource("Animation_h7ch5"),
+&"Victory": SubResource("Animation_vtvpa"),
+&"Walk": SubResource("Animation_hafk1")
 }
 
 [node name="Jack" type="Node3D"]

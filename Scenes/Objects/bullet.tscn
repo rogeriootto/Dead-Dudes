@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://be0sy2l7y7m6t"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/bullet.gd" id="1_qn75y"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="2_35gtt"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="3_ug2l3"]
+[ext_resource type="Script" uid="uid://7yrtcs5oav3k" path="res://Scripts/Obstacles/bullet.gd" id="1_qn75y"]
+[ext_resource type="Shader" uid="uid://dnmlxuqyw37dr" path="res://GPUTrail-main/shaders/trail.gdshader" id="2_35gtt"]
+[ext_resource type="Shader" uid="uid://xylbhduktru6" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="3_ug2l3"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="4_ue2ks"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="5_s1502"]
-[ext_resource type="Script" path="res://GPUTrail-main/GPUTrail3D.gd" id="6_bl5ha"]
+[ext_resource type="Script" uid="uid://bt2loyckquh80" path="res://GPUTrail-main/GPUTrail3D.gd" id="6_bl5ha"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bywki"]
 albedo_color = Color(1, 1, 0, 1)
@@ -25,11 +25,11 @@ shader = ExtResource("2_35gtt")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ug2l3")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
 shader_parameter/tex = ExtResource("4_ue2ks")
 shader_parameter/color_ramp = ExtResource("4_ue2ks")
 shader_parameter/curve = ExtResource("5_s1502")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_qi17u"]
 material = SubResource("ShaderMaterial_jk7uo")

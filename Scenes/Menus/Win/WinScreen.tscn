@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnome4uhphuft"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="1_8rk7n"]
+[ext_resource type="Script" uid="uid://dqx63vylkymuv" path="res://Scenes/Menus/GameOver/Button.gd" id="1_8rk7n"]
 
 [node name="WinScreen" type="CanvasLayer"]
 

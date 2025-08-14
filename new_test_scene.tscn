@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://de5dhiaa2g7vq"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_jdojr"]
+[ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_jdojr"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_0bjb0"]
-[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="3_k34p0"]
+[ext_resource type="Script" uid="uid://b3hivvk4hwte" path="res://Scripts/Camera/GameCamera.gd" id="3_k34p0"]
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="4_lnybe"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="5_n2euh"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="6_wewg0"]

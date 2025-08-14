@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://dmb7pksfop3nb"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_l14i3"]
+[ext_resource type="Script" uid="uid://drxm8jnofxc86" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_l14i3"]
 [ext_resource type="Texture2D" uid="uid://h6nuacq3jmgt" path="res://Assets/Models/Background/Textures/Vehicle_Bus_3.png" id="2_efcjx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjj26"]
