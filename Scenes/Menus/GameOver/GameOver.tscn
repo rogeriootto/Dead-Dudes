@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsb6l7nd6k6v"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="1_6ffcp"]
-[ext_resource type="Script" path="res://Scenes/Menus/GameOver/game_over.gd" id="1_15ayt"]
+[ext_resource type="Script" uid="uid://dqx63vylkymuv" path="res://Scenes/Menus/GameOver/Button.gd" id="1_6ffcp"]
+[ext_resource type="Script" uid="uid://c6cvqdyhrba0k" path="res://Scenes/Menus/GameOver/game_over.gd" id="1_15ayt"]
 [ext_resource type="FontFile" uid="uid://dj81mxv5mbgbe" path="res://Assets/Fonts/Melted Monster.ttf" id="1_wqbgy"]
 [ext_resource type="PackedScene" uid="uid://5bic8mtgqw4o" path="res://Scenes/Objects/dancing_dude.tscn" id="4_ffee4"]
 

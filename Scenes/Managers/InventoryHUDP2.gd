@@ -2,6 +2,10 @@ extends TextureRect
 
 var boxSize: float = 32
 
+func _ready() -> void:
+	if !GlobalVariables.p2ShouldSpawn:
+		visible = false
+
 func _process(delta):
 	if HUDmanager.Player2InventorySize == 0:
 		self.visible = false

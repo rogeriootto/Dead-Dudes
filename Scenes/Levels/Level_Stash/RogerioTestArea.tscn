@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://hfpse5crrtm1"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_84ur6"]
+[ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_84ur6"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="1_uw8k8"]
-[ext_resource type="Script" path="res://Scripts/Camera/GameCamera.gd" id="2_es477"]
+[ext_resource type="Script" uid="uid://b3hivvk4hwte" path="res://Scripts/Camera/GameCamera.gd" id="2_es477"]
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_vfgw4"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="5_c1tuu"]
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="6_w4y36"]

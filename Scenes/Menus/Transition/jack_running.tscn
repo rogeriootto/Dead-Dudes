@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=4 uid="uid://cyj3sr0mnm7xh"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/jack_running.gd" id="1_krliw"]
+[ext_resource type="Script" uid="uid://be7r2h5h7pq5i" path="res://Scenes/Menus/Transition/jack_running.gd" id="1_krliw"]
 [ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="2_dkne7"]
 [ext_resource type="ArrayMesh" uid="uid://cqyulqt3q6nir" path="res://Assets/Models/Jack/pistol.obj" id="3_x83ny"]
 
@@ -3038,20 +3038,20 @@ tracks/28/keys = PackedFloat32Array(0, 1, 0.421676, 0.00967372, 0.0173386, 0.906
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjmli"]
 _data = {
-"Dying": SubResource("Animation_drx0b"),
-"Flip": SubResource("Animation_5fbe8"),
-"Gun": SubResource("Animation_gwdhu"),
-"Idle": SubResource("Animation_cnown"),
-"Idle2": SubResource("Animation_m4wx1"),
-"Jump": SubResource("Animation_p502n"),
-"Kick": SubResource("Animation_4vpfm"),
-"Pickup": SubResource("Animation_isne7"),
-"Punch": SubResource("Animation_nebph"),
-"Pushing": SubResource("Animation_b7t2s"),
-"Running": SubResource("Animation_v30wx"),
-"Taco": SubResource("Animation_h7ch5"),
-"Victory": SubResource("Animation_vtvpa"),
-"Walk": SubResource("Animation_hafk1")
+&"Dying": SubResource("Animation_drx0b"),
+&"Flip": SubResource("Animation_5fbe8"),
+&"Gun": SubResource("Animation_gwdhu"),
+&"Idle": SubResource("Animation_cnown"),
+&"Idle2": SubResource("Animation_m4wx1"),
+&"Jump": SubResource("Animation_p502n"),
+&"Kick": SubResource("Animation_4vpfm"),
+&"Pickup": SubResource("Animation_isne7"),
+&"Punch": SubResource("Animation_nebph"),
+&"Pushing": SubResource("Animation_b7t2s"),
+&"Running": SubResource("Animation_v30wx"),
+&"Taco": SubResource("Animation_h7ch5"),
+&"Victory": SubResource("Animation_vtvpa"),
+&"Walk": SubResource("Animation_hafk1")
 }
 
 [node name="Jack" type="Node3D"]

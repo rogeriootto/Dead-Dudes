@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqel614dkd1lh"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Win/WinTrigger.gd" id="1_qkgab"]
+[ext_resource type="Script" uid="uid://cdejo3ax0gfgq" path="res://Scenes/Menus/Win/WinTrigger.gd" id="1_qkgab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rifg6"]
 

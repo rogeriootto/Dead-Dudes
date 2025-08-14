@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpf1i1rud5ovh"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Loading/loading.gd" id="1_t6xw4"]
-[ext_resource type="VideoStream" path="res://Assets/Movies/loading.ogv" id="2_l2g17"]
+[ext_resource type="Script" uid="uid://id2c3hmy234y" path="res://Scenes/Menus/Loading/loading.gd" id="1_t6xw4"]
+[ext_resource type="VideoStream" uid="uid://drbqa8qr76ojm" path="res://Assets/Movies/loading.ogv" id="2_l2g17"]
 [ext_resource type="Texture2D" uid="uid://bbwtc0glxofgj" path="res://Assets/Logo/Logo (2).png" id="3_01xe2"]
 
 [node name="Loading" type="CanvasLayer"]

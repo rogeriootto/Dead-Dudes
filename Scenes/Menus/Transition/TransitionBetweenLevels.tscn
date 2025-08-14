@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://brxccltqw6gk4"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/transition_between_levels.gd" id="1_2ku4d"]
+[ext_resource type="Script" uid="uid://c1bfurvcu0ulp" path="res://Scenes/Menus/Transition/transition_between_levels.gd" id="1_2ku4d"]
 [ext_resource type="PackedScene" uid="uid://cyj3sr0mnm7xh" path="res://Scenes/Menus/Transition/jack_running.tscn" id="2_8qbiw"]
 [ext_resource type="PackedScene" uid="uid://v655wa0wc4bj" path="res://Scenes/Menus/Transition/john_running.tscn" id="3_st4h0"]
 [ext_resource type="PackedScene" uid="uid://5bic8mtgqw4o" path="res://Scenes/Objects/dancing_dude.tscn" id="4_ld851"]
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/dead_running1.gd" id="5_0qqtb"]
+[ext_resource type="Script" uid="uid://in7ogk05d100" path="res://Scenes/Menus/Transition/dead_running1.gd" id="5_0qqtb"]
 [ext_resource type="PackedScene" uid="uid://tqenn4ebbawg" path="res://Scenes/Objects/dancing_dude2.tscn" id="7_57gh8"]
 [ext_resource type="PackedScene" uid="uid://bom0eja3gdel7" path="res://Scenes/Objects/dancing_dude3.tscn" id="7_dpreg"]
-[ext_resource type="Script" path="res://Scenes/Menus/Transition/dead_running2.gd" id="7_rgobo"]
+[ext_resource type="Script" uid="uid://bdf4ohss70ves" path="res://Scenes/Menus/Transition/dead_running2.gd" id="7_rgobo"]
 
 [sub_resource type="Animation" id="Animation_k3h8q"]
 length = 0.001
@@ -1077,9 +1077,9 @@ resource_name = "keep"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uq44y"]
 _data = {
-"RESET": SubResource("Animation_k3h8q"),
-"fade_in": SubResource("Animation_mrd0t"),
-"keep": SubResource("Animation_oh17f")
+&"RESET": SubResource("Animation_k3h8q"),
+&"fade_in": SubResource("Animation_mrd0t"),
+&"keep": SubResource("Animation_oh17f")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51trq"]

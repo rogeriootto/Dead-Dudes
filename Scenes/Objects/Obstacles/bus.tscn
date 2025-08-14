@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://bvc05m6p1amtj"]
 
 [ext_resource type="Texture2D" uid="uid://h6nuacq3jmgt" path="res://Assets/Models/Background/Textures/Vehicle_Bus_3.png" id="1_1y57g"]
-[ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_2mdjp"]
+[ext_resource type="Script" uid="uid://drxm8jnofxc86" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_2mdjp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jti1v"]
 albedo_texture = ExtResource("1_1y57g")

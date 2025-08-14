@@ -1,25 +1,25 @@
 [gd_scene load_steps=42 format=4 uid="uid://4t2p680180rg"]
 
-[ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
+[ext_resource type="Script" uid="uid://c2d4007ikftnk" path="res://Scripts/Players/Jack/Player.gd" id="1_6pykx"]
 [ext_resource type="Texture2D" uid="uid://uufgagrbu8vu" path="res://Assets/Models/Jack/jack_new_char-basic.png" id="1_gm2oo"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="3_1uyk6"]
+[ext_resource type="Script" uid="uid://dabggprv14g25" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="3_1uyk6"]
 [ext_resource type="ArrayMesh" uid="uid://cqyulqt3q6nir" path="res://Assets/Models/Jack/pistol.obj" id="3_c1gog"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="4_bkvvp"]
+[ext_resource type="Script" uid="uid://bawcnx18vqljq" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="4_bkvvp"]
 [ext_resource type="PackedScene" uid="uid://c6aitdcddsq0u" path="res://Scenes/VFX/vfx_tiro.tscn" id="4_loq8p"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="5_faxpn"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="6_72ui3"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="7_mv8pv"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="8_jubk0"]
+[ext_resource type="Script" uid="uid://c8sgmu6rnjeko" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="5_faxpn"]
+[ext_resource type="Script" uid="uid://bfoppxtc80pgx" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="6_72ui3"]
+[ext_resource type="Script" uid="uid://cwcow385r5oqy" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="7_mv8pv"]
+[ext_resource type="Script" uid="uid://d1tsqwd5d1e2p" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="8_jubk0"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="9_pagb7"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_6m32d"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_mucv2"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_5y7rt"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="13_bon1w"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_7dwtj"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="14_gs356"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/JackSpecialAttack.gd" id="15_vqvta"]
+[ext_resource type="Script" uid="uid://drex52grfscla" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_6m32d"]
+[ext_resource type="Script" uid="uid://bm854odur574d" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_mucv2"]
+[ext_resource type="Script" uid="uid://ccbjgnirk6ejh" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_5y7rt"]
+[ext_resource type="Script" uid="uid://dmutfqhiwuigg" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="13_bon1w"]
+[ext_resource type="Script" uid="uid://dnw367ahrdk2e" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_7dwtj"]
+[ext_resource type="Script" uid="uid://cxlgycl2v0f6f" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="14_gs356"]
+[ext_resource type="Script" uid="uid://3qdyn2m4uvqu" path="res://Scripts/Players/Jack/JackSpecialAttack.gd" id="15_vqvta"]
 [ext_resource type="Texture2D" uid="uid://b86l4hbpimtp4" path="res://Assets/HUD/interaction.png" id="18_f0w31"]
-[ext_resource type="Script" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_b4b7t"]
+[ext_resource type="Script" uid="uid://dgfth172os8a7" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_b4b7t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi81c"]
 resource_name = "palettemat"
@@ -3263,21 +3263,21 @@ tracks/28/keys = PackedFloat32Array(0, 1, 0.421676, 0.00967372, 0.0173386, 0.906
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjmli"]
 _data = {
-"Dying": SubResource("Animation_drx0b"),
-"Flip": SubResource("Animation_5fbe8"),
-"GangnamStyle": SubResource("Animation_46ix6"),
-"Gun": SubResource("Animation_gwdhu"),
-"Idle": SubResource("Animation_cnown"),
-"Idle2": SubResource("Animation_m4wx1"),
-"Jump": SubResource("Animation_p502n"),
-"Kick": SubResource("Animation_4vpfm"),
-"Pickup": SubResource("Animation_isne7"),
-"Punch": SubResource("Animation_nebph"),
-"Pushing": SubResource("Animation_b7t2s"),
-"Running": SubResource("Animation_v30wx"),
-"Taco": SubResource("Animation_h7ch5"),
-"Victory": SubResource("Animation_vtvpa"),
-"Walk": SubResource("Animation_hafk1")
+&"Dying": SubResource("Animation_drx0b"),
+&"Flip": SubResource("Animation_5fbe8"),
+&"GangnamStyle": SubResource("Animation_46ix6"),
+&"Gun": SubResource("Animation_gwdhu"),
+&"Idle": SubResource("Animation_cnown"),
+&"Idle2": SubResource("Animation_m4wx1"),
+&"Jump": SubResource("Animation_p502n"),
+&"Kick": SubResource("Animation_4vpfm"),
+&"Pickup": SubResource("Animation_isne7"),
+&"Punch": SubResource("Animation_nebph"),
+&"Pushing": SubResource("Animation_b7t2s"),
+&"Running": SubResource("Animation_v30wx"),
+&"Taco": SubResource("Animation_h7ch5"),
+&"Victory": SubResource("Animation_vtvpa"),
+&"Walk": SubResource("Animation_hafk1")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8p8mx"]

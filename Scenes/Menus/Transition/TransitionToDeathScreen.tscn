@@ -72,9 +72,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yxxie"]
 _data = {
-"RESET": SubResource("Animation_1eucy"),
-"fade_in": SubResource("Animation_ri3ny"),
-"fade_out": SubResource("Animation_o4qgp")
+&"RESET": SubResource("Animation_1eucy"),
+&"fade_in": SubResource("Animation_ri3ny"),
+&"fade_out": SubResource("Animation_o4qgp")
 }
 
 [node name="TransitionToDeathScreen" type="CanvasLayer"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://50ag862ghg6i"]
 
-[ext_resource type="Script" path="res://Scenes/VFX/vfx-default.gd" id="1_l5h2i"]
+[ext_resource type="Script" uid="uid://rkldho7fk6qf" path="res://Scenes/VFX/vfx-default.gd" id="1_l5h2i"]
 
 [sub_resource type="Gradient" id="Gradient_m5ihd"]
 colors = PackedColorArray(0.563264, 0.066032, 0.0714822, 1, 0.443137, 0, 0.0901961, 1)

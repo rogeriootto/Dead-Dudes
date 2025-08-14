@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://cvo16d804tnjh"]
 
 [ext_resource type="Texture2D" uid="uid://b4p1buct1jubl" path="res://Assets/Models/Background/Textures/Props_Props_01.png" id="1_qhxxc"]
-[ext_resource type="Script" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_tl0eb"]
+[ext_resource type="Script" uid="uid://drxm8jnofxc86" path="res://Scripts/Obstacles/NonMovableObstacle.gd" id="1_tl0eb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_al6re"]
 albedo_texture = ExtResource("1_qhxxc")

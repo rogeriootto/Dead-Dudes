@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dja601dlylsph"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/Win/win.gd" id="1_273er"]
+[ext_resource type="Script" uid="uid://b8nhf2ofurhpj" path="res://Scenes/Menus/Win/win.gd" id="1_273er"]
 [ext_resource type="FontFile" uid="uid://dj81mxv5mbgbe" path="res://Assets/Fonts/Melted Monster.ttf" id="2_8nj7n"]
-[ext_resource type="Script" path="res://Scenes/Menus/GameOver/Button.gd" id="3_d38ku"]
+[ext_resource type="Script" uid="uid://dqx63vylkymuv" path="res://Scenes/Menus/GameOver/Button.gd" id="3_d38ku"]
 [ext_resource type="PackedScene" uid="uid://xfg1du7s4adb" path="res://Scenes/Menus/Win/dancing-jack.tscn" id="4_uwfds"]
 [ext_resource type="PackedScene" uid="uid://iivancsvcb8w" path="res://Scenes/Menus/Win/dancing-john.tscn" id="5_n3265"]
 
@@ -68,9 +68,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -128.0
+offset_top = -178.0
 offset_right = 300.0
-offset_bottom = 176.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -84,15 +84,6 @@ theme_override_font_sizes/normal_font_size = 101
 bbcode_enabled = true
 text = "[center]Obrigado
 por jogar"
-fit_content = true
-
-[node name="SubTitle" type="RichTextLabel" parent="GameOver/VBoxContainer"]
-clip_contents = false
-custom_minimum_size = Vector2(500, 150)
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[center]Avalie o nosso jogo no form :)"
 fit_content = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="GameOver"]
@@ -113,7 +104,7 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Resetar fase"
+text = "Reiniciar jogo"
 script = ExtResource("3_d38ku")
 
 [node name="Camera3D" type="Camera3D" parent="."]

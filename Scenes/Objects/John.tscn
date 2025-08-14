@@ -1,30 +1,30 @@
 [gd_scene load_steps=54 format=4 uid="uid://c3wxmcjxt0lg8"]
 
-[ext_resource type="Script" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
+[ext_resource type="Script" uid="uid://c2d4007ikftnk" path="res://Scripts/Players/Jack/Player.gd" id="1_2qywr"]
 [ext_resource type="Texture2D" uid="uid://b5x75niu7704v" path="res://Assets/Models/John/john_john-basic.png" id="1_suxmb"]
 [ext_resource type="PackedScene" uid="uid://drmg82js56bw5" path="res://Scenes/Managers/Interaction/interactionArea.tscn" id="3_o2jre"]
 [ext_resource type="Texture2D" uid="uid://irb4vqkub6uj" path="res://Assets/Models/John/golfclub.png" id="3_tdbi6"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="4_l8tnx"]
+[ext_resource type="Script" uid="uid://dabggprv14g25" path="res://Scripts/Players/Jack/States/PlayerStateMachine.gd" id="4_l8tnx"]
 [ext_resource type="PackedScene" uid="uid://ce6m0a33h2645" path="res://Scenes/VFX/vfx_trail_taco.tscn" id="4_rvhvk"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="5_r3j2q"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="5_rxkvg"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="6_6vhil"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_753ss"]
+[ext_resource type="Shader" uid="uid://dnmlxuqyw37dr" path="res://GPUTrail-main/shaders/trail.gdshader" id="5_r3j2q"]
+[ext_resource type="Script" uid="uid://bawcnx18vqljq" path="res://Scripts/Players/Jack/States/PlayerGroundedState.gd" id="5_rxkvg"]
+[ext_resource type="Script" uid="uid://c8sgmu6rnjeko" path="res://Scripts/Players/Jack/States/PlayerIdleState.gd" id="6_6vhil"]
+[ext_resource type="Shader" uid="uid://xylbhduktru6" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_753ss"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="7_1sjq4"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="7_dik4q"]
+[ext_resource type="Script" uid="uid://bfoppxtc80pgx" path="res://Scripts/Players/Jack/States/PlayerWalkingState.gd" id="7_dik4q"]
 [ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="8_fb5jy"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="8_xqrra"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="9_dv6ri"]
+[ext_resource type="Script" uid="uid://cwcow385r5oqy" path="res://Scripts/Players/Jack/States/PlayerRunState.gd" id="8_xqrra"]
+[ext_resource type="Script" uid="uid://d1tsqwd5d1e2p" path="res://Scripts/Players/Jack/States/PlayerBuilding.gd" id="9_dv6ri"]
 [ext_resource type="Texture2D" uid="uid://b7gp5cmwwqjc8" path="res://GPUTrail-main/textures/T_VFX_Trail223.png" id="9_e0bva"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_eltgk"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_d8rt1"]
-[ext_resource type="Script" path="res://Scripts/Players/John/JohnAttack.gd" id="13_4fw3o"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_gihen"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="14_3obfa"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_a1xn6"]
-[ext_resource type="Script" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="15_b0liw"]
+[ext_resource type="Script" uid="uid://drex52grfscla" path="res://Scripts/Players/Jack/States/PlayerMovingObstacleState.gd" id="10_eltgk"]
+[ext_resource type="Script" uid="uid://bm854odur574d" path="res://Scripts/Players/Jack/States/PlayerPickingUpState.gd" id="11_d8rt1"]
+[ext_resource type="Script" uid="uid://b2yomwrmue27o" path="res://Scripts/Players/John/JohnAttack.gd" id="13_4fw3o"]
+[ext_resource type="Script" uid="uid://ccbjgnirk6ejh" path="res://Scripts/Players/Jack/States/PlayerJump.gd" id="13_gihen"]
+[ext_resource type="Script" uid="uid://dmutfqhiwuigg" path="res://Scripts/Players/Jack/States/NormalAttackState.gd" id="14_3obfa"]
+[ext_resource type="Script" uid="uid://dnw367ahrdk2e" path="res://Scripts/Players/Jack/States/PlayerChangeScene.gd" id="14_a1xn6"]
+[ext_resource type="Script" uid="uid://cxlgycl2v0f6f" path="res://Scripts/Players/Jack/States/PlayerDying.gd" id="15_b0liw"]
 [ext_resource type="Texture2D" uid="uid://b86l4hbpimtp4" path="res://Assets/HUD/interaction.png" id="18_mqhyj"]
-[ext_resource type="Script" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_w534f"]
+[ext_resource type="Script" uid="uid://dgfth172os8a7" path="res://Scenes/Objects/InteractionLookAt.gd" id="19_w534f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fl7o"]
 resource_name = "palettemat"
@@ -202,11 +202,11 @@ shader = ExtResource("5_r3j2q")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_753ss")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 42
 shader_parameter/tex = ExtResource("9_e0bva")
 shader_parameter/color_ramp = ExtResource("7_1sjq4")
 shader_parameter/curve = ExtResource("8_fb5jy")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 42
 
 [sub_resource type="QuadMesh" id="QuadMesh_sjmpn"]
 material = SubResource("ShaderMaterial_xmlf6")
@@ -3434,21 +3434,21 @@ tracks/28/keys = PackedFloat32Array(0, 1, 0.386567, 0.0150418, 0.0135024, 0.9220
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_euatw"]
 _data = {
-"Dying": SubResource("Animation_ssune"),
-"Flip": SubResource("Animation_psgnk"),
-"GangnamStyle": SubResource("Animation_5ajpe"),
-"Gun": SubResource("Animation_q7jhj"),
-"Idle": SubResource("Animation_4exuq"),
-"Idle2": SubResource("Animation_pwd7p"),
-"Jump": SubResource("Animation_uvdss"),
-"Kick": SubResource("Animation_75g3c"),
-"Pickup": SubResource("Animation_ng3bj"),
-"Punch": SubResource("Animation_2v8el"),
-"Pushing": SubResource("Animation_3qhhu"),
-"RESET": SubResource("Animation_fygyv"),
-"Running": SubResource("Animation_aordu"),
-"Taco": SubResource("Animation_3mcau"),
-"Walk": SubResource("Animation_1gskq")
+&"Dying": SubResource("Animation_ssune"),
+&"Flip": SubResource("Animation_psgnk"),
+&"GangnamStyle": SubResource("Animation_5ajpe"),
+&"Gun": SubResource("Animation_q7jhj"),
+&"Idle": SubResource("Animation_4exuq"),
+&"Idle2": SubResource("Animation_pwd7p"),
+&"Jump": SubResource("Animation_uvdss"),
+&"Kick": SubResource("Animation_75g3c"),
+&"Pickup": SubResource("Animation_ng3bj"),
+&"Punch": SubResource("Animation_2v8el"),
+&"Pushing": SubResource("Animation_3qhhu"),
+&"RESET": SubResource("Animation_fygyv"),
+&"Running": SubResource("Animation_aordu"),
+&"Taco": SubResource("Animation_3mcau"),
+&"Walk": SubResource("Animation_1gskq")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_33ak5"]
