@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bynn1kttx7tcg"]
+
+[ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_32nxq"]
+[ext_resource type="Script" uid="uid://2q6fn161lhvg" path="res://Scripts/Camera/GameCamera.gd" id="2_p2tvm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqv62"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1j4q1"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_h0mw8"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_iold4"]
+vertices = PackedVector3Array(-10, 0.5, 10, 10, 0.5, -10, 10, 0.5, 10, -10, 0.5, -10, -10, -0.5, 10, 10, -0.5, -10, 10, -0.5, 10, -10, -0.5, -10, 10, 0.5, 10, -10, 0.5, -10, 10, 0.5, -10, -10, 0.5, 10, 10, -0.5, 10, -10, -0.5, -10, 10, -0.5, -10, -10, -0.5, 10, 10, 0.5, 10, -10, -0.5, 10, -10, 0.5, 10, 10, -0.5, 10, 10, 0.5, -10, -10, -0.5, -10, -10, 0.5, -10, 10, -0.5, -10)
+polygons = [PackedInt32Array(0, 2, 4), PackedInt32Array(2, 6, 4), PackedInt32Array(1, 3, 5), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 10, 12), PackedInt32Array(10, 14, 12), PackedInt32Array(9, 11, 13), PackedInt32Array(11, 15, 13), PackedInt32Array(16, 18, 20), PackedInt32Array(18, 22, 20), PackedInt32Array(17, 19, 21), PackedInt32Array(19, 23, 21)]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tmthw"]
+data = PackedVector3Array(-10, 0.5, 10, 10, 0.5, 10, -10, -0.5, 10, 10, 0.5, 10, 10, -0.5, 10, -10, -0.5, 10, 10, 0.5, -10, -10, 0.5, -10, 10, -0.5, -10, -10, 0.5, -10, -10, -0.5, -10, 10, -0.5, -10, 10, 0.5, 10, 10, 0.5, -10, 10, -0.5, 10, 10, 0.5, -10, 10, -0.5, -10, 10, -0.5, 10, -10, 0.5, -10, -10, 0.5, 10, -10, -0.5, -10, -10, 0.5, 10, -10, -0.5, 10, -10, -0.5, -10, 10, 0.5, 10, -10, 0.5, 10, 10, 0.5, -10, -10, 0.5, 10, -10, 0.5, -10, 10, 0.5, -10, -10, -0.5, 10, 10, -0.5, 10, -10, -0.5, -10, 10, -0.5, 10, 10, -0.5, -10, -10, -0.5, -10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcy0u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i0432"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_chjld"]
+vertices = PackedVector3Array(-10, 0.5, 10, 10, 0.5, -10, 10, 0.5, 10, -10, 0.5, -10, -10, -0.5, 10, 10, -0.5, -10, 10, -0.5, 10, -10, -0.5, -10, 10, 0.5, 10, -10, 0.5, -10, 10, 0.5, -10, -10, 0.5, 10, 10, -0.5, 10, -10, -0.5, -10, 10, -0.5, -10, -10, -0.5, 10, 10, 0.5, 10, -10, -0.5, 10, -10, 0.5, 10, 10, -0.5, 10, 10, 0.5, -10, -10, -0.5, -10, -10, 0.5, -10, 10, -0.5, -10)
+polygons = [PackedInt32Array(0, 2, 4), PackedInt32Array(2, 6, 4), PackedInt32Array(1, 3, 5), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 10, 12), PackedInt32Array(10, 14, 12), PackedInt32Array(9, 11, 13), PackedInt32Array(11, 15, 13), PackedInt32Array(16, 18, 20), PackedInt32Array(18, 22, 20), PackedInt32Array(17, 19, 21), PackedInt32Array(19, 23, 21)]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_agfr3"]
+data = PackedVector3Array(-10, 0.5, 10, 10, 0.5, 10, -10, -0.5, 10, 10, 0.5, 10, 10, -0.5, 10, -10, -0.5, 10, 10, 0.5, -10, -10, 0.5, -10, 10, -0.5, -10, -10, 0.5, -10, -10, -0.5, -10, 10, -0.5, -10, 10, 0.5, 10, 10, 0.5, -10, 10, -0.5, 10, 10, 0.5, -10, 10, -0.5, -10, 10, -0.5, 10, -10, 0.5, -10, -10, 0.5, 10, -10, -0.5, -10, -10, 0.5, 10, -10, -0.5, 10, -10, -0.5, -10, 10, 0.5, 10, -10, 0.5, 10, 10, 0.5, -10, -10, 0.5, 10, -10, 0.5, -10, 10, 0.5, -10, -10, -0.5, 10, 10, -0.5, 10, -10, -0.5, -10, 10, -0.5, 10, 10, -0.5, -10, -10, -0.5, -10)
+
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_32nxq")
+player1SpawnPoint = Vector3(0, 2, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76561, 0, 0)
+material_override = SubResource("StandardMaterial3D_cqv62")
+mesh = SubResource("BoxMesh_1j4q1")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="StaticBody3D/MeshInstance3D"]
+navigation_mesh = SubResource("NavigationMesh_h0mw8")
+
+[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="StaticBody3D/MeshInstance3D"]
+navigation_mesh = SubResource("NavigationMesh_iold4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76561, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_tmthw")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7768, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2478, 0, 0)
+material_override = SubResource("StandardMaterial3D_qcy0u")
+mesh = SubResource("BoxMesh_i0432")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="StaticBody3D2/MeshInstance3D"]
+navigation_mesh = SubResource("NavigationMesh_chjld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11921, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_agfr3")
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(0.999803, 0.00492273, 0.0192119, -0.0113944, 0.935447, 0.353283, -0.0162326, -0.353432, 0.935319, 7.77508, 11.036, 28.9164)
+projection = 1
+current = true
+size = 14.402
+script = ExtResource("2_p2tvm")
+offset = Vector3(4, 20, 45)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.918066, -0.290367, 0.269892, 0, 0.680811, 0.732459, -0.396427, -0.672446, 0.62503, 9.51741, 0.246298, 2.20963)
+light_energy = 0.5
+shadow_enabled = true
+shadow_blur = 1.101

@@ -1,0 +1,965 @@
+[gd_scene load_steps=10 format=3 uid="uid://d6u5xkptujsk"]
+
+[ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_ymxju"]
+[ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_2h6v6"]
+[ext_resource type="Script" uid="uid://2q6fn161lhvg" path="res://Scripts/Camera/GameCamera.gd" id="3_ixw4g"]
+[ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="4_dcsq4"]
+[ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="5_dhxii"]
+[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="6_dylui"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_44pqp"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihaik"]
+albedo_color = Color(0.995629, 0.995624, 0.995147, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oyka8"]
+size = Vector3(50, 1, 50)
+
+[node name="Grid1" type="Node3D"]
+script = ExtResource("1_ymxju")
+player1SpawnPoint = Vector3(21, 2.884, 21)
+
+[node name="Astar" parent="." instance=ExtResource("2_2h6v6")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.999999, 0, -0.999999, -4.37114e-08, 0, 0, 0)
+current = true
+fov = 67.6
+size = 14.402
+script = ExtResource("3_ixw4g")
+offset = Vector3(0, 35, 0)
+
+[node name="Scene" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Scene" groups=["pathable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene/Floor"]
+shape = SubResource("BoxShape3D_44pqp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scene/Floor"]
+material_override = SubResource("StandardMaterial3D_ihaik")
+mesh = SubResource("BoxMesh_oyka8")
+
+[node name="Level_limit" type="Node3D" parent="Scene"]
+
+[node name="box_small2" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.195, 1.25092, 24.1437)
+
+[node name="box_small3" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.195, 2.88367, 24.1437)
+
+[node name="box_small4" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7515, 1.25092, 24.1437)
+
+[node name="box_small5" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7515, 2.88367, 24.1437)
+
+[node name="box_small6" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1976, 1.25092, 24.1437)
+
+[node name="box_small7" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1976, 2.88367, 24.1437)
+
+[node name="box_small8" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6474, 1.25092, 24.1437)
+
+[node name="box_small9" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6474, 2.88367, 24.1437)
+
+[node name="box_small10" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2039, 1.25092, 24.1437)
+
+[node name="box_small11" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2039, 2.88367, 24.1437)
+
+[node name="box_small12" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.65, 1.25092, 24.1437)
+
+[node name="box_small13" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.65, 2.88367, 24.1437)
+
+[node name="box_small14" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1927, 1.25092, 24.1437)
+
+[node name="box_small15" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1927, 2.88367, 24.1437)
+
+[node name="box_small16" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7492, 1.25092, 24.1437)
+
+[node name="box_small17" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7492, 2.88367, 24.1437)
+
+[node name="box_small18" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1953, 1.25092, 24.1437)
+
+[node name="box_small19" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1953, 2.88367, 24.1437)
+
+[node name="box_small20" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 22.6195)
+
+[node name="box_small21" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 22.6195)
+
+[node name="box_small22" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 21.0629)
+
+[node name="box_small23" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 21.0629)
+
+[node name="box_small24" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 19.6168)
+
+[node name="box_small25" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 19.6168)
+
+[node name="box_small26" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 18.2126)
+
+[node name="box_small27" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 18.2126)
+
+[node name="box_small28" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 16.656)
+
+[node name="box_small29" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 16.656)
+
+[node name="box_small30" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 15.2099)
+
+[node name="box_small31" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 15.2099)
+
+[node name="box_small32" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 13.5741)
+
+[node name="box_small33" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 13.5741)
+
+[node name="box_small34" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 12.0176)
+
+[node name="box_small35" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 12.0176)
+
+[node name="box_small36" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 10.5715)
+
+[node name="box_small37" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 10.5715)
+
+[node name="box_small38" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 9.14378)
+
+[node name="box_small39" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 9.14378)
+
+[node name="box_small40" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 7.58725)
+
+[node name="box_small41" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 7.58725)
+
+[node name="box_small42" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 6.14114)
+
+[node name="box_small43" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 6.14114)
+
+[node name="box_small44" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 4.59189)
+
+[node name="box_small45" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 4.59189)
+
+[node name="box_small46" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 3.03536)
+
+[node name="box_small47" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 3.03536)
+
+[node name="box_small48" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 1.58925)
+
+[node name="box_small49" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 1.58925)
+
+[node name="box_small50" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, 0.165937)
+
+[node name="box_small51" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, 0.165937)
+
+[node name="box_small52" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -1.3906)
+
+[node name="box_small53" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -1.3906)
+
+[node name="box_small54" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -2.83671)
+
+[node name="box_small55" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -2.83671)
+
+[node name="box_small56" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -4.3089)
+
+[node name="box_small57" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -4.3089)
+
+[node name="box_small58" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -5.86543)
+
+[node name="box_small59" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -5.86543)
+
+[node name="box_small60" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -7.31154)
+
+[node name="box_small61" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -7.31154)
+
+[node name="box_small62" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -8.92515)
+
+[node name="box_small63" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -8.92515)
+
+[node name="box_small64" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -10.4817)
+
+[node name="box_small65" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -10.4817)
+
+[node name="box_small66" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -11.9278)
+
+[node name="box_small67" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -11.9278)
+
+[node name="box_small68" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -13.6463)
+
+[node name="box_small69" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -13.6463)
+
+[node name="box_small70" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -15.2028)
+
+[node name="box_small71" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -15.2028)
+
+[node name="box_small72" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -16.6489)
+
+[node name="box_small73" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -16.6489)
+
+[node name="box_small74" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -18.0901)
+
+[node name="box_small75" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -18.0901)
+
+[node name="box_small76" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -19.6466)
+
+[node name="box_small77" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -19.6466)
+
+[node name="box_small78" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 1.25092, -21.0928)
+
+[node name="box_small79" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.256, 2.88367, -21.0928)
+
+[node name="box_small80" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.0707, 1.25092, -24.2542)
+
+[node name="box_small81" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.0707, 2.88367, -24.2542)
+
+[node name="box_small82" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 22.5141, 1.25092, -24.2542)
+
+[node name="box_small83" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 22.5141, 2.88367, -24.2542)
+
+[node name="box_small84" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.068, 1.25092, -24.2542)
+
+[node name="box_small85" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.068, 2.88367, -24.2542)
+
+[node name="box_small88" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 19.5477, 1.25092, -24.2542)
+
+[node name="box_small89" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 19.5477, 2.88367, -24.2542)
+
+[node name="box_small90" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.9911, 1.25092, -24.2542)
+
+[node name="box_small91" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.9911, 2.88367, -24.2542)
+
+[node name="box_small92" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.545, 1.25092, -24.2542)
+
+[node name="box_small93" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.545, 2.88367, -24.2542)
+
+[node name="box_small94" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.0172, 1.25092, -24.2542)
+
+[node name="box_small95" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.0172, 2.88367, -24.2542)
+
+[node name="box_small96" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.4606, 1.25092, -24.2542)
+
+[node name="box_small97" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.4606, 2.88367, -24.2542)
+
+[node name="box_small98" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.0145, 1.25092, -24.2542)
+
+[node name="box_small99" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.0145, 2.88367, -24.2542)
+
+[node name="box_small100" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.4942, 1.25092, -24.2542)
+
+[node name="box_small101" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.4942, 2.88367, -24.2542)
+
+[node name="box_small102" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.93763, 1.25092, -24.2542)
+
+[node name="box_small103" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.93763, 2.88367, -24.2542)
+
+[node name="box_small104" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.49152, 1.25092, -24.2542)
+
+[node name="box_small105" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.49152, 2.88367, -24.2542)
+
+[node name="box_small106" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.90103, 1.25092, -24.2542)
+
+[node name="box_small107" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.90103, 2.88367, -24.2542)
+
+[node name="box_small108" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3445, 1.25092, -24.2542)
+
+[node name="box_small109" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3445, 2.88367, -24.2542)
+
+[node name="box_small110" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.89839, 1.25092, -24.2542)
+
+[node name="box_small111" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.89839, 2.88367, -24.2542)
+
+[node name="box_small112" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.37801, 1.25092, -24.2542)
+
+[node name="box_small113" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.37801, 2.88367, -24.2542)
+
+[node name="box_small114" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.178526, 1.25092, -24.2542)
+
+[node name="box_small115" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.178526, 2.88367, -24.2542)
+
+[node name="box_small116" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.62464, 1.25092, -24.2542)
+
+[node name="box_small117" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.62464, 2.88367, -24.2542)
+
+[node name="box_small118" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.1598, 1.25092, -24.2542)
+
+[node name="box_small119" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.1598, 2.88367, -24.2542)
+
+[node name="box_small120" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.71633, 1.25092, -24.2542)
+
+[node name="box_small121" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.71633, 2.88367, -24.2542)
+
+[node name="box_small122" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.16244, 1.25092, -24.2542)
+
+[node name="box_small123" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.16244, 2.88367, -24.2542)
+
+[node name="box_small124" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.68282, 1.25092, -24.2542)
+
+[node name="box_small125" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.68282, 2.88367, -24.2542)
+
+[node name="box_small126" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.23935, 1.25092, -24.2542)
+
+[node name="box_small127" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.23935, 2.88367, -24.2542)
+
+[node name="box_small128" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.6855, 1.25092, -24.2542)
+
+[node name="box_small129" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.6855, 2.88367, -24.2542)
+
+[node name="box_small130" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.3248, 1.25092, -24.2542)
+
+[node name="box_small131" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.3248, 2.88367, -24.2542)
+
+[node name="box_small132" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.8813, 1.25092, -24.2542)
+
+[node name="box_small133" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.8813, 2.88367, -24.2542)
+
+[node name="box_small134" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.3274, 1.25092, -24.2542)
+
+[node name="box_small135" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.3274, 2.88367, -24.2542)
+
+[node name="box_small136" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16.8478, 1.25092, -24.2542)
+
+[node name="box_small137" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16.8478, 2.88367, -24.2542)
+
+[node name="box_small138" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.4043, 1.25092, -24.2542)
+
+[node name="box_small139" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.4043, 2.88367, -24.2542)
+
+[node name="box_small140" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8505, 1.25092, -24.2542)
+
+[node name="box_small141" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8505, 2.88367, -24.2542)
+
+[node name="box_small142" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -24.3573)
+
+[node name="box_small143" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -24.3573)
+
+[node name="box_small144" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -22.8007)
+
+[node name="box_small145" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -22.8007)
+
+[node name="box_small146" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -21.3546)
+
+[node name="box_small147" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -21.3546)
+
+[node name="box_small148" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -19.8343)
+
+[node name="box_small149" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -19.8343)
+
+[node name="box_small150" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -18.2777)
+
+[node name="box_small151" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -18.2777)
+
+[node name="box_small152" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -16.8316)
+
+[node name="box_small153" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -16.8316)
+
+[node name="box_small154" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -15.312)
+
+[node name="box_small155" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -15.312)
+
+[node name="box_small156" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -13.7554)
+
+[node name="box_small157" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -13.7554)
+
+[node name="box_small158" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -12.3093)
+
+[node name="box_small159" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -12.3093)
+
+[node name="box_small160" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -10.7889)
+
+[node name="box_small161" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -10.7889)
+
+[node name="box_small162" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -9.23241)
+
+[node name="box_small163" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -9.23241)
+
+[node name="box_small164" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -7.7863)
+
+[node name="box_small165" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -7.7863)
+
+[node name="box_small166" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -6.23974)
+
+[node name="box_small167" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -6.23974)
+
+[node name="box_small168" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -4.6832)
+
+[node name="box_small169" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -4.6832)
+
+[node name="box_small170" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -3.23709)
+
+[node name="box_small171" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -3.23709)
+
+[node name="box_small172" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -1.71672)
+
+[node name="box_small173" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -1.71672)
+
+[node name="box_small174" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, -0.160183)
+
+[node name="box_small175" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, -0.160183)
+
+[node name="box_small176" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 1.28593)
+
+[node name="box_small177" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 1.28593)
+
+[node name="box_small178" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 2.85321)
+
+[node name="box_small179" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 2.85321)
+
+[node name="box_small180" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 4.40974)
+
+[node name="box_small181" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 4.40974)
+
+[node name="box_small182" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 5.85585)
+
+[node name="box_small183" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 5.85585)
+
+[node name="box_small184" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 7.37623)
+
+[node name="box_small185" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 7.37623)
+
+[node name="box_small186" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 8.93276)
+
+[node name="box_small187" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 8.93276)
+
+[node name="box_small188" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 10.3789)
+
+[node name="box_small189" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 10.3789)
+
+[node name="box_small190" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 11.9461)
+
+[node name="box_small191" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 11.9461)
+
+[node name="box_small192" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 13.5026)
+
+[node name="box_small193" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 13.5026)
+
+[node name="box_small194" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 14.9488)
+
+[node name="box_small195" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 14.9488)
+
+[node name="box_small196" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 16.4691)
+
+[node name="box_small197" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 16.4691)
+
+[node name="box_small198" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 18.0257)
+
+[node name="box_small199" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 18.0257)
+
+[node name="box_small200" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 1.25092, 19.4718)
+
+[node name="box_small201" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24.2637, 2.88367, 19.4718)
+
+[node name="box_small202" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -24.1551, 1.25092, 23.9866)
+
+[node name="box_small203" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -24.1551, 2.88367, 23.9866)
+
+[node name="box_small204" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -22.5986, 1.25092, 23.9866)
+
+[node name="box_small205" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -22.5986, 2.88367, 23.9866)
+
+[node name="box_small206" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -21.1525, 1.25092, 23.9866)
+
+[node name="box_small207" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -21.1525, 2.88367, 23.9866)
+
+[node name="box_small208" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -19.6321, 1.25092, 23.9866)
+
+[node name="box_small209" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -19.6321, 2.88367, 23.9866)
+
+[node name="box_small210" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -18.0756, 1.25092, 23.9866)
+
+[node name="box_small211" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -18.0756, 2.88367, 23.9866)
+
+[node name="box_small212" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -16.6295, 1.25092, 23.9866)
+
+[node name="box_small213" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -16.6295, 2.88367, 23.9866)
+
+[node name="box_small214" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -15.2743, 1.25092, 23.9866)
+
+[node name="box_small215" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -15.2743, 2.88367, 23.9866)
+
+[node name="box_small216" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -13.7178, 1.25092, 23.9866)
+
+[node name="box_small217" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -13.7178, 2.88367, 23.9866)
+
+[node name="box_small218" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -12.2717, 1.25092, 23.9866)
+
+[node name="box_small219" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -12.2717, 2.88367, 23.9866)
+
+[node name="box_small220" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -10.7513, 1.25092, 23.9866)
+
+[node name="box_small221" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -10.7513, 2.88367, 23.9866)
+
+[node name="box_small222" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -9.1948, 1.25092, 23.9866)
+
+[node name="box_small223" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -9.1948, 2.88367, 23.9866)
+
+[node name="box_small224" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -7.74869, 1.25092, 23.9866)
+
+[node name="box_small225" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -7.74869, 2.88367, 23.9866)
+
+[node name="box_small226" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -6.23339, 1.25092, 23.9866)
+
+[node name="box_small227" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -6.23339, 2.88367, 23.9866)
+
+[node name="box_small228" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -4.67686, 1.25092, 23.9866)
+
+[node name="box_small229" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -4.67686, 2.88367, 23.9866)
+
+[node name="box_small230" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3.23075, 1.25092, 23.9866)
+
+[node name="box_small231" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3.23075, 2.88367, 23.9866)
+
+[node name="box_small232" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.71038, 1.25092, 23.9866)
+
+[node name="box_small233" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.71038, 2.88367, 23.9866)
+
+[node name="box_small234" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.153843, 1.25092, 23.9866)
+
+[node name="box_small235" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.153843, 2.88367, 23.9866)
+
+[node name="box_small236" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1.29227, 1.25092, 23.9866)
+
+[node name="box_small237" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1.29227, 2.88367, 23.9866)
+
+[node name="box_small238" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.93566, 1.25092, 23.9866)
+
+[node name="box_small239" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.93566, 2.88367, 23.9866)
+
+[node name="box_small240" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4.4922, 1.25092, 23.9866)
+
+[node name="box_small241" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4.4922, 2.88367, 23.9866)
+
+[node name="box_small242" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5.93831, 1.25092, 23.9866)
+
+[node name="box_small243" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5.93831, 2.88367, 23.9866)
+
+[node name="box_small244" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7.45868, 1.25092, 23.9866)
+
+[node name="box_small245" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7.45868, 2.88367, 23.9866)
+
+[node name="box_small254" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -24.2765, 1.23525, 21.0038)
+
+[node name="box_small255" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -24.2765, 2.86642, 21.0038)
+
+[node name="box_small258" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -21.3987, 1.32382, -24.3243)
+
+[node name="box_small259" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -21.3987, 2.95499, -24.3243)
+
+[node name="box_small260" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -22.8727, 1.32382, -24.3243)
+
+[node name="box_small261" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -22.8727, 2.95499, -24.3243)
+
+[node name="box_small256" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -24.2765, 1.26787, 22.5106)
+
+[node name="box_small257" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -24.2765, 2.90062, 22.5106)
+
+[node name="box_small246" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9.01522, 1.25092, 23.9866)
+
+[node name="box_small247" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9.01522, 2.88367, 23.9866)
+
+[node name="box_small248" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 10.4613, 1.25092, 23.9866)
+
+[node name="box_small249" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 10.4613, 2.88367, 23.9866)
+
+[node name="box_small86" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.0809, 1.25092, -22.7498)
+
+[node name="box_small87" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.0809, 2.88367, -22.7498)
+
+[node name="box_small250" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 10.4613, 1.25092, 23.9866)
+
+[node name="box_small251" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 10.4613, 2.88367, 23.9866)
+
+[node name="box_small252" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.0809, 1.25092, -22.7498)
+
+[node name="box_small253" parent="Scene/Level_limit" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.0809, 2.88367, -22.7498)
+
+[node name="Obstacles" type="Node3D" parent="Scene"]
+
+[node name="wall_horizontal" type="Node3D" parent="Scene/Obstacles"]
+
+[node name="big_wall" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -20.9764, 0.735215, -19.1601)
+altura = 2
+
+[node name="big_wall2" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -10.037, 0.735215, -19.1601)
+altura = 2
+
+[node name="big_wall3" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 2.68602, 0.735215, -19.3979)
+altura = 2
+
+[node name="big_wall4" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -20.9764, 0.735215, 11.7557)
+altura = 2
+
+[node name="big_wall5" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -20.9764, 0.735215, 3.19439)
+altura = 2
+
+[node name="big_wall6" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 0.188993, 0.735215, 3.19439)
+altura = 2
+
+[node name="big_wall11" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 13.2687, 0.735215, 3.19439)
+altura = 2
+
+[node name="big_wall12" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 13.2687, 0.735215, -4.41565)
+altura = 2
+
+[node name="big_wall13" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 13.2687, 0.735215, 17.701)
+altura = 2
+
+[node name="big_wall14" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -23.3545, 0.735215, 17.701)
+altura = 2
+
+[node name="big_wall15" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -5.87526, 0.735215, 17.701)
+altura = 2
+
+[node name="big_wall7" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 1.85369, 0.735215, -7.86394)
+altura = 2
+
+[node name="big_wall8" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -8.96683, 0.735215, -7.86394)
+altura = 2
+
+[node name="big_wall9" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, -19.3117, 0.735215, -7.74503)
+altura = 2
+
+[node name="big_wall10" parent="Scene/Obstacles/wall_horizontal" instance=ExtResource("5_dhxii")]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 1.9726, 0.735215, 11.0422)
+altura = 2
+
+[node name="wall_vertical" type="Node3D" parent="Scene/Obstacles"]
+
+[node name="big_wall11" parent="Scene/Obstacles/wall_vertical" instance=ExtResource("5_dhxii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -6.11307, 0.735215, -3.7022)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall12" parent="Scene/Obstacles/wall_vertical" instance=ExtResource("5_dhxii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 7.91793, 0.735215, -4.29673)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall13" parent="Scene/Obstacles/wall_vertical" instance=ExtResource("5_dhxii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -1.59461, 0.735215, -15.3551)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall14" parent="Scene/Obstacles/wall_vertical" instance=ExtResource("5_dhxii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, -14.7933, 0.735215, 2.48095)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall15" parent="Scene/Obstacles/wall_vertical" instance=ExtResource("5_dhxii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 15.2901, 0.735215, -16.9008)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="big_wall16" parent="Scene/Obstacles/wall_vertical" instance=ExtResource("5_dhxii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.45, 0, 1, 0, -4.37114e-08, 15.2901, 0.735215, 15.2935)
+comprimento = 1
+largura = 8
+altura = 2
+
+[node name="boxes" type="Node3D" parent="Scene/Obstacles"]
+
+[node name="box_small2" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92795, 0.5, -9.38439)
+
+[node name="box_small3" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5808, 0.5, -6.29281)
+
+[node name="box_small4" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5808, 0.5, -4.86594)
+
+[node name="box_small5" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5808, 0.5, -2.4878)
+
+[node name="box_small6" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5808, 0.5, -0.942011)
+
+[node name="box_small7" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5808, 0.5, 0.841592)
+
+[node name="box_small8" parent="Scene/Obstacles/boxes" instance=ExtResource("4_dcsq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5808, 0.5, 2.14957)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.817968, 0.55559, 0.149154, 0.457447, -0.785417, 0.416968, 0.348812, -0.272837, -0.896599, 0, 33.9169, 50.5428)
+directional_shadow_mode = 0
+
+[node name="dead1" parent="." instance=ExtResource("6_dylui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7489, 1.89185, -13.857)
+
+[node name="dead2" parent="." instance=ExtResource("6_dylui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46857, 1.89185, -0.791656)
+
+[node name="dead3" parent="." instance=ExtResource("6_dylui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46857, 1.89185, -13.3512)
+
+[node name="dead4" parent="." instance=ExtResource("6_dylui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4429, 1.89185, -0.791656)

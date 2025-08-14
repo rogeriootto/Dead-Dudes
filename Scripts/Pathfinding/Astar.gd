@@ -61,7 +61,7 @@ func _make_grid(pathables: Array):
 		
 		for x in x_steps:
 #			for y in y_steps:
-			for y in 5:
+			for y in 3:
 				for z in z_steps:
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)
@@ -69,9 +69,9 @@ func _make_grid(pathables: Array):
 func _add_point(point: Vector3):
 	var id = astar.get_available_point_id()
 	#TODO peso do astar
-	var astar_weight = 1 + ((point.y -0.5) * 2)
+	#var astar_weight = 1 + ((point.y -0.5) * 2)
 
-	astar.add_point(id, point, astar_weight)
+	astar.add_point(id, point)
 	points[world_to_astar(point)] = id
 	_create_nav_cube(scene_to_grid(point))
 
@@ -186,7 +186,8 @@ func _get_adjacent_lower_points(world_point: Vector3) -> Array:
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
-	return astar.get_point_path(start_id, end_id)
+	#TODO esse false no get_point_path pode virar true pra aceitar caminho parcial
+	return astar.get_point_path(start_id, end_id, true)
 
 func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)

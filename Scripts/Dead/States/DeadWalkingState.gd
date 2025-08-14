@@ -14,6 +14,7 @@ func Physics_Update(delta: float):
 	deadMovement(delta)
 	gravityPhysics(delta, false)
 	check_if_player_is_close_to_attack()
+	get_distance_traveled()
 
 	if (abs(dead.velocity.x) + abs(dead.velocity.z)) == 0:
 		Transitioned.emit(self, 'DeadIdleState')
