@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://l7rn03aoxpjp"]
+
+[ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_ewt3w"]
+[ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="1_kc8eg"]
+[ext_resource type="PackedScene" uid="uid://tqenn4ebbawg" path="res://Scenes/Objects/dancing_dude2.tscn" id="2_7ncxk"]
+[ext_resource type="Script" uid="uid://vmqx4xyjv2y6" path="res://Scripts/Camera/FreeCamera.gd" id="4_y66ei"]
+[ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="5_y66ei"]
+
+[node name="10x10Test" type="Node3D"]
+script = ExtResource("1_ewt3w")
+
+[node name="Road1" parent="." instance=ExtResource("1_kc8eg")]
+
+[node name="dead1" parent="." instance=ExtResource("2_7ncxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07306, 1.1955715, 9.241906)
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.371144e-08, 1, 0, -1, -4.371144e-08, 0, 0, 0)
+current = true
+fov = 67.6
+size = 14.402
+script = ExtResource("4_y66ei")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 12.899687, 0)
+
+[node name="Astar" parent="." instance=ExtResource("5_y66ei")]
+shouldShowHeuristic = true

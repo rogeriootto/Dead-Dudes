@@ -2,6 +2,7 @@ extends Node3D
 
 @export var should_draw_cubes := false
 var grid_is_built := false
+@export var shouldShowHeuristic := false
 const grid_step := 1.5 #size of the grid's cells
 
 var astar = AStar3D.new()
@@ -88,7 +89,12 @@ func _connect_points():
 			if not astar.are_points_connected(current_id, neighbor_id):
 				astar.connect_points(current_id, neighbor_id)
 				if should_draw_cubes && not astar.is_point_disabled(current_id):
-					get_child(current_id).material_override = green_material
+					if shouldShowHeuristic:
+						var newMaterial = StandardMaterial3D.new()
+						newMaterial.albedo_color = get_color_from_value(astar.get_point_weight_scale(current_id))
+						get_child(current_id).material_override = newMaterial
+					else:
+						get_child(current_id).material_override = green_material
 #					get_child(neighbor_id).material_override = green_material
 
 		# connects high points to low points allowing planned falls
@@ -460,3 +466,20 @@ func dead_should_fall(dead_position: Vector3):
 	if should_draw_cubes:
 		get_child(point_id).material_override = red_material
 	return dead_position
+
+
+func get_color_from_value(value: float) -> Color:
+	value = clamp(value, 0.0, 1.0)
+	
+	# 0 → vermelho (Color(1,0,0))
+	# 0.5 → amarelo (Color(1,1,0))
+	# 1 → verde (Color(0,1,0))
+	
+	if value < 0.5:
+		# interpolar entre vermelho e amarelo
+		var t = value / 0.5
+		return Color(1, t, 0) # R=1, G=t, B=0
+	else:
+		# interpolar entre amarelo e verde
+		var t = (value - 0.5) / 0.5
+		return Color(1 - t, 1, 0) # R decresce de 1→0, G=1
