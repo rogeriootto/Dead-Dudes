@@ -71,18 +71,8 @@ func _add_point(point: Vector3):
 	var id = astar.get_available_point_id()
 	#TODO peso do astar
 	#var astar_weight = 1 + ((point.y -0.5) * 2)
-	var astar_weight = 0.0
-	
-	if point.x > 4.0:
-		astar_weight = 1.0
-	
-	elif point.x < 4.0 and point.x > -3.0:
-		astar_weight = 1.0
-	
-	if point.x < -1.0:
-		astar_weight = 0.1
 
-	astar.add_point(id, point, astar_weight)
+	astar.add_point(id, point)
 	points[world_to_astar(point)] = id
 	_create_nav_cube(scene_to_grid(point))
 
@@ -479,7 +469,6 @@ func dead_should_fall(dead_position: Vector3):
 
 
 func get_color_from_value(value: float) -> Color:
-	print(value)
 	value = clamp(value, 0.0, 1.0)
 	
 	# 0 → vermelho (Color(1,0,0))
@@ -489,8 +478,8 @@ func get_color_from_value(value: float) -> Color:
 	if value < 0.5:
 		# interpolar entre vermelho e amarelo
 		var t = value / 0.5
-		return Color(t, 1, 0)
+		return Color(1, t, 0) # R=1, G=t, B=0
 	else:
 		# interpolar entre amarelo e verde
-		var t = (value - 0.5) * 0.5
-		return Color(1, 1 - t, 0)
+		var t = (value - 0.5) / 0.5
+		return Color(1 - t, 1, 0) # R decresce de 1→0, G=1
