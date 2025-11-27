@@ -24,7 +24,7 @@ func get_distance_traveled():
 	total_distance_walked += distance_this_frame
 	# Update the previous position for the next frame
 	previous_position = current_position
-	print(dead.global_transform.origin.distance_to(GlobalVariables.player1Position))
+	#print(dead.global_transform.origin.distance_to(GlobalVariables.player1Position))
 	if dead.global_transform.origin.distance_to(GlobalVariables.player1Position) < 2:
 		print("zumba chego")
 		DataManager.add_pathfinding_distance(total_distance_walked)
