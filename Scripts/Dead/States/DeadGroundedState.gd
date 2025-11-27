@@ -14,8 +14,8 @@ var total_distance_walked: float = 0.0
 var count:float = 0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func Update(delta: float):
-	pass
+# func Update(delta: float):
+# 	pass
 		
 func get_distance_traveled():
 	var current_position = dead.global_transform.origin
@@ -122,7 +122,7 @@ func deadMovement(delta: float):
 				print("Tempo de Execução: ", execution_time, " ms")
 				var fps = Engine.get_frames_per_second()
 				var memory_usage = OS.get_static_memory_usage()
-				var memory_usage_mb = memory_usage / (1024 * 1024)
+				var memory_usage_mb = memory_usage / (1024.0 * 1024.0)
 				# Adicionar o tempo ao gerenciador (PathfindingData.gd)
 				DataManager.add_pathfinding_data(execution_time, fps, memory_usage_mb)
 				

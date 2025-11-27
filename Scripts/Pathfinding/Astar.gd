@@ -9,6 +9,8 @@ var astar = AStar3D.new()
 
 var points := {}
 
+var contador := 0
+
 var cube_mesh = BoxMesh.new()
 var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
@@ -227,11 +229,11 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO IF DO CARALHO
-		if point_position.y < grid_step * 2:
-			cube.mesh = cube_mesh
-			cube.material_override = red_material
-		#cube.mesh = cube_mesh
-		#cube.material_override = red_material
+		# if point_position.y < grid_step * 2:
+		# 	cube.mesh = cube_mesh
+		# 	cube.material_override = red_material
+		cube.mesh = cube_mesh
+		cube.material_override = red_material
 		add_child(cube)
 		#position.y = grid_y
 		cube.global_transform.origin = point_position
@@ -483,3 +485,90 @@ func get_color_from_value(value: float) -> Color:
 		# interpolar entre amarelo e verde
 		var t = (value - 0.5) / 0.5
 		return Color(1 - t, 1, 0) # R decresce de 1→0, G=1
+
+func get_pyramid_points(base_bottom_center: Vector3, height: float):
+	var pyramid_points: Array = []
+
+	var base_position = scene_to_grid(base_bottom_center)
+	var base_key = world_to_astar(base_position)
+	var obstacle_id
+
+	if points.has(base_key):
+		obstacle_id = points[base_key]
+	else:
+		return
+
+	if not astar.is_point_disabled(obstacle_id):
+		flood_fill(height * grid_step, base_position.x, base_position.y, base_position.z, pyramid_points, Vector2(base_position.x, base_position.z))
+	
+	return pyramid_points
+
+
+func flood_fill(height: float, i: float = 0.0, j: float = 0.0, k: float = 0.0, pyramid_points: Array = [], pyramid_center: Vector2 = Vector2.ZERO, last_position: Vector3 = Vector3.ZERO):
+
+	if check_if_is_in_pyramid(height, Vector3(i, j, k), pyramid_center) == false:
+		return
+
+	if last_position != Vector3.ZERO:
+		if has_collision_between(last_position, Vector3(i, j, k)):
+			return
+
+	if height <= 0.0:
+		return
+
+	var key = Vector3(i, j, k)
+
+	if pyramid_points.has(key):
+		return
+	
+	var current_position = scene_to_grid(Vector3(i, j, k))
+	var current_key = world_to_astar(current_position)
+
+	if !points.has(current_key):
+		return
+
+
+	var newcube = obstacleDictionary["box1x1"].instantiate()
+	newcube.global_position = key
+	add_child(newcube)
+	contador += 1
+
+	pyramid_points.append(key)
+	last_position = key
+
+	flood_fill(height, i + grid_step, j, k, pyramid_points, pyramid_center, last_position) # right
+	flood_fill(height, i - grid_step, j, k, pyramid_points, pyramid_center, last_position) # left
+	flood_fill(height, i, j + grid_step, k, pyramid_points, pyramid_center, last_position) # up
+	flood_fill(height, i, j - grid_step, k, pyramid_points, pyramid_center, last_position) # down
+	flood_fill(height, i, j, k + grid_step, pyramid_points, pyramid_center, last_position) # forward
+	flood_fill(height, i, j, k - grid_step, pyramid_points, pyramid_center, last_position) # backward
+
+func has_collision_between(oldPosition: Vector3, currentPosition: Vector3) -> bool:
+	var raycast = RayCast3D.new()
+	raycast.position = oldPosition
+	raycast.target_position = currentPosition - oldPosition
+	add_child(raycast)
+	raycast.force_raycast_update()
+	if raycast.get_collider() != null:
+		var collision_result = raycast.get_collider()
+		if collision_result.is_in_group("obstacle"):
+			raycast.queue_free()
+			return true
+	raycast.queue_free()
+	return false
+
+func check_if_is_in_pyramid(height: float, point: Vector3, pyramid_center: Vector2) -> bool:
+
+	var base_size = height * 2.0
+
+	if point.y <= 0.0 or point.y > height:
+		return false
+
+	var pyramid_scale = (height - point.y) / height
+
+	var current_base_size = base_size * pyramid_scale / 2.0
+
+	if abs(point.x - pyramid_center.x) <= current_base_size and abs(point.z - pyramid_center.y) <= current_base_size:
+		return true
+
+	return false
