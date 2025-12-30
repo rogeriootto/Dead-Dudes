@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_ewt3w"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="1_kc8eg"]
+[ext_resource type="Script" path="res://Scripts/Camera/FreeCamera.gd" id="4_y66ei"]
+[ext_resource type="PackedScene" uid="uid://bp3h0xkfybtyt" path="res://Scenes/Objects/dead_2.tscn" id="5_c8kqk"]
 [ext_resource type="Script" uid="uid://vmqx4xyjv2y6" path="res://Scripts/Camera/FreeCamera.gd" id="4_y66ei"]
 [ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="5_c8kqk"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="5_y66ei"]

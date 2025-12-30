@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqakpm7kfrfdu"]
+
+[ext_resource type="Script" uid="uid://oioxb2gjnejv" path="res://astar_debug_visualizer_3d.gd" id="1_m8obq"]
+
+[node name="AstarDebugVisualizer3D" type="Node3D"]
+script = ExtResource("1_m8obq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

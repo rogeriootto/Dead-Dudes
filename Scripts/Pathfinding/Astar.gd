@@ -21,12 +21,15 @@ var old_points = []
 var player1Position = Vector3.ZERO
 var player2Position = Vector3.ZERO
 
+var visualizer
+
 var obstacleDictionary = {"box1x1": preload("res://Assets/Models/Obstacles/box_small.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
 var buildingShowObjectP1
 var buildingShowObjectP2
 
 func _ready():
 	GlobalVariables.astarNode = self
+	visualizer = get_node("AstarDebugVisualizer3D")
 	red_material.albedo_color = Color.RED
 	green_material.albedo_color = Color.GREEN
 	purple_material.albedo_color = Color.INDIGO
@@ -45,6 +48,11 @@ func _ready():
 	SignalManager.registerListner('showObstacleToP2Request', self, "_on_main_obstacle_should_show_P2")
 	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
 	SignalManager.registerListner('moveObstacleRequest', self, "move_by_distance")
+	
+	#TODO testes do debugger
+	astar.clear_debug_expansion()
+	astar.set_debug_enabled(true)
+	#add_child(visualizer)
 
 func _make_grid(pathables: Array):
 	for pathable in pathables:
@@ -208,8 +216,19 @@ func _get_adjacent_lower_points(world_point: Vector3) -> Array:
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
-	#TODO esse false no get_point_path pode virar true pra aceitar caminho parcial
-	return astar.get_point_path(start_id, end_id, true)
+	#TODO esse false no get_point_path pode virar true pra aceitar caminho 
+	
+	#TODO gambiarra pra testar o debugger
+	var saida = astar.get_point_path(start_id, end_id, true)
+	
+	visualizer.setup(
+	astar.get_debug_expansion(),
+	func(id): return astar.get_point_position(id)
+	)
+	visualizer.play()
+	return saida
+	
+	
 
 func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
