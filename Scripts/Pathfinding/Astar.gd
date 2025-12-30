@@ -104,7 +104,8 @@ func _connect_points():
 						newMaterial.albedo_color = get_color_from_value(astar.get_point_weight_scale(current_id))
 						get_child(current_id).material_override = newMaterial
 					else:
-						get_child(current_id).material_override = green_material
+						if(get_child(current_id) is MeshInstance3D):
+							get_child(current_id).material_override = green_material
 #					get_child(neighbor_id).material_override = green_material
 
 		# connects high points to low points allowing planned falls
