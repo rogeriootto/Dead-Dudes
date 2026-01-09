@@ -1,8 +1,8 @@
 [gd_scene load_steps=46 format=3 uid="uid://bfn5cnecohjbk"]
 
-[ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_i0lpq"]
+[ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_i0lpq"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_kyp0d"]
-[ext_resource type="Script" uid="uid://2q6fn161lhvg" path="res://Scripts/Camera/GameCamera.gd" id="3_xysbl"]
+[ext_resource type="Script" uid="uid://b3hivvk4hwte" path="res://Scripts/Camera/GameCamera.gd" id="3_xysbl"]
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="4_lo1wy"]
 [ext_resource type="PackedScene" uid="uid://580t1g7j8kpl" path="res://Scenes/Objects/Road/road_green.tscn" id="5_awknf"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="6_6rrj5"]
@@ -53,8 +53,7 @@ player2SpawnPoint = Vector3(0, 0, 14)
 inventorySize = 3
 
 [node name="Astar" parent="." instance=ExtResource("2_kyp0d")]
-should_draw_cubes = false
-shouldShowHeuristic = false
+shouldShowHeuristic = true
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 0, 10)

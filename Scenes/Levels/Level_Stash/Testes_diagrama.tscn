@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy0amh4o7xend"]
+[gd_scene load_steps=7 format=3 uid="uid://cy0amh4o7xend"]
 
-[ext_resource type="Script" uid="uid://74wmkemvih45" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_6n01l"]
+[ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_6n01l"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_rwlhq"]
-[ext_resource type="Script" uid="uid://2q6fn161lhvg" path="res://Scripts/Camera/GameCamera.gd" id="3_4cdl5"]
+[ext_resource type="Script" uid="uid://b3hivvk4hwte" path="res://Scripts/Camera/GameCamera.gd" id="3_4cdl5"]
+[ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="4_rwlhq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8o5l5"]
 size = Vector3(30, 1, 30)
@@ -25,7 +26,6 @@ shape = SubResource("ConcavePolygonShape3D_6n01l")
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999999, 0, -0.999999, -4.37113e-08, 0, 0, 0)
-projection = 1
 current = true
 size = 14.402
 script = ExtResource("3_4cdl5")
@@ -34,3 +34,6 @@ offset = Vector3(0, 30, 0)
 [node name="s" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.360811, 0.932639, 0, -0.932639, 0.360811, 24.8781, 101.706, 45.5907)
 light_energy = 5.352
+
+[node name="box_small2" parent="." instance=ExtResource("4_rwlhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00596285, 1.28472, 2.93375)

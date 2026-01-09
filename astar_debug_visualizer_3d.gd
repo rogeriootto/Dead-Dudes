@@ -12,7 +12,11 @@ var playing := false
 func _ready():
 	mesh_instance = MeshInstance3D.new()
 	mesh_instance.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mesh_instance.material_override = mat
 	add_child(mesh_instance)
+	
 
 func setup(expansion_data: Array, position_resolver: Callable) -> void:
 	expansion = expansion_data

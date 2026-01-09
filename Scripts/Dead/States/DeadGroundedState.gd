@@ -103,11 +103,14 @@ func deadMovement(delta: float):
 				if old_position == GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin):
 					dead.count_fallen += 1
 					if dead.count_fallen > 3.0:
+						print("zerou no 3")
 						dead.count_fallen = 0
 						Transitioned.emit(self, 'DeadFallen')
+						GlobalVariables.astarNode.get_pyramid_objective(dead.global_transform.origin)
 						
 						
 				else:
+					print("zerou no else")
 					dead.count_fallen = 0
 					
 				if seeking_p1:
@@ -119,7 +122,7 @@ func deadMovement(delta: float):
 				dead.should_update_path = false
 				var end_time = Time.get_ticks_msec()
 				var execution_time = end_time - start_time
-				print("Tempo de Execução: ", execution_time, " ms")
+				#print("Tempo de Execução: ", execution_time, " ms")
 				var fps = Engine.get_frames_per_second()
 				var memory_usage = OS.get_static_memory_usage()
 				var memory_usage_mb = memory_usage / (1024.0 * 1024.0)
@@ -148,10 +151,17 @@ func deadMovement(delta: float):
 			else:
 				if dead.is_on_wall():
 					dead.count_fallen += delta
+					print(dead.count_fallen)
 					if dead.count_fallen > 4:
 						Transitioned.emit(self, 'DeadFallen')
-				else:
-					dead.count_fallen = 0
+						GlobalVariables.astarNode.get_pyramid_objective(dead.global_transform.origin)
+				
+				#TODO esse else era pra nao abaixar errado mas ele ta dando problema quando
+				# o pathfinding busca e o zumbi sai de perto da parede por 1 frame, resetando sempre		
+				#else:
+					#print("zerou no else da wall")
+					#dead.count_fallen = 0
+					
 				if seeking_p1:
 					var vectorTowardsDead = (Vector3(GlobalVariables.player1Position.x - dead.position.x, 0, GlobalVariables.player1Position.z - dead.position.z)).normalized() * speed
 					dead.velocity.x = vectorTowardsDead.x

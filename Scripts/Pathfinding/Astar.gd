@@ -11,6 +11,8 @@ var points := {}
 
 var contador := 0
 
+var y_steps = 5
+
 var cube_mesh = BoxMesh.new()
 var red_material = StandardMaterial3D.new()
 var green_material = StandardMaterial3D.new()
@@ -71,8 +73,7 @@ func _make_grid(pathables: Array):
 		var offset_point = Vector3(grid_step/2, grid_step/2, grid_step/2)
 		
 		for x in x_steps:
-#			for y in y_steps:
-			for y in 5:
+			for y in y_steps:
 				for z in z_steps:
 					var next_point = start_point + Vector3(x * grid_step, y_height + (y * grid_step), z * grid_step) + offset_point
 					_add_point(next_point)
@@ -217,7 +218,7 @@ func _get_adjacent_lower_points(world_point: Vector3) -> Array:
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
-	#TODO esse false no get_point_path pode virar true pra aceitar caminho 
+	#TODO esse false no get_point_path pode virar true pra aceitar caminho parcial
 	
 	#TODO gambiarra pra testar o debugger
 	var saida = astar.get_point_path(start_id, end_id, true)
@@ -228,8 +229,23 @@ func find_path(from: Vector3, to: Vector3) -> Array:
 	)
 	visualizer.play()
 	return saida
+
+#TODO depois trocar	essa função feia por um if com saida diferente no find_path
+func find_complete_path(from: Vector3, to: Vector3) -> Array:
+	var start_id = astar.get_closest_point(from)
+	var end_id = astar.get_closest_point(to)
 	
+	#TODO gambiarra pra testar o debugger
+	var saida = astar.get_point_path(start_id, end_id, false)
 	
+	visualizer.setup(
+	astar.get_debug_expansion(),
+	func(id): return astar.get_point_position(id)
+	)
+	visualizer.play()
+	return saida
+	
+		
 
 func world_to_astar(world: Vector3) -> String:
 	var x = snapped(world.x, grid_step)
@@ -249,9 +265,9 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO IF DO CARALHO
-		# if point_position.y < grid_step * 2:
-		# 	cube.mesh = cube_mesh
-		# 	cube.material_override = red_material
+		if point_position.y < grid_step * 2:
+			cube.mesh = cube_mesh
+			cube.material_override = red_material
 		cube.mesh = cube_mesh
 		cube.material_override = red_material
 		add_child(cube)
@@ -489,7 +505,6 @@ func dead_should_fall(dead_position: Vector3):
 		get_child(point_id).material_override = red_material
 	return dead_position
 
-
 func get_color_from_value(value: float) -> Color:
 	value = clamp(value, 0.0, 1.0)
 	
@@ -522,7 +537,6 @@ func get_pyramid_points(base_bottom_center: Vector3, height: float):
 		flood_fill(height * grid_step, base_position.x, base_position.y, base_position.z, pyramid_points, Vector2(base_position.x, base_position.z))
 	
 	return pyramid_points
-
 
 func flood_fill(height: float, i: float = 0.0, j: float = 0.0, k: float = 0.0, pyramid_points: Array = [], pyramid_center: Vector2 = Vector2.ZERO, last_position: Vector3 = Vector3.ZERO):
 
@@ -576,6 +590,35 @@ func has_collision_between(oldPosition: Vector3, currentPosition: Vector3) -> bo
 			return true
 	raycast.queue_free()
 	return false
+
+func get_pyramid_objective(dead_position: Vector3):
+	
+	dead_position = scene_to_grid(dead_position)
+	var point_key = world_to_astar(dead_position)
+	var point_id
+	print("procurando objetivo")
+	var horizontal_offsets = [-grid_step, 0.0, grid_step]
+	var max_up_steps := 5
+
+	for x in horizontal_offsets:
+		for z in horizontal_offsets:
+			for i in range(max_up_steps + 1):
+				var y := grid_step * i
+
+				var search_offset = Vector3(x, y, z)
+				if search_offset == Vector3.ZERO:
+					continue
+
+				var potential_objective_key = world_to_astar(dead_position + search_offset)
+				var real_point_position_for_search = scene_to_grid(dead_position + search_offset)
+#				print(potential_objective_key)
+				if points.has(potential_objective_key):
+					point_id = points[potential_objective_key]
+					if not astar.is_point_disabled(point_id):
+						#print(point_id)
+						if find_complete_path(real_point_position_for_search, player1Position):
+							print("Caminho encontrado no ponto ", potential_objective_key)
+							return point_id
 
 func check_if_is_in_pyramid(height: float, point: Vector3, pyramid_center: Vector2) -> bool:
 

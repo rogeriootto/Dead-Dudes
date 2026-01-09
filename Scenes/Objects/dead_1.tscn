@@ -2451,6 +2451,7 @@ size = Vector3(22.6267, 5.43848, 14.4102)
 collision_layer = 9
 collision_mask = 11
 wall_min_slide_angle = 0.0575959
+safe_margin = 0.01
 script = ExtResource("1_h6c7b")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -2712,7 +2713,7 @@ shape = SubResource("CapsuleShape3D_n8v04")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dn3vw")
+&"": SubResource("AnimationLibrary_dn3vw")
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
