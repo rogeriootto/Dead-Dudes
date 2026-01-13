@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jikxrccbwxkb"]
+
+[ext_resource type="Script" uid="uid://b5ai102k4yo0r" path="res://Scripts/Pathfinding/pyramid-gathering.gd" id="1_o4g7j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c8kqk"]
+radius = 35.3602
+
+[node name="Area3D" type="Area3D"]
+collision_layer = 256
+collision_mask = 8
+script = ExtResource("1_o4g7j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_c8kqk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -2451,7 +2451,7 @@ size = Vector3(22.6267, 5.43848, 14.4102)
 
 [node name="dead3" type="CharacterBody3D"]
 collision_layer = 9
-collision_mask = 11
+collision_mask = 267
 wall_min_slide_angle = 0.0575959
 script = ExtResource("1_sjsbp")
 
@@ -2714,7 +2714,7 @@ shape = SubResource("CapsuleShape3D_yq7ar")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dn3vw")
+&"": SubResource("AnimationLibrary_dn3vw")
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

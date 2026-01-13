@@ -2450,7 +2450,7 @@ size = Vector3(22.6267, 5.43848, 14.4102)
 
 [node name="dead3" type="CharacterBody3D"]
 collision_layer = 9
-collision_mask = 11
+collision_mask = 267
 wall_min_slide_angle = 0.0575959
 script = ExtResource("1_hlnnj")
 
@@ -2695,7 +2695,7 @@ mesh = SubResource("ArrayMesh_1j5cw")
 skin = SubResource("Skin_ces4u")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.931946, -0.134279, -0.336818, 0.36231, 0.381861, 0.850243, 0.0144478, -0.914413, 0.404525, 0.00393859, 0.0601402, -1.53246)
+transform = Transform3D(0.931946, -0.134279, -0.336818, 0.362309, 0.381861, 0.850243, 0.0144478, -0.914413, 0.404525, 0.00393859, 0.0601402, -1.53246)
 bone_name = "mixamorig_Spine1"
 bone_idx = 2
 
@@ -2713,7 +2713,7 @@ shape = SubResource("CapsuleShape3D_yq7ar")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dn3vw")
+&"": SubResource("AnimationLibrary_dn3vw")
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -2785,7 +2785,7 @@ disabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13184, 0)

@@ -2,14 +2,11 @@ extends Node3D
 
 @export var should_draw_cubes := false
 var grid_is_built := false
-@export var shouldShowHeuristic := false
 const grid_step := 1.5 #size of the grid's cells
 
 var astar = AStar3D.new()
 
 var points := {}
-
-var contador := 0
 
 var y_steps = 5
 
@@ -26,6 +23,7 @@ var player2Position = Vector3.ZERO
 var visualizer
 
 var obstacleDictionary = {"box1x1": preload("res://Assets/Models/Obstacles/box_small.tscn"), "policeCar": preload("res://Scenes/Objects/Obstacles/policeCar.tscn")}
+var pyramid_gathering = preload("res://Scenes/Pathfinding/pyramid-gathering.tscn")
 var buildingShowObjectP1
 var buildingShowObjectP2
 
@@ -100,14 +98,9 @@ func _connect_points():
 			if not astar.are_points_connected(current_id, neighbor_id):
 				astar.connect_points(current_id, neighbor_id)
 				if should_draw_cubes && not astar.is_point_disabled(current_id):
-					if shouldShowHeuristic:
-						var newMaterial = StandardMaterial3D.new()
-						newMaterial.albedo_color = get_color_from_value(astar.get_point_weight_scale(current_id))
-						get_child(current_id).material_override = newMaterial
-					else:
-						if(get_child(current_id) is MeshInstance3D):
-							get_child(current_id).material_override = green_material
-#					get_child(neighbor_id).material_override = green_material
+					if(get_child(current_id) is MeshInstance3D):
+						get_child(current_id).material_override = green_material
+						#get_child(neighbor_id).material_override = green_material
 
 		# connects high points to low points allowing planned falls
 		if world_pos[1] > 3.5:
@@ -505,22 +498,6 @@ func dead_should_fall(dead_position: Vector3):
 		get_child(point_id).material_override = red_material
 	return dead_position
 
-func get_color_from_value(value: float) -> Color:
-	value = clamp(value, 0.0, 1.0)
-	
-	# 0 → vermelho (Color(1,0,0))
-	# 0.5 → amarelo (Color(1,1,0))
-	# 1 → verde (Color(0,1,0))
-	
-	if value < 0.5:
-		# interpolar entre vermelho e amarelo
-		var t = value / 0.5
-		return Color(1, t, 0) # R=1, G=t, B=0
-	else:
-		# interpolar entre amarelo e verde
-		var t = (value - 0.5) / 0.5
-		return Color(1 - t, 1, 0) # R decresce de 1→0, G=1
-
 func get_pyramid_points(base_bottom_center: Vector3, height: float):
 	var pyramid_points: Array = []
 
@@ -536,7 +513,9 @@ func get_pyramid_points(base_bottom_center: Vector3, height: float):
 	if not astar.is_point_disabled(obstacle_id):
 		flood_fill(height * grid_step, base_position.x, base_position.y, base_position.z, pyramid_points, Vector2(base_position.x, base_position.z))
 	
-	return pyramid_points
+	var pyramid_gathering_instance = pyramid_gathering.instantiate()
+	add_child(pyramid_gathering_instance)
+	pyramid_gathering_instance.pyramidPoints = pyramid_points
 
 func flood_fill(height: float, i: float = 0.0, j: float = 0.0, k: float = 0.0, pyramid_points: Array = [], pyramid_center: Vector2 = Vector2.ZERO, last_position: Vector3 = Vector3.ZERO):
 
@@ -561,11 +540,9 @@ func flood_fill(height: float, i: float = 0.0, j: float = 0.0, k: float = 0.0, p
 	if !points.has(current_key):
 		return
 
-
-	var newcube = obstacleDictionary["box1x1"].instantiate()
-	newcube.global_position = key
-	add_child(newcube)
-	contador += 1
+	# var newcube = obstacleDictionary["box1x1"].instantiate()
+	# newcube.global_position = key
+	# add_child(newcube)
 
 	pyramid_points.append(key)
 	last_position = key
@@ -591,12 +568,27 @@ func has_collision_between(oldPosition: Vector3, currentPosition: Vector3) -> bo
 	raycast.queue_free()
 	return false
 
+func check_if_is_in_pyramid(height: float, point: Vector3, pyramid_center: Vector2) -> bool:
+
+	var base_size = height * 2.0
+
+	if point.y <= 0.0 or point.y > height:
+		return false
+
+	var pyramid_scale = (height - point.y) / height
+	var current_base_size = base_size * pyramid_scale / 2.0
+
+	if abs(point.x - pyramid_center.x) <= current_base_size and abs(point.z - pyramid_center.y) <= current_base_size:
+		return true
+
+	return false
+
 func get_pyramid_objective(dead_position: Vector3):
 	
 	dead_position = scene_to_grid(dead_position)
-	var point_key = world_to_astar(dead_position)
+	# var point_key = world_to_astar(dead_position)
 	var point_id
-	print("procurando objetivo")
+	# print("procurando objetivo")
 	var horizontal_offsets = [-grid_step, 0.0, grid_step]
 	var max_up_steps := 5
 
@@ -611,27 +603,16 @@ func get_pyramid_objective(dead_position: Vector3):
 
 				var potential_objective_key = world_to_astar(dead_position + search_offset)
 				var real_point_position_for_search = scene_to_grid(dead_position + search_offset)
-#				print(potential_objective_key)
+				#print(potential_objective_key)
 				if points.has(potential_objective_key):
 					point_id = points[potential_objective_key]
 					if not astar.is_point_disabled(point_id):
 						#print(point_id)
 						if find_complete_path(real_point_position_for_search, player1Position):
-							print("Caminho encontrado no ponto ", potential_objective_key)
+							# print("Caminho encontrado no ponto ", potential_objective_key)
+							var pyramidHeight = (search_offset.y - grid_step) / grid_step
+							# print("dead position y: ", dead_position.y)
+							# print("search offset y: ", search_offset.y)
+							# print("altura da piramide: ", pyramidHeight)
+							get_pyramid_points(dead_position, pyramidHeight)
 							return point_id
-
-func check_if_is_in_pyramid(height: float, point: Vector3, pyramid_center: Vector2) -> bool:
-
-	var base_size = height * 2.0
-
-	if point.y <= 0.0 or point.y > height:
-		return false
-
-	var pyramid_scale = (height - point.y) / height
-
-	var current_base_size = base_size * pyramid_scale / 2.0
-
-	if abs(point.x - pyramid_center.x) <= current_base_size and abs(point.z - pyramid_center.y) <= current_base_size:
-		return true
-
-	return false
