@@ -4,7 +4,8 @@ extends Node3D
 var grid_is_built := false
 const grid_step := 1.5 #size of the grid's cells
 
-var astar = AStar3D.new()
+#var astar = AStar3D.new()
+var astar = MyAStar3D.new()
 
 var points := {}
 
