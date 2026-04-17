@@ -30,7 +30,7 @@ var buildingShowObjectP2
 
 func _ready():
 	GlobalVariables.astarNode = self
-	visualizer = get_node("AstarDebugVisualizer3D")
+	visualizer = get_parent().get_node("AstarDebugVisualizer3D")
 	red_material.albedo_color = Color.RED
 	green_material.albedo_color = Color.GREEN
 	purple_material.albedo_color = Color.INDIGO
@@ -262,8 +262,8 @@ func _create_nav_cube(point_position: Vector3):
 		if point_position.y < grid_step * 2:
 			cube.mesh = cube_mesh
 			cube.material_override = red_material
-		cube.mesh = cube_mesh
-		cube.material_override = red_material
+		#cube.mesh = cube_mesh
+		#cube.material_override = red_material
 		add_child(cube)
 		#position.y = grid_y
 		cube.global_transform.origin = point_position

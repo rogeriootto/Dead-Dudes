@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://hfpse5crrtm1"]
+[gd_scene load_steps=10 format=3 uid="uid://hfpse5crrtm1"]
 
 [ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_84ur6"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="1_uw8k8"]
 [ext_resource type="Script" uid="uid://b3hivvk4hwte" path="res://Scripts/Camera/GameCamera.gd" id="2_es477"]
+[ext_resource type="PackedScene" uid="uid://dqakpm7kfrfdu" path="res://Scripts/Pathfinding/astar_debug_visualizer_3d.tscn" id="3_p7010"]
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="3_vfgw4"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="5_c1tuu"]
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="6_w4y36"]
+[ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="8_6t87u"]
+[ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="9_6t87u"]
 
 [node name="RogerioTestArea" type="Node3D"]
 script = ExtResource("1_84ur6")
@@ -13,9 +16,10 @@ inventorySize = 2
 
 [node name="Astar" parent="." instance=ExtResource("1_uw8k8")]
 
+[node name="AstarDebugVisualizer3D" parent="." instance=ExtResource("3_p7010")]
+
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
-projection = 1
 current = true
 size = 14.402
 script = ExtResource("2_es477")
@@ -37,3 +41,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426843, 0, -38.0216)
 
 [node name="car" parent="." instance=ExtResource("6_w4y36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.624088, 1.60778, -19.6053)
+
+[node name="box_small2" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46908, 1.56821, -6.33979)
+
+[node name="box_small3" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17281, 1.56821, -6.33979)
+
+[node name="box_small4" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9439, 1.56821, -6.33979)
+
+[node name="box_small5" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647632, 1.56821, -6.33979)
+
+[node name="box_small6" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.810041, 1.56821, -6.33979)
+
+[node name="box_small7" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10631, 1.56821, -6.33979)
+
+[node name="box_small8" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24505, 1.56821, -6.33979)
+
+[node name="box_small9" parent="." instance=ExtResource("8_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.54132, 1.56821, -6.33979)
+
+[node name="dead1" parent="." instance=ExtResource("9_6t87u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50302, 1.16887, -2.24756)
