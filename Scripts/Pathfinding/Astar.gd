@@ -50,6 +50,8 @@ func _ready():
 	SignalManager.registerListner('obstacleRemoveRequest', self, "_on_main_obstacle_should_remove")
 	SignalManager.registerListner('moveObstacleRequest', self, "move_by_distance")
 	
+	#astar.max_stagnant_expansions = 40
+	
 	#TODO testes do debugger
 	astar.clear_debug_expansion()
 	astar.set_debug_enabled(true)
@@ -135,6 +137,7 @@ func _connect_obstacles(obstacle_group: Array):
 					above_obstacle_id = points[above_obstacle_key]
 					astar.set_point_disabled(above_obstacle_id,false)
 					if should_draw_cubes:
+						get_child(above_obstacle_id).mesh = cube_mesh
 						get_child(above_obstacle_id).material_override = green_material
 		
 			#conecta obstaculos maiores que 1x1x1
@@ -158,7 +161,7 @@ func _connect_obstacles(obstacle_group: Array):
 									above_obstacle_id = points[above_obstacle_key]
 									astar.set_point_disabled(above_obstacle_id,false)
 									if should_draw_cubes:
-										get_child(above_obstacle_id).material_override = golden_material
+										get_child(above_obstacle_id).material_override = green_material
 
 func _get_adjacent_points(world_point: Vector3) -> Array:
 	var adjacent_points = []
@@ -212,6 +215,7 @@ func _get_adjacent_lower_points(world_point: Vector3) -> Array:
 func find_path(from: Vector3, to: Vector3) -> Array:
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
+	astar.max_stagnant_expansions = 40
 	#TODO esse false no get_point_path pode virar true pra aceitar caminho parcial
 	
 	#TODO gambiarra pra testar o debugger
@@ -226,17 +230,16 @@ func find_path(from: Vector3, to: Vector3) -> Array:
 
 #TODO depois trocar	essa função feia por um if com saida diferente no find_path
 func find_complete_path(from: Vector3, to: Vector3) -> Array:
+	print("from: ",from, " to: ", to)
 	var start_id = astar.get_closest_point(from)
 	var end_id = astar.get_closest_point(to)
-	
+	astar.max_stagnant_expansions = 400
 	#TODO gambiarra pra testar o debugger
 	var saida = astar.get_point_path(start_id, end_id, false)
 	
-	visualizer.setup(
-	astar.get_debug_expansion(),
-	func(id): return astar.get_point_position(id)
-	)
+	visualizer.setup(astar.get_debug_expansion(),func(id): return astar.get_point_position(id))
 	visualizer.play()
+	print(saida)
 	return saida
 	
 		
@@ -259,11 +262,11 @@ func _create_nav_cube(point_position: Vector3):
 	if should_draw_cubes:
 		var cube = MeshInstance3D.new()
 		#TODO IF DO CARALHO
-		if point_position.y < grid_step * 2:
-			cube.mesh = cube_mesh
-			cube.material_override = red_material
-		#cube.mesh = cube_mesh
-		#cube.material_override = red_material
+		#if point_position.y < grid_step * 2:
+			#cube.mesh = cube_mesh
+			#cube.material_override = red_material
+		cube.mesh = cube_mesh
+		cube.material_override = red_material
 		add_child(cube)
 		#position.y = grid_y
 		cube.global_transform.origin = point_position
@@ -288,6 +291,7 @@ func _on_main_obstacle_should_spawn(obstacleName: String, obstaclePosition: Vect
 		if not astar.is_point_disabled(obstacle_id) && player.playerInventory > 0:
 			if(above_obstacle_id):
 				if should_draw_cubes:
+					get_child(above_obstacle_id).mesh = cube_mesh
 					get_child(above_obstacle_id).material_override = green_material
 				astar.set_point_disabled(above_obstacle_id, false)
 				
@@ -492,7 +496,8 @@ func dead_should_fall(dead_position: Vector3):
 	if not astar.is_point_disabled(point_id):
 		if(above_dead_id):
 			if should_draw_cubes:
-				get_child(above_dead_id).material_override = green_material
+					get_child(above_dead_id).mesh = cube_mesh
+					get_child(above_dead_id).material_override = green_material
 			astar.set_point_disabled(above_dead_id, false)
 	astar.set_point_disabled(point_id, true)
 	if should_draw_cubes:
@@ -500,6 +505,7 @@ func dead_should_fall(dead_position: Vector3):
 	return dead_position
 
 func get_pyramid_points(base_bottom_center: Vector3, height: float):
+	print("hey its me to no pyramid points")
 	var pyramid_points: Array = []
 
 	var base_position = scene_to_grid(base_bottom_center)
@@ -609,7 +615,7 @@ func get_pyramid_objective(dead_position: Vector3):
 					point_id = points[potential_objective_key]
 					if not astar.is_point_disabled(point_id):
 						#print(point_id)
-						if find_complete_path(real_point_position_for_search, player1Position):
+						if find_complete_path(real_point_position_for_search, GlobalVariables.player1Position):
 							# print("Caminho encontrado no ponto ", potential_objective_key)
 							var pyramidHeight = (search_offset.y - grid_step) / grid_step
 							# print("dead position y: ", dead_position.y)

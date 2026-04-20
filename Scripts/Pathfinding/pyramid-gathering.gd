@@ -4,31 +4,38 @@ var pyramidPoints := []
 var pointsAlreadyUsed := []
 var deadsInArea := []
 var deadsAssignedToPyramid := []
-var deadsRequiredForPyramid
+var deadsRequiredForPyramid = 0
 var isSorted := false
 
 func _ready() -> void:
 	await get_tree().process_frame
+	print("criou sla")
 	deadsRequiredForPyramid = pyramidPoints.size()
+	print(pyramidPoints)
 	verifyDeadsAlreadyInArea()
 
 func _process(delta: float) -> void:
-	# print("Deads in Area: ", deadsInArea)
+	#print("Deads in Area: ", deadsInArea)
 	if !isSorted:
 		pyramidPoints.sort_custom(func(a, b): return a.y < b.y)
 		isSorted = true 
 		# print("Sorted Pyramid Points: ", pyramidPoints)
-
 	if deadsInArea.size() > 0 and pyramidPoints.size() > 0:
 		getNextAvailablePoint()
-
+	if pyramidPoints.size() == 0:
+		for dead in deadsInArea:
+			dead.is_dead_foda = true
 	# print("pointsAlreadyUsed: ", pointsAlreadyUsed)
 	
 
 func _on_body_entered(body: Node3D) -> void:
+	print("deads assigned: ", deadsAssignedToPyramid.size())
 	if(deadsAssignedToPyramid.size() >= deadsRequiredForPyramid):
+		print("dead virou foda")
+		body.is_dead_foda = true
 		return
 	body.is_inside_pyramid_area = true
+	print("on body entered: ", body)
 	deadsInArea.append(body)
 	body.should_form_pyramid = true
 	sortDeadsByDistance()
@@ -36,8 +43,11 @@ func _on_body_entered(body: Node3D) -> void:
 func verifyDeadsAlreadyInArea():
 	for body in get_overlapping_bodies():
 		if(deadsAssignedToPyramid.size() >= deadsRequiredForPyramid):
+			print("dead virou foda")
+			body.is_dead_foda = true
 			return
 		body.is_inside_pyramid_area = true
+		print("already in area: ", body)
 		deadsInArea.append(body)
 		body.should_form_pyramid = true
 	sortDeadsByDistance()

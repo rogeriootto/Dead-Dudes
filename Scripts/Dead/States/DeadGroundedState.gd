@@ -27,7 +27,7 @@ func get_distance_traveled():
 	previous_position = current_position
 	#print(dead.global_transform.origin.distance_to(GlobalVariables.player1Position))
 	if dead.global_transform.origin.distance_to(GlobalVariables.player1Position) < 2:
-		print("zumba chego")
+		print("zumbi chegou ao objetivo")
 		DataManager.add_pathfinding_distance(total_distance_walked)
 		
 
@@ -104,7 +104,7 @@ func deadMovement(delta: float):
 				#if zombie should fall into crumple state
 				if old_position == GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin):
 					dead.count_fallen += 1
-					if dead.count_fallen > 3.0:
+					if dead.count_fallen >= 3:
 						# print("zerou no 3")
 						dead.count_fallen = 0
 						if !dead.is_inside_pyramid_area:
@@ -113,13 +113,24 @@ func deadMovement(delta: float):
 					# print("zerou no else")
 					dead.count_fallen = 0
 				
-				if dead.pyramid_point_assigned != Vector3.INF:
-					update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, snapped(dead.pyramid_point_assigned, vector3Snapped)))
-				else:
-					if seeking_p1:
-						update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, GlobalVariables.player1Position))
+				if !dead.is_dead_foda:
+					if dead.pyramid_point_assigned != Vector3.INF:
+						update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, snapped(dead.pyramid_point_assigned, vector3Snapped)))
 					else:
-						update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, GlobalVariables.player2Position))
+						if seeking_p1:
+							update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, GlobalVariables.player1Position))
+						else:
+							update_path(GlobalVariables.astarNode.find_path(dead.global_transform.origin, GlobalVariables.player2Position))
+		#Dead comeca a procurar mais longe se ele ver uma piramide nascer
+				else:			
+					if dead.pyramid_point_assigned != Vector3.INF:
+						update_path(GlobalVariables.astarNode.find_complete_path(dead.global_transform.origin, snapped(dead.pyramid_point_assigned, vector3Snapped)))
+					else:
+						if seeking_p1:
+							update_path(GlobalVariables.astarNode.find_complete_path(dead.global_transform.origin, GlobalVariables.player1Position))
+						else:
+							update_path(GlobalVariables.astarNode.find_complete_path(dead.global_transform.origin, GlobalVariables.player2Position))
+							
 				old_position = GlobalVariables.astarNode.world_to_astar(dead.global_transform.origin)
 				count = 0
 				dead.should_update_path = false
@@ -158,6 +169,7 @@ func deadMovement(delta: float):
 					if dead.count_fallen > 4:
 						# Transitioned.emit(self, 'DeadFallen')
 						if !dead.is_inside_pyramid_area:
+							#print("ta no if do contador do wall")
 							GlobalVariables.astarNode.get_pyramid_objective(dead.global_transform.origin)
 				
 				#TODO esse else era pra nao abaixar errado mas ele ta dando problema quando

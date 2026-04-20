@@ -9,6 +9,7 @@ var should_activate_zombie:bool = false
 var should_form_pyramid:bool = false
 var pyramid_point_assigned:Vector3 = Vector3.INF
 var is_inside_pyramid_area:bool = false
+var is_dead_foda:bool = false
 var path := []
 
 func _ready() -> void:

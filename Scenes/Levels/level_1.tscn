@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://bfn5cnecohjbk"]
+[gd_scene load_steps=45 format=3 uid="uid://bfn5cnecohjbk"]
 
 [ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_i0lpq"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="2_kyp0d"]
+[ext_resource type="PackedScene" uid="uid://dqakpm7kfrfdu" path="res://Scripts/Pathfinding/astar_debug_visualizer_3d.tscn" id="3_bsoi1"]
 [ext_resource type="Script" uid="uid://b3hivvk4hwte" path="res://Scripts/Camera/GameCamera.gd" id="3_xysbl"]
 [ext_resource type="PackedScene" uid="uid://co40jls0cyt1t" path="res://Scenes/Managers/HUD.tscn" id="4_lo1wy"]
 [ext_resource type="PackedScene" uid="uid://580t1g7j8kpl" path="res://Scenes/Objects/Road/road_green.tscn" id="5_awknf"]
@@ -30,10 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://c3peh0m1s7rrq" path="res://Scenes/Objects/Obstacles/policeCar2.tscn" id="23_0hejp"]
 [ext_resource type="PackedScene" uid="uid://0882i6a2xiw3" path="res://Scenes/Objects/Background/Buildings/building-drugstore.tscn" id="23_5illj"]
 [ext_resource type="PackedScene" uid="uid://dvdn3ftflwqsw" path="res://Scenes/Objects/Background/Buildings/building1.tscn" id="23_yki2k"]
-[ext_resource type="PackedScene" uid="uid://bp3h0xkfybtyt" path="res://Scenes/Objects/dead_2.tscn" id="24_73m8e"]
 [ext_resource type="PackedScene" uid="uid://dp1vgs04vbp5w" path="res://Assets/Models/Obstacles/big_wall.tscn" id="24_tuqvk"]
 [ext_resource type="PackedScene" uid="uid://dmb7pksfop3nb" path="res://Scenes/Objects/Obstacles/busFLIP.tscn" id="26_81r8l"]
-[ext_resource type="PackedScene" uid="uid://gipbl8hthkwb" path="res://Scenes/Objects/dead_3.tscn" id="29_ost2p"]
 [ext_resource type="PackedScene" uid="uid://bk7hivcv4x642" path="res://Scenes/Objects/Background/Buildings/building-bar.tscn" id="30_g8ni2"]
 [ext_resource type="PackedScene" uid="uid://db8qf7oqtx1fj" path="res://Scenes/Objects/Background/Buildings/building-clothing.tscn" id="31_phfie"]
 [ext_resource type="PackedScene" uid="uid://d16e4fp48se7t" path="res://Scenes/Objects/Road/cross_road.tscn" id="32_0f2wl"]
@@ -48,12 +47,13 @@
 
 [node name="Level_1" type="Node3D"]
 script = ExtResource("1_i0lpq")
-player1SpawnPoint = Vector3(5, 0, 14)
+player1SpawnPoint = Vector3(-3.94424, 3.42212, 3.11806)
 player2SpawnPoint = Vector3(0, 0, 14)
 inventorySize = 3
 
 [node name="Astar" parent="." instance=ExtResource("2_kyp0d")]
-shouldShowHeuristic = true
+
+[node name="AstarDebugVisualizer3D" parent="." instance=ExtResource("3_bsoi1")]
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 0, 10)
@@ -691,21 +691,6 @@ transform = Transform3D(-0.0762989, -0.056444, 0.995486, 0.530334, -0.847756, -0
 
 [node name="Deads" type="Node3D" parent="Scene"]
 
-[node name="dead2" parent="Scene/Deads" instance=ExtResource("24_73m8e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16892, 0.78349, -52.2055)
-
-[node name="dead1" parent="Scene/Deads" instance=ExtResource("6_6rrj5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61966, 0.78349, -45.0056)
-
-[node name="dead3" parent="Scene/Deads" instance=ExtResource("29_ost2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56136, 0.78349, -57.1935)
-
-[node name="dead4" parent="Scene/Deads" instance=ExtResource("24_73m8e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9306, 0.492749, -84.6559)
-
-[node name="dead5" parent="Scene/Deads" instance=ExtResource("29_ost2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1478, 0.492749, -82.6713)
-
 [node name="Spawners" type="Node3D" parent="Scene"]
 
 [node name="Spawner" parent="Scene/Spawners" node_paths=PackedStringArray("mainSceneNode") instance=ExtResource("44_bwky2")]
@@ -734,3 +719,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280919, 0, -0.0608029)
 [node name="WinTrigger" parent="." instance=ExtResource("44_hqeu4")]
 transform = Transform3D(28.1454, 0, 0, 0, 16.8613, 0, 0, 0, 1, 0.244213, 4.20087, -119.304)
 nextLevel = "res://Scenes/Levels/level_2.tscn"
+
+[node name="dead1" parent="." instance=ExtResource("6_6rrj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18302, 1.23235, 3.11806)
+
+[node name="box_small2" parent="." instance=ExtResource("17_rcjge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23471, 1.16236, 7.65222)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://l7rn03aoxpjp"]
+[gd_scene load_steps=8 format=3 uid="uid://l7rn03aoxpjp"]
 
 [ext_resource type="Script" uid="uid://l5ftjme0qdtp" path="res://Scripts/Managers/MainTestAreaManager.gd" id="1_ewt3w"]
 [ext_resource type="PackedScene" uid="uid://bfa1awmpwg1u4" path="res://Scenes/Objects/Road/road1.tscn" id="1_kc8eg"]
 [ext_resource type="Script" uid="uid://vmqx4xyjv2y6" path="res://Scripts/Camera/FreeCamera.gd" id="4_y66ei"]
+[ext_resource type="PackedScene" uid="uid://dqakpm7kfrfdu" path="res://Scripts/Pathfinding/astar_debug_visualizer_3d.tscn" id="5_uyqjy"]
 [ext_resource type="PackedScene" uid="uid://bonxjlt4ysdp4" path="res://Scenes/Managers/astar.tscn" id="5_y66ei"]
 [ext_resource type="PackedScene" uid="uid://bnkowtancbjts" path="res://Scenes/Objects/dead_1.tscn" id="6_c8kqk"]
 [ext_resource type="PackedScene" uid="uid://da4quqhwx6pfb" path="res://Assets/Models/Obstacles/box_small.tscn" id="6_uyqjy"]
@@ -25,6 +26,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.
 
 [node name="Astar" parent="." instance=ExtResource("5_y66ei")]
 should_draw_cubes = false
+
+[node name="AstarDebugVisualizer3D" parent="." instance=ExtResource("5_uyqjy")]
 
 [node name="dead1" parent="." instance=ExtResource("6_c8kqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16005, 1.09599, -15.4069)
